@@ -167,79 +167,53 @@ function createEmployeesItem(x){
 }
 
 //	3. Parts ......................................................................................
-
 function createPartsItem(item){
 
 	const el = document.createElement("div");
 	el.classList.add("employee", "employee--parts");			
-
-	const el_0 = document.createElement("div");
-
-	const el_0_0 = document.createElement("img");
-	el_0_0.setAttribute("src", item.flag);
-	el_0_0.classList.add("employee__img");
-	el_0_0.setAttribute("title", item.country);
-
-	const el_1 = document.createElement("div");
-	el_1.textContent=item.company;
-	el_1.classList.add("employee__value", "employee__value--left");
-	el_1.setAttribute("title", "company");
-
-	const el_2 = document.createElement("div");
-	el_2.textContent=item.time;
-	el_2.classList.add("employee__value");
-	el_2.setAttribute("title", "delivery time");
-
-	const el_3 = document.createElement("div");
-	el_3.textContent=item.risk;
-	el_3.classList.add("employee__value");
-	el_3.setAttribute("title", "delivery risk");
-
-	const el_4 = document.createElement("div");
-	el_4.textContent=item.stock;
-	el_4.classList.add("employee__value");
-	el_4.setAttribute("title", "amount of stock");
+	el.innerHTML = `
+		<div>
+			<img src=${item.flag} class="employee__img" title=${item.country}>
+		</div>
+		<div class="employee__value employee__value--left" title="company">
+			${item.company}
+		</div>
+		<div class="employee__value" title="delivery time">
+			${item.time}
+		</div>
+		<div class="employee__value" title="delivery risk">
+			${item.risk}
+		</div>
+		<div class="employee__value" title="amount of stock">
+			${item.stock}
+		</div>
+		<div class="employee__value" title="unit price">
+			${item.price}
+		</div>
+		<div class="employee__value employee__value--bold" title="total price">
+			${item.totalPrice.toLocaleString()}
+		</div>
+		<div class="employee__value">
+			<button id="buy-stock${stockArr.length}" class="employee__buy-btn" title="buy stock"></button>
+		</div>`
 	
-	const el_5 = document.createElement("div");
-	el_5.textContent=item.price;
-	el_5.classList.add("employee__value");
-	el_5.setAttribute("title", "unit price");
-	
-	const el_6 = document.createElement("div");
-	el_6.textContent=item.totalPrice.toLocaleString();
-	el_6.classList.add("employee__value","employee__value--bold");
-	el_6.setAttribute("title", "total price");
-	
-	const el_7 = document.createElement("div");
-	el_7.classList.add("employee__value");
-	
-	const el_7_0 = document.createElement("button");
-	el_7_0.classList.add("employee__buy-btn");
-	el_7_0.setAttribute("title", "buy stock");
-	
-	el_7_0.addEventListener("click", function() {
+	document.getElementById("partsDIV").appendChild(el);	
+
+		
+	const sellButton = document.getElementById(`buy-stock${stockArr.length}`);
+	console.log(sellButton);
+	console.log(document.getElementById(`buy-stock${stockArr.length}`));
+	sellButton.addEventListener("click", function() {
 		if (dollars >= item.totalPrice) {
 			item.buy();
 			disableElement(this);
-			clickTrue(this.parentNode.parentNode);
-			removeDOM_ELEMENT(this.parentNode.parentNode, 6000);
+			clickTrue(el);
+			removeDOM_ELEMENT(el, 6000);
 		}
 		else{
-			clickFalse(this.parentNode.parentNode);
+			clickFalse(el);
 			clickFalse(document.getElementById("dollars"));
 		}
 	});
-
-
-	document.getElementById("partsDIV").appendChild(el);
-	el.appendChild(el_0);
-	el_0.appendChild(el_0_0);
-	el.appendChild(el_1);
-	el.appendChild(el_2);
-	el.appendChild(el_3);
-	el.appendChild(el_4);
-	el.appendChild(el_5);
-	el.appendChild(el_6);
-	el.appendChild(el_7);
-	el_7.appendChild(el_7_0);
+	
 }
