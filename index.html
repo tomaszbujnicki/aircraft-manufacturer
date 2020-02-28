@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>Aircraft Manufacturer</title>
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>Aircraft Manufacturer</h1>
+			<span id="date" title="Date: YYYY-MM-DD">Today</span>
+		</header>
+		<div class="resources">
+			<div class="resources__unit">
+				<div class="resources__icon"><img class="resources__img" src="weapon.svg" title="Finances" alt="$$$" id="fundsCard"></div>
+				<div class="resValue" id="dollars" title="Cash"></div>
+			</div>
+			<div class="resources__unit">
+				<div class="resources__icon"><img class="resources__img" src="wisdom.svg" title="Employees" alt="workers" id="workersCard"></div>
+				<div class="resValue" id="workers" title="Workers"></div>
+			</div>
+			<div class="resources__unit">
+				<div class="resources__icon"><img class="resources__img" src="wood.svg" title="Order Parts" alt="parts" id="partsCard"></div>
+				<div class="resValue" id="parts" title="Parts"></div>
+				<div id="alerts">
+
+				</div>
+			</div>
+			
+		</div>
+
+		<div class="mainField">
+		
+		
+			<div id="aircraftDIV">
+				<!--<div class="airplane" id="airplaneItem0">
+					<div class="worker__icon"><img class="worker__img" src="wood.svg"></div>
+					<div class="worker__add-remove">
+						<button id="addWorker0" class="worker__btn-add" title="assign a worker"></button>
+						<button id="removeWorker0" class="worker__btn-add worker__btn-add--remove" title="dismiss a worker"></button>
+					</div>
+					<div class="worker__value" id="workers0" title="number of workers"></div>			
+					<div class="airplane__name" id="airplane0">
+						<span id="airplaneName0"></span>
+						<div class="bar">
+							<div class="bar--color" id="myBar0"></div>
+						</div>
+					</div>
+					<div class="airplane__quantity" id="quantity0" title="number of airplanes"></div>
+					
+					<div class="worker__icon">
+						<button class="airplane__btn-sell" title="sell airplane" alt="sell airplane" id="sell0"></button>
+					</div>
+					<div class="airplane__quantity" title="selling price" id="price0"></div>
+				</div>-->
+				
+				
+				<script>
+					
+					
+					
+
+				</script>
+			</div>
+			
+			
+			
+			<div class="popCard unactive" id="popFunds">
+				<div class="financesContainer">
+					<button class="financesMenu" id="financesMonthsBtn" title="Monthly statistics"></button>
+					<button class="financesMenu" id="financesYearsBtn" title="Annual statistics"></button>
+					<h2>Finances</h2>
+					<button class="financesMenu" id="financesBankBtn" title="Bank"></button>
+					<button class="financesMenu" id="financesAwardsBtn" title="Awards"></button>
+				</div>
+				<div>
+					<div class="budget" id="financesMonths">
+						<div class="budget__section">
+							<div class="budget__cell budget__cell--name"> </div>
+							<div class="budget__cell">this month</div>
+							<div class="budget__cell">last month</div>
+							<div class="budget__cell">2 months ago</div>
+						</div>
+						<h3>Income</h3>
+						<div class="budget__section" id="income">
+							<div class="budget__cell budget__cell--name">Sale</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Prizes</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+
+						</div>
+						<div>---------------------------------------------------------------------------------------------------------</div>
+						<div class="budget__section">
+
+							<div class="budget__cell budget__cell--name">Summary</div>
+							<div class="budget__cell budget__cell--summary" id="incomeSummaryThisMonth"></div>
+							<div class="budget__cell budget__cell--summary" id="incomeSummaryLastMonth"></div>
+							<div class="budget__cell budget__cell--summary" id="incomeSummaryAgoMonth"></div>
+						</div>
+						<h3>Expenses</h3>
+						<div class="budget__section" id="expenses">
+							<div class="budget__cell budget__cell--name">Salaries</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Parts</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Recruitment</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Tax</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Repayment</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+						</div>
+						<div>---------------------------------------------------------------------------------------------------------</div>
+						<div class="budget__section">
+
+							<div class="budget__cell budget__cell--name">Summary</div>
+							<div class="budget__cell budget__cell--summary" id="expensesSummaryThisMonth"></div>
+							<div class="budget__cell budget__cell--summary" id="expensesSummaryLastMonth"></div>
+							<div class="budget__cell budget__cell--summary" id="expensesSummaryAgoMonth"></div>
+						</div>
+						<h3>Profit</h3>
+						<div class="budget__section">
+							<div class="budget__cell budget__cell--name">Income</div>
+							<div class="budget__cell" id="profitIncomeThisMonth"></div>
+							<div class="budget__cell" id="profitIncomeLastMonth"></div>
+							<div class="budget__cell" id="profitIncomeAgoMonth"></div>
+							<div class="budget__cell budget__cell--name">Expanses</div>
+							<div class="budget__cell" id="expensesIncomeThisMonth"></div>
+							<div class="budget__cell" id="expensesIncomeLastMonth"></div>
+							<div class="budget__cell" id="expensesIncomeAgoMonth"></div>
+						</div>
+						<div>---------------------------------------------------------------------------------------------------------</div>
+						<div class="budget__section">
+
+							<div class="budget__cell budget__cell--name">Profit</div>
+							<div class="budget__cell budget__cell--summary" id="profitSummaryThisMonth"></div>
+							<div class="budget__cell budget__cell--summary" id="profitSummaryLastMonth"></div>
+							<div class="budget__cell budget__cell--summary" id="profitSummaryAgoMonth"></div>
+						</div>
+
+					</div>
+					<div class="budget  unactive" id="financesYears">
+						<div class="budget__section">
+							<div class="budget__cell budget__cell--name"> </div>
+							<div class="budget__cell">this year</div>
+							<div class="budget__cell">last year</div>
+							<div class="budget__cell">2 years ago</div>
+						</div>
+						<h3>Income</h3>
+						<div class="budget__section" id="yearIncome">
+							<div class="budget__cell budget__cell--name">Sale</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Prizes</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+
+						</div>
+						<div>---------------------------------------------------------------------------------------------------------</div>
+						<div class="budget__section">
+
+							<div class="budget__cell budget__cell--name">Summary</div>
+							<div class="budget__cell budget__cell--summary" id="incomeSummaryThisYear"></div>
+							<div class="budget__cell budget__cell--summary" id="incomeSummaryLastYear"></div>
+							<div class="budget__cell budget__cell--summary" id="incomeSummaryAgoYear"></div>
+						</div>
+						<h3>Expenses</h3>
+						<div class="budget__section" id="yearExpenses">
+							<div class="budget__cell budget__cell--name">Salaries</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Parts</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Recruitment</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Tax</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Repayment</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+							<div class="budget__cell"></div>
+						</div>
+						<div>---------------------------------------------------------------------------------------------------------</div>
+						<div class="budget__section">
+
+							<div class="budget__cell budget__cell--name">Summary</div>
+							<div class="budget__cell budget__cell--summary" id="expensesSummaryThisYear"></div>
+							<div class="budget__cell budget__cell--summary" id="expensesSummaryLastYear"></div>
+							<div class="budget__cell budget__cell--summary" id="expensesSummaryAgoYear"></div>
+						</div>
+						<h3>Profit</h3>
+						<div class="budget__section">
+							<div class="budget__cell budget__cell--name">Income</div>
+							<div class="budget__cell" id="profitIncomeThisYear"></div>
+							<div class="budget__cell" id="profitIncomeLastYear"></div>
+							<div class="budget__cell" id="profitIncomeAgoYear"></div>
+							<div class="budget__cell budget__cell--name">Expanses</div>
+							<div class="budget__cell" id="expensesIncomeThisYear"></div>
+							<div class="budget__cell" id="expensesIncomeLastYear"></div>
+							<div class="budget__cell" id="expensesIncomeAgoYear"></div>
+						</div>
+						<div>---------------------------------------------------------------------------------------------------------</div>
+						<div class="budget__section">
+
+							<div class="budget__cell budget__cell--name">Profit</div>
+							<div class="budget__cell budget__cell--summary" id="profitSummaryThisYear"></div>
+							<div class="budget__cell budget__cell--summary" id="profitSummaryLastYear"></div>
+							<div class="budget__cell budget__cell--summary" id="profitSummaryAgoYear"></div>
+						</div>
+
+					</div>
+					<div class="bank unactive" id="financesBank">
+						<h3>Bank</h3>
+
+
+						<div class="loan" id="loan0">
+							<div title="Loan name">Start-up loan</div>
+							<div title="loan amount">$150 000</div>
+							<div title="loan interest rate">6%</div>
+							<div title="loan repayment time">2y</div>
+							<button id="takeLoanBtn0" title="take a loan">take</button>
+							<div title="installments to be paid"></div>
+						</div>
+						<div class="loan" id="loan1">
+							<div title="Loan name">Investment loan</div>
+							<div title="loan amount">$150 000</div>
+							<div title="loan interest rate">600%</div>
+							<div title="loan repayment time">2y</div>
+							<button id="takeLoanBtn1" title="take a loan">take</button>
+							<div title="installments to be paid"></div>
+						</div>
+						<div class="loan" id="loan2">
+							<div title="Loan name">Asset loan</div>
+							<div title="loan amount">$150 000</div>
+							<div title="loan interest rate">600%</div>
+							<div title="loan repayment time">2y</div>
+							<button id="takeLoanBtn2" title="take a loan">take</button>
+							<div title="installments to be paid"></div>
+						</div>
+						<div class="loan" id="loan3">
+							<div title="Loan name">Corporate loan</div>
+							<div title="loan amount">$150 000</div>
+							<div title="loan interest rate">600%</div>
+							<div title="loan repayment time">2y</div>
+							<button id="takeLoanBtn3" title="take a loan">take</button>
+							<div title="installments to be paid">10 mo.</div>
+						</div>
+					</div>
+					<div class="awards unactive" id="financesAwards">
+						<h3>Awards</h3>
+					</div>
+				</div>
+
+			</div>
+			<div class="popCard unactive" id="popEmployees">
+				<h2>Employees</h2>
+				<div  id="employeesDIV">
+					<div class="employee">
+						<div></div>
+						<div></div>
+						<div class="employee__value" title="number of employees">Number</div>
+						<div class="employee__value employee__value--left" title="job name">Job</div>
+						<div class="employee__value" title="salary per employee">Salary</div>
+						<div class="employee__value" title="total salary">Total</div>
+					</div>
+
+							
+					
+					<!--<div class="employee">
+						<div><img class="employee__img" src="wood.svg" alt="Workers"></div>
+						<div class="employee__add-remove">
+							<button id="addEmployee0" class="employee__btn-add"></button>
+							<button id="removeEmployee0" class="employee__btn-add employee__btn-add--remove"></button>
+						</div>
+						<div class="employee__value" id="employee0" title="number / max ">27 / 45</div>										
+						<div class="employee__value employee__value--left" title="Workers build airplanes">Workers</div>
+						<div class="employee__value" id="salary0" title="weekly per person">$50/day</div>
+						<div class="employee__value" id="totalSalary0" title="weekly for everyone">$1350/day</div>
+					</div>-->
+					
+
+				</div>
+					<div class="salarySummary">-------------------------------------------<br><span id="salarySummary__value">$150</span></div>
+				
+
+			</div>
+			<div class="popCard unactive" id="popParts">
+				<h2>Parts</h2>
+				<div id="partsDIV">
+					<div class="employee employee--parts">
+						<div class="employee__value" title="country">country</div>
+						<div class="employee__value employee__value--left" title="company">company</div>
+						<div class="employee__value" title="delivery time">time<br>[days]</div>
+						<div class="employee__value" title="risk">risk<br>[%]</div>
+						<div class="employee__value" title="amount of stock">stock<br>[pieces]</div>
+						<div class="employee__value" title="unit price">price<br>[usd]</div>
+						<div class="employee__value" title="total price">total<br>[usd]</div>
+						<div class="employee__value">buy</div>
+					</div>
+
+					<!--<div class="employee employee--parts" id="partsItem0">
+						<div>
+							<img id="parts-flag0" class="employee__img" src="wood.svg" alt="Flag">
+						</div>
+						<div id="parts-company0" class="employee__value employee__value--left" title="company">Japan Inc</div>
+						<div id="parts-time0" class="employee__value" title="delivery time">50 days</div>
+						<div id="parts-risk0" class="employee__value" title="delivery risk">80%</div>
+						<div id="parts-stock0" class="employee__value" title="amount of stock">500pc.</div>
+						<div id="parts-price0" class="employee__value" title="unit price">$5/pc.</div>
+						<div id="parts-totalPrice0" class="employee__value" title="total price">$2500</div>
+						<div class="employee__value"><button id="parts-buy0" class="employee__buy-btn" alt="buy" title="buy stock"></button></div>
+					</div>-->
+					
+				</div>
+
+			</div>
+			<button id="closeMenu" class="unactive" title="Close"></button>
+		</div>
+
+
+
+
+		
+
+	</div>
+
+
+	<script src="data.js"></script>
+	<script src="createDOM.js"></script>
+	
+	<script src="script.js"></script>
+	<script src="class.js"></script>
+	<script src="budget.js"></script>
+
+</body>
+
+</html>

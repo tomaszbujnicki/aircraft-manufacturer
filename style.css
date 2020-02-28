@@ -1,0 +1,366 @@
+body{
+	background-color: #fff;
+	overflow-y:scroll;
+	padding: 0;
+	margin: 0;
+}
+div{
+	-moz-user-select: none;
+	/* nie pozwól na zaznaczenia */
+	user-select: none;
+	/* nie pozwól na zaznaczenia */
+}
+
+#container{
+	width: 800px;
+	margin: 0 auto;
+	font-family: Arial;
+	position: relative;
+}
+.resources {
+	display: grid;
+	grid-gap: 10px 10px;
+	grid-template-columns: 1fr 0.5fr 1fr;
+	background-color: lightblue;
+	padding-left: 40px;
+	border-radius: 10px;
+	font-family: monospace;
+
+}
+
+.resources__unit {
+	display: flex;
+	height: 60px;
+	align-items: center;
+	
+}
+.resources__icon{}
+.resources__img{
+	width: 48px;
+	cursor: pointer;
+}
+
+.resValue {
+	font-size: 20px;
+	color: black;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+#alerts{
+	background-color: lightblue;
+	align-self: flex-start;
+	z-index: 1;
+	margin-top: 10px;
+	width: 185px;
+}
+.alertsItem{
+	padding: 5px;
+	opacity: 1.0;
+	color: green;
+	transition: 5s;
+}
+.vanish{
+	opacity: 0;
+	transition: ease-out 5s;
+}
+
+.disabled{
+	opacity: 0.3;
+}
+.colorRed{
+	color: #f55;
+}
+.click-false{
+	background-color: #f55;
+}
+.click-true{
+	background-color: #5f5;
+}
+button{
+	cursor: pointer;
+}
+header{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#date{
+	font-size: 24px;
+	font-family: monospace;
+	cursor: help;
+}
+h3{
+	text-align: center;
+	font-size: 16px;
+}
+/*//---------------------------------------------------------------------------*/
+
+.airplane {
+	display: grid;
+	grid-template-columns: 60px 26px 70px 410px 70px 45px 100px;
+	height: 60px;
+	align-items: center;
+}
+
+.worker--buildings {
+	grid-template-columns: 60px 70px 110px 70px 110px 60px;
+}
+
+
+.worker__img {
+	width: 54px;
+}
+.worker__img-resources{
+	width: 24px;
+}
+
+.worker__add-remove {
+	width: 18px;
+	margin: auto;
+}
+.airplane__btn-sell{
+	background-image: url(weapon.svg);
+	height: 28px;
+	width: 28px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+
+.worker__btn-add {
+	background-image: url(wisdom.svg);
+	height: 18px;
+	width: 18px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+
+.worker__btn-add--remove {
+	background-image: url(weapon.svg);
+	margin-top: 4px;
+}
+
+.worker__btn-plus {
+	margin-left: 20px;
+	background-image: url(wisdom.svg);
+	height: 32px;
+	width: 32px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+
+.airplane__name {
+	font-size: 16px;
+	font-weight: bold;
+	color: #444;
+	padding-left: 10px;
+	cursor: pointer;
+}
+.bar--color{
+	background-color: #39a;
+	height: 10px;
+}
+.bar{
+	background-color: #ccc;
+	height: 10px;
+}
+
+.worker__value {
+	font-size: 16px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-left: 20px;
+	text-align: right;
+	font-weight: bold;
+	cursor: help;
+}
+.airplane__quantity
+{
+	font-size: 16px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: right;
+	font-weight: bold;
+	cursor: help;
+}
+.worker__cost {
+	font-size: 14px;
+	font-weight: normal;
+	color: #222;
+	padding-left: 10px;
+	text-align: right;
+
+}
+.unactive{
+	display: none;
+}
+.popCard{
+	width: 600px;
+	min-height: 400px;
+	background-color: #F3ECDB;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: 2;
+	transition-duration:4s;
+}
+.mainField{
+	position: relative;
+}
+#closeMenu{
+	background-image: url(weapon.svg);
+	height: 40px;
+	width: 40px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+	position: absolute;
+	top: 0;
+	right: 80px;
+	z-index: 3;
+}
+
+.employee {
+	padding-left: 40px;
+	display: grid;
+	grid-template-columns: 60px 26px 100px 150px 80px 100px ;
+	height: 60px;
+	align-items: center;
+}
+.employee--parts {
+	padding-left: 20px;
+	grid-template-columns: 60px 100px 40px 40px 60px 60px 120px 50px;
+}
+.employee__img {
+	width: 54px;
+}
+.employee__btn-add {
+	background-image: url(wisdom.svg);
+	height: 18px;
+	width: 18px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+
+.employee__btn-add--remove {
+	background-image: url(weapon.svg);
+	margin-top: 4px;
+}
+
+.employee__btn-plus {
+	margin-left: 20px;
+	background-image: url(wisdom.svg);
+	height: 32px;
+	width: 32px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+.employee__value {
+	font-size: 15px;
+	text-align: center;
+	cursor: help;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.employee__value--left{
+	padding-right: 0;
+	padding-left: 10px;
+	text-align: left;
+}
+.employee__value--bold{
+	font-weight: bold;
+}
+.employee__buy-btn{
+	background-image: url(weapon.svg);
+	height: 28px;
+	width: 28px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+
+.totalSalary{
+	text-align: right;
+}
+h2{
+	text-align: center;
+}
+.salarySummary {
+	text-align: right;
+	padding-right: 30px;
+}
+
+#salarySummary__value {
+	padding-right: 45px;
+	color: blue;
+	font-weight: bold;
+}
+
+.budget {
+	padding: 0 20px 20px 20px;
+}
+
+.budget__cell {
+	font-size: 14px;
+	text-align: right;
+	padding-right: 20px;
+}
+
+.budget__cell--name{
+	text-align: left;
+	padding-right: 0;
+}
+
+.budget__section {
+	display: grid;
+	grid-template-columns: 0.7fr 1fr 1fr 1fr;
+	
+}
+
+.budget__cell--plus{
+	color: blue;
+}
+.budget__cell--minus{
+	color: #FC0300;
+}
+
+.financesMenu{
+	background-image: url(wisdom.svg);
+	height: 32px;
+	width: 32px;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+}
+.financesContainer {
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.loan {
+	padding-right: 40px;
+	height: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 0.5fr 0.3fr 0.8fr 0.5fr;
+	align-items: center;	
+}
+.loan > div{
+	text-align: right;
+	cursor: help;
+}
+.loan > button{
+	width: 50px;
+	margin: 0 auto;
+}
