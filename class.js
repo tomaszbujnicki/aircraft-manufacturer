@@ -18,8 +18,9 @@ function getRndInteger(min, max) {
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function randomPercent(x) {
-	return getRndInteger(-x, x) / 100;
+function randomChange(value, percent) {
+	const change = getRndInteger(-percent,percent);
+	return Math.round(value * (1 + change / 100));
 }
 
 
@@ -31,55 +32,67 @@ function randomPercent(x) {
 
 //	3. Parts ......................................................................................
 
-class PartsClass {
+class Stock {
 
-	constructor(id, flag, country, company, time, risk, stock, price) {
+	constructor(id, flag, country, company, time, risk, amount, price) {
 		this.id = id;
 		this.flag = flag;
 		this.country = country;
 		this.company = company;
-		this.time = time + Math.floor(time * randomPercent(50));
-		this.risk = risk + Math.floor(risk * randomPercent(50));
-		this.stock = stock + Math.floor(stock * randomPercent(50));
-		this.price = price + Math.floor(price * randomPercent(10));
-		this.totalPrice = this.price * this.stock;
+		this.time = time;
+		this.risk = risk;
+		this.amount = amount;
+		this.price = price;
+		this.totalPrice = this.price * this.amount;
 	}
 
 	buy(){
 		calculateExpenses(this.totalPrice,"parts");
-		setTimeout(() => {
-			let random = Math.floor(Math.random() * 100);
-			if (random >= this.risk) {
-				availableParts += this.stock;
-				showAvailableParts();
-				creatNewMessage("+" + this.stock + " parts form " + this.country);
-			} else {
-				creatNewMessage("Delivery failed.<br> Lost: " + this.stock + " parts", "#F00");
-			}
-		}, dayTick * this.time);
+		delivery(this);
+		delete stockArray[this.id];
 	}
 }
 
-const stockArr = [];
+function delivery(stock){
+	setTimeout(() => {
+		const isDeliveryCorrect = Math.floor(Math.random() * 100) >= stock.risk;
+		if (isDeliveryCorrect) {
+			availableParts += stock.amount;
+			showAvailableParts();
+			creatNewMessage("+" + stock.amount + " parts form " + stock.country);
+		} else {
+			creatNewMessage("Delivery failed.<br> Lost: " + stock.amount + " parts", "#F00");
+		}
+	}, dayTick * stock.time);
+}
 
 function createNewStock() {
-	const randomStock = parts[getRndInteger(0, parts.length - 1)];
-	const newStock = new PartsClass(
-		stockArr.length,
+	const randomStock = stock_coreValues[getRndInteger(0, stock_coreValues.length - 1)];
+	const newStock = new Stock(
+		stockArray.length,
 		randomStock.flag, 
 		randomStock.country, 
 		randomStock.company[getRndInteger(0, randomStock.company.length-1)], 
-		randomStock.time, 
-		randomStock.risk, 
-		randomStock.stock, 
-		randomStock.price,
+		randomChange(randomStock.time, 20),
+		randomChange(randomStock.risk, 20),
+		randomChange(randomStock.amount, 50),
+		randomChange(randomStock.price, 10)
 	);
-	stockArr.push(newStock);
-	createPartsItem(stockArr[stockArr.length-1]);
+	stockArray.push(newStock);
+	createElementStock(newStock);
 }
+
+const stockArray = [];
 
 createNewStock();
 createNewStock();
 createNewStock();
 createNewStock();
 createNewStock();
+
+function createAllStock(){
+	for (let i in stockArray){
+		console.log(i);
+		createElementStock(stockArray[i]);
+	}
+}

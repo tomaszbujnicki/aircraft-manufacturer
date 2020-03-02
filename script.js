@@ -425,23 +425,6 @@ function showLoans() {
 }
 
 // 		1.2.5 Employees ......................................................................................
-
-function showEmployeesAll() {
-	for (let i = 0; i < employees.length; i++) {
-		showEmployeeItem(i);
-	}
-}
-
-function showEmployeeItem(i) {
-	showEmployeesSalary(i);
-	showEmployeesNumber(i);
-	document.getElementById("addEmployee" + i).title = "hire cost: $" + employees[i].employmentCost;
-	document.getElementById("employeeImg" + i).src = employees[i].img;
-	document.getElementById("employeeName" + i).textContent = employees[i].name;
-	document.getElementById("employeeName" + i).title = employees[i].description;
-}
-
-
 function showEmployeesNumber(z) {
 	document.getElementById("employee" + z).textContent = employees[z].number + " / " + employees[z].maxNumber;
 }
@@ -451,31 +434,6 @@ function showEmployeesSalary(z) {
 	document.getElementById("totalSalary" + z).textContent = "$ " + employees[z].salary * employees[z].number;
 	document.getElementById("salarySummary__value").textContent = "$ " + totalSalary();
 }
-
-
-// 		1.2.6 Parts ......................................................................................
-
-/*function showPartsAll() {
-	for (let i = 0; i < parts.length; i++) {
-		showPartsItem(i);
-	}
-}*/
-
-
-
-
-function showPartsItem(x) {
-
-	document.getElementById("parts-flag" + x).src = parts[x].flag;
-	document.getElementById("parts-company" + x).textContent = parts[x].company;
-	document.getElementById("parts-time" + x).textContent = parts[x].time;
-	document.getElementById("parts-risk" + x).textContent = parts[x].risk;
-	document.getElementById("parts-stock" + x).textContent = parts[x].stock;
-	document.getElementById("parts-price" + x).textContent = "$ " + parts[x].price;
-	document.getElementById("parts-totalPrice" + x).textContent = "$ " + (parts[x].price * parts[x].stock).toLocaleString();
-
-}
-
 
 
 //	2. Event Listeners ......................................................................................
@@ -553,13 +511,13 @@ for (let i = 0; i < employees.length; i++) {
 //	3. Start the game ......................................................................................
 
 
-document.body.onload = function () {
+
+document.addEventListener("DOMContentLoaded", function() {
 	setInterval(constructionProgress, 10);
 	setInterval(newDay, dayTick);
 	showDollars();
 	showAvailableWorkers();
 	showAvailableParts();
-	showEmployeesAll();
 	showAirplaneAll();
 	showDate();
 	showThisMonthBudget();
@@ -570,4 +528,4 @@ document.body.onload = function () {
 	showAgoYearBudget();
 	showLoans();
 
-}
+});

@@ -17,8 +17,7 @@ createDOM_items();
 
 function createDOM_items(){
 	for (let i = 0; i < airplanes.length; i++) createAircraftItem(i);
-	for (let i = 0; i < employees.length; i++) createEmployeesItem(i);
-	/*for (let i = 0; i < parts.length; i++) createPartsItem(i);*/
+	for (let i = 0; i < employees.length; i++) createEmployeesItem(employees[i],i);
 }
 
 
@@ -108,70 +107,44 @@ function createAircraftItem(x){
 }
 
 //	2. Employees ......................................................................................
-function createEmployeesItem(x){
+function createEmployeesItem(employee, employeeID){
 	
-	if ((!employees[x]) || (document.getElementById("employeesItem" + x))) return ;
-
 	const el = document.createElement("div");
-	el.setAttribute("id", "employeesItem" + x);
-	el.classList.add("employee");			
-
-	const el_0 = document.createElement("div");
-
-	const el_0_0 = document.createElement("img");
-	el_0_0.setAttribute("id", "employeeImg" + x);
-	el_0_0.classList.add("employee__img");
-
-	const el_1 = document.createElement("div");
-	el_1.classList.add("employee__add-remove");
-
-	const el_1_0 = document.createElement("button");
-	el_1_0.setAttribute("id", "addEmployee" + x);
-	el_1_0.classList.add("employee__btn-add");
-
-	const el_1_1 = document.createElement("button");
-	el_1_1.setAttribute("id", "removeEmployee" + x);
-	el_1_1.classList.add("employee__btn-add", "employee__btn-add--remove");
-	el_1_1.setAttribute("title", "fire employee");
-
-	const el_3 = document.createElement("div");
-	el_3.setAttribute("id", "employee" + x);
-	el_3.classList.add("employee__value");
-	el_3.setAttribute("title", "number / max");
-
-	const el_4 = document.createElement("div");
-	el_4.setAttribute("id", "employeeName" + x);
-	el_4.classList.add("employee__value", "employee__value--left");
-
-	const el_5 = document.createElement("div");
-	el_5.setAttribute("id", "salary" + x);
-	el_5.classList.add("employee__value","employee__value--bold");
-	el_5.setAttribute("title", "weekly per person");
-
-	const el_6 = document.createElement("div");
-	el_6.setAttribute("id", "totalSalary" + x);
-	el_6.classList.add("employee__value");
-	el_6.setAttribute("title", "weekly for everyone");
-
+	el.setAttribute("id", "employeesItem" + employeeID);
+	el.classList.add("employee");
+	el.innerHTML=`
+		<div>
+			<img class="employee__img" src=${employee.img}>
+		</div>
+		<div class="employee__add-remove">
+			<button id="addEmployee${employeeID}" class="employee__btn-add" title="hire cost: $ ${employee.employmentCost}"></button>
+			<button id="removeEmployee${employeeID}" class="employee__btn-add employee__btn-add--remove" title="fire employee"></button>
+		</div>
+		<div id="employee${employeeID}" class="employee__value" title="number / max">
+			${employee.number} / ${employee.maxNumber}
+		</div>
+		<div class="employee__value employee__value--left" title="Workers build aircrafts">
+			${employee.name}
+		</div>
+		<div id="salary${employeeID}" class="employee__value employee__value--bold" title="weekly per person">
+			${employee.salary}
+		</div>
+		<div id="totalSalary${employeeID}" class="employee__value" title="weekly for everyone">
+			$ ${employee.salary*employee.number}
+		</div>`	
 
 	document.getElementById("employeesDIV").appendChild(el);
-	el.appendChild(el_0);
-	el_0.appendChild(el_0_0);
-	el.appendChild(el_1);
-	el_1.appendChild(el_1_0);
-	el_1.appendChild(el_1_1);
-	el.appendChild(el_3);
-	el.appendChild(el_4);
-	el.appendChild(el_5);
-	el.appendChild(el_6);
+
 }
 
 //	3. Parts ......................................................................................
-function createPartsItem(item){
+function createElementStock(item){
 
-	const el = document.createElement("div");
-	el.classList.add("employee", "employee--parts");			
-	el.innerHTML = `
+	if (!item) return ;
+
+	const partsItem = document.createElement("div");
+	partsItem.classList.add("employee", "employee--parts");			
+	partsItem.innerHTML = `
 		<div>
 			<img src=${item.flag} class="employee__img" title=${item.country}>
 		</div>
@@ -185,33 +158,33 @@ function createPartsItem(item){
 			${item.risk}
 		</div>
 		<div class="employee__value" title="amount of stock">
-			${item.stock}
+			${item.amount}
 		</div>
-		<div class="employee__value" title="unit price">
+		<div class="employee__value" title="unit price">$ 
 			${item.price}
 		</div>
-		<div class="employee__value employee__value--bold" title="total price">
+		<div class="employee__value employee__value--bold" title="total price">$ 
 			${item.totalPrice.toLocaleString()}
-		</div>
-		<div class="employee__value">
-			<button id="buy-stock${stockArr.length}" class="employee__buy-btn" title="buy stock"></button>
-		</div>`
+		</div>`;
 	
-	document.getElementById("partsDIV").appendChild(el);	
-
-		
-	const sellButton = document.getElementById(`buy-stock${stockArr.length}`);
-	console.log(sellButton);
-	console.log(document.getElementById(`buy-stock${stockArr.length}`));
+		const sellButton = document.createElement("div");
+		sellButton.classList.add("employee__value");			
+		sellButton.innerHTML = `
+				<button class="employee__buy-btn" title="buy stock">
+				</button>`;
+	
+	document.getElementById("partsDIV").appendChild(partsItem);
+	partsItem.appendChild(sellButton);
+	
 	sellButton.addEventListener("click", function() {
 		if (dollars >= item.totalPrice) {
 			item.buy();
 			disableElement(this);
-			clickTrue(el);
-			removeDOM_ELEMENT(el, 6000);
+			clickTrue(partsItem);
+			removeDOM_ELEMENT(partsItem, 6000);
 		}
 		else{
-			clickFalse(el);
+			clickFalse(partsItem);
 			clickFalse(document.getElementById("dollars"));
 		}
 	});
