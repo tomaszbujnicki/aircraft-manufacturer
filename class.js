@@ -33,7 +33,8 @@ function randomPercent(x) {
 
 class PartsClass {
 
-	constructor(flag, country, company, time, risk, stock, price) {
+	constructor(id, flag, country, company, time, risk, stock, price) {
+		this.id = id;
 		this.flag = flag;
 		this.country = country;
 		this.company = company;
@@ -62,15 +63,20 @@ class PartsClass {
 const stockArr = [];
 
 function createNewStock() {
-	let r = getRndInteger(0, parts.length - 1);
-	let x = parts[r];
-	const newStock = new PartsClass(x.flag, x.country, x.company[getRndInteger(0, x.company.length-1)], x.time, x.risk, x.stock, x.price,);
+	const randomStock = parts[getRndInteger(0, parts.length - 1)];
+	const newStock = new PartsClass(
+		stockArr.length,
+		randomStock.flag, 
+		randomStock.country, 
+		randomStock.company[getRndInteger(0, randomStock.company.length-1)], 
+		randomStock.time, 
+		randomStock.risk, 
+		randomStock.stock, 
+		randomStock.price,
+	);
 	stockArr.push(newStock);
 	createPartsItem(stockArr[stockArr.length-1]);
 }
-
-
-
 
 createNewStock();
 createNewStock();
