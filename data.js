@@ -6,6 +6,7 @@ let date = new Date(1955, 11, 18);
 
 const airplanes = [
 	{
+		id: 0,
 		name: "Beoing 737-700",
 		img: "img/flags/japan.svg",
 		parts: 100,
@@ -16,6 +17,7 @@ const airplanes = [
 		workers: 0
 	},
 	{
+		id: 1,
 		name: "Helicopter",
 		img: "img/flags/china.svg",
 		parts: 10,
@@ -26,6 +28,7 @@ const airplanes = [
 		workers: 0
 	},
 	{
+		id: 2,
 		name: "Airbus A320",
 		img: "img/flags/canada.svg",
 		parts: 99,
@@ -39,6 +42,7 @@ const airplanes = [
 
 const employees = [
 	{
+		id: 0,
 		name: "Workers",
 		img: "img/flags/canada.svg",
 		number: 0,
@@ -48,6 +52,7 @@ const employees = [
 		description: "Workers build aircrafts"
 	},
 	{
+		id: 1,
 		name: "Engineers",
 		img: "img/flags/australia.svg",
 		number: 0,
@@ -57,6 +62,7 @@ const employees = [
 		description: "Engineers develop new aircrafts"
 	},
 	{
+		id: 2,
 		name: "Human Resources",
 		img: "img/flags/germany.svg",
 		number: 0,

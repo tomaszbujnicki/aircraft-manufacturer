@@ -372,30 +372,6 @@ function showDate() {
 }
 
 // 		1.2.3 Airplanes ......................................................................................
-
-function showAirplaneAll() {
-	for (let i = 0; i < airplanes.length; i++) {
-		showAirplaneItem(i);
-	}
-}
-
-function showAirplaneItem(i) {
-	showAirplaneName(i);
-	showProductionStage(i);
-	showQuantity(i);
-	showWorkers(i);
-	showPrice(i);
-	showAirplaneImg(i);
-}
-
-function showAirplaneName(z) {
-	document.getElementById("airplaneName" + z).textContent = airplanes[z].name;
-}
-
-function showAirplaneImg(z) {
-	document.getElementById("airplaneImg" + z).src = airplanes[z].img;
-}
-
 function showProductionStage(z) {
 	document.getElementById("myBar" + z).style = "width:" + airplanes[z].productionStage.toString() + "%";
 }
@@ -518,7 +494,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	showDollars();
 	showAvailableWorkers();
 	showAvailableParts();
-	showAirplaneAll();
 	showDate();
 	showThisMonthBudget();
 	showLastMonthBudget();
