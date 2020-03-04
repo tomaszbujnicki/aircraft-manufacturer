@@ -14,18 +14,16 @@
 		1.2 Show on screen
 			1.2.1 Resources
 			1.2.2 Date
-			1.2.3 Airplanes
+			1.2.3 Aircrafts
 			1.2.4 Funds
 			1.2.5 Employees
 			1.2.6 Parts
 	2. Event Listeners
 		2.1 Main container
-			2.1.1 Airplanes
+			2.1.1 Aircrafts
 			2.1.2 Menu (resources) - open pop-up cards
 		2.2 Pop-up cards
 			2.2.1 Funds
-			2.2.2 Employees
-			2.2.3 Parts & Delivery
 	3. Start the game
 	
 
@@ -40,8 +38,8 @@
 function newDay() {
 	date.setTime(date.getTime() + 86400000);
 	showDate();
-	if (date.getDate() == 1) newMonth();
 	if ((date.getDate() == 1) && (date.getMonth() == 0)) newYear();
+	if (date.getDate() == 1) newMonth();
 	if (date.getDay() == 0) payment();
 
 	showThisMonthBudget();
@@ -52,8 +50,8 @@ function newDay() {
 function constructionProgress() {
 	// if ((date.getDay() == 0) || (date.getDay() == 6)) return; // the workers don't work at the weekend - function disabled
 
-	for (let i = 0; i < airplanes.length; i++) {
-		progresWork(i, productionForce / dayTick * airplanes[i].workers);
+	for (let i = 0; i < aircrafts.length; i++) {
+		progresWork(i, productionForce / dayTick * aircrafts[i].workers);
 	}
 
 }
@@ -143,13 +141,13 @@ function payInstallment() {
 
 function progresWork(z, y) {
 	if ((y / 100) <= availableParts) {
-		airplanes[z].productionStage += y / airplanes[z].parts;
+		aircrafts[z].productionStage += y / aircrafts[z].parts;
 		availableParts -= y / 100;
 		showAvailableParts();
-		if (airplanes[z].productionStage >= 100) {
-			availableParts += (airplanes[z].productionStage - 100) * airplanes[z].parts / 100;
-			airplanes[z].productionStage = 0;
-			airplanes[z].quantity++;
+		if (aircrafts[z].productionStage >= 100) {
+			availableParts += (aircrafts[z].productionStage - 100) * aircrafts[z].parts / 100;
+			aircrafts[z].productionStage = 0;
+			aircrafts[z].quantity++;
 			showQuantity(z);
 		}
 		showProductionStage(z);
@@ -184,9 +182,9 @@ function totalSalary() {
 // 		1.1.4 Action ......................................................................................
 
 function sell(z) {
-	if (airplanes[z].quantity > 0) {
-		airplanes[z].quantity -= 1;
-		calculateIncome(airplanes[z].price, "sale");
+	if (aircrafts[z].quantity > 0) {
+		aircrafts[z].quantity -= 1;
+		calculateIncome(aircrafts[z].price, "sale");
 		showQuantity(z);
 		clickTrue(document.getElementById("quantity" + z));
 		clickTrue(document.getElementById("price" + z));
@@ -204,54 +202,12 @@ function takeLoan(x) {
 	clickTrue(document.getElementById("dollars"));
 }
 
-function addEmployee(z) {
-	if (dollars >= employees[z].employmentCost) {
-		if (employees[z].maxNumber > employees[z].number) {
-			employees[z].number++;
-			calculateExpenses(employees[z].employmentCost, "recruitment");
-			showEmployeesNumber(z);
-			showEmployeesSalary(z);
-			if (z == 0) {
-				availableWorkers++;
-				showAvailableWorkers();
-			}
-			clickTrue(document.getElementById("employee" + z));
-		} else clickFalse(document.getElementById("employee" + z));
-	} else {
-		clickFalse(document.getElementById("dollars"));
-		clickFalse(document.getElementById("employee" + z));
-	}
 
-}
-
-function removeEmployee(z) {
-	if ((z == 0) && (availableWorkers <= 0)) {
-		clickFalse(document.getElementById("employee" + z));
-		clickFalse(document.getElementById("workers"));
-		return;
-	}
-
-
-	if (0 < employees[z].number) {
-		employees[z].number--;
-		showEmployeesNumber(z);
-		showEmployeesSalary(z);
-		if (z == 0) {
-			availableWorkers--;
-			showAvailableWorkers();
-		}
-
-		clickTrue(document.getElementById("employee" + z));
-	} else {
-		clickFalse(document.getElementById("employee" + z));
-	}
-
-}
 
 function addWorker(z) {
 	if (availableWorkers > 0) {
 		availableWorkers--;
-		airplanes[z].workers++;
+		aircrafts[z].workers++;
 		showAvailableWorkers();
 		showWorkers(z);
 		clickTrue(document.getElementById("workers" + z));
@@ -262,9 +218,9 @@ function addWorker(z) {
 }
 
 function removeWorker(z) {
-	if (airplanes[z].workers > 0) {
+	if (aircrafts[z].workers > 0) {
 		availableWorkers++;
-		airplanes[z].workers--;
+		aircrafts[z].workers--;
 		showAvailableWorkers();
 		showWorkers(z);
 		clickTrue(document.getElementById("workers" + z));
@@ -371,21 +327,21 @@ function showDate() {
 	document.getElementById("date").textContent = date.getFullYear() + "-" + MM + "-" + DD;
 }
 
-// 		1.2.3 Airplanes ......................................................................................
+// 		1.2.3 Aircrafts ......................................................................................
 function showProductionStage(z) {
-	document.getElementById("myBar" + z).style = "width:" + airplanes[z].productionStage.toString() + "%";
+	document.getElementById("myBar" + z).style = "width:" + aircrafts[z].productionStage.toString() + "%";
 }
 
 function showQuantity(z) {
-	document.getElementById("quantity" + z).innerHTML = airplanes[z].quantity;
+	document.getElementById("quantity" + z).innerHTML = aircrafts[z].quantity;
 }
 
 function showWorkers(z) {
-	document.getElementById("workers" + z).innerHTML = airplanes[z].workers;
+	document.getElementById("workers" + z).innerHTML = aircrafts[z].workers;
 }
 
 function showPrice(z) {
-	document.getElementById("price" + z).innerHTML = "$ " + airplanes[z].price.toLocaleString();
+	document.getElementById("price" + z).innerHTML = "$ " + aircrafts[z].price.toLocaleString();
 }
 
 // 		1.2.4 Funds ......................................................................................
@@ -416,9 +372,9 @@ function showEmployeesSalary(z) {
 
 // 		2.1 Main container ......................................................................................
 
-//  		2.1.1 Airplanes ......................................................................................
+//  		2.1.1 Aircrafts ......................................................................................
 
-for (let i = 0; i < airplanes.length; i++) {
+for (let i = 0; i < aircrafts.length; i++) {
 	document.getElementById("sell" + i).addEventListener("click", function () {
 		sell(i);
 	});
@@ -428,8 +384,8 @@ for (let i = 0; i < airplanes.length; i++) {
 	document.getElementById("removeWorker" + i).addEventListener("click", function () {
 		removeWorker(i);
 	});
-	/*	CLICK to BUILD AIRPLANES (without workers) - function disabled
-	document.getElementById("airplane" + i).addEventListener("click", function () {
+	/*	CLICK to BUILD AIRCRAFTS (without workers) - function disabled
+	document.getElementById("aircraft" + i).addEventListener("click", function () {
 		progresWork(i, productionForce)
 	});*/
 }
@@ -472,17 +428,6 @@ for (let i = 0; i < loans.length; i++) {
 		takeLoan(i);
 	})
 }
-//  		2.2.2 Employees ......................................................................................
-
-for (let i = 0; i < employees.length; i++) {
-	document.getElementById("addEmployee" + i).addEventListener("click", function () {
-		addEmployee(i);
-	});
-	document.getElementById("removeEmployee" + i).addEventListener("click", function () {
-		removeEmployee(i);
-	});
-}
-
 
 //	3. Start the game ......................................................................................
 

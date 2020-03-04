@@ -1,5 +1,5 @@
 body{
-	background-color: #fff;
+	background-color: rgb(54, 80, 44);
 	overflow-y:scroll;
 	padding: 0;
 	margin: 0;
@@ -34,7 +34,7 @@ div{
 	align-items: center;
 	
 }
-.resources__icon{}
+
 .resources__img{
 	width: 48px;
 	cursor: pointer;
@@ -97,7 +97,7 @@ h3{
 }
 /*//---------------------------------------------------------------------------*/
 
-.airplane {
+.aircraft {
 	display: grid;
 	grid-template-columns: 60px 26px 70px 410px 70px 45px 100px;
 	height: 60px;
@@ -120,8 +120,8 @@ h3{
 	width: 18px;
 	margin: auto;
 }
-.airplane__btn-sell{
-	background-image: url(weapon.svg);
+.aircraft__btn-sell{
+	background-image: url(img/remove.png);
 	height: 28px;
 	width: 28px;
 	box-sizing: border-box;
@@ -130,7 +130,7 @@ h3{
 }
 
 .worker__btn-add {
-	background-image: url(wisdom.svg);
+	background-image: url(img/add.svg);
 	height: 18px;
 	width: 18px;
 	box-sizing: border-box;
@@ -139,13 +139,13 @@ h3{
 }
 
 .worker__btn-add--remove {
-	background-image: url(weapon.svg);
+	background-image: url(img/remove.svg);
 	margin-top: 4px;
 }
 
 .worker__btn-plus {
 	margin-left: 20px;
-	background-image: url(wisdom.svg);
+	background-image: url(img/add.svg);
 	height: 32px;
 	width: 32px;
 	box-sizing: border-box;
@@ -153,7 +153,7 @@ h3{
 	background-color: transparent;
 }
 
-.airplane__name {
+.aircraft__name {
 	font-size: 16px;
 	font-weight: bold;
 	color: #444;
@@ -179,7 +179,7 @@ h3{
 	font-weight: bold;
 	cursor: help;
 }
-.airplane__quantity
+.aircraft__quantity
 {
 	font-size: 16px;
 	padding-right: 20px;
@@ -195,7 +195,10 @@ h3{
 	color: #222;
 	padding-left: 10px;
 	text-align: right;
-
+}
+.aircraftTitles{
+	text-align: center;
+	font-size: 16px;
 }
 .unactive{
 	display: none;
@@ -216,7 +219,7 @@ h3{
 	position: relative;
 }
 #closeMenu{
-	background-image: url(weapon.svg);
+	background-image: url(img/remove.png);
 	height: 40px;
 	width: 40px;
 	box-sizing: border-box;
@@ -243,7 +246,7 @@ h3{
 	width: 54px;
 }
 .employee__btn-add {
-	background-image: url(wisdom.svg);
+	background-image: url(img/add.svg);
 	height: 18px;
 	width: 18px;
 	box-sizing: border-box;
@@ -252,13 +255,13 @@ h3{
 }
 
 .employee__btn-add--remove {
-	background-image: url(weapon.svg);
+	background-image: url(img/remove.svg);
 	margin-top: 4px;
 }
 
 .employee__btn-plus {
 	margin-left: 20px;
-	background-image: url(wisdom.svg);
+	background-image: url(img/add.svg);
 	height: 32px;
 	width: 32px;
 	box-sizing: border-box;
@@ -281,7 +284,7 @@ h3{
 	font-weight: bold;
 }
 .employee__buy-btn{
-	background-image: url(weapon.svg);
+	background-image: url(img/weapon.svg);
 	height: 28px;
 	width: 28px;
 	box-sizing: border-box;
@@ -335,7 +338,7 @@ h2{
 }
 
 .financesMenu{
-	background-image: url(wisdom.svg);
+	background-image: url(img/wisdom.svg);
 	height: 32px;
 	width: 32px;
 	box-sizing: border-box;
