@@ -69,7 +69,3 @@ function createElementAircraft(aircraft){
 
 	document.getElementById("aircraftDIV").appendChild(aircraftElement);
 }
-
-
-
-for (let i = 0; i < aircrafts.length; i++) createElementAircraft(aircrafts[i]);

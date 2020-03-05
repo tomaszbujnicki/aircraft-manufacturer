@@ -1,5 +1,5 @@
 let dayTick = 1000;
-let dollars = 300000;
+let dollars = 500000;
 let availableParts = 110;
 let productionForce = 1000;
 let date = new Date(1955, 11, 18);

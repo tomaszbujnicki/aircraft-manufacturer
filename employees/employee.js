@@ -1,43 +1,9 @@
-const employees = [
-	{
-		id: 0,
-		name: "Workers",
-		img: "employees/img/businessman.svg",
-		number: 0,
-		maxNumber: 20,
-		salary: 1750,
-		employmentCost: 2000,
-		description: "Workers build aircrafts"
-	},
-	{
-		id: 1,
-		name: "Engineers",
-		img: "employees/img/businessman2.svg",
-		number: 0,
-		maxNumber: 10,
-		salary: 4200,
-		employmentCost: 8000,
-		description: "Engineers develop new aircrafts"
-	},
-	{
-		id: 2,
-		name: "Human Resources",
-		img: "employees/img/girl.svg",
-		number: 0,
-		maxNumber: 10,
-		salary: 3200,
-		employmentCost: 4000,
-		description: "HR care about all employees"
-	}
-]
-let availableWorkers = employees[0].number;
-
 function createElementEmployee(employee){
 
 	if(!employee) return;
 	
 	const employeeElement = document.createElement("div");
-	employeeElement.setAttribute("id", "employeesItem" + employee.id);
+	employeeElement.setAttribute("id", "employeeItem" + employee.id);
 	employeeElement.classList.add("employee");
 	employeeElement.innerHTML=`
 		<div>
@@ -58,60 +24,41 @@ function createElementEmployee(employee){
 		</div>
 		<div id="totalSalary${employee.id}" class="employee__value" title="weekly for everyone">
 			$ ${employee.salary*employee.number}
-		</div>`	
+		</div>`;
 
 	document.getElementById("employeesDIV").appendChild(employeeElement);
-	document.getElementById("addEmployee" + employee.id).addEventListener("click", function () {
-		addEmployee(employee);
-	});
-	document.getElementById("removeEmployee" + employee.id).addEventListener("click", function () {
-		removeEmployee(employee);
-	});
+	const addEmployeeButton = document.getElementById("addEmployee" + employee.id);
+	const removeEmployeeButton = document.getElementById("removeEmployee" + employee.id);
+
+	addEmployeeButton.addEventListener("click", () => {employee.hire()});
+	removeEmployeeButton.addEventListener("click", () => {employee.fire()});
 
 }
 
 function addEmployee(employee) {
-	if (dollars >= employee.employmentCost) {
-		if (employee.maxNumber > employee.number) {
-			employee.number++;
-			calculateExpenses(employee.employmentCost, "recruitment");
-			showEmployeesNumber(employee.id);
-			showEmployeesSalary(employee.id);
-			if (employee.id == 0) {
-				availableWorkers++;
-				showAvailableWorkers();
-			}
-			clickTrue(document.getElementById("employee" + employee.id));
-		} else clickFalse(document.getElementById("employee" + employee.id));
-	} else {
-		clickFalse(document.getElementById("dollars"));
-		clickFalse(document.getElementById("employee" + employee.id));
-	}
-
+	employee.number++;
+	calculateExpenses(employee.employmentCost, "recruitment");
+	showEmployeesNumber(employee.id);
+	showEmployeesSalary(employee.id);
+	clickTrue(document.getElementById("employee" + employee.id));
 }
 
 function removeEmployee(employee) {
-	if ((employee.id == 0) && (availableWorkers <= 0)) {
-		clickFalse(document.getElementById("employee" + employee.id));
-		clickFalse(document.getElementById("workers"));
-		return;
-	}
-
-
-	if (0 < employee.number) {
 		employee.number--;
 		showEmployeesNumber(employee.id);
 		showEmployeesSalary(employee.id);
-		if (employee.id == 0) {
-			availableWorkers--;
-			showAvailableWorkers();
-		}
-
 		clickTrue(document.getElementById("employee" + employee.id));
-	} else {
-		clickFalse(document.getElementById("employee" + employee.id));
-	}
-
 }
 
-for (let i = 0; i < employees.length; i++) createElementEmployee(employees[i]);
+function calculateAvailableWorkers(){
+	let busyWorkers = 0;
+	for (let aircraft of aircrafts){
+		busyWorkers += aircraft.workers;
+	}
+	const availableWorkers = employees[0].number-busyWorkers;
+	return availableWorkers;
+}
+
+function showAvailableWorkers(){
+	document.getElementById("workers").innerHTML = calculateAvailableWorkers();
+}

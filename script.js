@@ -79,7 +79,6 @@ function newMonth() {
 	}
 	showLastMonthBudget();
 	showAgoMonthBudget();
-	payInstallment();
 	payTax();
 }
 
@@ -125,19 +124,6 @@ function payment() {
 	calculateExpenses(totalSalary(), "salary");
 }
 
-function payInstallment() {
-	for (let x = 0; x < loans.length; x++) {
-		if (loans[x].numberOfInstallments > 0) {
-			loans[x].numberOfInstallments--;
-			calculateExpenses(loans[x].installment, "interest");
-			document.querySelector("#loan" + x + " > button + div").textContent = loans[x].numberOfInstallments;
-			if (loans[x].numberOfInstallments <= 0) {
-				document.getElementById("takeLoanBtn" + x).textContent = "take";
-				document.getElementById("takeLoanBtn" + x).disabled = false;
-			}
-		}
-	}
-}
 
 function progresWork(z, y) {
 	if ((y / 100) <= availableParts) {
@@ -192,21 +178,9 @@ function sell(z) {
 	} else clickFalse(document.getElementById("quantity" + z));
 }
 
-function takeLoan(x) {
-	calculateIncome(loans[x].amount, "other");
-	loans[x].numberOfInstallments = loans[x].period * 12;
-	document.querySelector("#loan" + x + " > button + div").textContent = loans[x].numberOfInstallments;
-	document.getElementById("takeLoanBtn" + x).textContent = "-";
-	document.getElementById("takeLoanBtn" + x).disabled = true;
-	clickTrue(document.getElementById("loan" + x));
-	clickTrue(document.getElementById("dollars"));
-}
-
-
 
 function addWorker(z) {
-	if (availableWorkers > 0) {
-		availableWorkers--;
+	if (calculateAvailableWorkers()) {
 		aircrafts[z].workers++;
 		showAvailableWorkers();
 		showWorkers(z);
@@ -219,7 +193,6 @@ function addWorker(z) {
 
 function removeWorker(z) {
 	if (aircrafts[z].workers > 0) {
-		availableWorkers++;
 		aircrafts[z].workers--;
 		showAvailableWorkers();
 		showWorkers(z);
@@ -268,8 +241,11 @@ function removeDOM_ELEMENT(element, ms) {
 		element.classList.add("vanish");
 	}, ms - 5000);
 	setTimeout(function () {
-		element.remove();
+		element.classList.add("softRemove");
 	}, ms);
+	setTimeout(function () {
+		element.remove();
+	}, ms+3000);
 
 }
 
@@ -313,10 +289,6 @@ function showAvailableParts() {
 	});
 }
 
-function showAvailableWorkers() {
-	document.getElementById("workers").innerHTML = availableWorkers;
-}
-
 // 		1.2.2 Date ......................................................................................
 
 function showDate() {
@@ -342,18 +314,6 @@ function showWorkers(z) {
 
 function showPrice(z) {
 	document.getElementById("price" + z).innerHTML = "$ " + aircrafts[z].price.toLocaleString();
-}
-
-// 		1.2.4 Funds ......................................................................................
-
-function showLoans() {
-	for (let i = 0; i < loans.length; i++) {
-		let cell = document.querySelectorAll("#loan" + i + " > *");
-		cell[1].textContent = "$ " + loans[i].amount;
-		cell[2].textContent = loans[i].interest + "%";
-		cell[3].textContent = loans[i].period + "y";
-		cell[5].textContent = loans[i].numberOfInstallments;
-	}
 }
 
 // 		1.2.5 Employees ......................................................................................
@@ -423,11 +383,6 @@ document.getElementById("financesAwardsBtn").addEventListener("click", function 
 	financesMenu("financesAwards");
 });
 
-for (let i = 0; i < loans.length; i++) {
-	document.getElementById("takeLoanBtn" + i).addEventListener("click", function () {
-		takeLoan(i);
-	})
-}
 
 //	3. Start the game ......................................................................................
 
@@ -437,8 +392,8 @@ document.addEventListener("DOMContentLoaded", function() {
 	setInterval(constructionProgress, 10);
 	setInterval(newDay, dayTick);
 	showDollars();
-	showAvailableWorkers();
 	showAvailableParts();
+	showAvailableWorkers();
 	showDate();
 	showThisMonthBudget();
 	showLastMonthBudget();
@@ -446,6 +401,4 @@ document.addEventListener("DOMContentLoaded", function() {
 	showThisYearBudget();
 	showLastYearBudget();
 	showAgoYearBudget();
-	showLoans();
-
 });

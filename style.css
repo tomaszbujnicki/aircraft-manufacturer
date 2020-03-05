@@ -60,10 +60,7 @@ div{
 	color: green;
 	transition: 5s;
 }
-.vanish{
-	opacity: 0;
-	transition: ease-out 5s;
-}
+
 
 .disabled{
 	opacity: 0.3;
@@ -290,6 +287,8 @@ h3{
 	box-sizing: border-box;
 	border: none;
 	background-color: transparent;
+	margin:0 auto;
+    display:block;
 }
 
 .totalSalary{
@@ -353,17 +352,22 @@ h2{
 }
 
 .loan {
-	padding-right: 40px;
+	padding-left: 20px;
 	height: 40px;
 	display: grid;
-	grid-template-columns: 1fr 1fr 0.5fr 0.3fr 0.8fr 0.5fr;
+	grid-template-columns: 150px 110px 80px 80px 80px;
 	align-items: center;	
 }
-.loan > div{
-	text-align: right;
-	cursor: help;
-}
-.loan > button{
+.loanTakeButton{
 	width: 50px;
 	margin: 0 auto;
+}
+
+.vanish{
+	opacity: 0;
+	transition: ease-out 5s;
+}
+.softRemove{
+	height: 0;
+	transition: 3s;
 }

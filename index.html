@@ -234,38 +234,14 @@
 					<div class="bank unactive" id="financesBank">
 						<h3>Bank</h3>
 
-
-						<div class="loan" id="loan0">
-							<div title="Loan name">Start-up loan</div>
-							<div title="loan amount">$150 000</div>
-							<div title="loan interest rate">6%</div>
-							<div title="loan repayment time">2y</div>
-							<button id="takeLoanBtn0" title="take a loan">take</button>
-							<div title="installments to be paid"></div>
-						</div>
-						<div class="loan" id="loan1">
-							<div title="Loan name">Investment loan</div>
-							<div title="loan amount">$150 000</div>
-							<div title="loan interest rate">600%</div>
-							<div title="loan repayment time">2y</div>
-							<button id="takeLoanBtn1" title="take a loan">take</button>
-							<div title="installments to be paid"></div>
-						</div>
-						<div class="loan" id="loan2">
-							<div title="Loan name">Asset loan</div>
-							<div title="loan amount">$150 000</div>
-							<div title="loan interest rate">600%</div>
-							<div title="loan repayment time">2y</div>
-							<button id="takeLoanBtn2" title="take a loan">take</button>
-							<div title="installments to be paid"></div>
-						</div>
-						<div class="loan" id="loan3">
-							<div title="Loan name">Corporate loan</div>
-							<div title="loan amount">$150 000</div>
-							<div title="loan interest rate">600%</div>
-							<div title="loan repayment time">2y</div>
-							<button id="takeLoanBtn3" title="take a loan">take</button>
-							<div title="installments to be paid">10 mo.</div>
+						<div id="loanDIV">
+							<div class="loan">
+								<div class="employee__value" title="Loan name">loan name</div>
+								<div class="employee__value" title="loan amount">amount</div>
+								<div class="employee__value" title="loan interest rate">interest</div>
+								<div class="employee__value" title="loan repayment time">months</div>
+								<div class="employee__value" title="take a loan">take</div>
+							</div>
 						</div>
 					</div>
 					<div class="awards unactive" id="financesAwards">
@@ -324,12 +300,13 @@
 
 	<script src="funds/loan.js"></script>
 
+	<script src="employees/employeesArray.js"></script>
 	<script src="employees/employee.js"></script>
 
 	<script src="parts/coreValues.js"></script>
 	<script src="parts/stock.js"></script>
 
-
+	<script src="createDOMElements.js"></script>
 	<script src="script.js"></script>
 	<script src="budget.js"></script>
 
