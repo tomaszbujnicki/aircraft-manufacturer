@@ -9,14 +9,14 @@ const employees = [
 		employmentCost: 2000,
         description: "Workers build aircrafts",
         hire(){
-            const canIHire = (dollars >= this.employmentCost) && (this.maxNumber > this.number);
+            const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
                 addEmployee(this);
                 showAvailableWorkers(); 
             }   
             else{
                 clickFalse(document.getElementById("employee" + this.id));
-		        if (dollars < this.employmentCost) clickFalse(document.getElementById("dollars"));
+		        if (cash < this.employmentCost) clickFalse(document.getElementById("cash"));
             }  
         },
         fire(){
@@ -42,13 +42,13 @@ const employees = [
 		employmentCost: 8000,
         description: "Engineers develop new aircrafts",
         hire(){
-            const canIHire = (dollars >= this.employmentCost) && (this.maxNumber > this.number);
+            const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
                 addEmployee(this); 
             }   
             else{
                 clickFalse(document.getElementById("employee" + this.id));
-		        if (dollars < this.employmentCost) clickFalse(document.getElementById("dollars"));
+		        if (cash < this.employmentCost) clickFalse(document.getElementById("cash"));
             }  
         },
         fire(){
@@ -71,14 +71,14 @@ const employees = [
 		employmentCost: 4000,
         description: "HR care about all employees",
         hire(){
-            const canIHire = dollars >= this.employmentCost;
+            const canIHire = cash >= this.employmentCost;
 	        if (canIHire) {
                 addEmployee(this);
                 this.showMaxNumber();
             }   
             else{
                 clickFalse(document.getElementById("employee" + this.id));
-		        if (dollars < this.employmentCost) clickFalse(document.getElementById("dollars"));
+		        if (cash < this.employmentCost) clickFalse(document.getElementById("cash"));
             }  
         },
         fire(){

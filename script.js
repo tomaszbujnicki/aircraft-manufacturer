@@ -59,6 +59,7 @@ function constructionProgress() {
 // 		1.1.2 Periodic ......................................................................................
 
 function newMonth() {
+	payTax();
 	for (let x in budget.lastMonthExpenses) {
 		budget.agoMonthExpenses[x] = budget.lastMonthExpenses[x];
 	}
@@ -79,7 +80,7 @@ function newMonth() {
 	}
 	showLastMonthBudget();
 	showAgoMonthBudget();
-	payTax();
+	
 }
 
 function newYear() {
@@ -106,17 +107,16 @@ function newYear() {
 }
 
 function payTax() {
-	let sum = 0;
-	for (let x in budget.lastMonthIncome) {
-		sum += budget.lastMonthIncome[x];
-	}
-	let sum2 = 0;
-	for (let x in budget.lastMonthExpenses) {
-		sum2 += budget.lastMonthExpenses[x];
-	}
-	let result = sum - sum2;
+	const income = budget.thisMonthIncome;
+	const expenses = budget.thisMonthExpenses;
+	const taxRate = 0.2;
+
+	let incomeSum = income.sale + income.prizes;
+	let expensesSum = expenses.interest + expenses.parts + expenses.recruitment + expenses.salary;
+	
+	let result = incomeSum - expensesSum;
 	if (result > 0) {
-		calculateExpenses(Math.floor(result * 0.2), "tax");
+		calculateExpenses(Math.floor(result * taxRate), "tax");
 	}
 }
 
@@ -143,18 +143,18 @@ function progresWork(z, y) {
 
 // 		1.1.3 Calculate ......................................................................................
 
-function calculateIncome(cash, item) {
-	dollars += cash;
-	showDollars();
-	budget.thisMonthIncome[item] += cash;
-	yearBudget.thisYearIncome[item] += cash;
+function calculateIncome(amount, item) {
+	cash += amount;
+	showCash();
+	budget.thisMonthIncome[item] += amount;
+	yearBudget.thisYearIncome[item] += amount;
 }
 
-function calculateExpenses(cash, item) {
-	dollars -= cash;
-	showDollars();
-	budget.thisMonthExpenses[item] += cash;
-	yearBudget.thisYearExpenses[item] += cash;
+function calculateExpenses(amount, item) {
+	cash -= amount;
+	showCash();
+	budget.thisMonthExpenses[item] += amount;
+	yearBudget.thisYearExpenses[item] += amount;
 }
 
 function totalSalary() {
@@ -174,7 +174,7 @@ function sell(z) {
 		showQuantity(z);
 		clickTrue(document.getElementById("quantity" + z));
 		clickTrue(document.getElementById("price" + z));
-		clickTrue(document.getElementById("dollars"));
+		clickTrue(document.getElementById("cash"));
 	} else clickFalse(document.getElementById("quantity" + z));
 }
 
@@ -227,7 +227,10 @@ function creatNewMessage(text, color) {
 	el.classList.add("alertsItem");
 	if (color) el.style="color:" + color; 
 	document.getElementById("alerts").prepend(el);
-	removeDOM_ELEMENT(el, 10000);
+	setTimeout(function () {
+		removeDOM_ELEMENT(el);
+	}, 5000);
+	
 }
 
 // 		1.1.7 removeDOM_ELEMENT ......................................................................................
@@ -236,16 +239,16 @@ function disableElement(element) {
 	element.setAttribute("disabled", true);
 }
 
-function removeDOM_ELEMENT(element, ms) {
+function removeDOM_ELEMENT(element) {
 	setTimeout(function () {
 		element.classList.add("vanish");
-	}, ms - 5000);
+	}, 1000);
 	setTimeout(function () {
 		element.classList.add("softRemove");
-	}, ms);
+	}, 6000);
 	setTimeout(function () {
 		element.remove();
-	}, ms+3000);
+	}, 9000);
 
 }
 
@@ -277,8 +280,8 @@ function financesMenu(x) {
 
 // 		1.2.1 Resources ......................................................................................
 
-function showDollars() {
-	document.getElementById("dollars").innerHTML = "$ " + dollars.toLocaleString(undefined, {
+function showCash() {
+	document.getElementById("cash").innerHTML = "$ " + cash.toLocaleString(undefined, {
 		maximumFractionDigits: 0
 	});
 }
@@ -391,7 +394,7 @@ document.getElementById("financesAwardsBtn").addEventListener("click", function 
 document.addEventListener("DOMContentLoaded", function() {
 	setInterval(constructionProgress, 10);
 	setInterval(newDay, dayTick);
-	showDollars();
+	showCash();
 	showAvailableParts();
 	showAvailableWorkers();
 	showDate();

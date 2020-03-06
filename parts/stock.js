@@ -15,7 +15,7 @@ class Stock {
 
 	buy(){
 		const stock = this;
-		const canIBuy = dollars >= stock.totalPrice;
+		const canIBuy = cash >= stock.totalPrice;
 		if (canIBuy) {
 			calculateExpenses(stock.totalPrice,"parts");
 			stock.delivery();
@@ -24,7 +24,7 @@ class Stock {
 		}
 		else{
 			clickFalse(document.getElementById(`stockItem${stock.id}`));
-			clickFalse(document.getElementById("dollars"));
+			clickFalse(document.getElementById("cash"));
 		}
 	}
 	delivery(){
@@ -109,5 +109,5 @@ function removeElementStock(id){
 	const stockButtonElement = document.getElementById(`buyStockButton${id}`);
 	disableElement(stockButtonElement);
 	clickTrue(stockElement);
-	removeDOM_ELEMENT(stockElement, 6000);
+	removeDOM_ELEMENT(stockElement);
 }

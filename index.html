@@ -18,7 +18,7 @@
 		<div class="resources">
 			<div class="resources__unit">
 				<div class="resources__icon"><img class="resources__img" src="img/weapon.svg" title="Finances" alt="$$$" id="fundsCard"></div>
-				<div class="resValue" id="dollars" title="Cash"></div>
+				<div class="resValue" id="cash" title="Cash"></div>
 			</div>
 			<div class="resources__unit">
 				<div class="resources__icon"><img class="resources__img" src="img/wisdom.svg" title="Employees" alt="workers" id="workersCard"></div>
@@ -74,7 +74,7 @@
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell budget__cell--name" title="TAX 0%">Other*</div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
@@ -106,11 +106,11 @@
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Repayment</div>
+							<div class="budget__cell budget__cell--name">Interest</div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell budget__cell--name" title="TAX 0%">Other*</div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
@@ -161,7 +161,7 @@
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell budget__cell--name" title="TAX 0%">Other*</div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
@@ -193,11 +193,11 @@
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Repayment</div>
+							<div class="budget__cell budget__cell--name">Interest</div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Other</div>
+							<div class="budget__cell budget__cell--name" title="TAX 0%">Other*</div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
 							<div class="budget__cell"></div>
@@ -241,6 +241,16 @@
 								<div class="employee__value" title="loan interest rate">interest</div>
 								<div class="employee__value" title="loan repayment time">months</div>
 								<div class="employee__value" title="take a loan">take</div>
+							</div>
+						</div>
+						<div id="loanTakenDIV">
+							<h3>Loans taken</h3>
+							<div class="loan">
+								<div class="employee__value" title="Loan name">loan name</div>
+								<div class="employee__value" title="how much is left to pay">left to pay</div>
+								<div class="employee__value" title="loan interest rate">interest</div>
+								<div class="employee__value" title="how many installments are left">installments</div>
+								<div class="employee__value" title="pay off the loan early">pay off</div>
 							</div>
 						</div>
 					</div>
@@ -299,6 +309,7 @@
 	<script src="aircrafts/aircraft.js"></script>
 
 	<script src="funds/loan.js"></script>
+	<script src="funds/loanTaken.js"></script>
 
 	<script src="employees/employeesArray.js"></script>
 	<script src="employees/employee.js"></script>

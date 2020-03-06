@@ -7,48 +7,79 @@ class Loan {
 		this.amount = amount;
 		this.interest = interest;
 		this.period = period;
-		this.amountToBeRepaid = amount;
-		this.installmentsToEnd = period;
 	}
 
 	take() {
 		const loan = this;
+		const loanElement = document.getElementById(`loanItem${loan.id}`);
+		const buyButton = document.getElementById(`takeLoanBtn${loan.id}`);
+
 		calculateIncome(loan.amount, "other");
-		document.getElementById(`takeLoanBtn${loan.id}`).textContent = "-";
-		document.getElementById(`takeLoanBtn${loan.id}`).disabled = true;
-		clickTrue(document.getElementById(`loanItem${loan.id}`));
-		clickTrue(document.getElementById("dollars"));
-		loan.payInstallment();
+
+		clickTrue(loanElement);
+		disableElement(buyButton);
+		clickTrue(document.getElementById("cash"));
+
+		removeDOM_ELEMENT(loanElement)
+		createLoanTaken(loan.id, loan.name, loan.amount, loan.interest, loan.period);
+
+		delete loans[loan.id];
 	}
-	payInstallment() {
-		const loan = this;
-		const intervalID = setInterval(function () {
-			const capitalPart = Math.round(loan.amount/loan.period )
-			const interestPart = Math.round(loan.amountToBeRepaid*loan.interest/100/12)
-			const installmentValue = capitalPart + interestPart;
-			loan.installmentsToEnd--;
-			loan.amountToBeRepaid -= capitalPart;
-			calculateExpenses(installmentValue, "interest");
-			console.log(capitalPart);
-			console.log(interestPart);
-			if (loan.installmentsToEnd <= 0) clearInterval(intervalID);
-		}, dayTick);
-	}
+
+	
 }
+
+const loan_coreValues = [
+	{
+		name: "Start-up loan",
+		amount: 100000,
+		interest: 6,
+		period: 3
+	},
+	{
+		name: "Investment loan",
+		amount: 250000,
+		interest: 12,
+		period: 24
+	},
+	{
+		name: "Asset loan",
+		amount: 500000,
+		interest: 18,
+		period: 36
+	},
+	{
+		name: "Corporate loan",
+		amount: 1000000,
+		interest: 24,
+		period: 48
+	},
+]
+
 
 const loans = [];
 
-loans[0] = new Loan(0,"Start-up loan",100000,6,12);
-loans[1] = new Loan(1,"Investment loan",250000,12,24);
-loans[2] = new Loan(2,"Asset loan",500000,18,36);
-loans[3] = new Loan(3,"Corporate loan",1000000,24,48);
+function createLoan(n){
+	const core = loan_coreValues[n];
+	if (!core) return ;
+    const loan = new Loan(loans.length,core.name,core.amount,core.interest,core.period)
+    loans.push(loan);
+	createElementLoan(loan);
+	// dodać zwiększanie kosztów
+}
+createLoan(0);
+createLoan(1);
+createLoan(2);
+createLoan(4);
+createLoan(2);
+createLoan(-1);
 
 function createElementLoan(loan){
 
 	if (!loan) return ;
 
 	const loanElement = document.createElement("div");
-	loanElement.setAttribute("id", "loanItem" + loan.id);
+	loanElement.setAttribute("id", `loanItem${loan.id}`);
 	loanElement.classList.add("loan");			
 	loanElement.innerHTML = `
 		<div class="employee__value" title="Loan name">${loan.name}</div>
