@@ -4,6 +4,11 @@ let availableParts = 110;
 let productionForce = 1000;
 let date = new Date(1955, 11, 18);
 
+const monthlyFinances = [
+	
+]
+
+
 const budget = {
 	thisMonthExpenses: {
 		salary: 0,

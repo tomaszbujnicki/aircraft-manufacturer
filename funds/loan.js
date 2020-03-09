@@ -1,12 +1,13 @@
 
 class Loan {
 
-	constructor(id, name, amount, interest, period) {
+	constructor(id, name, amount, interest, period, coreId) {
 		this.id = id;
 		this.name = name;
 		this.amount = amount;
 		this.interest = interest;
 		this.period = period;
+		this.coreId = coreId;
 	}
 
 	take() {
@@ -21,7 +22,7 @@ class Loan {
 		clickTrue(document.getElementById("cash"));
 
 		removeDOM_ELEMENT(loanElement)
-		createLoanTaken(loan.id, loan.name, loan.amount, loan.interest, loan.period);
+		createLoanTaken(loan.id, loan.name, loan.amount, loan.interest, loan.period, loan.coreId);
 
 		delete loans[loan.id];
 	}
@@ -31,27 +32,31 @@ class Loan {
 
 const loan_coreValues = [
 	{
+		coreId: 0,
 		name: "Start-up loan",
 		amount: 100000,
 		interest: 6,
-		period: 3
+		period: 12
 	},
 	{
+		coreId: 1,
 		name: "Investment loan",
 		amount: 250000,
-		interest: 12,
+		interest: 10,
 		period: 24
 	},
 	{
+		coreId: 2,
 		name: "Asset loan",
 		amount: 500000,
-		interest: 18,
+		interest: 14,
 		period: 36
 	},
 	{
+		coreId: 3,
 		name: "Corporate loan",
 		amount: 1000000,
-		interest: 24,
+		interest: 16,
 		period: 48
 	},
 ]
@@ -59,20 +64,19 @@ const loan_coreValues = [
 
 const loans = [];
 
-function createLoan(n){
-	const core = loan_coreValues[n];
+function createLoan(coreId){
+	const core = loan_coreValues[coreId];
 	if (!core) return ;
-    const loan = new Loan(loans.length,core.name,core.amount,core.interest,core.period)
+    const loan = new Loan(loans.length,core.name,core.amount,core.interest,core.period,core.coreId)
     loans.push(loan);
 	createElementLoan(loan);
-	// dodać zwiększanie kosztów
+	updateCore(core);
 }
-createLoan(0);
-createLoan(1);
-createLoan(2);
-createLoan(4);
-createLoan(2);
-createLoan(-1);
+
+function updateCore(core){
+	core.amount += 100000*(core.coreId+1);
+	core.interest += 2;
+}
 
 function createElementLoan(loan){
 
@@ -83,7 +87,7 @@ function createElementLoan(loan){
 	loanElement.classList.add("loan");			
 	loanElement.innerHTML = `
 		<div class="employee__value" title="Loan name">${loan.name}</div>
-		<div class="employee__value" title="loan amount">$ ${loan.amount}</div>
+		<div class="employee__value" title="loan amount">$ ${loan.amount.toLocaleString()}</div>
 		<div class="employee__value" title="loan interest rate">${loan.interest}%</div>
 		<div class="employee__value" title="loan repayment time">${loan.period}</div>
 		<button id="takeLoanBtn${loan.id}" class="loanTakeButton" title="take a loan">take</button>
