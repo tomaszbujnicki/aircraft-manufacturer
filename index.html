@@ -65,82 +65,88 @@
 							<div class="budget__cell">2 months ago</div>
 						</div>
 						<h3>Income</h3>
-						<div class="budget__section" id="income">
-							<div class="budget__cell budget__cell--name">Sale</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Prizes</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name" title="TAX 0%">Other*</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-
+						<div class="budget__section" id="monthIncome">
+							<div class="budgetColumn">
+								<div class="budget__cell budget__cell--name">Sale</div>
+								<div class="budget__cell budget__cell--name">Prizes</div>
+								<div class="budget__cell budget__cell--name">Loans</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthSale0" class="budget__cell">0</div>
+								<div id="monthPrizes0" class="budget__cell">0</div>
+								<div id="monthLoans0"class="budget__cell">0</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthSale1" class="budget__cell">0</div>
+								<div id="monthPrizes1" class="budget__cell">0</div>
+								<div id="monthLoans1"class="budget__cell">0</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthSale2" class="budget__cell">0</div>
+								<div id="monthPrizes2" class="budget__cell">0</div>
+								<div id="monthLoans2"class="budget__cell">0</div>
+							</div>
+							
 						</div>
-						<div>---------------------------------------------------------------------------------------------------------</div>
-						<div class="budget__section">
-
-							<div class="budget__cell budget__cell--name">Summary</div>
-							<div class="budget__cell budget__cell--summary" id="incomeSummaryThisMonth"></div>
-							<div class="budget__cell budget__cell--summary" id="incomeSummaryLastMonth"></div>
-							<div class="budget__cell budget__cell--summary" id="incomeSummaryAgoMonth"></div>
-						</div>
+						
 						<h3>Expenses</h3>
-						<div class="budget__section" id="expenses">
-							<div class="budget__cell budget__cell--name">Salaries</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Parts</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Recruitment</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Tax</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name">Interest</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell budget__cell--name" title="TAX 0%">Other*</div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
-							<div class="budget__cell"></div>
+						<div class="budget__section" id="monthExpenses">
+							<div class="budgetColumn">
+								<div class="budget__cell budget__cell--name">Salaries</div>
+								<div class="budget__cell budget__cell--name">Recruitment</div>
+								<div class="budget__cell budget__cell--name">Parts</div>
+								<div class="budget__cell budget__cell--name">Interest</div>
+								<div class="budget__cell budget__cell--name">Tax</div>
+								<div class="budget__cell budget__cell--name">Capital</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthSalaries0" class="budget__cell">0</div>
+								<div id="monthRecruitment0" class="budget__cell">0</div>
+								<div id="monthParts0"class="budget__cell">0</div>
+								<div id="monthInterest0"class="budget__cell">0</div>
+								<div id="monthTax0"class="budget__cell">0</div>
+								<div id="monthCapital0"class="budget__cell">0</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthSalaries1" class="budget__cell">0</div>
+								<div id="monthRecruitment1" class="budget__cell">0</div>
+								<div id="monthParts1"class="budget__cell">0</div>
+								<div id="monthInterest1"class="budget__cell">0</div>
+								<div id="monthTax1"class="budget__cell">0</div>
+								<div id="monthCapital1"class="budget__cell">0</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthSalaries2" class="budget__cell">0</div>
+								<div id="monthRecruitment2" class="budget__cell">0</div>
+								<div id="monthParts2"class="budget__cell">0</div>
+								<div id="monthInterest2"class="budget__cell">0</div>
+								<div id="monthTax2"class="budget__cell">0</div>
+								<div id="monthCapital2"class="budget__cell">0</div>
+							</div>
 						</div>
-						<div>---------------------------------------------------------------------------------------------------------</div>
-						<div class="budget__section">
-
-							<div class="budget__cell budget__cell--name">Summary</div>
-							<div class="budget__cell budget__cell--summary" id="expensesSummaryThisMonth"></div>
-							<div class="budget__cell budget__cell--summary" id="expensesSummaryLastMonth"></div>
-							<div class="budget__cell budget__cell--summary" id="expensesSummaryAgoMonth"></div>
-						</div>
+						
 						<h3>Profit</h3>
-						<div class="budget__section">
-							<div class="budget__cell budget__cell--name">Income</div>
-							<div class="budget__cell" id="profitIncomeThisMonth"></div>
-							<div class="budget__cell" id="profitIncomeLastMonth"></div>
-							<div class="budget__cell" id="profitIncomeAgoMonth"></div>
-							<div class="budget__cell budget__cell--name">Expanses</div>
-							<div class="budget__cell" id="expensesIncomeThisMonth"></div>
-							<div class="budget__cell" id="expensesIncomeLastMonth"></div>
-							<div class="budget__cell" id="expensesIncomeAgoMonth"></div>
-						</div>
-						<div>---------------------------------------------------------------------------------------------------------</div>
-						<div class="budget__section">
-
-							<div class="budget__cell budget__cell--name">Profit</div>
-							<div class="budget__cell budget__cell--summary" id="profitSummaryThisMonth"></div>
-							<div class="budget__cell budget__cell--summary" id="profitSummaryLastMonth"></div>
-							<div class="budget__cell budget__cell--summary" id="profitSummaryAgoMonth"></div>
+						<div class="budget__section" id="monthProfit">
+							<div class="budgetColumn">
+								<div class="budget__cell budget__cell--name">Income</div>
+								<div class="budget__cell budget__cell--name">Expanses</div>
+								<div class="budget__cell budget__cell--name">Profit</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthIncome0" class="budget__cell">0</div>
+								<div id="monthExpenses0" class="budget__cell">0</div>
+								<div id="monthProfit0"class="budget__cell">0</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthIncome1" class="budget__cell">0</div>
+								<div id="monthExpenses1" class="budget__cell">0</div>
+								<div id="monthProfit1"class="budget__cell">0</div>
+							</div>
+							<div class="budgetColumn">
+								<div id="monthIncome2" class="budget__cell">0</div>
+								<div id="monthExpenses2" class="budget__cell">0</div>
+								<div id="monthProfit2"class="budget__cell">0</div>
+							</div>
 						</div>
 
 					</div>
@@ -308,6 +314,7 @@
 
 	<script src="aircrafts/aircraft.js"></script>
 
+	<script src="budget.js"></script>
 	<script src="funds/loan.js"></script>
 	<script src="funds/loanTaken.js"></script>
 
@@ -319,7 +326,7 @@
 
 	<script src="createDOMElements.js"></script>
 	<script src="script.js"></script>
-	<script src="budget.js"></script>
+	
 
 </body>
 

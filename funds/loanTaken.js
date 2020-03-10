@@ -26,9 +26,9 @@ class LoanTaken {
         loan.installmentsToEnd--;
         loan.amountToBeRepaid -= loan.capitalPart;
         calculateExpenses(interestPart, "interest");
-        calculateExpenses(loan.capitalPart, "other");
+        calculateExpenses(loan.capitalPart, "capital");
         if (loan.installmentsToEnd <= 0) {
-            calculateExpenses(loan.amountToBeRepaid, "other");
+            calculateExpenses(loan.amountToBeRepaid, "capital");
             loan.amountToBeRepaid = 0;
             loan.end();
         }
@@ -60,7 +60,7 @@ class LoanTaken {
 		const canIPayOff = cash >= amount;
 		if (canIPayOff) {
             clickTrue(document.getElementById(`loanTakenItem${loan.id}`));
-			calculateExpenses(amount,"other");
+			calculateExpenses(amount,"capital");
 			const commission = Math.round(amount*loan.interest/100/12);
 			calculateExpenses(commission,"interest");
 			loan.amountToBeRepaid = 0;

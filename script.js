@@ -41,9 +41,7 @@ function newDay() {
 	if ((date.getDate() == 1) && (date.getMonth() == 0)) newYear();
 	if (date.getDate() == 1) newMonth();
 	if (date.getDay() == 0) payment();
-
-	showThisMonthBudget();
-	showThisYearBudget();
+	showActualBudget();
 	if (availableParts < 100) clickFalse(document.getElementById("parts"));
 }
 
@@ -60,59 +58,19 @@ function constructionProgress() {
 
 function newMonth() {
 	payTax();
-	for (let x in budget.lastMonthExpenses) {
-		budget.agoMonthExpenses[x] = budget.lastMonthExpenses[x];
-	}
-	for (let x in budget.lastMonthIncome) {
-		budget.agoMonthIncome[x] = budget.lastMonthIncome[x];
-	}
-	for (let x in budget.thisMonthExpenses) {
-		budget.lastMonthExpenses[x] = budget.thisMonthExpenses[x];
-	}
-	for (let x in budget.thisMonthIncome) {
-		budget.lastMonthIncome[x] = budget.thisMonthIncome[x];
-	}
-	for (let x in budget.thisMonthIncome) {
-		budget.thisMonthIncome[x] = 0;
-	}
-	for (let x in budget.thisMonthExpenses) {
-		budget.thisMonthExpenses[x] = 0;
-	}
-	showLastMonthBudget();
-	showAgoMonthBudget();
-	
+	saveMonth();
+	//showBudget();
 }
 
 function newYear() {
-	for (let x in yearBudget.lastYearExpenses) {
-		yearBudget.agoYearExpenses[x] = yearBudget.lastYearExpenses[x];
-	}
-	for (let x in yearBudget.lastYearIncome) {
-		yearBudget.agoYearIncome[x] = yearBudget.lastYearIncome[x];
-	}
-	for (let x in yearBudget.thisYearExpenses) {
-		yearBudget.lastYearExpenses[x] = yearBudget.thisYearExpenses[x];
-	}
-	for (let x in yearBudget.thisYearIncome) {
-		yearBudget.lastYearIncome[x] = yearBudget.thisYearIncome[x];
-	}
-	for (let x in yearBudget.thisYearIncome) {
-		yearBudget.thisYearIncome[x] = 0;
-	}
-	for (let x in yearBudget.thisYearExpenses) {
-		yearBudget.thisYearExpenses[x] = 0;
-	}
-	showLastYearBudget();
-	showAgoYearBudget();
+	saveYear();
+	showYearBudget();
 }
 
 function payTax() {
-	const income = budget.thisMonthIncome;
-	const expenses = budget.thisMonthExpenses;
 	const taxRate = 0.2;
-
-	let incomeSum = income.sale + income.prizes;
-	let expensesSum = expenses.interest + expenses.parts + expenses.recruitment + expenses.salary;
+	const incomeSum = thisMonth.sale + thisMonth.prizes;
+	const expensesSum = thisMonth.interest + thisMonth.parts + thisMonth.recruitment + thisMonth.salaries;
 	
 	let result = incomeSum - expensesSum;
 	if (result > 0) {
@@ -121,7 +79,7 @@ function payTax() {
 }
 
 function payment() {
-	calculateExpenses(totalSalary(), "salary");
+	calculateExpenses(totalSalary(), "salaries");
 }
 
 
@@ -143,18 +101,16 @@ function progresWork(z, y) {
 
 // 		1.1.3 Calculate ......................................................................................
 
-function calculateIncome(amount, item) {
+function calculateIncome(amount, property) {
 	cash += amount;
 	showCash();
-	budget.thisMonthIncome[item] += amount;
-	yearBudget.thisYearIncome[item] += amount;
+	thisMonth[property] += amount;
 }
 
-function calculateExpenses(amount, item) {
+function calculateExpenses(amount, property) {
 	cash -= amount;
 	showCash();
-	budget.thisMonthExpenses[item] += amount;
-	yearBudget.thisYearExpenses[item] += amount;
+	thisMonth[property] += amount;
 }
 
 function totalSalary() {
@@ -398,10 +354,4 @@ document.addEventListener("DOMContentLoaded", function() {
 	showAvailableParts();
 	showAvailableWorkers();
 	showDate();
-	showThisMonthBudget();
-	showLastMonthBudget();
-	showAgoMonthBudget();
-	showThisYearBudget();
-	showLastYearBudget();
-	showAgoYearBudget();
 });

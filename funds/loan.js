@@ -15,7 +15,7 @@ class Loan {
 		const loanElement = document.getElementById(`loanItem${loan.id}`);
 		const buyButton = document.getElementById(`takeLoanBtn${loan.id}`);
 
-		calculateIncome(loan.amount, "other");
+		calculateIncome(loan.amount, "loans");
 
 		clickTrue(loanElement);
 		disableElement(buyButton);
