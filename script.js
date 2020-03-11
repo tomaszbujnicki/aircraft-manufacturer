@@ -38,8 +38,8 @@
 function newDay() {
 	date.setTime(date.getTime() + 86400000);
 	showDate();
-	if ((date.getDate() == 1) && (date.getMonth() == 0)) newYear();
 	if (date.getDate() == 1) newMonth();
+	
 	if (date.getDay() == 0) payment();
 	showActualBudget();
 	if (availableParts < 100) clickFalse(document.getElementById("parts"));
@@ -59,12 +59,13 @@ function constructionProgress() {
 function newMonth() {
 	payTax();
 	saveMonth();
-	//showBudget();
+	showMonthlyFinancialReport();
+	if (date.getMonth() == 0) newYear();
 }
 
 function newYear() {
 	saveYear();
-	showYearBudget();
+	showAnnualFinancialReport();
 }
 
 function payTax() {
@@ -105,12 +106,16 @@ function calculateIncome(amount, property) {
 	cash += amount;
 	showCash();
 	thisMonth[property] += amount;
+	thisYear[property] += amount;
+	showActualBudget();
 }
 
 function calculateExpenses(amount, property) {
 	cash -= amount;
 	showCash();
 	thisMonth[property] += amount;
+	thisYear[property] += amount;
+	showActualBudget();
 }
 
 function totalSalary() {
