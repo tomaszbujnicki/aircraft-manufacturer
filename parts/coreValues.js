@@ -142,7 +142,5 @@ const stock_coreValues = [
 		risk: 9,
 		amount: 150,
 		price: 213
-	},
-	
-
+	}
 ]
