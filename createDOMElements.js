@@ -7,6 +7,6 @@ for (let i = 0; i < loan_coreValues.length; i++){
 
 for (let i = 0; i < employees.length; i++) createElementEmployee(employees[i]);
 
-for (let i = 0; i < 5; i++){
+for (let i = 0; i < 10; i++){
     createNewStock();
 }

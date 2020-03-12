@@ -58,6 +58,11 @@ function createNewStock() {
 	);
 	stockArray.push(newStock);
 	createElementStock(newStock);
+	setTimeout(() => {
+		delete stockArray[newStock.id];
+		removeElementStock(newStock.id);
+	}, dayTick * getRndInteger(7,84));
+	
 }
 
 
@@ -106,6 +111,7 @@ function createElementStock(stock){
 
 function removeElementStock(id){
 	const stockElement = document.getElementById(`stockItem${id}`);
+	if (!stockElement) return ;
 	const stockButtonElement = document.getElementById(`buyStockButton${id}`);
 	disableElement(stockButtonElement);
 	clickTrue(stockElement);

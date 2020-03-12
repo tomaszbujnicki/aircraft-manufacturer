@@ -39,9 +39,10 @@ function newDay() {
 	date.setTime(date.getTime() + 86400000);
 	showDate();
 	if (date.getDate() == 1) newMonth();
-	
 	if (date.getDay() == 0) payment();
+
 	showActualBudget();
+	if (getRndInteger(0,100)<20) createNewStock();
 	if (availableParts < 100) clickFalse(document.getElementById("parts"));
 }
 
