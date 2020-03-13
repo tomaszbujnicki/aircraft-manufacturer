@@ -16,14 +16,14 @@ function createElementEmployee(employee){
 		<div id="employee${employee.id}" class="employee__value" title="number / max">
 			${employee.number} / ${employee.maxNumber}
 		</div>
-		<div class="employee__value employee__value--left" title="Workers build aircrafts">
+		<div class="employee__value employee__value--left" title="${employee.description}">
 			${employee.name}
 		</div>
 		<div id="salary${employee.id}" class="employee__value employee__value--bold" title="weekly per person">
-			${employee.salary}
+		$  ${employee.salary}
 		</div>
 		<div id="totalSalary${employee.id}" class="employee__value" title="weekly for everyone">
-			$ ${employee.salary*employee.number}
+			$ ${(employee.salary*employee.number).toLocaleString()}
 		</div>`;
 
 	document.getElementById("employeesDIV").appendChild(employeeElement);

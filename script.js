@@ -42,7 +42,9 @@ function newDay() {
 	if (date.getDay() == 0) payment();
 
 	showActualBudget();
-	if (getRndInteger(0,100)<20) createNewStock();
+	createNewStockMaybe();
+	
+
 	if (availableParts < 100) clickFalse(document.getElementById("parts"));
 }
 
@@ -288,8 +290,8 @@ function showEmployeesNumber(z) {
 
 function showEmployeesSalary(z) {
 	document.getElementById("salary" + z).textContent = "$ " + employees[z].salary;
-	document.getElementById("totalSalary" + z).textContent = "$ " + employees[z].salary * employees[z].number;
-	document.getElementById("salarySummary__value").textContent = "$ " + totalSalary();
+	document.getElementById("totalSalary" + z).textContent = "$ " + (employees[z].salary * employees[z].number).toLocaleString();
+	document.getElementById("salarySummary__value").textContent = "$ " + totalSalary().toLocaleString();
 }
 
 

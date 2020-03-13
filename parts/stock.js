@@ -42,12 +42,12 @@ class Stock {
 	}
 
 }
-
+let stockID = 0;
 const stockArray = [];
 function createNewStock() {
 	const randomStock = stock_coreValues[getRndInteger(0, stock_coreValues.length - 1)];
 	const newStock = new Stock(
-		stockArray.length,
+		stockID++,
 		randomStock.flag, 
 		randomStock.country, 
 		randomStock.company[getRndInteger(0, randomStock.company.length-1)], 
@@ -116,4 +116,14 @@ function removeElementStock(id){
 	disableElement(stockButtonElement);
 	clickTrue(stockElement);
 	removeDOM_ELEMENT(stockElement);
+}
+
+function createNewStockMaybe(){
+	if (getRndInteger(0,100) < 20){
+		let x = 0;
+		for (let i in stockArray){
+			++x;
+		}
+		if (x < 14) createNewStock();
+	}
 }
