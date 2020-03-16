@@ -18,6 +18,7 @@ class Stock {
 		const canIBuy = cash >= stock.totalPrice;
 		if (canIBuy) {
 			calculateExpenses(stock.totalPrice,"parts");
+			clickTrue(document.getElementById(`stockItem${stock.id}`));
 			stock.delivery();
 			delete stockArray[stock.id];
 			removeElementStock(stock.id)
@@ -60,6 +61,7 @@ function createNewStock() {
 	createElementStock(newStock);
 	setTimeout(() => {
 		delete stockArray[newStock.id];
+		clickFalse(document.getElementById(`stockItem${newStock.id}`));
 		removeElementStock(newStock.id);
 	}, dayTick * getRndInteger(7,84));
 	
@@ -114,7 +116,6 @@ function removeElementStock(id){
 	if (!stockElement) return ;
 	const stockButtonElement = document.getElementById(`buyStockButton${id}`);
 	disableElement(stockButtonElement);
-	clickTrue(stockElement);
 	removeDOM_ELEMENT(stockElement);
 }
 
