@@ -317,7 +317,7 @@ h4{
 }
 
 .budget {
-	padding: 20px 40px 20px 20px;
+	padding: 0 40px 20px 20px;
 }
 
 .budget__cell {
@@ -347,13 +347,19 @@ h4{
 }
 
 .financesMenu{
-	background-image: url(img/wisdom.svg);
-	height: 32px;
-	width: 32px;
+	height: 44px;
+	width: 44px;
 	box-sizing: border-box;
+	background-repeat: no-repeat;
+	background-size: contain;
 	border: none;
 	background-color: transparent;
 }
+#financesMonthsBtn{background-image: url(funds/img/bar-graph.svg);}
+#financesYearsBtn{background-image: url(funds/img/files.svg);}
+#financesBankBtn{background-image: url(funds/img/loan.svg);}
+#financesAwardsBtn{background-image: url(funds/img/trophy.svg);}
+
 .financesContainer {
 	display: flex;
 	align-content: center;
