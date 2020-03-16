@@ -60,9 +60,11 @@ function createNewStock() {
 	stockArray.push(newStock);
 	createElementStock(newStock);
 	setTimeout(() => {
+		if (stockArray[newStock.id]) {
 		delete stockArray[newStock.id];
 		clickFalse(document.getElementById(`stockItem${newStock.id}`));
 		removeElementStock(newStock.id);
+		}
 	}, dayTick * getRndInteger(7,84));
 	
 }
