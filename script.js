@@ -194,6 +194,9 @@ function creatNewMessage(text, color) {
 	setTimeout(function () {
 		removeDOM_ELEMENT(el);
 	}, 5000);
+	el.addEventListener("click", ()=>{
+		el.style="display:none";
+	})
 	
 }
 

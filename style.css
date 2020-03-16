@@ -59,7 +59,9 @@ div{
 	opacity: 1.0;
 	color: green;
 	transition: 5s;
+	cursor: url(img/quit.png), auto;
 }
+
 
 
 .disabled{
