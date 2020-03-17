@@ -1,5 +1,5 @@
 body{
-	background-color: rgb(80, 131, 183);
+	background-color:gray;
 	overflow-y:scroll;
 	padding: 0;
 	margin: 0;
@@ -10,19 +10,36 @@ div{
 	user-select: none;
 	/* nie pozwól na zaznaczenia */
 }
-
-#container{
-	width: 800px;
+#super-container{
+	width: 1000px;
+	height: 1200px;
+	border: solid 1px black;
 	margin: 0 auto;
+	background-color: rgb(91, 148, 208);
+	display: flex;
+}
+#container{
+	width: 780px;
+	margin-left: 20px;
 	font-family: Arial;
 	position: relative;
+
+}
+#right-bar{
+width: 190px;
+background-color:rgb(81, 138, 198);
+overflow: hidden;
+}
+.right-bar__top{
+	background-color:rgb(71, 128, 188);
+	height: 140px;
 }
 .resources {
 	display: grid;
 	grid-gap: 10px 10px;
 	grid-template-columns: 1fr 0.5fr 1fr;
 	background-color: lightblue;
-	padding-left: 40px;
+	padding-left: 10px;
 	border-radius: 10px;
 	font-family: monospace;
 
@@ -106,7 +123,7 @@ h4{
 
 .aircraft {
 	display: grid;
-	grid-template-columns: 60px 26px 70px 410px 70px 45px 100px;
+	grid-template-columns: 60px 26px 60px 410px 60px 45px 110px;
 	height: 60px;
 	align-items: center;
 }
@@ -122,7 +139,9 @@ h4{
 .worker__img-resources{
 	width: 24px;
 }
-
+.worker__icon{
+	margin: 0 auto;
+}
 .worker__add-remove {
 	width: 18px;
 	margin: auto;
@@ -167,6 +186,9 @@ h4{
 	padding-left: 10px;
 	cursor: pointer;
 }
+.aircraft__name span{
+	padding-left: 20px;
+}
 .bar--color{
 	background-color: #39a;
 	height: 10px;
@@ -181,21 +203,11 @@ h4{
 	padding-right: 10px;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	margin-left: 20px;
 	text-align: right;
 	font-weight: bold;
 	cursor: help;
 }
-.aircraft__quantity
-{
-	font-size: 16px;
-	padding-right: 20px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	text-align: right;
-	font-weight: bold;
-	cursor: help;
-}
+
 .worker__cost {
 	font-size: 14px;
 	font-weight: normal;

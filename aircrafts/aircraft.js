@@ -58,13 +58,13 @@ function createElementAircraft(aircraft){
 			</div>
 		</div>
 	</div>
-	<div id="quantity${aircraft.id}" class="aircraft__quantity" title="number of aircrafts">
+	<div id="quantity${aircraft.id}" class="worker__value" title="number of aircrafts">
 	${aircraft.quantity}
 	</div>
 	<div class = "worker__icon" >
 		<button id = "sell${aircraft.id}" class = "aircraft__btn-sell" title = "sell aircraft" ></button>
 	</div>
-	<div id = "price${aircraft.id}" class = "aircraft__quantity" title = "selling price" > $ ${aircraft.price.toLocaleString()}
+	<div id = "price${aircraft.id}" class = "worker__value" title = "selling price" > $ ${aircraft.price.toLocaleString()}
 	</div>`
 
 	document.getElementById("aircraftDIV").appendChild(aircraftElement);
