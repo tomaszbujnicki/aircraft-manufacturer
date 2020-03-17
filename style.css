@@ -387,3 +387,7 @@ h4{
 	height: 0;
 	transition: 3s;
 }
+
+:focus {
+	outline: rgb(255, 0, 0) solid 2px;
+}
