@@ -15,7 +15,7 @@ div{
 	height: 1200px;
 	border: solid 1px black;
 	margin: 0 auto;
-	background-color: rgb(91, 148, 208);
+	background-color: rgb(97, 142, 189);
 	display: flex;
 }
 #container{
@@ -52,9 +52,19 @@ overflow: hidden;
 	
 }
 
-.resources__img{
+.resources__button{
 	width: 48px;
-	cursor: pointer;
+	height: 48px;
+}
+
+#fundsCard{
+	background-image: url(img/investment.svg);
+}
+#workersCard{
+	background-image: url(img/employees.svg);
+}
+#partsCard{
+	background-image: url(img/parts.svg);
 }
 
 .resValue {
@@ -95,6 +105,10 @@ overflow: hidden;
 }
 button{
 	cursor: pointer;
+	box-sizing: border-box;
+	border: none;
+	background-color: transparent;
+	background-size: contain;
 }
 header{
 	display: flex;
@@ -147,21 +161,15 @@ h4{
 	margin: auto;
 }
 .aircraft__btn-sell{
-	background-image: url(img/remove.png);
-	height: 28px;
-	width: 28px;
-	box-sizing: border-box;
-	border: none;
-	background-color: transparent;
+	background-image: url(img/sell.svg);
+	height: 44px;
+	width: 44px;
 }
 
 .worker__btn-add {
 	background-image: url(img/add.svg);
 	height: 18px;
 	width: 18px;
-	box-sizing: border-box;
-	border: none;
-	background-color: transparent;
 }
 
 .worker__btn-add--remove {
@@ -174,9 +182,6 @@ h4{
 	background-image: url(img/add.svg);
 	height: 32px;
 	width: 32px;
-	box-sizing: border-box;
-	border: none;
-	background-color: transparent;
 }
 
 .aircraft__name {
@@ -238,15 +243,12 @@ h4{
 	position: relative;
 }
 #closeMenu{
-	background-image: url(img/remove.png);
-	height: 40px;
-	width: 40px;
-	box-sizing: border-box;
-	border: none;
-	background-color: transparent;
+	background-image: url(img/cancel.svg);
+	height: 48px;
+	width: 48px;
 	position: absolute;
-	top: 0;
-	right: 80px;
+	top: -5px;
+	right: 65px;
 	z-index: 3;
 }
 
@@ -268,9 +270,7 @@ h4{
 	background-image: url(img/add.svg);
 	height: 18px;
 	width: 18px;
-	box-sizing: border-box;
-	border: none;
-	background-color: transparent;
+
 }
 
 .employee__btn-add--remove {
@@ -283,9 +283,6 @@ h4{
 	background-image: url(img/add.svg);
 	height: 32px;
 	width: 32px;
-	box-sizing: border-box;
-	border: none;
-	background-color: transparent;
 }
 .employee__value {
 	font-size: 15px;
@@ -306,9 +303,6 @@ h4{
 	background-image: url(img/weapon.svg);
 	height: 28px;
 	width: 28px;
-	box-sizing: border-box;
-	border: none;
-	background-color: transparent;
 	margin:0 auto;
     display:block;
 }
@@ -362,10 +356,6 @@ h4{
 	height: 44px;
 	width: 44px;
 	box-sizing: border-box;
-	background-repeat: no-repeat;
-	background-size: contain;
-	border: none;
-	background-color: transparent;
 }
 #financesMonthsBtn{background-image: url(funds/img/bar-graph.svg);}
 #financesYearsBtn{background-image: url(funds/img/files.svg);}
@@ -377,18 +367,28 @@ h4{
 	align-content: center;
 	align-items: center;
 	justify-content: space-around;
+	margin: 0 20px;
+
 }
 
 .loan {
 	padding-left: 20px;
-	height: 40px;
+	height: 48px;
 	display: grid;
 	grid-template-columns: 150px 110px 80px 80px 80px;
 	align-items: center;	
 }
 .loanTakeButton{
-	width: 50px;
+	width: 44px;
+	height: 44px;
 	margin: 0 auto;
+	background-image: url(funds/img/bank.svg);
+}
+.loanPayOffButton{
+	width: 44px;
+	height: 44px;
+	margin: 0 auto;
+	background-image: url(funds/img/money-transfer.svg);
 }
 
 .vanish{

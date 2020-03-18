@@ -86,7 +86,7 @@ function createElementLoanTaken(loan){
 	<div id="loanTakenAmount${loan.id}" class="employee__value" title="how much is left to pay">$ ${loan.amountToBeRepaid.toLocaleString()}</div>
 	<div class="employee__value" title="loan interest rate">${loan.interest}%</div>
 	<div id="loanTakenInstallments${loan.id}" class="employee__value" title="how many installments are left">${loan.installmentsToEnd}</div>
-	<button id="payOffLoanBtn${loan.id}" class="loanTakeButton" title="pay off the loan early">pay off</button>
+	<button id="payOffLoanBtn${loan.id}" class="loanPayOffButton" title="pay off the loan early"></button>
 	`;
 
 	document.getElementById("loanTakenDIV").appendChild(loanElement);
