@@ -3,6 +3,7 @@ body{
 	overflow-y:scroll;
 	padding: 0;
 	margin: 0;
+	color:#2E282A;
 }
 div{
 	-moz-user-select: none;
@@ -15,7 +16,7 @@ div{
 	height: 1200px;
 	border: solid 1px black;
 	margin: 0 auto;
-	background-color: rgb(97, 142, 189);
+	background-color: #618EBD;
 	display: flex;
 }
 #container{
@@ -38,7 +39,7 @@ overflow: hidden;
 	display: grid;
 	grid-gap: 10px 10px;
 	grid-template-columns: 1fr 0.5fr 1fr;
-	background-color: lightblue;
+	background-color: #DECBB7;
 	padding-left: 10px;
 	border-radius: 10px;
 	font-family: monospace;
@@ -69,7 +70,6 @@ overflow: hidden;
 
 .resValue {
 	font-size: 20px;
-	color: black;
 	padding-left: 10px;
 	padding-right: 10px;
 	cursor: pointer;
@@ -187,7 +187,6 @@ h4{
 .aircraft__name {
 	font-size: 16px;
 	font-weight: bold;
-	color: #444;
 	padding-left: 10px;
 	cursor: pointer;
 }
@@ -213,13 +212,6 @@ h4{
 	cursor: help;
 }
 
-.worker__cost {
-	font-size: 14px;
-	font-weight: normal;
-	color: #222;
-	padding-left: 10px;
-	text-align: right;
-}
 .aircraftTitles{
 	text-align: center;
 	font-size: 16px;
@@ -230,14 +222,14 @@ h4{
 .popCard{
 	width: 600px;
 	min-height: 500px;
-	background-color: #F3ECDB;
+	background-color: #DECBB7;
 	position: absolute;
 	top: 20px;
 	left: 0;
 	right: 0;
 	margin: auto;
 	z-index: 2;
-	transition-duration:4s;
+	border-radius: 10px;
 }
 .mainField{
 	position: relative;
