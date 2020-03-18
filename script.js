@@ -228,10 +228,14 @@ function menu(x) {
 }
 
 function closeMenu() {
+	document.getElementById("aircraftDIV").classList.add("unactive");
 	document.getElementById("popFunds").classList.add("unactive");
 	document.getElementById("popEmployees").classList.add("unactive");
 	document.getElementById("popParts").classList.add("unactive");
 	document.getElementById("closeMenu").classList.add("unactive");
+}
+function showAircraftItems(){
+	document.getElementById("aircraftDIV").classList.remove("unactive");
 }
 
 function financesMenu(x) {
@@ -336,6 +340,7 @@ document.getElementById("partsCard").addEventListener("click", function () {
 
 document.getElementById("closeMenu").addEventListener("click", function () {
 	closeMenu();
+	showAircraftItems();
 });
 
 //  		2.2.1 Funds ......................................................................................
