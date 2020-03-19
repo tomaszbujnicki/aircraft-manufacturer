@@ -52,7 +52,7 @@ function constructionProgress() {
 	// if ((date.getDay() == 0) || (date.getDay() == 6)) return; // the workers don't work at the weekend - function disabled
 
 	for (let i = 0; i < aircrafts.length; i++) {
-		progresWork(i, productionForce / dayTick * aircrafts[i].workers);
+		progresWork(i, productionForce() / dayTick * aircrafts[i].workers);
 	}
 
 }
@@ -318,10 +318,6 @@ for (let i = 0; i < aircrafts.length; i++) {
 	document.getElementById("removeWorker" + i).addEventListener("click", function () {
 		removeWorker(i);
 	});
-	/*	CLICK to BUILD AIRCRAFTS (without workers) - function disabled
-	document.getElementById("aircraft" + i).addEventListener("click", function () {
-		progresWork(i, productionForce)
-	});*/
 }
 
 //  		2.1.2 Menu - open pop-up cards ......................................................................................

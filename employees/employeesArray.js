@@ -4,8 +4,8 @@ const employees = [
 		name: "Workers",
 		img: "employees/img/worker.svg",
 		number: 0,
-        maxNumber: 12,
-        multiplier: 12,
+        maxNumber: 16,
+        multiplier: 16,
 		salary: 1800,
 		employmentCost: 4000,
         description: "Workers build aircrafts",
@@ -35,7 +35,7 @@ const employees = [
     },
     {
 		id: 1,
-		name: "Foreman",
+		name: "Foremen",
 		img: "employees/img/foreman.svg",
         number: 0,
         multiplier: 4,
@@ -112,14 +112,14 @@ const employees = [
     },
     {
 		id: 3,
-		name: "Salesman",
+		name: "Traders",
 		img: "employees/img/businessman.svg",
         number: 0,
         multiplier: 3,
 		maxNumber: 3,
 		salary: 3800,
 		employmentCost: 10000,
-        description: "Salesmen keep high the price of aircrafts", 
+        description: "Traders keep high the price of aircrafts", 
         hire(){
             const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
