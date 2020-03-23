@@ -3,7 +3,7 @@ const employees = [
 		id: 0,
 		name: "Workers",
 		img: "employees/img/worker.svg",
-		number: 0,
+		number: 10,
         maxNumber: 16,
         multiplier: 16,
 		salary: 1800,
