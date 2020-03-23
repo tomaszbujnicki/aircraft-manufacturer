@@ -48,8 +48,8 @@ function createElementAircraft(aircraft){
 	<div class = "worker__icon" ><img class = "worker__img" src = ${aircraft.img}>
 	</div>
 	<div class="worker__add-remove">
-		<button id="addWorker${aircraft.id}" class="worker__btn-add" title="assign a worker"></button >
-		<button id = "removeWorker${aircraft.id}" class = "worker__btn-add worker__btn-add--remove" title = "dismiss a worker" > </button>
+		<button id="addWorkerButton${aircraft.id}" class="worker__btn-add" title="assign a worker"></button >
+		<button id = "removeWorkerButto${aircraft.id}" class = "worker__btn-add worker__btn-add--remove" title = "dismiss a worker" > </button>
 	</div>
 	<div id = "workers${aircraft.id}" class = "worker__value" title = "number of workers" >
 	${aircraft.workers}
@@ -65,10 +65,52 @@ function createElementAircraft(aircraft){
 	${aircraft.quantity}
 	</div>
 	<div class = "worker__icon" >
-		<button id = "sell${aircraft.id}" class = "aircraft__btn-sell" title = "sell aircraft" ></button>
+		<button id = "sellAircraftButton${aircraft.id}" class = "aircraft__btn-sell" title = "sell aircraft" ></button>
 	</div>
 	<div id = "price${aircraft.id}" class = "worker__value" title = "selling price" > $ ${aircraft.price.toLocaleString()}
 	</div>`
 
 	document.getElementById("aircraftDIV").appendChild(aircraftElement);
+
+	const sellAircraftButton = document.getElementById(`sellAircraftButton${aircraft.id}`);
+	sellAircraftButton.addEventListener("click", ()=> {sell(aircraft.id)} );
+
+	const addWorkerButton = document.getElementById(`addWorkerButton${aircraft.id}`);
+	addWorkerButton.addEventListener("click", ()=> {addWorker(aircraft.id)} );
+
+	const removeWorkerButton = document.getElementById(`removeWorkerButto${aircraft.id}`);
+	removeWorkerButton.addEventListener("click", ()=> {removeWorker(aircraft.id)} );
+}
+
+function sell(z) {
+	if (aircrafts[z].quantity > 0) {
+		aircrafts[z].quantity -= 1;
+		calculateIncome(aircrafts[z].price, "sale");
+		showQuantity(z);
+		clickTrue(document.getElementById("quantity" + z));
+		clickTrue(document.getElementById("price" + z));
+		clickTrue(document.getElementById("cash"));
+	} else clickFalse(document.getElementById("quantity" + z));
+}
+
+
+function addWorker(z) {
+	if (calculateAvailableWorkers()) {
+		aircrafts[z].workers++;
+		showAvailableWorkers();
+		showWorkers(z);
+		clickTrue(document.getElementById("workers" + z));
+	} else {
+		clickFalse(document.getElementById("workers"));
+		clickFalse(document.getElementById("workers" + z));
+	}
+}
+
+function removeWorker(z) {
+	if (aircrafts[z].workers > 0) {
+		aircrafts[z].workers--;
+		showAvailableWorkers();
+		showWorkers(z);
+		clickTrue(document.getElementById("workers" + z));
+	} else clickFalse(document.getElementById("workers" + z));
 }
