@@ -131,38 +131,6 @@ function totalSalary() {
 
 // 		1.1.4 Action ......................................................................................
 
-function sell(z) {
-	if (aircrafts[z].quantity > 0) {
-		aircrafts[z].quantity -= 1;
-		calculateIncome(aircrafts[z].price, "sale");
-		showQuantity(z);
-		clickTrue(document.getElementById("quantity" + z));
-		clickTrue(document.getElementById("price" + z));
-		clickTrue(document.getElementById("cash"));
-	} else clickFalse(document.getElementById("quantity" + z));
-}
-
-
-function addWorker(z) {
-	if (calculateAvailableWorkers()) {
-		aircrafts[z].workers++;
-		showAvailableWorkers();
-		showWorkers(z);
-		clickTrue(document.getElementById("workers" + z));
-	} else {
-		clickFalse(document.getElementById("workers"));
-		clickFalse(document.getElementById("workers" + z));
-	}
-}
-
-function removeWorker(z) {
-	if (aircrafts[z].workers > 0) {
-		aircrafts[z].workers--;
-		showAvailableWorkers();
-		showWorkers(z);
-		clickTrue(document.getElementById("workers" + z));
-	} else clickFalse(document.getElementById("workers" + z));
-}
 
 
 // 		1.1.5 Visual effects ......................................................................................
@@ -308,17 +276,6 @@ function showEmployeesSalary(z) {
 
 //  		2.1.1 Aircrafts ......................................................................................
 
-for (let i = 0; i < aircrafts.length; i++) {
-	document.getElementById("sell" + i).addEventListener("click", function () {
-		sell(i);
-	});
-	document.getElementById("addWorker" + i).addEventListener("click", function () {
-		addWorker(i);
-	});
-	document.getElementById("removeWorker" + i).addEventListener("click", function () {
-		removeWorker(i);
-	});
-}
 
 //  		2.1.2 Menu - open pop-up cards ......................................................................................
 
