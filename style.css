@@ -39,7 +39,7 @@ overflow: hidden;
 	display: grid;
 	grid-gap: 10px 10px;
 	grid-template-columns: 1fr 0.5fr 1fr;
-	background-color: #DECBB7;
+	background-color: #ECDECE;
 	padding-left: 10px;
 	border-radius: 10px;
 	font-family: monospace;
@@ -222,7 +222,7 @@ h4{
 .popCard{
 	width: 600px;
 	min-height: 500px;
-	background-color: #DECBB7;
+	background-color: #ECDECE;
 	position: absolute;
 	top: 20px;
 	left: 0;
