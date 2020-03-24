@@ -42,6 +42,7 @@ function newDay() {
 	if (date.getDay() == 0) payment();
 
 	raiseAircraftPrice();
+	inventAircraft();
 	showActualBudget();
 	createNewStockMaybe();
 	

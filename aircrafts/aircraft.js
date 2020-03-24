@@ -172,3 +172,19 @@ function raiseAircraftPrice(){
 
 }
 
+function inventAircraft(){
+
+		if (aircraftsToInvent.length == 0) return ;
+
+		let aircraft =  aircraftsToInvent[0];
+		aircraft.inventionPoints -= employees[4].number;
+		if (aircraft.inventionPoints <= 0 ){
+			creatNewMessage(`Our  engineers invented: ${aircraft.name}` , "#ff0000");
+			aircrafts.push(aircraft);
+			aircraftsToInvent.shift(aircraft);
+			createElementAircraft(aircraft);
+		}
+ 
+	
+
+}
