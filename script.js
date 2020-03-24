@@ -208,7 +208,7 @@ function showAircraftItems(){
 	document.getElementById("aircraftDIV").classList.remove("unactive");
 }
 
-function financesMenu(x) {
+function cardMenu__Button(x) {
 	document.getElementById("financesMonths").classList.add("unactive");
 	document.getElementById("financesYears").classList.add("unactive");
 	document.getElementById("financesBank").classList.add("unactive");
@@ -301,16 +301,16 @@ document.getElementById("closeMenu").addEventListener("click", function () {
 //  		2.2.1 Funds ......................................................................................
 
 document.getElementById("financesMonthsBtn").addEventListener("click", function () {
-	financesMenu("financesMonths");
+	cardMenu__Button("financesMonths");
 });
 document.getElementById("financesYearsBtn").addEventListener("click", function () {
-	financesMenu("financesYears");
+	cardMenu__Button("financesYears");
 });
 document.getElementById("financesBankBtn").addEventListener("click", function () {
-	financesMenu("financesBank");
+	cardMenu__Button("financesBank");
 });
 document.getElementById("financesAwardsBtn").addEventListener("click", function () {
-	financesMenu("financesAwards");
+	cardMenu__Button("financesAwards");
 });
 
 

@@ -344,7 +344,7 @@ h4{
 	font-weight: bold;
 }
 
-.financesMenu{
+.cardMenu__Button{
 	height: 44px;
 	width: 44px;
 	box-sizing: border-box;
@@ -354,7 +354,7 @@ h4{
 #financesBankBtn{background-image: url(funds/img/loan.svg);}
 #financesAwardsBtn{background-image: url(funds/img/trophy.svg);}
 
-.financesContainer {
+.cardMenu {
 	display: flex;
 	align-content: center;
 	align-items: center;

@@ -18,15 +18,15 @@
 		</header>
 		<div class="resources">
 			<div class="resources__unit">
-				<div class="resources__icon"><button class="resources__button" title="Finances" alt="$$$" id="fundsCard"></button></div>
+				<div class="resources__icon"><button class="resources__button" title="Reports, Loans and Awards" alt="$$$" id="fundsCard"></button></div>
 				<div class="resValue" id="cash" title="Cash"></div>
 			</div>
 			<div class="resources__unit">
-				<div class="resources__icon"><button class="resources__button" title="Employees" alt="workers" id="workersCard"></button></div>
+				<div class="resources__icon"><button class="resources__button" title="Employees & Inventions" alt="workers" id="workersCard"></button></div>
 				<div class="resValue" id="workers" title="Workers"></div>
 			</div>
 			<div class="resources__unit">
-				<div class="resources__icon"><button class="resources__button" title="Order Parts" alt="parts" id="partsCard"></button></div>
+				<div class="resources__icon"><button class="resources__button" title="Parts orders & Delivery" alt="parts" id="partsCard"></button></div>
 				<div class="resValue" id="parts" title="Parts"></div>
 				
 			</div>
@@ -48,12 +48,12 @@
 			</div>
 					
 			<div id="popFunds" class="popCard unactive" >
-				<div class="financesContainer">
-					<button class="financesMenu" id="financesMonthsBtn" title="Monthly statistics"></button>
-					<button class="financesMenu" id="financesYearsBtn" title="Annual statistics"></button>
+				<div class="cardMenu">
+					<button class="cardMenu__Button" id="financesMonthsBtn" title="Monthly statistics"></button>
+					<button class="cardMenu__Button" id="financesYearsBtn" title="Annual statistics"></button>
 					<h2>Finances</h2>
-					<button class="financesMenu" id="financesBankBtn" title="Bank"></button>
-					<button class="financesMenu" id="financesAwardsBtn" title="Awards"></button>
+					<button class="cardMenu__Button" id="financesBankBtn" title="Loans"></button>
+					<button class="cardMenu__Button" id="financesAwardsBtn" title="Awards"></button>
 				</div>
 				<div>
 					<div class="budget" id="financesMonths">
@@ -245,7 +245,7 @@
 
 					</div>
 					<div class="bank unactive" id="financesBank">
-						<h3>Bank</h3>
+						<h3>Loans</h3>
 
 						<div id="loanDIV">
 							<div class="loan">
@@ -274,7 +274,12 @@
 			</div>
 
 			<div id="popEmployees" class="popCard unactive" >
-				<h2>Employees</h2>
+				<div class="cardMenu">
+					<button class="cardMenu__Button" id="employeesBtn" title="Employees"></button>
+					<h2>Employees</h2>
+					<button class="cardMenu__Button" id="inventionsBtn" title="Inventions"></button>
+				</div>
+				
 				<div  id="employeesDIV">
 					<div class="employee">
 						<div></div>
@@ -290,7 +295,12 @@
 			</div>
 
 			<div id="popParts" class="popCard unactive" >
-				<h2>Parts</h2>
+				<div class="cardMenu">
+					<button class="cardMenu__Button" id="ordersBtn" title="Parts orders"></button>
+					<h2>Parts</h2>
+					<button class="cardMenu__Button" id="deliveryBtn" title="Delivery"></button>
+				</div>
+				
 				<div id="partsDIV">
 					<div class="employee employee--parts">
 						<div class="employee__value" title="country">country</div>
