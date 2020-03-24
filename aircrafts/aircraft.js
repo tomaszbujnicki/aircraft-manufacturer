@@ -86,7 +86,7 @@ function sell(aircraft,id) {
 	if (aircraft.quantity > 0) {
 		aircraft.quantity -= 1;
 		calculateIncome(aircraft.price, "sale");
-		calculateAircraftPrice(aircraft, id);
+		dropAircraftPrice(aircraft, id);
 		showQuantity(id);
 		clickTrue(document.getElementById("quantity" + id));
 		clickTrue(document.getElementById("price" + id));
@@ -116,7 +116,18 @@ function removeWorker(aircraft, id) {
 	} else clickFalse(document.getElementById("workers" + id));
 }
 
-function calculateAircraftPrice(aircraft, id){
+function dropAircraftPrice(aircraft, id){
 	aircraft.price -= aircraft.corePrice * 0.01;
-	document.getElementById(`price${id}`).textContent = aircraft.price.toLocaleString()
+	document.getElementById(`price${id}`).textContent = "$ " + aircraft.price.toLocaleString()
+}
+
+function raiseAircraftPrice(){
+
+	for (let i = 0; i < employees[3].number; i++){
+		let aircraft =  aircrafts[getRndInteger(0, aircrafts.length-1)];
+		aircraft.price += aircraft.corePrice * 0.001;
+		if (aircraft.price > aircraft.corePrice) aircraft.price = aircraft.corePrice;
+		document.getElementById(`price${aircraft.id}`).textContent = "$ " + aircraft.price.toLocaleString()   
+	}
+
 }

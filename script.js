@@ -41,6 +41,7 @@ function newDay() {
 	if (date.getDate() == 1) newMonth();
 	if (date.getDay() == 0) payment();
 
+	raiseAircraftPrice();
 	showActualBudget();
 	createNewStockMaybe();
 	
