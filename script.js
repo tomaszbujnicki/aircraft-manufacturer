@@ -1,39 +1,5 @@
 //document.addEventListener('contextmenu', event => event.preventDefault());
 
-/*
-	1. Functions
-		1.1 Engine
-			1.1.1 Ticker
-			1.1.2 Periodic
-			1.1.3 Calculate
-			1.1.4 Action
-			1.1.5 Visual effects
-			1.1.6 new Message
-			1.1.7 removeDOM_ELEMENT
-			1.1.8 Menu
-		1.2 Show on screen
-			1.2.1 Resources
-			1.2.2 Date
-			1.2.3 Aircrafts
-			1.2.4 Funds
-			1.2.5 Employees
-			1.2.6 Parts
-	2. Event Listeners
-		2.1 Main container
-			2.1.1 Aircrafts
-			2.1.2 Menu (resources) - open pop-up cards
-		2.2 Pop-up cards
-			2.2.1 Funds
-	3. Start the game
-	
-
-
-
-*/
-
-// 	1.1 Engine ......................................................................................
-
-// 		1.1.1 Ticker ......................................................................................
 
 function newDay() {
 	date.setTime(date.getTime() + 86400000);
@@ -53,8 +19,8 @@ function newDay() {
 function constructionProgress() {
 	// if ((date.getDay() == 0) || (date.getDay() == 6)) return; // the workers don't work at the weekend - function disabled
 
-	for (let i = 0; i < aircrafts.length; i++) {
-		progresWork(i, productionForce() / dayTick * aircrafts[i].workers);
+	for (let i = 0; i < aircraftArray.length; i++) {
+		progresWork(i, productionForce() / dayTick * aircraftArray[i].workers);
 	}
 
 }
@@ -91,13 +57,13 @@ function payment() {
 
 function progresWork(z, y) {
 	if ((y / 100) <= availableParts) {
-		aircrafts[z].productionStage += y / aircrafts[z].parts;
+		aircraftArray[z].productionStage += y / aircraftArray[z].parts;
 		availableParts -= y / 100;
 		showAvailableParts();
-		if (aircrafts[z].productionStage >= 100) {
-			availableParts += (aircrafts[z].productionStage - 100) * aircrafts[z].parts / 100;
-			aircrafts[z].productionStage = 0;
-			aircrafts[z].quantity++;
+		if (aircraftArray[z].productionStage >= 100) {
+			availableParts += (aircraftArray[z].productionStage - 100) * aircraftArray[z].parts / 100;
+			aircraftArray[z].productionStage = 0;
+			aircraftArray[z].quantity++;
 			showQuantity(z);
 		}
 		showProductionStage(z);
@@ -253,21 +219,21 @@ function showDate() {
 	document.getElementById("date").textContent = date.getFullYear() + "-" + MM + "-" + DD;
 }
 
-// 		1.2.3 Aircrafts ......................................................................................
+// 		1.2.3 Aircraft ......................................................................................
 function showProductionStage(z) {
-	document.getElementById("myBar" + z).style = "width:" + aircrafts[z].productionStage.toString() + "%";
+	document.getElementById("myBar" + z).style = "width:" + aircraftArray[z].productionStage.toString() + "%";
 }
 
 function showQuantity(z) {
-	document.getElementById("quantity" + z).innerHTML = aircrafts[z].quantity;
+	document.getElementById("quantity" + z).innerHTML = aircraftArray[z].quantity;
 }
 
 function showWorkers(z) {
-	document.getElementById("workers" + z).innerHTML = aircrafts[z].workers;
+	document.getElementById("workers" + z).innerHTML = aircraftArray[z].workers;
 }
 
 function showPrice(z) {
-	document.getElementById("price" + z).innerHTML = "$ " + aircrafts[z].price.toLocaleString();
+	document.getElementById("price" + z).innerHTML = "$ " + aircraftArray[z].price.toLocaleString();
 }
 
 // 		1.2.5 Employees ......................................................................................
@@ -286,7 +252,7 @@ function showEmployeesSalary(z) {
 
 // 		2.1 Main container ......................................................................................
 
-//  		2.1.1 Aircrafts ......................................................................................
+//  		2.1.1 Aircraft ......................................................................................
 
 
 //  		2.1.2 Menu - open pop-up cards ......................................................................................

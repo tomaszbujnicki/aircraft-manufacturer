@@ -52,7 +52,7 @@ function removeEmployee(employee) {
 
 function calculateAvailableWorkers(){
 	let busyWorkers = 0;
-	for (let aircraft of aircrafts){
+	for (let aircraft of aircraftArray){
 		busyWorkers += aircraft.workers;
 	}
 	const availableWorkers = employees[0].number-busyWorkers;

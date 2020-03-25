@@ -8,7 +8,7 @@ const employees = [
         multiplier: 16,
 		salary: 1800,
 		employmentCost: 4000,
-        description: "Workers build aircrafts",
+        description: "Workers build aircraft",
         hire(){
             const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
@@ -42,7 +42,7 @@ const employees = [
 		maxNumber: 4,
 		salary: 2600,
 		employmentCost: 6000,
-        description: "Foremen help workers build aircrafts", 
+        description: "Foremen help workers build aircraft", 
         hire(){
             const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
@@ -119,7 +119,7 @@ const employees = [
 		maxNumber: 3,
 		salary: 3800,
 		employmentCost: 10000,
-        description: "Traders keep high the price of aircrafts", 
+        description: "Traders keep high the price of aircraft", 
         hire(){
             const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
@@ -149,7 +149,7 @@ const employees = [
 		maxNumber: 2,
 		salary: 5000,
 		employmentCost: 25000,
-        description: "Engineers develop new aircrafts",
+        description: "Engineers develop new aircraft",
         hire(){
             const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
