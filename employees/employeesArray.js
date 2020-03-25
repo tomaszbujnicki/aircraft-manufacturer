@@ -2,7 +2,7 @@ const employees = [
 	{
 		id: 0,
 		name: "Workers",
-		img: "employees/img/worker.svg",
+		img: "img/employees/worker.svg",
 		number: 10,
         maxNumber: 16,
         multiplier: 16,
@@ -36,7 +36,7 @@ const employees = [
     {
 		id: 1,
 		name: "Foremen",
-		img: "employees/img/foreman.svg",
+		img: "img/employees/foreman.svg",
         number: 0,
         multiplier: 4,
 		maxNumber: 4,
@@ -66,7 +66,7 @@ const employees = [
 	{
 		id: 2,
 		name: "Human Resources",
-		img: "employees/img/get-hired.svg",
+		img: "img/employees/get-hired.svg",
         number: 0,
         multiplier: 1,
 		maxNumber: 1,
@@ -113,7 +113,7 @@ const employees = [
     {
 		id: 3,
 		name: "Traders",
-		img: "employees/img/businessman.svg",
+		img: "img/employees/businessman.svg",
         number: 0,
         multiplier: 3,
 		maxNumber: 3,
@@ -143,7 +143,7 @@ const employees = [
     {
 		id: 4,
 		name: "Engineers",
-		img: "employees/img/engineer.svg",
+		img: "img/employees/engineer.svg",
         number: 0,
         multiplier: 2,
 		maxNumber: 2,

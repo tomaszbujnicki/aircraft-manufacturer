@@ -59,13 +59,13 @@ overflow: hidden;
 }
 
 #fundsCard{
-	background-image: url(img/investment.svg);
+	background-image: url(img/menu/investment.svg);
 }
 #workersCard{
-	background-image: url(img/employees.svg);
+	background-image: url(img/menu/employees.svg);
 }
 #partsCard{
-	background-image: url(img/parts.svg);
+	background-image: url(img/menu/parts.svg);
 }
 
 .resValue {
@@ -86,7 +86,7 @@ overflow: hidden;
 	opacity: 1.0;
 	color: green;
 	transition: 5s;
-	cursor: url(img/quit.png), auto;
+	cursor: url(img/cursor/quit.png), auto;
 }
 
 
@@ -161,25 +161,25 @@ h4{
 	margin: auto;
 }
 .aircraft__btn-sell{
-	background-image: url(img/sell.svg);
+	background-image: url(img/buttons/sell.svg);
 	height: 44px;
 	width: 44px;
 }
 
 .worker__btn-add {
-	background-image: url(img/add.svg);
+	background-image: url(img/buttons/add.svg);
 	height: 18px;
 	width: 18px;
 }
 
 .worker__btn-add--remove {
-	background-image: url(img/remove.svg);
+	background-image: url(img/buttons/remove.svg);
 	margin-top: 4px;
 }
 
 .worker__btn-plus {
 	margin-left: 20px;
-	background-image: url(img/add.svg);
+	background-image: url(img/buttons/add.svg);
 	height: 32px;
 	width: 32px;
 }
@@ -235,7 +235,7 @@ h4{
 	position: relative;
 }
 #closeMenu{
-	background-image: url(img/cancel.svg);
+	background-image: url(img/buttons/cancel.svg);
 	height: 48px;
 	width: 48px;
 	position: absolute;
@@ -259,20 +259,20 @@ h4{
 	width: 54px;
 }
 .employee__btn-add {
-	background-image: url(img/add.svg);
+	background-image: url(img/buttons/add.svg);
 	height: 18px;
 	width: 18px;
 
 }
 
 .employee__btn-add--remove {
-	background-image: url(img/remove.svg);
+	background-image: url(img/buttons/remove.svg);
 	margin-top: 4px;
 }
 
 .employee__btn-plus {
 	margin-left: 20px;
-	background-image: url(img/add.svg);
+	background-image: url(img/buttons/add.svg);
 	height: 32px;
 	width: 32px;
 }
@@ -292,9 +292,9 @@ h4{
 	font-weight: bold;
 }
 .employee__buy-btn{
-	background-image: url(img/weapon.svg);
-	height: 28px;
-	width: 28px;
+	background-image: url(img/parts/approved.svg);
+	height: 36px;
+	width: 36px;
 	margin:0 auto;
     display:block;
 }
@@ -345,14 +345,25 @@ h4{
 }
 
 .cardMenu__Button{
-	height: 44px;
-	width: 44px;
+	height: 48px;
+	width: 48px;
 	box-sizing: border-box;
 }
-#financesMonthsBtn{background-image: url(funds/img/bar-graph.svg);}
-#financesYearsBtn{background-image: url(funds/img/files.svg);}
-#financesBankBtn{background-image: url(funds/img/loan.svg);}
-#financesAwardsBtn{background-image: url(funds/img/trophy.svg);}
+#financesMonthsBtn{background-image: url(img/funds/bar-graph.svg);}
+#financesYearsBtn{background-image: url(img/funds/files.svg);}
+#financesBankBtn{background-image: url(img/funds/loan.svg);}
+#financesAwardsBtn{background-image: url(img/funds/trophy.svg);}
+
+#employeesBtn{background-image: url(img/employees/curriculum.svg);}
+#inventionsBtn{background-image: url(img/employees/light-bulb.svg);}
+
+#ordersBtn{background-image: url(img/parts/box.svg);}
+#deliveryBtn{background-image: url(img/parts/cargo.svg);}
+
+
+
+
+
 
 .cardMenu {
 	display: flex;
@@ -374,13 +385,13 @@ h4{
 	width: 44px;
 	height: 44px;
 	margin: 0 auto;
-	background-image: url(funds/img/bank.svg);
+	background-image: url(img/funds/bank.svg);
 }
 .loanPayOffButton{
 	width: 44px;
 	height: 44px;
 	margin: 0 auto;
-	background-image: url(funds/img/money-transfer.svg);
+	background-image: url(img/funds/money-transfer.svg);
 }
 
 .vanish{

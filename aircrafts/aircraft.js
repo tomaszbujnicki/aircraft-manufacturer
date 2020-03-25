@@ -2,7 +2,7 @@ const aircrafts = [
 	{
 		id: 0,
 		name: "Beoing 737-700",
-		img: "aircrafts/img/aeroplane2.svg",
+		img: "img/aircrafts/aeroplane2.svg",
 		parts: 100,
 		corePrice: 150000,
 		price: 150000,
@@ -14,7 +14,7 @@ const aircrafts = [
 	{
 		id: 1,
 		name: "Helicopter",
-		img: "aircrafts/img/airplane1.svg",
+		img: "img/aircrafts/airplane1.svg",
 		parts: 10,
 		corePrice: 15000,
 		price: 15000,
@@ -26,7 +26,7 @@ const aircrafts = [
 	{
 		id: 2,
 		name: "Airbus A320",
-		img: "aircrafts/img/aeroplane3.svg",
+		img: "img/aircrafts/aeroplane3.svg",
 		parts: 99,
 		corePrice: 105000,
 		price: 105000,
@@ -40,7 +40,7 @@ aircraftsToInvent= [
 	{
 		id: 3,
 		name: "Porshe",
-		img: "aircrafts/img/aeroplane2.svg",
+		img: "img/aircrafts/aeroplane2.svg",
 		parts: 100,
 		corePrice: 150000,
 		price: 150000,
@@ -53,7 +53,7 @@ aircraftsToInvent= [
 	{
 		id: 4,
 		name: "Ferrari",
-		img: "aircrafts/img/airplane1.svg",
+		img: "img/aircrafts/airplane1.svg",
 		parts: 10,
 		corePrice: 15000,
 		price: 15000,
@@ -66,7 +66,7 @@ aircraftsToInvent= [
 	{
 		id: 5,
 		name: "Mercedes",
-		img: "aircrafts/img/aeroplane3.svg",
+		img: "img/aircrafts/aeroplane3.svg",
 		parts: 99,
 		corePrice: 105000,
 		price: 105000,
