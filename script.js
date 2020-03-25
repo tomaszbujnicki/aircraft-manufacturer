@@ -187,7 +187,7 @@ function cardMenu__employee(x) {
 	document.getElementById(x).classList.remove("unactive");
 }
 function cardMenu__parts(x) {
-	document.getElementById("partsMarker").classList.add("unactive");
+	document.getElementById("partsMarket").classList.add("unactive");
 	document.getElementById("partsDelivery").classList.add("unactive");
 	document.getElementById(x).classList.remove("unactive");
 }
@@ -296,7 +296,7 @@ document.getElementById("employeeInventionsBtn").addEventListener("click", funct
 	cardMenu__employee("employeeInvention");
 });
 document.getElementById("partsMarketBtn").addEventListener("click", function () {
-	cardMenu__parts("partsMarker");
+	cardMenu__parts("partsMarket");
 });
 document.getElementById("partsDeliveryBtn").addEventListener("click", function () {
 	cardMenu__parts("partsDelivery");

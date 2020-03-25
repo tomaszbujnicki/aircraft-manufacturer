@@ -30,6 +30,8 @@ class Stock {
 	}
 	delivery(){
 		const stock = this;
+		deliveryArray.push(stock);
+		createElementDelivery(stock);
 		setTimeout(() => {
 			const isDeliveryCorrect = Math.floor(Math.random() * 100) >= stock.risk;
 			if (isDeliveryCorrect) {
