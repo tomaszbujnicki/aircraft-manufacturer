@@ -5,330 +5,357 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	<title>Aircraft Manufacturer</title>
 </head>
 
 <body>
 	<div id="super-container">
-	<div id="container">
-		<header>
-			<h1>Aircraft Manufacturer</h1>
-			<span id="date" title="Date: YYYY-MM-DD">Today</span>
-		</header>
-		<div class="resources">
-			<div class="resources__unit">
-				<div class="resources__icon"><button class="resources__button" title="Reports, Loans and Awards" alt="$$$" id="fundsCard"></button></div>
-				<div class="resValue" id="cash" title="Cash"></div>
-			</div>
-			<div class="resources__unit">
-				<div class="resources__icon"><button class="resources__button" title="Employees & Inventions" alt="workers" id="workersCard"></button></div>
-				<div class="resValue" id="workers" title="Workers"></div>
-			</div>
-			<div class="resources__unit">
-				<div class="resources__icon"><button class="resources__button" title="Parts orders & Delivery" alt="parts" id="partsCard"></button></div>
-				<div class="resValue" id="parts" title="Parts"></div>
-				
-			</div>
-			
-		</div>
-
-		<div class="mainField">
-		
-			<div id="aircraftDIV">
-				<div class="aircraft">
-					<div></div>
-					<div></div>
-					<div class="aircraftTitles" title="number of workers">Workers</div>			
-					<div class="aircraftTitles" title="aircraft name">Aircraft name</div>
-					<div class="aircraftTitles" title="number of aircrafts">Number</div>
-					<div class="aircraftTitles" title="sell aircraft">sell</div>
-					<div class="aircraftTitles" title="selling price">selling price</div>
+		<div id="container">
+			<header>
+				<h1>Aircraft Manufacturer</h1>
+				<span id="date" title="Date: YYYY-MM-DD">Today</span>
+			</header>
+			<div class="resources">
+				<div class="resources__unit">
+					<div class="resources__icon"><button class="resources__button" title="Reports, Loans and Awards"
+							alt="$$$" id="fundsCard"></button></div>
+					<div class="resValue" id="cash" title="Cash"></div>
 				</div>
-			</div>
-					
-			<div id="popFunds" class="popCard unactive" >
-				<div class="cardMenu">
-					<button class="cardMenu__Button" id="financesMonthsBtn" title="Monthly statistics"></button>
-					<button class="cardMenu__Button" id="financesYearsBtn" title="Annual statistics"></button>
-					<h2>Finances</h2>
-					<button class="cardMenu__Button" id="financesBankBtn" title="Loans"></button>
-					<button class="cardMenu__Button" id="financesAwardsBtn" title="Awards"></button>
+				<div class="resources__unit">
+					<div class="resources__icon"><button class="resources__button" title="Employees & Inventions"
+							alt="workers" id="workersCard"></button></div>
+					<div class="resValue" id="workers" title="Workers"></div>
 				</div>
-				<div>
-					<div class="budget" id="financesMonths">
-						<h3>Monthly financial report</h3>
-						<div class="budget__section">
-							<div class="budget__cell budget__cell--name"> </div>
-							<div class="budget__cell">this month</div>
-							<div class="budget__cell">last month</div>
-							<div class="budget__cell">2 months ago</div>
-						</div>
-						<h4>Income</h4>
-						<div class="budget__section">
-							<div class="budgetColumn">
-								<div class="budget__cell budget__cell--name">Sale</div>
-								<div class="budget__cell budget__cell--name">Prizes</div>
-								<div class="budget__cell budget__cell--name">Loans</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthSale0" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthPrizes0" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthLoans0"class="budget__cell budget__cell--plus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthSale1" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthPrizes1" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthLoans1"class="budget__cell budget__cell--plus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthSale2" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthPrizes2" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthLoans2"class="budget__cell budget__cell--plus">0</div>
-							</div>
-							
-						</div>
-						
-						<h4>Expenses</h4>
-						<div class="budget__section">
-							<div class="budgetColumn">
-								<div class="budget__cell budget__cell--name">Salaries</div>
-								<div class="budget__cell budget__cell--name">Recruitment</div>
-								<div class="budget__cell budget__cell--name">Parts</div>
-								<div class="budget__cell budget__cell--name">Interest</div>
-								<div class="budget__cell budget__cell--name">Tax</div>
-								<div class="budget__cell budget__cell--name">Capital</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthSalaries0" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthRecruitment0" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthParts0"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthInterest0"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthTax0"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthCapital0"class="budget__cell budget__cell--minus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthSalaries1" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthRecruitment1" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthParts1"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthInterest1"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthTax1"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthCapital1"class="budget__cell budget__cell--minus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthSalaries2" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthRecruitment2" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthParts2"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthInterest2"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthTax2"class="budget__cell budget__cell--minus">0</div>
-								<div id="monthCapital2"class="budget__cell budget__cell--minus">0</div>
-							</div>
-						</div>
-						
-						<h4>Profit</h4>
-						<div class="budget__section">
-							<div class="budgetColumn">
-								<div class="budget__cell budget__cell--name">Income</div>
-								<div class="budget__cell budget__cell--name">Expanses</div>
-								<div class="budget__cell budget__cell--name">Profit</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthIncome0" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthExpenses0" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthProfit0"class="budget__cell budget__cell--bold">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthIncome1" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthExpenses1" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthProfit1"class="budget__cell budget__cell--bold">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="monthIncome2" class="budget__cell budget__cell--plus">0</div>
-								<div id="monthExpenses2" class="budget__cell budget__cell--minus">0</div>
-								<div id="monthProfit2"class="budget__cell budget__cell--bold">0</div>
-							</div>
-						</div>
+				<div class="resources__unit">
+					<div class="resources__icon"><button class="resources__button" title="Parts orders & Delivery"
+							alt="parts" id="partsCard"></button></div>
+					<div class="resValue" id="parts" title="Parts"></div>
 
-					</div>
-					<div class="budget  unactive" id="financesYears">
-						<h3>Annual financial report</h3>
-						<div class="budget__section">
-							<div class="budget__cell budget__cell--name"> </div>
-							<div class="budget__cell">this year</div>
-							<div class="budget__cell">last year</div>
-							<div class="budget__cell">2 years ago</div>
-						</div>
-						<h4>Income</h4>
-						<div class="budget__section">
-							<div class="budgetColumn">
-								<div class="budget__cell budget__cell--name">Sale</div>
-								<div class="budget__cell budget__cell--name">Prizes</div>
-								<div class="budget__cell budget__cell--name">Loans</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearSale0" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearPrizes0" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearLoans0"class="budget__cell budget__cell--plus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearSale1" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearPrizes1" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearLoans1"class="budget__cell budget__cell--plus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearSale2" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearPrizes2" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearLoans2"class="budget__cell budget__cell--plus">0</div>
-							</div>
-							
-						</div>
-						
-						<h4>Expenses</h4>
-						<div class="budget__section">
-							<div class="budgetColumn">
-								<div class="budget__cell budget__cell--name">Salaries</div>
-								<div class="budget__cell budget__cell--name">Recruitment</div>
-								<div class="budget__cell budget__cell--name">Parts</div>
-								<div class="budget__cell budget__cell--name">Interest</div>
-								<div class="budget__cell budget__cell--name">Tax</div>
-								<div class="budget__cell budget__cell--name">Capital</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearSalaries0" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearRecruitment0" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearParts0"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearInterest0"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearTax0"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearCapital0"class="budget__cell budget__cell--minus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearSalaries1" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearRecruitment1" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearParts1"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearInterest1"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearTax1"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearCapital1"class="budget__cell budget__cell--minus">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearSalaries2" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearRecruitment2" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearParts2"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearInterest2"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearTax2"class="budget__cell budget__cell--minus">0</div>
-								<div id="yearCapital2"class="budget__cell budget__cell--minus">0</div>
-							</div>
-						</div>
-						
-						<h4>Profit</h4>
-						<div class="budget__section">
-							<div class="budgetColumn">
-								<div class="budget__cell budget__cell--name">Income</div>
-								<div class="budget__cell budget__cell--name">Expanses</div>
-								<div class="budget__cell budget__cell--name">Profit</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearIncome0" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearExpenses0" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearProfit0"class="budget__cell budget__cell--bold">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearIncome1" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearExpenses1" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearProfit1"class="budget__cell budget__cell--bold">0</div>
-							</div>
-							<div class="budgetColumn">
-								<div id="yearIncome2" class="budget__cell budget__cell--plus">0</div>
-								<div id="yearExpenses2" class="budget__cell budget__cell--minus">0</div>
-								<div id="yearProfit2"class="budget__cell budget__cell--bold">0</div>
-							</div>
-						</div>
-
-					</div>
-					<div class="bank unactive" id="financesBank">
-						<h3>Loans</h3>
-
-						<div id="loanDIV">
-							<div class="loan">
-								<div class="employee__value" title="Loan name">loan name</div>
-								<div class="employee__value" title="loan amount">amount</div>
-								<div class="employee__value" title="loan interest rate">interest</div>
-								<div class="employee__value" title="loan repayment time">months</div>
-								<div class="employee__value" title="take a loan">take</div>
-							</div>
-						</div>
-						<div id="loanTakenDIV">
-							<h3>Loans taken</h3>
-							<div class="loan">
-								<div class="employee__value" title="Loan name">loan name</div>
-								<div class="employee__value" title="how much is left to pay">left to pay</div>
-								<div class="employee__value" title="loan interest rate">interest</div>
-								<div class="employee__value" title="how many installments are left">installments</div>
-								<div class="employee__value" title="pay off the loan early">pay off</div>
-							</div>
-						</div>
-					</div>
-					<div class="awards unactive" id="financesAwards">
-						<h3>Awards</h3>
-					</div>
 				</div>
+
 			</div>
 
-			<div id="popEmployees" class="popCard unactive" >
-				<div class="cardMenu">
-					<button class="cardMenu__Button" id="employeesBtn" title="Employees"></button>
-					<h2>Employees</h2>
-					<button class="cardMenu__Button" id="inventionsBtn" title="Inventions"></button>
-				</div>
-				
-				<div  id="employeesDIV">
-					<div class="employee">
+			<div class="mainField">
+
+				<div id="aircraftDIV">
+					<div class="aircraft">
 						<div></div>
 						<div></div>
-						<div class="employee__value" title="number of employees">Number</div>
-						<div class="employee__value employee__value--left" title="job name">Job</div>
-						<div class="employee__value" title="salary per employee">Salary</div>
-						<div class="employee__value" title="total salary">Total</div>
+						<div class="aircraftTitles" title="number of workers">Workers</div>
+						<div class="aircraftTitles" title="aircraft name">Aircraft name</div>
+						<div class="aircraftTitles" title="number of aircrafts">Number</div>
+						<div class="aircraftTitles" title="sell aircraft">sell</div>
+						<div class="aircraftTitles" title="selling price">selling price</div>
 					</div>
 				</div>
-					
-				<div class="salarySummary">-------------------------------------------<br><span id="salarySummary__value"></span></div>
-			</div>
 
-			<div id="popParts" class="popCard unactive" >
-				<div class="cardMenu">
-					<button class="cardMenu__Button" id="ordersBtn" title="Parts orders"></button>
-					<h2>Parts</h2>
-					<button class="cardMenu__Button" id="deliveryBtn" title="Delivery"></button>
-				</div>
-				
-				<div id="partsDIV">
-					<div class="employee employee--parts">
-						<div class="employee__value" title="country">country</div>
-						<div class="employee__value employee__value--left" title="company">company</div>
-						<div class="employee__value" title="delivery time">time<br>[days]</div>
-						<div class="employee__value" title="risk">risk<br>[%]</div>
-						<div class="employee__value" title="amount of stock">stock<br>[pieces]</div>
-						<div class="employee__value" title="unit price">price<br>[usd]</div>
-						<div class="employee__value" title="total price">total<br>[usd]</div>
-						<div class="employee__value">buy</div>
+				<div id="popFunds" class="popCard unactive">
+					<div class="cardMenu">
+						<button class="cardMenu__Button" id="financesMonthsBtn" title="Monthly statistics"></button>
+						<button class="cardMenu__Button" id="financesYearsBtn" title="Annual statistics"></button>
+						<h2>Finances</h2>
+						<button class="cardMenu__Button" id="financesBankBtn" title="Loans"></button>
+						<button class="cardMenu__Button" id="financesAwardsBtn" title="Awards"></button>
+					</div>
+					<div>
+						<div class="budget" id="financesMonths">
+							<h3>Monthly financial report</h3>
+							<div class="budget__section">
+								<div class="budget__cell budget__cell--name"> </div>
+								<div class="budget__cell">this month</div>
+								<div class="budget__cell">last month</div>
+								<div class="budget__cell">2 months ago</div>
+							</div>
+							<h4>Income</h4>
+							<div class="budget__section">
+								<div class="budgetColumn">
+									<div class="budget__cell budget__cell--name">Sale</div>
+									<div class="budget__cell budget__cell--name">Prizes</div>
+									<div class="budget__cell budget__cell--name">Loans</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthSale0" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthPrizes0" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthLoans0" class="budget__cell budget__cell--plus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthSale1" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthPrizes1" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthLoans1" class="budget__cell budget__cell--plus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthSale2" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthPrizes2" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthLoans2" class="budget__cell budget__cell--plus">0</div>
+								</div>
+
+							</div>
+
+							<h4>Expenses</h4>
+							<div class="budget__section">
+								<div class="budgetColumn">
+									<div class="budget__cell budget__cell--name">Salaries</div>
+									<div class="budget__cell budget__cell--name">Recruitment</div>
+									<div class="budget__cell budget__cell--name">Parts</div>
+									<div class="budget__cell budget__cell--name">Interest</div>
+									<div class="budget__cell budget__cell--name">Tax</div>
+									<div class="budget__cell budget__cell--name">Capital</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthSalaries0" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthRecruitment0" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthParts0" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthInterest0" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthTax0" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthCapital0" class="budget__cell budget__cell--minus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthSalaries1" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthRecruitment1" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthParts1" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthInterest1" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthTax1" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthCapital1" class="budget__cell budget__cell--minus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthSalaries2" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthRecruitment2" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthParts2" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthInterest2" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthTax2" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthCapital2" class="budget__cell budget__cell--minus">0</div>
+								</div>
+							</div>
+
+							<h4>Profit</h4>
+							<div class="budget__section">
+								<div class="budgetColumn">
+									<div class="budget__cell budget__cell--name">Income</div>
+									<div class="budget__cell budget__cell--name">Expanses</div>
+									<div class="budget__cell budget__cell--name">Profit</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthIncome0" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthExpenses0" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthProfit0" class="budget__cell budget__cell--bold">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthIncome1" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthExpenses1" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthProfit1" class="budget__cell budget__cell--bold">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="monthIncome2" class="budget__cell budget__cell--plus">0</div>
+									<div id="monthExpenses2" class="budget__cell budget__cell--minus">0</div>
+									<div id="monthProfit2" class="budget__cell budget__cell--bold">0</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="budget  unactive" id="financesYears">
+							<h3>Annual financial report</h3>
+							<div class="budget__section">
+								<div class="budget__cell budget__cell--name"> </div>
+								<div class="budget__cell">this year</div>
+								<div class="budget__cell">last year</div>
+								<div class="budget__cell">2 years ago</div>
+							</div>
+							<h4>Income</h4>
+							<div class="budget__section">
+								<div class="budgetColumn">
+									<div class="budget__cell budget__cell--name">Sale</div>
+									<div class="budget__cell budget__cell--name">Prizes</div>
+									<div class="budget__cell budget__cell--name">Loans</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearSale0" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearPrizes0" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearLoans0" class="budget__cell budget__cell--plus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearSale1" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearPrizes1" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearLoans1" class="budget__cell budget__cell--plus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearSale2" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearPrizes2" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearLoans2" class="budget__cell budget__cell--plus">0</div>
+								</div>
+
+							</div>
+
+							<h4>Expenses</h4>
+							<div class="budget__section">
+								<div class="budgetColumn">
+									<div class="budget__cell budget__cell--name">Salaries</div>
+									<div class="budget__cell budget__cell--name">Recruitment</div>
+									<div class="budget__cell budget__cell--name">Parts</div>
+									<div class="budget__cell budget__cell--name">Interest</div>
+									<div class="budget__cell budget__cell--name">Tax</div>
+									<div class="budget__cell budget__cell--name">Capital</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearSalaries0" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearRecruitment0" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearParts0" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearInterest0" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearTax0" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearCapital0" class="budget__cell budget__cell--minus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearSalaries1" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearRecruitment1" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearParts1" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearInterest1" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearTax1" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearCapital1" class="budget__cell budget__cell--minus">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearSalaries2" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearRecruitment2" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearParts2" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearInterest2" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearTax2" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearCapital2" class="budget__cell budget__cell--minus">0</div>
+								</div>
+							</div>
+
+							<h4>Profit</h4>
+							<div class="budget__section">
+								<div class="budgetColumn">
+									<div class="budget__cell budget__cell--name">Income</div>
+									<div class="budget__cell budget__cell--name">Expanses</div>
+									<div class="budget__cell budget__cell--name">Profit</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearIncome0" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearExpenses0" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearProfit0" class="budget__cell budget__cell--bold">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearIncome1" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearExpenses1" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearProfit1" class="budget__cell budget__cell--bold">0</div>
+								</div>
+								<div class="budgetColumn">
+									<div id="yearIncome2" class="budget__cell budget__cell--plus">0</div>
+									<div id="yearExpenses2" class="budget__cell budget__cell--minus">0</div>
+									<div id="yearProfit2" class="budget__cell budget__cell--bold">0</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="bank unactive" id="financesBank">
+							<h3>Loans</h3>
+
+							<div id="loanDIV">
+								<div class="loan">
+									<div class="employee__value" title="Loan name">loan name</div>
+									<div class="employee__value" title="loan amount">amount</div>
+									<div class="employee__value" title="loan interest rate">interest</div>
+									<div class="employee__value" title="loan repayment time">months</div>
+									<div class="employee__value" title="take a loan">take</div>
+								</div>
+							</div>
+							<div id="loanTakenDIV">
+								<h3>Loans taken</h3>
+								<div class="loan">
+									<div class="employee__value" title="Loan name">loan name</div>
+									<div class="employee__value" title="how much is left to pay">left to pay</div>
+									<div class="employee__value" title="loan interest rate">interest</div>
+									<div class="employee__value" title="how many installments are left">installments
+									</div>
+									<div class="employee__value" title="pay off the loan early">pay off</div>
+								</div>
+							</div>
+						</div>
+						<div class="awards unactive" id="financesAwards">
+							<h3>Awards</h3>
+						</div>
 					</div>
 				</div>
+
+				<div id="popEmployees" class="popCard unactive">
+					<div class="cardMenu">
+						<button class="cardMenu__Button" id="employeeReviewBtn" title="Employees"></button>
+						<h2>Employees</h2>
+						<button class="cardMenu__Button" id="employeeInventionsBtn" title="Inventions"></button>
+					</div>
+
+					<div>
+						<div id="employeeReview">
+							<h3>Review</h3>
+							<div id="employeesDIV">
+								<div class="employee">
+									<div></div>
+									<div></div>
+									<div class="employee__value" title="number of employees">Number</div>
+									<div class="employee__value employee__value--left" title="job name">Job</div>
+									<div class="employee__value" title="salary per employee">Salary</div>
+									<div class="employee__value" title="total salary">Total</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="unactive" id="employeeInvention">
+							<h3>Invention</h3>
+							<div id="inventionDIV">
+								<span>aircraft to invent</span>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div id="popParts" class="popCard unactive">
+					<div class="cardMenu">
+						<button class="cardMenu__Button" id="partsMarketBtn" title="Parts orders"></button>
+						<h2>Parts</h2>
+						<button class="cardMenu__Button" id="partsDeliveryBtn" title="Delivery"></button>
+					</div>
+					<div>
+						<div id="partsMarker">
+							<h3>Market</h3>
+							<div id="partsDIV">
+								<div class="employee employee--parts">
+									<div class="employee__value" title="country">country</div>
+									<div class="employee__value employee__value--left" title="company">company</div>
+									<div class="employee__value" title="delivery time">time<br>[days]</div>
+									<div class="employee__value" title="risk">risk<br>[%]</div>
+									<div class="employee__value" title="amount of stock">stock<br>[pieces]</div>
+									<div class="employee__value" title="unit price">price<br>[usd]</div>
+									<div class="employee__value" title="total price">total<br>[usd]</div>
+									<div class="employee__value">buy</div>
+								</div>
+							</div>
+						</div>
+
+						<div id="partsDelivery" class="unactive">
+							<h3>Delivery</h3>
+							<div id="deliveryDIV">
+								<span>delivery</span>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<button id="closeMenu" class="unactive" title="Close"></button>
 			</div>
 
-			<button id="closeMenu" class="unactive" title="Close"></button>
-		</div>
 
 
 
-
-		
-	</div>
-	<div id="right-bar">
-		<div class="right-bar__top"></div>	
-		<div id="alerts">
 
 		</div>
-	</div>
+		<div id="right-bar">
+			<div class="right-bar__top"></div>
+			<div id="alerts">
+
+			</div>
+		</div>
 	</div>
 
 	<script src="mathFunctions/mathFunctions.js"></script>
@@ -349,7 +376,7 @@
 
 	<script src="createDOMElements.js"></script>
 	<script src="script.js"></script>
-	
+
 
 </body>
 

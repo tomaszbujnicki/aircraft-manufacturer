@@ -208,11 +208,21 @@ function showAircraftItems(){
 	document.getElementById("aircraftDIV").classList.remove("unactive");
 }
 
-function cardMenu__Button(x) {
+function cardMenu__funds(x) {
 	document.getElementById("financesMonths").classList.add("unactive");
 	document.getElementById("financesYears").classList.add("unactive");
 	document.getElementById("financesBank").classList.add("unactive");
 	document.getElementById("financesAwards").classList.add("unactive");
+	document.getElementById(x).classList.remove("unactive");
+}
+function cardMenu__employee(x) {
+	document.getElementById("employeeReview").classList.add("unactive");
+	document.getElementById("employeeInvention").classList.add("unactive");
+	document.getElementById(x).classList.remove("unactive");
+}
+function cardMenu__parts(x) {
+	document.getElementById("partsMarker").classList.add("unactive");
+	document.getElementById("partsDelivery").classList.add("unactive");
 	document.getElementById(x).classList.remove("unactive");
 }
 
@@ -298,20 +308,36 @@ document.getElementById("closeMenu").addEventListener("click", function () {
 	showAircraftItems();
 });
 
-//  		2.2.1 Funds ......................................................................................
+//  		2.2.1 Funds  and other ......................................................................................
 
 document.getElementById("financesMonthsBtn").addEventListener("click", function () {
-	cardMenu__Button("financesMonths");
+	cardMenu__funds("financesMonths");
 });
 document.getElementById("financesYearsBtn").addEventListener("click", function () {
-	cardMenu__Button("financesYears");
+	cardMenu__funds("financesYears");
 });
 document.getElementById("financesBankBtn").addEventListener("click", function () {
-	cardMenu__Button("financesBank");
+	cardMenu__funds("financesBank");
 });
 document.getElementById("financesAwardsBtn").addEventListener("click", function () {
-	cardMenu__Button("financesAwards");
+	cardMenu__funds("financesAwards");
 });
+
+document.getElementById("employeeReviewBtn").addEventListener("click", function () {
+	cardMenu__employee("employeeReview");
+});
+document.getElementById("employeeInventionsBtn").addEventListener("click", function () {
+	cardMenu__employee("employeeInvention");
+});
+document.getElementById("partsMarketBtn").addEventListener("click", function () {
+	cardMenu__parts("partsMarker");
+});
+document.getElementById("partsDeliveryBtn").addEventListener("click", function () {
+	cardMenu__parts("partsDelivery");
+});
+
+
+
 
 
 //	3. Start the game ......................................................................................
