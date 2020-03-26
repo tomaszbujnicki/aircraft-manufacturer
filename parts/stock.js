@@ -7,6 +7,7 @@ class Stock {
 		this.country = country;
 		this.company = company;
 		this.time = time;
+		this.daysToGo = time;
 		this.risk = risk;
 		this.amount = amount;
 		this.price = price;
@@ -30,17 +31,23 @@ class Stock {
 	}
 	delivery(){
 		const stock = this;
-		deliveryArray.push(stock);
+		deliveryArray[stock.id] = stock;
 		createElementDelivery(stock);
 		setTimeout(() => {
+			const deliveryElement = document.getElementById("deliveryItem" + stock.id);
 			const isDeliveryCorrect = Math.floor(Math.random() * 100) >= stock.risk;
 			if (isDeliveryCorrect) {
 				availableParts += stock.amount;
 				showAvailableParts();
 				creatNewMessage("+" + stock.amount + " parts form " + stock.country);
+				clickTrue(deliveryElement);
+				clickTrue(document.getElementById("parts"));
 			} else {
 				creatNewMessage("Delivery failed.<br> Lost: " + stock.amount + " parts", "#F00");
+				clickFalse(deliveryElement);
 			}
+			delete deliveryArray[stock.id];
+			removeDOM_ELEMENT(deliveryElement);
 		}, dayTick * stock.time);
 	}
 

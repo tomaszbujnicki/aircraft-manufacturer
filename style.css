@@ -223,6 +223,7 @@ h4 {
   padding: 0 30px 5px 30px;
   border-bottom: 1px solid #aaa;
   margin: 0 30px 25px 30px;
+  height: 61px;
 }
 
 .delivery__description {
@@ -239,6 +240,8 @@ h4 {
 .delivery__images{
   display: grid;
   grid-template-columns: 40px 360px 40px;
+  top: 10px;
+  position: relative;
 }
 
 .delivery__img{
@@ -248,8 +251,6 @@ h4 {
 .delivery__img--relative{
   position: relative;
 }
-
-
 
 .worker__value {
   font-size: 16px;
@@ -477,6 +478,9 @@ h4 {
 
 .softRemove {
   height: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border: none;
   transition: 3s;
 }
 

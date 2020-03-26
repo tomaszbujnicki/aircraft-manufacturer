@@ -1,7 +1,6 @@
 
 function createElementDelivery(delivery){
 	if (!delivery) return ;
-	console.log(delivery);
 
 	const deliveryElement = document.createElement("div");
 	deliveryElement.setAttribute("id", "deliveryItem" + delivery.id);
@@ -14,7 +13,7 @@ function createElementDelivery(delivery){
 			<span class="align-right">${delivery.amount} parts</span >
 			<span></span>
 			<span >risk: ${delivery.risk}%</span >
-			<span class="align-right">${delivery.time} days to go</span >
+			<span id="deliveryTimeToGo${delivery.id}" class="align-right">${delivery.time} days to go</span >
 		</div>
 
 		<div class = "delivery__images" >
@@ -35,10 +34,13 @@ function showDeliveryStage() {
 		document.getElementById("deliveryShipping" + id).src = "img/parts/truck.svg";
 	}
 	for (const index in deliveryArray){
-		const imgPosition = 95 - deliveryArray[index].time.toString();
+		const delivery = deliveryArray[index];
+		delivery.daysToGo--;
+		let imgPosition = 95 - delivery.daysToGo;
 		if (imgPosition < -5) imgPosition = -5;
-		if (imgPosition > 75) changeImg(deliveryArray[index].id);
-		document.getElementById("deliveryShipping" + deliveryArray[index].id).style = "left:" + imgPosition + "%";
+		if (imgPosition > 75) changeImg(delivery.id);
+		document.getElementById("deliveryShipping" + delivery.id).style = "left:" + imgPosition + "%";
+		document.getElementById("deliveryTimeToGo" + delivery.id).textContent = delivery.daysToGo + " days to go";
 	}
 
 }
