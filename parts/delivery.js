@@ -33,12 +33,16 @@ function showDeliveryStage() {
 	const changeImg = (id)=>{
 		document.getElementById("deliveryShipping" + id).src = "img/parts/truck.svg";
 	}
+	const changeImg2 = (id)=>{
+		document.getElementById("deliveryShipping" + id).src = "img/parts/truck2.svg";
+	}
 	for (const index in deliveryArray){
 		const delivery = deliveryArray[index];
 		delivery.daysToGo--;
 		let imgPosition = 95 - delivery.daysToGo;
 		if (imgPosition < -5) imgPosition = -5;
 		if (imgPosition > 75) changeImg(delivery.id);
+		if (imgPosition == 95) changeImg2(delivery.id);
 		document.getElementById("deliveryShipping" + delivery.id).style = "left:" + imgPosition + "%";
 		document.getElementById("deliveryTimeToGo" + delivery.id).textContent = delivery.daysToGo + " days to go";
 	}
