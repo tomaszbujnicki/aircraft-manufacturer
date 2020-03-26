@@ -270,6 +270,7 @@ h4 {
 .popCard {
   width: 600px;
   min-height: 500px;
+  max-height: 1020px;
   background-color: #ecdece;
   position: absolute;
   top: 20px;
@@ -278,6 +279,7 @@ h4 {
   margin: auto;
   z-index: 2;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .mainField {
