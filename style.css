@@ -221,6 +221,7 @@ h4 {
 .bar--color {
   background-color: #39a;
   height: 10px;
+  width: 0%;
 }
 
 .bar {
