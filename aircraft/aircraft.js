@@ -180,11 +180,9 @@ function inventAircraft(){
 		aircraft.inventionPoints -= employees[4].number;
 		if (aircraft.inventionPoints <= 0 ){
 			creatNewMessage(`Our  engineers invented: ${aircraft.name}` , "#ff0000");
-			aircraft.push(aircraft);
+			aircraftArray.push(aircraft);
 			aircraftToInvent.shift(aircraft);
 			createElementAircraft(aircraft);
 		}
  
-	
-
 }
