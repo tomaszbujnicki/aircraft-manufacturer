@@ -10,3 +10,5 @@ for (let i = 0; i < employees.length; i++) createElementEmployee(employees[i]);
 for (let i = 0; i < 10; i++){
     createNewStock();
 }
+
+for (let i = 0; i < aircraftToInvent.length; i++) createElementAircraftToInvent(aircraftToInvent[i]);

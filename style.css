@@ -147,7 +147,16 @@ h4 {
 
 /*//---------------------------------------------------------------------------*/
 
-.aircraft {
+.aircraftToInvent {
+  display: grid;
+  grid-template-columns: 60px 410px 60px;
+  height: 60px;
+  align-items: center;
+  padding-left: 40px;
+  padding-bottom: 20px;
+}
+
+.aircraft{
   display: grid;
   grid-template-columns: 60px 26px 60px 410px 60px 45px 110px;
   height: 60px;
