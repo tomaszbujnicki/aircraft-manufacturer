@@ -45,7 +45,7 @@ div {
   background-color: #ecdece;
   padding-left: 10px;
   border-radius: 10px;
-  font-family: consolas;
+  font-family: consolas, monospace;
 }
 
 .resources__unit {
@@ -127,7 +127,7 @@ header {
 
 #date {
   font-size: 24px;
-  font-family: consolas;
+  font-family: consolas, monospace;
   cursor: help;
 }
 
