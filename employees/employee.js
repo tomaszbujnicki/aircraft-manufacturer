@@ -6,10 +6,10 @@ function createElementEmployee(employee){
 	employeeElement.setAttribute("id", "employeeItem" + employee.id);
 	employeeElement.classList.add("employee");
 	employeeElement.innerHTML=`
-		<div>
+		<button class="employeeOpenCardButton" id="employeeCard${employee.id}">
 			<img class="employee__img" src=${employee.img}>
-		</div>
-		<div class="employee__add-remove">
+		</button>
+		<div class="worker__add-remove">
 			<button id="addEmployee${employee.id}" class="employee__btn-add" title="hire cost: $ ${employee.employmentCost}"></button>
 			<button id="removeEmployee${employee.id}" class="employee__btn-add employee__btn-add--remove" title="fire employee"></button>
 		</div>
@@ -62,3 +62,20 @@ function calculateAvailableWorkers(){
 function showAvailableWorkers(){
 	document.getElementById("workers").innerHTML = calculateAvailableWorkers();
 }
+
+function openEmployeeCard(x){
+
+	closeEmployeeCard()
+	document.getElementById("employeeOpenCard" + x).classList.remove("hide");
+	document.getElementById("closeEmployeeOpenCard").classList.remove("hide");
+}
+
+function closeEmployeeCard(){
+
+	const allCards = document.querySelectorAll(".employeeOpenCard");
+	allCards.forEach(element => element.classList.add("hide"));
+	document.getElementById("closeEmployeeOpenCard").classList.add("hide");
+}
+
+
+

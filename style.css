@@ -45,7 +45,7 @@ div {
   background-color: #ecdece;
   padding-left: 10px;
   border-radius: 10px;
-  font-family: monospace;
+  font-family: consolas;
 }
 
 .resources__unit {
@@ -116,6 +116,7 @@ button {
   border: none;
   background-color: transparent;
   background-size: contain;
+  padding: 0;
 }
 
 header {
@@ -126,7 +127,7 @@ header {
 
 #date {
   font-size: 24px;
-  font-family: monospace;
+  font-family: consolas;
   cursor: help;
 }
 
@@ -292,11 +293,11 @@ h4 {
   overflow: hidden;
 }
 
-.mainField {
+.relative {
   position: relative;
 }
 
-#closeMenu {
+.closeButton{
   background-image: url(img/buttons/cancel.svg);
   height: 48px;
   width: 48px;
@@ -306,12 +307,35 @@ h4 {
   z-index: 3;
 }
 
+.closeButton--employee{
+  top: -30px;
+  right: 5px;
+}
+
 .employee {
   padding-left: 40px;
   display: grid;
-  grid-template-columns: 60px 26px 100px 150px 80px 100px;
-  height: 60px;
+  grid-template-columns: 70px 26px 100px 150px 80px 100px;
+  height: 70px;
   align-items: center;
+}
+
+.employeeOpenCard{
+  background-color: aliceblue;
+  position: absolute;
+  margin-left: 150px;
+  width: 420px;
+  height: 455px;
+  border-radius: 10px;
+}
+
+.employeeOpenCard-description{
+  margin-left: 20px;
+  line-height: 2;
+}
+
+.employeeOpenCardButton{
+  margin: 0 5px;
 }
 
 .employee--parts {
@@ -500,6 +524,6 @@ h4 {
   outline: rgb(255, 0, 0) solid 2px;
 }
 
-.unactive {
+.hide {
   display: none;
 }

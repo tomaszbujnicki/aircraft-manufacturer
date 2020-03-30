@@ -160,37 +160,37 @@ function removeDOM_ELEMENT(element) {
 
 function menu(x) {
 	closeMenu();
-	document.getElementById(x).classList.remove("unactive");
-	document.getElementById("closeMenu").classList.remove("unactive");
+	document.getElementById(x).classList.remove("hide");
+	document.getElementById("closeMenu").classList.remove("hide");
 }
 
 function closeMenu() {
-	document.getElementById("aircraftDIV").classList.add("unactive");
-	document.getElementById("popFunds").classList.add("unactive");
-	document.getElementById("popEmployees").classList.add("unactive");
-	document.getElementById("popParts").classList.add("unactive");
-	document.getElementById("closeMenu").classList.add("unactive");
+	document.getElementById("aircraftDIV").classList.add("hide");
+	document.getElementById("popFunds").classList.add("hide");
+	document.getElementById("popEmployees").classList.add("hide");
+	document.getElementById("popParts").classList.add("hide");
+	document.getElementById("closeMenu").classList.add("hide");
 }
 function showAircraftItems(){
-	document.getElementById("aircraftDIV").classList.remove("unactive");
+	document.getElementById("aircraftDIV").classList.remove("hide");
 }
 
 function cardMenu__funds(x) {
-	document.getElementById("financesMonths").classList.add("unactive");
-	document.getElementById("financesYears").classList.add("unactive");
-	document.getElementById("financesBank").classList.add("unactive");
-	document.getElementById("financesAwards").classList.add("unactive");
-	document.getElementById(x).classList.remove("unactive");
+	document.getElementById("financesMonths").classList.add("hide");
+	document.getElementById("financesYears").classList.add("hide");
+	document.getElementById("financesBank").classList.add("hide");
+	document.getElementById("financesAwards").classList.add("hide");
+	document.getElementById(x).classList.remove("hide");
 }
 function cardMenu__employee(x) {
-	document.getElementById("employeeReview").classList.add("unactive");
-	document.getElementById("employeeInvention").classList.add("unactive");
-	document.getElementById(x).classList.remove("unactive");
+	document.getElementById("employeeReview").classList.add("hide");
+	document.getElementById("employeeInvention").classList.add("hide");
+	document.getElementById(x).classList.remove("hide");
 }
 function cardMenu__parts(x) {
-	document.getElementById("partsMarket").classList.add("unactive");
-	document.getElementById("partsDelivery").classList.add("unactive");
-	document.getElementById(x).classList.remove("unactive");
+	document.getElementById("partsMarket").classList.add("hide");
+	document.getElementById("partsDelivery").classList.add("hide");
+	document.getElementById(x).classList.remove("hide");
 }
 
 
@@ -274,6 +274,12 @@ document.getElementById("closeMenu").addEventListener("click", function () {
 	closeMenu();
 	showAircraftItems();
 });
+
+for (let i = 0 ; i < employees.length; i++){	
+	const button = document.getElementById( "employeeCard" + i )
+	button.addEventListener("click", () => openEmployeeCard(i));
+}
+document.getElementById("closeEmployeeOpenCard").addEventListener("click", () => closeEmployeeCard());
 
 //  		2.2.1 Funds  and other ......................................................................................
 
