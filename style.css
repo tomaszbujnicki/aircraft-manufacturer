@@ -333,6 +333,13 @@ h4 {
   margin-left: 20px;
   line-height: 2;
 }
+.bold{
+  font-weight: bold;
+}
+.quotation{
+  color: #91aecd;
+  font-style: italic;
+}
 
 .employeeOpenCardButton{
   margin: 0 5px;

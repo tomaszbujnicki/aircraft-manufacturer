@@ -77,5 +77,12 @@ function closeEmployeeCard(){
 	document.getElementById("closeEmployeeOpenCard").classList.add("hide");
 }
 
+function showWorkersCard(){
+	const workers = employees[0];
+	const canMount = productionForce() / 1000;
+	const partsOrPart = canMount == 1 ? " part" : " parts";
+	document.getElementById("employeeOpenCard-number0").textContent = workers.number;
+	document.getElementById("employeeOpenCard-parts0").textContent = canMount.toFixed(2) + partsOrPart;
+	document.getElementById("employeeOpenCard-capacity0").textContent = (canMount * workers.number).toFixed(2);
 
-
+}

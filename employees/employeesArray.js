@@ -3,7 +3,7 @@ const employees = [
 		id: 0,
 		name: "Workers",
 		img: "img/employees/worker.svg",
-		number: 10,
+		number: 5,
         maxNumber: 16,
         multiplier: 16,
 		salary: 1800,
@@ -13,7 +13,8 @@ const employees = [
             const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
                 addEmployee(this);
-                showAvailableWorkers(); 
+                showAvailableWorkers();
+                showWorkersCard();
             }   
             else{
                 clickFalse(document.getElementById("employee" + this.id));
@@ -24,7 +25,8 @@ const employees = [
             const canIFire = calculateAvailableWorkers() > 0;
             if (canIFire){
                 removeEmployee(this);
-    			showAvailableWorkers();
+                showAvailableWorkers();
+                showWorkersCard()
             }
             else{
                 clickFalse(document.getElementById("employee" + this.id));
@@ -47,6 +49,7 @@ const employees = [
             const canIHire = (cash >= this.employmentCost) && (this.maxNumber > this.number);
 	        if (canIHire) {
                 addEmployee(this); 
+                showWorkersCard();
             }   
             else{
                 clickFalse(document.getElementById("employee" + this.id));
@@ -57,6 +60,7 @@ const employees = [
             const canIFire = this.number > 0;
             if (canIFire){
                 removeEmployee(this);
+                showWorkersCard();
             }
             else{
                 clickFalse(document.getElementById("employee" + this.id));

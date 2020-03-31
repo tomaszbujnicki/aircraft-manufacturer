@@ -1,5 +1,3 @@
-//document.addEventListener('contextmenu', event => event.preventDefault());
-
 
 function newDay() {
 	date.setTime(date.getTime() + 86400000);
@@ -249,6 +247,7 @@ function showEmployeesSalary(z) {
 }
 
 
+
 //	2. Event Listeners ......................................................................................
 
 // 		2.1 Main container ......................................................................................
@@ -280,6 +279,7 @@ for (let i = 0 ; i < employees.length; i++){
 	button.addEventListener("click", () => openEmployeeCard(i));
 }
 document.getElementById("closeEmployeeOpenCard").addEventListener("click", () => closeEmployeeCard());
+
 
 //  		2.2.1 Funds  and other ......................................................................................
 
@@ -324,4 +324,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	showAvailableParts();
 	showAvailableWorkers();
 	showDate();
+	showWorkersCard();
+	showEmployeesSalary(0);
 });
