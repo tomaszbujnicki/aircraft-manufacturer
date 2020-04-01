@@ -312,6 +312,7 @@ document.getElementById("partsDeliveryBtn").addEventListener("click", function (
 
 
 document.addEventListener("DOMContentLoaded", function() {
+
 	setInterval(constructionProgress, 10);
 	setInterval(newDay, dayTick);
 	showCash();
