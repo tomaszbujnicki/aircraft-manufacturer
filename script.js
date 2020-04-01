@@ -16,7 +16,6 @@ function newDay() {
 }
 
 function constructionProgress() {
-	// if ((date.getDay() == 0) || (date.getDay() == 6)) return; // the workers don't work at the weekend - function disabled
 
 	for (let i = 0; i < aircraftArray.length; i++) {
 		progresWork(i, productionForce() / dayTick * aircraftArray[i].workers);
@@ -39,7 +38,6 @@ function newYear() {
 }
 
 function payTax() {
-	const taxRate = 0.2;
 	const incomeSum = thisMonth.sale + thisMonth.prizes;
 	const expensesSum = thisMonth.interest + thisMonth.parts + thisMonth.recruitment + thisMonth.salaries;
 	
@@ -90,15 +88,11 @@ function calculateExpenses(amount, property) {
 
 function totalSalary() {
 	let x = 0;
-	for (let i = 0; i < employees.length; i++) {
-		x += employees[i].salary * employees[i].number
+	for (let i = 0; i < employeeList.length; i++) {
+		x += employeeList[i].salary * employeeList[i].number
 	}
 	return x;
 }
-
-// 		1.1.4 Action ......................................................................................
-
-
 
 // 		1.1.5 Visual effects ......................................................................................
 
@@ -237,12 +231,12 @@ function showPrice(z) {
 
 // 		1.2.5 Employees ......................................................................................
 function showEmployeesNumber(z) {
-	document.getElementById("employee" + z).textContent = employees[z].number + " / " + employees[z].maxNumber;
+	document.getElementById("employee" + z).textContent = employeeList[z].number + " / " + employeeList[z].maxNumber;
 }
 
 function showEmployeesSalary(z) {
-	document.getElementById("salary" + z).textContent = "$ " + employees[z].salary;
-	document.getElementById("totalSalary" + z).textContent = "$ " + (employees[z].salary * employees[z].number).toLocaleString();
+	document.getElementById("salary" + z).textContent = "$ " + employeeList[z].salary;
+	document.getElementById("totalSalary" + z).textContent = "$ " + (employeeList[z].salary * employeeList[z].number).toLocaleString();
 	document.getElementById("salarySummary__value").textContent = "$ " + totalSalary().toLocaleString();
 }
 
@@ -274,7 +268,7 @@ document.getElementById("closeMenu").addEventListener("click", function () {
 	showAircraftItems();
 });
 
-for (let i = 0 ; i < employees.length; i++){	
+for (let i = 0 ; i < employeeList.length; i++){	
 	const button = document.getElementById( "employeeCard" + i )
 	button.addEventListener("click", () => openEmployeeCard(i));
 }

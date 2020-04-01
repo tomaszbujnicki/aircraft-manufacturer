@@ -64,12 +64,11 @@ const loan_coreValues = [
 
 const loans = [];
 
-function createLoan(coreId){
-	const core = loan_coreValues[coreId];
+function createLoan(core){
 	if (!core) return ;
-    const loan = new Loan(loans.length,core.name,core.amount,core.interest,core.period,core.coreId)
-    loans.push(loan);
-	createElementLoan(loan);
+    const newLoan = new Loan(loans.length,core.name,core.amount,core.interest,core.period,core.coreId)
+    loans.push(newLoan);
+	createElementLoan(newLoan);
 	updateCore(core);
 }
 

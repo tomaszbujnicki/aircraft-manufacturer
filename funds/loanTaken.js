@@ -51,7 +51,7 @@ class LoanTaken {
         const loanElement = document.getElementById(`loanTakenItem${loan.id}`);
         removeDOM_ELEMENT(loanElement);
 		delete loansTaken[loan.id];
-		createLoan(loan.coreId);
+		createLoan(loan_coreValues[loan.id]);
 	}
 	
 	payOff(){

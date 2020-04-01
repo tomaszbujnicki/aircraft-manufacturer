@@ -1,4 +1,4 @@
-const employees = [
+const employeeList = [
 	{
 		id: 0,
 		name: "Workers",
@@ -99,7 +99,7 @@ const employees = [
             }
         },
         isMoreThenNumber(){
-             for (let employee of employees){
+             for (let employee of employeeList){
                 if  (employee.number > this.number * employee.multiplier) {
                     clickFalse(document.getElementById("employee" + employee.id));
                     return false;
@@ -108,7 +108,7 @@ const employees = [
             return true;
         },
         showMaxNumber(){
-            for (let employee of employees){
+            for (let employee of employeeList){
                 employee.maxNumber = employee.multiplier + this.number * employee.multiplier;
                 showEmployeesNumber(employee.id);
             }

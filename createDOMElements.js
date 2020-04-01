@@ -1,14 +1,12 @@
 
-for (let i = 0; i < aircraftArray.length; i++) createElementAircraft(aircraftArray[i]);
+for (const aircraft of aircraftArray) createElementAircraft(aircraft);
 
-for (let i = 0; i < loan_coreValues.length; i++){
-    createLoan(i);
-}
+for (const employee of employeeList) createElementEmployee(employee);
 
-for (let i = 0; i < employees.length; i++) createElementEmployee(employees[i]);
+for (const aircraft of aircraftToInvent) createElementAircraftToInvent(aircraft);
 
-for (let i = 0; i < 10; i++){
-    createNewStock();
-}
+for (const core of loan_coreValues) createLoan(core);
 
-for (let i = 0; i < aircraftToInvent.length; i++) createElementAircraftToInvent(aircraftToInvent[i]);
+
+
+for (let i = 0; i < 10; i++){ createNewStock();}

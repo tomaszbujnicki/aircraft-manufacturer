@@ -55,7 +55,7 @@ function calculateAvailableWorkers(){
 	for (let aircraft of aircraftArray){
 		busyWorkers += aircraft.workers;
 	}
-	const availableWorkers = employees[0].number-busyWorkers;
+	const availableWorkers = employeeList[0].number-busyWorkers;
 	return availableWorkers;
 }
 
@@ -78,7 +78,7 @@ function closeEmployeeCard(){
 }
 
 function showWorkersCard(){
-	const workers = employees[0];
+	const workers = employeeList[0];
 	const canMount = productionForce() / 1000;
 	const partsOrPart = canMount == 1 ? " part" : " parts";
 	document.getElementById("employeeOpenCard-number0").textContent = workers.number;
