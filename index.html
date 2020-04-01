@@ -19,26 +19,24 @@
 			<div class="resources">
 				<div class="resources__unit">
 					<div class="resources__icon"><button class="resources__button" title="Reports, Loans and Awards"
-							alt="$$$" id="fundsCard"></button></div>
+							alt="$$$" id="financesCardBtn"></button></div>
 					<div class="resValue" id="cash" title="Cash"></div>
 				</div>
 				<div class="resources__unit">
 					<div class="resources__icon"><button class="resources__button" title="Employees & Inventions"
-							alt="workers" id="workersCard"></button></div>
+							alt="workers" id="employeesCardBtn"></button></div>
 					<div class="resValue" id="workers" title="Workers"></div>
 				</div>
 				<div class="resources__unit">
 					<div class="resources__icon"><button class="resources__button" title="Parts orders & Delivery"
-							alt="parts" id="partsCard"></button></div>
+							alt="parts" id="partsCardBtn"></button></div>
 					<div class="resValue" id="parts" title="Parts"></div>
 
 				</div>
 
 			</div>
 
-			<div class="relative">
-
-				<div id="aircraftDIV">
+			<div id="aircraftDIV">
 					<div class="aircraft">
 						<div></div>
 						<div></div>
@@ -50,8 +48,9 @@
 					</div>
 				</div>
 
+			<div id="cardCointainer" class="relative hide">
 
-				<div id="popFunds" class="popCard hide">
+				<div id="financesCard" class="popCard hide">
 					<div class="cardMenu">
 						<button class="cardMenu__Button" id="financesMonthsBtn" title="Monthly statistics"></button>
 						<button class="cardMenu__Button" id="financesYearsBtn" title="Annual statistics"></button>
@@ -278,7 +277,7 @@
 					</div>
 				</div>
 
-				<div id="popEmployees" class="popCard hide">
+				<div id="employeesCard" class="popCard hide">
 					<div class="cardMenu">
 						<button class="cardMenu__Button" id="employeeReviewBtn" title="Employees"></button>
 						<h2>Employees</h2>
@@ -287,16 +286,19 @@
 
 					<div>
 						<div id="employeeReview">
+
 							<h3>Review</h3>
-							<div class="relative">
-								<div class="employeeOpenCard hide" id="employeeOpenCard0">
+
+							<div id="employeeDescriptionContainer" class="relative hide">
+								<div class="employeeDescription hide" id="employeeDescription0">
+
 									<h4>Workers</h4>
 
-									<div class="employeeOpenCard-description">
+									<div class="employeeDescription-description">
 										Workers can build planes.<br>
-										The current number of workers is <span id="employeeOpenCard-number0" class="bold"></span>.<br>
-										One worker can mount <span id="employeeOpenCard-parts0" class="bold"></span> per day.<br>
-										The total production capacity is <span id="employeeOpenCard-capacity0" class="bold"></span> per day.<br>
+										The current number of workers is <span id="employeeDescription-number0" class="bold"></span>.<br>
+										One worker can mount <span id="employeeDescription-parts0" class="bold"></span> per day.<br>
+										The total production capacity is <span id="employeeDescription-capacity0" class="bold"></span> per day.<br>
 										<br>
 										If a worker can mount less than <span class="bold">1 part </span>per day,<br>consider hiring another foreman.<br>
 										<br>
@@ -306,10 +308,11 @@
 								</div>
 
 
-								<div class="employeeOpenCard hide" id="employeeOpenCard1">
+								<div class="employeeDescription hide" id="employeeDescription1">
+
 									<h4>Foremen</h4>
 
-									<div class="employeeOpenCard-description">
+									<div class="employeeDescription-description">
 										Foremen are important in the production process.<br>
 										They supervise workers and help them with production.<br>
 										Each foreman can care for four workers.<br>
@@ -323,10 +326,11 @@
 
 								</div>
 
-								<div class="employeeOpenCard hide" id="employeeOpenCard2">
+								<div class="employeeDescription hide" id="employeeDescription2">
+
 									<h4>Human Resources</h4>
 
-									<div class="employeeOpenCard-description">
+									<div class="employeeDescription-description">
 										Human resources take care of all employees.<br>
 										You need people in HR to hire more employees.<br>
 										<br>
@@ -337,10 +341,11 @@
 
 								</div>
 
-								<div class="employeeOpenCard hide" id="employeeOpenCard3">
+								<div class="employeeDescription hide" id="employeeDescription3">
+
 									<h4>Traders</h4>
 
-									<div class="employeeOpenCard-description">
+									<div class="employeeDescription-description">
 										Traders don't let prices fall too low.<br>
 										Keeping prices at an optimal level is crucial for the company's development.<br>
 										<br>
@@ -354,10 +359,11 @@
 
 								</div>
 
-								<div class="employeeOpenCard hide" id="employeeOpenCard4">
+								<div class="employeeDescription hide" id="employeeDescription4">
+									
 									<h4>Engineers</h4>
 
-									<div class="employeeOpenCard-description">
+									<div class="employeeDescription-description">
 										Engineers develop new aircraft.<br>
 										The more you hire them, the faster they will develop a new project.<br>
 										<br>
@@ -369,7 +375,7 @@
 
 								</div>
 
-								<button id="closeEmployeeOpenCard" class="closeButton closeButton--employee hide" title="Close"></button>
+								<button id="closeEmployeeDescriptionBtn" class="closeButton closeButton--employee" title="Close"></button>
 
 							</div>
 							<div id="employeesDIV">
@@ -400,7 +406,7 @@
 					
 				</div>
 
-				<div id="popParts" class="popCard hide">
+				<div id="partsCard" class="popCard hide">
 					<div class="cardMenu">
 						<button class="cardMenu__Button" id="partsMarketBtn" title="Parts orders"></button>
 						<h2>Parts</h2>
@@ -432,7 +438,7 @@
 					</div>
 				</div>
 
-				<button id="closeMenu" class="closeButton hide" title="Close"></button>
+				<button id="closeCardBtn" class="closeButton" title="Close"></button>
 			</div>
 
 
@@ -448,6 +454,9 @@
 		</div>
 	</div>
 
+	
+	
+	
 	<script src="mathFunctions/mathFunctions.js"></script>
 
 	<script src="data.js"></script>
@@ -466,6 +475,12 @@
 	<script src="parts/delivery.js"></script>
 
 	<script src="createDOMElements.js"></script>
+	<script src="js/navigation/openCard.js"></script>
+	<script src="js/navigation/openEmployeeDescription.js"></script>
+	<script src="js/navigation/openEmployees.js"></script>
+	<script src="js/navigation/openFinances.js"></script>
+	<script src="js/navigation/openParts.js"></script>
+
 	<script src="script.js"></script>
 
 

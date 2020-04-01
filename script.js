@@ -148,42 +148,6 @@ function removeDOM_ELEMENT(element) {
 
 }
 
-// 		1.1.8 Menu ......................................................................................
-
-function menu(x) {
-	closeMenu();
-	document.getElementById(x).classList.remove("hide");
-	document.getElementById("closeMenu").classList.remove("hide");
-}
-
-function closeMenu() {
-	document.getElementById("aircraftDIV").classList.add("hide");
-	document.getElementById("popFunds").classList.add("hide");
-	document.getElementById("popEmployees").classList.add("hide");
-	document.getElementById("popParts").classList.add("hide");
-	document.getElementById("closeMenu").classList.add("hide");
-}
-function showAircraftItems(){
-	document.getElementById("aircraftDIV").classList.remove("hide");
-}
-
-function cardMenu__funds(x) {
-	document.getElementById("financesMonths").classList.add("hide");
-	document.getElementById("financesYears").classList.add("hide");
-	document.getElementById("financesBank").classList.add("hide");
-	document.getElementById("financesAwards").classList.add("hide");
-	document.getElementById(x).classList.remove("hide");
-}
-function cardMenu__employee(x) {
-	document.getElementById("employeeReview").classList.add("hide");
-	document.getElementById("employeeInvention").classList.add("hide");
-	document.getElementById(x).classList.remove("hide");
-}
-function cardMenu__parts(x) {
-	document.getElementById("partsMarket").classList.add("hide");
-	document.getElementById("partsDelivery").classList.add("hide");
-	document.getElementById(x).classList.remove("hide");
-}
 
 
 // 	1.2 Show on screen ......................................................................................
@@ -239,71 +203,6 @@ function showEmployeesSalary(z) {
 	document.getElementById("totalSalary" + z).textContent = "$ " + (employeeList[z].salary * employeeList[z].number).toLocaleString();
 	document.getElementById("salarySummary__value").textContent = "$ " + totalSalary().toLocaleString();
 }
-
-
-
-//	2. Event Listeners ......................................................................................
-
-// 		2.1 Main container ......................................................................................
-
-//  		2.1.1 Aircraft ......................................................................................
-
-
-//  		2.1.2 Menu - open pop-up cards ......................................................................................
-
-document.getElementById("fundsCard").addEventListener("click", function () {
-	menu("popFunds");
-});
-document.getElementById("workersCard").addEventListener("click", function () {
-	menu("popEmployees");
-});
-document.getElementById("partsCard").addEventListener("click", function () {
-	menu("popParts");
-});
-
-// 		2.2 Pop-up cards ......................................................................................
-
-document.getElementById("closeMenu").addEventListener("click", function () {
-	closeMenu();
-	showAircraftItems();
-});
-
-for (let i = 0 ; i < employeeList.length; i++){	
-	const button = document.getElementById( "employeeCard" + i )
-	button.addEventListener("click", () => openEmployeeCard(i));
-}
-document.getElementById("closeEmployeeOpenCard").addEventListener("click", () => closeEmployeeCard());
-
-
-//  		2.2.1 Funds  and other ......................................................................................
-
-document.getElementById("financesMonthsBtn").addEventListener("click", function () {
-	cardMenu__funds("financesMonths");
-});
-document.getElementById("financesYearsBtn").addEventListener("click", function () {
-	cardMenu__funds("financesYears");
-});
-document.getElementById("financesBankBtn").addEventListener("click", function () {
-	cardMenu__funds("financesBank");
-});
-document.getElementById("financesAwardsBtn").addEventListener("click", function () {
-	cardMenu__funds("financesAwards");
-});
-
-document.getElementById("employeeReviewBtn").addEventListener("click", function () {
-	cardMenu__employee("employeeReview");
-});
-document.getElementById("employeeInventionsBtn").addEventListener("click", function () {
-	cardMenu__employee("employeeInvention");
-});
-document.getElementById("partsMarketBtn").addEventListener("click", function () {
-	cardMenu__parts("partsMarket");
-});
-document.getElementById("partsDeliveryBtn").addEventListener("click", function () {
-	cardMenu__parts("partsDelivery");
-});
-
-
 
 
 

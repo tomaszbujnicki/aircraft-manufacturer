@@ -6,7 +6,7 @@ function createElementEmployee(employee){
 	employeeElement.setAttribute("id", "employeeItem" + employee.id);
 	employeeElement.classList.add("employee");
 	employeeElement.innerHTML=`
-		<button class="employeeOpenCardButton" id="employeeCard${employee.id}">
+		<button class="employeeDescriptionButton" id="employeeCard${employee.id}">
 			<img class="employee__img" src=${employee.img}>
 		</button>
 		<div class="worker__add-remove">
@@ -33,6 +33,9 @@ function createElementEmployee(employee){
 	addEmployeeButton.addEventListener("click", () => {employee.hire()});
 	removeEmployeeButton.addEventListener("click", () => {employee.fire()});
 
+	const imageButton = document.getElementById( "employeeCard" + employee.id )
+	imageButton.addEventListener("click", () => openEmployeeDescription(employee.id));
+	
 }
 
 function addEmployee(employee) {
@@ -50,39 +53,26 @@ function removeEmployee(employee) {
 		clickTrue(document.getElementById("employee" + employee.id));
 }
 
-function calculateAvailableWorkers(){
+function calculateAvailableWorkers() {
 	let busyWorkers = 0;
-	for (let aircraft of aircraftArray){
+	for (let aircraft of aircraftArray) {
 		busyWorkers += aircraft.workers;
 	}
-	const availableWorkers = employeeList[0].number-busyWorkers;
+	const availableWorkers = employeeList[0].number - busyWorkers;
 	return availableWorkers;
 }
 
-function showAvailableWorkers(){
+function showAvailableWorkers() {
 	document.getElementById("workers").innerHTML = calculateAvailableWorkers();
 }
 
-function openEmployeeCard(x){
 
-	closeEmployeeCard()
-	document.getElementById("employeeOpenCard" + x).classList.remove("hide");
-	document.getElementById("closeEmployeeOpenCard").classList.remove("hide");
-}
 
-function closeEmployeeCard(){
-
-	const allCards = document.querySelectorAll(".employeeOpenCard");
-	allCards.forEach(element => element.classList.add("hide"));
-	document.getElementById("closeEmployeeOpenCard").classList.add("hide");
-}
-
-function showWorkersCard(){
+function showWorkersCard() {
 	const workers = employeeList[0];
 	const canMount = productionForce() / 1000;
 	const partsOrPart = canMount == 1 ? " part" : " parts";
-	document.getElementById("employeeOpenCard-number0").textContent = workers.number;
-	document.getElementById("employeeOpenCard-parts0").textContent = canMount.toFixed(2) + partsOrPart;
-	document.getElementById("employeeOpenCard-capacity0").textContent = (canMount * workers.number).toFixed(2);
-
+	document.getElementById("employeeDescription-number0").textContent = workers.number;
+	document.getElementById("employeeDescription-parts0").textContent = canMount.toFixed(2) + partsOrPart;
+	document.getElementById("employeeDescription-capacity0").textContent = (canMount * workers.number).toFixed(2);
 }
