@@ -1,41 +1,9 @@
 
-function newDay() {
-	date.setTime(date.getTime() + 86400000);
-	showDate();
-	if (date.getDate() == 1) newMonth();
-	if (date.getDay() == 0) payment();
 
-	showDeliveryStage();
-	raiseAircraftPrice();
-	inventAircraft();
-	showActualBudget();
-	createNewStockMaybe();
-	
-
-	if (availableParts < 100) clickFalse(document.getElementById("parts"));
-}
-
-function constructionProgress() {
-
-	for (let i = 0; i < aircraftArray.length; i++) {
-		progresWork(i, productionForce() / dayTick * aircraftArray[i].workers);
-	}
-
-}
 
 // 		1.1.2 Periodic ......................................................................................
 
-function newMonth() {
-	payTax();
-	saveMonth();
-	showMonthlyFinancialReport();
-	if (date.getMonth() == 0) newYear();
-}
 
-function newYear() {
-	saveYear();
-	showAnnualFinancialReport();
-}
 
 function payTax() {
 	const incomeSum = thisMonth.sale + thisMonth.prizes;
@@ -52,20 +20,7 @@ function payment() {
 }
 
 
-function progresWork(z, y) {
-	if ((y / 100) <= availableParts) {
-		aircraftArray[z].productionStage += y / aircraftArray[z].parts;
-		availableParts -= y / 100;
-		showAvailableParts();
-		if (aircraftArray[z].productionStage >= 100) {
-			availableParts += (aircraftArray[z].productionStage - 100) * aircraftArray[z].parts / 100;
-			aircraftArray[z].productionStage = 0;
-			aircraftArray[z].quantity++;
-			showQuantity(z);
-		}
-		showProductionStage(z);
-	}
-}
+
 
 
 // 		1.1.3 Calculate ......................................................................................
@@ -86,13 +41,7 @@ function calculateExpenses(amount, property) {
 	showActualBudget();
 }
 
-function totalSalary() {
-	let x = 0;
-	for (let i = 0; i < employeeList.length; i++) {
-		x += employeeList[i].salary * employeeList[i].number
-	}
-	return x;
-}
+
 
 // 		1.1.5 Visual effects ......................................................................................
 
@@ -154,55 +103,6 @@ function removeDOM_ELEMENT(element) {
 
 // 		1.2.1 Resources ......................................................................................
 
-function showCash() {
-	document.getElementById("cash").innerHTML = "$ " + cash.toLocaleString(undefined, {
-		maximumFractionDigits: 0
-	});
-}
-
-function showAvailableParts() {
-	document.getElementById("parts").innerHTML = availableParts.toLocaleString(undefined, {
-		maximumFractionDigits: 0
-	});
-}
-
-// 		1.2.2 Date ......................................................................................
-
-function showDate() {
-	let MM = date.getMonth() + 1;
-	if (MM < 10) MM = "0" + MM;
-	let DD = date.getDate();
-	if (DD < 10) DD = "0" + DD;
-	document.getElementById("date").textContent = date.getFullYear() + "-" + MM + "-" + DD;
-}
-
-// 		1.2.3 Aircraft ......................................................................................
-function showProductionStage(z) {
-	document.getElementById("myBar" + z).style = "width:" + aircraftArray[z].productionStage.toString() + "%";
-}
-
-function showQuantity(z) {
-	document.getElementById("quantity" + z).innerHTML = aircraftArray[z].quantity;
-}
-
-function showWorkers(z) {
-	document.getElementById("workers" + z).innerHTML = aircraftArray[z].workers;
-}
-
-function showPrice(z) {
-	document.getElementById("price" + z).innerHTML = "$ " + aircraftArray[z].price.toLocaleString();
-}
-
-// 		1.2.5 Employees ......................................................................................
-function showEmployeesNumber(z) {
-	document.getElementById("employee" + z).textContent = employeeList[z].number + " / " + employeeList[z].maxNumber;
-}
-
-function showEmployeesSalary(z) {
-	document.getElementById("salary" + z).textContent = "$ " + employeeList[z].salary;
-	document.getElementById("totalSalary" + z).textContent = "$ " + (employeeList[z].salary * employeeList[z].number).toLocaleString();
-	document.getElementById("salarySummary__value").textContent = "$ " + totalSalary().toLocaleString();
-}
 
 
 

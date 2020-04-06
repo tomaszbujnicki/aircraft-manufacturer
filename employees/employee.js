@@ -52,27 +52,3 @@ function removeEmployee(employee) {
 		showEmployeesSalary(employee.id);
 		clickTrue(document.getElementById("employee" + employee.id));
 }
-
-function calculateAvailableWorkers() {
-	let busyWorkers = 0;
-	for (let aircraft of aircraftArray) {
-		busyWorkers += aircraft.workers;
-	}
-	const availableWorkers = employeeList[0].number - busyWorkers;
-	return availableWorkers;
-}
-
-function showAvailableWorkers() {
-	document.getElementById("workers").innerHTML = calculateAvailableWorkers();
-}
-
-
-
-function showWorkersCard() {
-	const workers = employeeList[0];
-	const canMount = productionForce() / 1000;
-	const partsOrPart = canMount == 1 ? " part" : " parts";
-	document.getElementById("employeeDescription-number0").textContent = workers.number;
-	document.getElementById("employeeDescription-parts0").textContent = canMount.toFixed(2) + partsOrPart;
-	document.getElementById("employeeDescription-capacity0").textContent = (canMount * workers.number).toFixed(2);
-}

@@ -122,16 +122,16 @@ function createElementAircraft(aircraft){
 	removeWorkerButton.addEventListener("click", ()=> {removeWorker(aircraft, aircraft.id)} );
 }
 
-function sell(aircraft,id) {
+function sell(aircraft) {
 	if (aircraft.quantity > 0) {
 		aircraft.quantity -= 1;
 		calculateIncome(aircraft.price, "sale");
-		dropAircraftPrice(aircraft, id);
-		showQuantity(id);
-		clickTrue(document.getElementById("quantity" + id));
-		clickTrue(document.getElementById("price" + id));
+		dropAircraftPrice(aircraft);
+		showQuantity(aircraft);
+		clickTrue(document.getElementById("quantity" + aircraft.id));
+		clickTrue(document.getElementById("price" + aircraft.id));
 		clickTrue(document.getElementById("cash"));
-	} else clickFalse(document.getElementById("quantity" + id));
+	} else clickFalse(document.getElementById("quantity" + aircraft.id));
 }
 
 
@@ -156,9 +156,9 @@ function removeWorker(aircraft, id) {
 	} else clickFalse(document.getElementById("workers" + id));
 }
 
-function dropAircraftPrice(aircraft, id){
+function dropAircraftPrice(aircraft){
 	aircraft.price -= aircraft.corePrice * 0.01;
-	document.getElementById(`price${id}`).textContent = "$ " + aircraft.price.toLocaleString()
+	document.getElementById(`price${aircraft.id}`).textContent = "$ " + aircraft.price.toLocaleString()
 }
 
 function raiseAircraftPrice(){
