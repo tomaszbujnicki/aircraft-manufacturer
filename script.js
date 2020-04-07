@@ -109,15 +109,15 @@ function removeDOM_ELEMENT(element) {
 //	3. Start the game ......................................................................................
 
 
+showCash();
+showAvailableParts();
+showAvailableWorkers();
+showDate();
+showWorkersCard();
+
 
 document.addEventListener("DOMContentLoaded", function() {
 
 	setInterval(constructionProgress, 10);
 	setInterval(newDay, dayTick);
-	showCash();
-	showAvailableParts();
-	showAvailableWorkers();
-	showDate();
-	showWorkersCard();
-	showEmployeesSalary(0);
 });

@@ -113,13 +113,13 @@ function createElementAircraft(aircraft){
 	document.getElementById("aircraftDIV").appendChild(aircraftElement);
 
 	const sellAircraftButton = document.getElementById(`sellAircraftButton${aircraft.id}`);
-	sellAircraftButton.addEventListener("click", ()=> {sell(aircraft, aircraft.id)} );
+	sellAircraftButton.addEventListener("click", ()=> {sell(aircraft)} );
 
 	const addWorkerButton = document.getElementById(`addWorkerButton${aircraft.id}`);
-	addWorkerButton.addEventListener("click", ()=> {addWorker(aircraft, aircraft.id)} );
+	addWorkerButton.addEventListener("click", ()=> {addWorker(aircraft)} );
 
 	const removeWorkerButton = document.getElementById(`removeWorkerButto${aircraft.id}`);
-	removeWorkerButton.addEventListener("click", ()=> {removeWorker(aircraft, aircraft.id)} );
+	removeWorkerButton.addEventListener("click", ()=> {removeWorker(aircraft)} );
 }
 
 function sell(aircraft) {
@@ -135,25 +135,25 @@ function sell(aircraft) {
 }
 
 
-function addWorker(aircraft,id) {
+function addWorker(aircraft) {
 	if (calculateAvailableWorkers()) {
 		aircraft.workers++;
 		showAvailableWorkers();
-		showWorkers(id);
-		clickTrue(document.getElementById("workers" + id));
+		showWorkers(aircraft);
+		clickTrue(document.getElementById("workers" + aircraft.id));
 	} else {
 		clickFalse(document.getElementById("workers"));
-		clickFalse(document.getElementById("workers" + id));
+		clickFalse(document.getElementById("workers" + aircraft.id));
 	}
 }
 
-function removeWorker(aircraft, id) {
+function removeWorker(aircraft) {
 	if (aircraft.workers > 0) {
 		aircraft.workers--;
 		showAvailableWorkers();
-		showWorkers(id);
-		clickTrue(document.getElementById("workers" + id));
-	} else clickFalse(document.getElementById("workers" + id));
+		showWorkers(aircraft);
+		clickTrue(document.getElementById("workers" + aircraft.id));
+	} else clickFalse(document.getElementById("workers" + aircraft.id));
 }
 
 function dropAircraftPrice(aircraft){

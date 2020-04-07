@@ -36,22 +36,22 @@ function showQuantity(aircraft) {
 	document.getElementById("quantity" + aircraft.id).textContent = aircraft.quantity;
 }
 
-function showWorkers(z) {
-	document.getElementById("workers" + z).textContent = aircraftArray[z].workers;
+function showWorkers(aircraft) {
+	document.getElementById("workers" + aircraft.id).textContent = aircraft.workers;
 }
 
-function showPrice(z) {
-	document.getElementById("price" + z).textContent = "$ " + aircraftArray[z].price.toLocaleString();
+function showPrice(aircraft) {
+	document.getElementById("price" + aircraft.id).textContent = "$ " + aircraft.price.toLocaleString();
 }
 
 
-function showEmployeesNumber(z) {
-	document.getElementById("employee" + z).textContent = employeeList[z].number + " / " + employeeList[z].maxNumber;
+function showEmployeesNumber(employee) {
+	document.getElementById("employee" + employee.id).textContent = employee.number + " / " + employee.maxNumber;
 }
 
-function showEmployeesSalary(z) {
-	document.getElementById("salary" + z).textContent = "$ " + employeeList[z].salary;
-	document.getElementById("totalSalary" + z).textContent = "$ " + (employeeList[z].salary * employeeList[z].number).toLocaleString();
+function showEmployeesSalary(employee) {
+	document.getElementById("salary" + employee.id).textContent = "$ " + employee.salary;
+	document.getElementById("totalSalary" + employee.id).textContent = "$ " + (employee.salary * employee.number).toLocaleString();
 	document.getElementById("salarySummary__value").textContent = "$ " + totalSalary().toLocaleString();
 }
 

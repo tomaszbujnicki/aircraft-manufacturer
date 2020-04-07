@@ -41,14 +41,14 @@ function createElementEmployee(employee){
 function addEmployee(employee) {
 	employee.number++;
 	calculateExpenses(employee.employmentCost, "recruitment");
-	showEmployeesNumber(employee.id);
-	showEmployeesSalary(employee.id);
+	showEmployeesNumber(employee);
+	showEmployeesSalary(employee);
 	clickTrue(document.getElementById("employee" + employee.id));
 }
 
 function removeEmployee(employee) {
 		employee.number--;
-		showEmployeesNumber(employee.id);
-		showEmployeesSalary(employee.id);
+		showEmployeesNumber(employee);
+		showEmployeesSalary(employee);
 		clickTrue(document.getElementById("employee" + employee.id));
 }
