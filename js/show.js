@@ -103,8 +103,8 @@ function showDeliveryStage() {
 	const changeImg2 = (id) => {
 		document.getElementById("deliveryShipping" + id).src = "img/parts/truck2.svg";
 	}
-	for (const delivery of deliveryArray){
-		console.log(delivery);
+	for (const index in deliveryArray){
+		const delivery = deliveryArray[index];
 		delivery.daysToGo--;
 		let imgPosition = 95 - delivery.daysToGo;
 		if (imgPosition < -5) imgPosition = -5;
