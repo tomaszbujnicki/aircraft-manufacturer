@@ -110,7 +110,7 @@ const employeeList = [
         showMaxNumber(){
             for (let employee of employeeList){
                 employee.maxNumber = employee.multiplier + this.number * employee.multiplier;
-                showEmployeesNumber(employee.id);
+                showEmployeesNumber(employee);
             }
         }
     },
