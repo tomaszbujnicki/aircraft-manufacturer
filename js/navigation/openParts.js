@@ -4,7 +4,7 @@ document.getElementById("partsDeliveryBtn").addEventListener("click", () => open
 
 function openParts( page ) {
 
-	document.getElementById("partsMarket").classList.add("hide");
+	document.getElementById("partsMarket")  .classList.add("hide");
     document.getElementById("partsDelivery").classList.add("hide");
     
 	document.getElementById( page ).classList.remove("hide");

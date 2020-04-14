@@ -27,5 +27,4 @@ function createElementDelivery(delivery){
 	document.getElementById("deliveryDIV").appendChild(deliveryElement);
 }
 
-const deliveryArray = [];
 

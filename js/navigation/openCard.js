@@ -6,10 +6,10 @@ document.getElementById( "closeCardBtn" )    .addEventListener( "click", () =>	c
 
 function openCard( card ) {
 
-    document.getElementById("financesCard"). classList.add("hide");
+    document.getElementById("financesCard") .classList.add("hide");
 	document.getElementById("employeesCard").classList.add("hide");
-	document.getElementById("partsCard").    classList.add("hide");
-    document.getElementById("aircraftDIV").  classList.add("hide");
+	document.getElementById("partsCard")    .classList.add("hide");
+    document.getElementById("aircraftDIV")  .classList.add("hide");
     
     document.getElementById("cardCointainer").classList.remove("hide");
 

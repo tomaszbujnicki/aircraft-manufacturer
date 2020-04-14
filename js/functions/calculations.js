@@ -30,7 +30,7 @@ function totalSalary() {
 
 function calculateAvailableWorkers() {
 	let busyWorkers = 0;
-	for (let aircraft of aircraftArray) {
+	for (let aircraft of aircraftList) {
 		busyWorkers += aircraft.workers;
 	}
 	const availableWorkers = employeeList[0].number - busyWorkers;

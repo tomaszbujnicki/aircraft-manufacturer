@@ -1,11 +1,11 @@
 
-const cashElement = document.getElementById("cash")
-const partsElement = document.getElementById("parts")
-const dateElement = document.getElementById("date")
-const workersElement = document.getElementById("workers")
-const descriptionWorkersNumberElement = document.getElementById("descriptionWorkersNumber")
-const descriptionWorkersMountElement = document.getElementById("descriptionWorkersMount")
-const descriptionWorkersCapacityElement = document.getElementById("edescriptionWorkersCapacity")
+const cashElement = 						document.getElementById("cash")
+const partsElement = 						document.getElementById("parts")
+const dateElement = 						document.getElementById("date")
+const workersElement = 						document.getElementById("workers")
+const descriptionWorkersNumberElement = 	document.getElementById("descriptionWorkersNumber")
+const descriptionWorkersMountElement = 		document.getElementById("descriptionWorkersMount")
+const descriptionWorkersCapacityElement = 	document.getElementById("edescriptionWorkersCapacity")
 
 function showCash() {
 	cashElement.textContent = "$ " + cash.toLocaleString(undefined, {

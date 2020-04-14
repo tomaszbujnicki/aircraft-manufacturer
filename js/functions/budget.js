@@ -20,13 +20,6 @@ class financialResult {
 let thisMonth = new financialResult("month");
 let thisYear = new financialResult("year");
 
-saveMonth();
-saveMonth();
-saveYear();
-saveYear();
-showMonthlyFinancialReport();
-showAnnualFinancialReport();
-
 function saveMonth(){
 	calculateProfit(thisMonth);
 	months.push(thisMonth);

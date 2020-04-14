@@ -148,7 +148,7 @@ h4 {
 
 /*//---------------------------------------------------------------------------*/
 
-.aircraftToInvent {
+.newDesign {
   display: grid;
   grid-template-columns: 60px 410px 60px;
   height: 60px;

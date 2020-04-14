@@ -1,9 +1,9 @@
-function createElementAircraftToInvent(aircraft){
+function createElementNewDesign(aircraft){
 	if (!aircraft) return ;
 
 	const aircraftElement = document.createElement("div");
-	aircraftElement.setAttribute("id", "aircraftToInventItem" + aircraft.id);
-	aircraftElement.classList.add("aircraftToInvent");
+	aircraftElement.setAttribute("id", "newDesignItem" + aircraft.id);
+	aircraftElement.classList.add("newDesign");
 	aircraftElement.innerHTML=`
 	<div class = "worker__icon" ><img class = "worker__img" src = ${aircraft.img}>
 	</div>
@@ -19,6 +19,6 @@ function createElementAircraftToInvent(aircraft){
 	</div>
 	</div>`
 
-	document.getElementById("aircraftToInventItemDIV").appendChild(aircraftElement);
+	document.getElementById("newDesignItemDIV").appendChild(aircraftElement);
 
 }

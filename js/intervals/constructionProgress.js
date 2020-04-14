@@ -1,5 +1,5 @@
 function constructionProgress() {
-	for (const aircraft of aircraftArray) {
+	for (const aircraft of aircraftList) {
 		progresWork(aircraft);
 	}
 }
