@@ -1,10 +1,10 @@
-function createElementNewDesign(aircraft){
-	if (!aircraft) return ;
+export function createElementNewDesign(aircraft) {
+  if (!aircraft) return;
 
-	const aircraftElement = document.createElement("div");
-	aircraftElement.setAttribute("id", "newDesignItem" + aircraft.id);
-	aircraftElement.classList.add("newDesign");
-	aircraftElement.innerHTML=`
+  const aircraftElement = document.createElement('div');
+  aircraftElement.setAttribute('id', 'newDesignItem' + aircraft.id);
+  aircraftElement.classList.add('newDesign');
+  aircraftElement.innerHTML = `
 	<div class = "worker__icon" ><img class = "worker__img" src = ${aircraft.img}>
 	</div>
 	<div class="aircraft__name">
@@ -17,8 +17,7 @@ function createElementNewDesign(aircraft){
 	<div id="inventionPointsLeft${aircraft.id}" class="worker__value" title="Invention points left to develop this aircraft">
 	${aircraft.inventionPoints}
 	</div>
-	</div>`
+	</div>`;
 
-	document.getElementById("newDesignItemDIV").appendChild(aircraftElement);
-
+  document.getElementById('newDesignItemDIV').appendChild(aircraftElement);
 }

@@ -1,1 +1,4 @@
 new-images
+node_modules
+dist
+.cache

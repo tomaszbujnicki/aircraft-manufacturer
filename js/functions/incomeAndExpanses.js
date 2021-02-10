@@ -1,30 +1,38 @@
-function calculateIncome(amount, property) {
-	cash += amount;
-	showCash();
-	thisMonth[property] += amount;
-	thisYear[property] += amount;
-	showActualBudget();
+import { game } from '../game';
+import { thisMonth, thisYear } from './budget';
+import { totalSalary } from './calculations';
+import { showActualBudget, showCash } from './show';
+
+export function calculateIncome(amount, property) {
+  game.cash += amount;
+  showCash();
+  thisMonth[property] += amount;
+  thisYear[property] += amount;
+  showActualBudget();
 }
 
-function calculateExpenses(amount, property) {
-	cash -= amount;
-	showCash();
-	thisMonth[property] += amount;
-	thisYear[property] += amount;
-	showActualBudget();
+export function calculateExpenses(amount, property) {
+  game.cash -= amount;
+  showCash();
+  thisMonth[property] += amount;
+  thisYear[property] += amount;
+  showActualBudget();
 }
 
+export function payTax() {
+  const incomeSum = thisMonth.sale + thisMonth.prizes;
+  const expensesSum =
+    thisMonth.interest +
+    thisMonth.parts +
+    thisMonth.recruitment +
+    thisMonth.salaries;
 
-function payTax() {
-	const incomeSum = thisMonth.sale + thisMonth.prizes;
-	const expensesSum = thisMonth.interest + thisMonth.parts + thisMonth.recruitment + thisMonth.salaries;
-	
-	let result = incomeSum - expensesSum;
-	if (result > 0) {
-		calculateExpenses(Math.floor(result * taxRate), "tax");
-	}
+  let result = incomeSum - expensesSum;
+  if (result > 0) {
+    calculateExpenses(Math.floor(result * taxRate), 'tax');
+  }
 }
 
-function payment() {
-	calculateExpenses(totalSalary(), "salaries");
+export function payment() {
+  calculateExpenses(totalSalary(), 'salaries');
 }

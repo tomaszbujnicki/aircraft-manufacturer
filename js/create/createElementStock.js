@@ -1,10 +1,9 @@
-function createElementStock(stock) {
-	if (!stock)
-		return;
-	const stockElement = document.createElement("div");
-	stockElement.setAttribute("id", "stockItem" + stock.id);
-	stockElement.classList.add("employee", "employee--parts");
-	stockElement.innerHTML = `
+export function createElementStock(stock) {
+  if (!stock) return;
+  const stockElement = document.createElement('div');
+  stockElement.setAttribute('id', 'stockItem' + stock.id);
+  stockElement.classList.add('employee', 'employee--parts');
+  stockElement.innerHTML = `
 		<div>
 			<img src=${stock.flag} class="employee__img" title=${stock.country}>
 		</div>
@@ -28,11 +27,15 @@ function createElementStock(stock) {
 		</div>		
 		
 		<div class="employee__value">
-			<button id="buyStockButton${stock.id}" class="employee__buy-btn" title="buy stock">
+			<button id="buyStockButton${
+        stock.id
+      }" class="employee__buy-btn" title="buy stock">
 			</button>
 		</div>
 		`;
-	document.getElementById("partsDIV").appendChild(stockElement);
-	const buyStockButton = document.getElementById(`buyStockButton${stock.id}`);
-	buyStockButton.addEventListener("click", () => { stock.buy(); });
+  document.getElementById('partsDIV').appendChild(stockElement);
+  const buyStockButton = document.getElementById(`buyStockButton${stock.id}`);
+  buyStockButton.addEventListener('click', () => {
+    stock.buy();
+  });
 }

@@ -1,11 +1,10 @@
+export function createElementDelivery(delivery) {
+  if (!delivery) return;
 
-function createElementDelivery(delivery){
-	if (!delivery) return ;
-
-	const deliveryElement = document.createElement("div");
-	deliveryElement.setAttribute("id", "deliveryItem" + delivery.id);
-	deliveryElement.classList.add("delivery");
-	deliveryElement.innerHTML=`
+  const deliveryElement = document.createElement('div');
+  deliveryElement.setAttribute('id', 'deliveryItem' + delivery.id);
+  deliveryElement.classList.add('delivery');
+  deliveryElement.innerHTML = `
 	<div>
 
 		<div class="delivery__description">
@@ -22,9 +21,7 @@ function createElementDelivery(delivery){
 			<img src=img/parts/warehouse.svg class="delivery__img" >
 			</div>
 		</div>
-	</div>`
+	</div>`;
 
-	document.getElementById("deliveryDIV").appendChild(deliveryElement);
+  document.getElementById('deliveryDIV').appendChild(deliveryElement);
 }
-
-

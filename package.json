@@ -1,0 +1,24 @@
+{
+  "name": "aircraft-manufacturer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "parcel": "^1.12.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "parcel ./index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomaszbujnicki/aircraft-manufacturer.git"
+  },
+  "keywords": [],
+  "author": "Tomasz Bujnicki",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomaszbujnicki/aircraft-manufacturer/issues"
+  },
+  "homepage": "https://github.com/tomaszbujnicki/aircraft-manufacturer#readme"
+}
