@@ -2,14 +2,15 @@ import { createElementAircraft } from './create/createElementAircraft';
 import { createElementNewDesign } from './create/createElementNewDesign';
 import { createElementLoan } from './create/createElementLoan';
 import { aircraftList } from './list/aircraftList';
-import { newDesignList } from './list/newDesignList';
 import { loanList } from './list/loanList';
 import { employeeList } from './list/employeeList';
 
 export function createInitialElements() {
-  for (const aircraft of aircraftList) createElementAircraft(aircraft);
-
-  for (const aircraft of newDesignList) createElementNewDesign(aircraft);
+  for (const aircraft of aircraftList) {
+    aircraft.inventionPoints <= 0
+      ? createElementAircraft(aircraft)
+      : createElementNewDesign(aircraft);
+  }
 
   for (const loan of loanList) createElementLoan(loan);
 
