@@ -1,8 +1,13 @@
 import { createElementAircraft } from '../create/createElementAircraft';
+import { aircraftList } from '../list/aircraftList';
+import { employeeList } from '../list/employeeList';
 import { calculateAvailableWorkers, getRndInteger } from './calculations';
 import { calculateIncome } from './incomeAndExpanses';
 import { showAvailableWorkers, showQuantity, showWorkers } from './show';
 import { clickFalse, clickTrue, createNewMessage } from './visual';
+
+const traders = employeeList[3];
+const engineers = employeeList[4];
 
 export function sell(aircraft) {
   if (aircraft.quantity > 0) {
@@ -44,8 +49,13 @@ export function dropAircraftPrice(aircraft) {
 }
 
 export function raiseAircraftPrice() {
-  for (let i = 0; i < employeeList[3].number; i++) {
-    let aircraft = aircraftList[getRndInteger(0, aircraftList.length - 1)];
+  const lastAircraft = aircraftList.find(
+    (aircraft) => aircraft.inventionPoints > 0
+  );
+  const length = lastAircraft ? lastAircraft.id : aircraftList.length;
+
+  for (let i = 0; i < traders.number; i++) {
+    const aircraft = aircraftList[getRndInteger(0, length - 1)];
     aircraft.price += aircraft.corePrice * 0.001;
     if (aircraft.price > aircraft.corePrice)
       aircraft.price = aircraft.corePrice;
@@ -55,14 +65,19 @@ export function raiseAircraftPrice() {
 }
 
 export function inventAircraft() {
-  if (newDesignList.length == 0) return;
-
-  let aircraft = newDesignList[0];
-  aircraft.inventionPoints -= employeeList[4].number;
-  if (aircraft.inventionPoints <= 0) {
-    createNewMessage(`Our  engineers invented: ${aircraft.name}`, '#ff0000');
-    aircraftList.push(aircraft);
-    newDesignList.shift(aircraft);
-    createElementAircraft(aircraft);
+  const aircraft = aircraftList.find(
+    (aircraft) => aircraft.inventionPoints > 0
+  );
+  if (aircraft) {
+    aircraft.inventionPoints -= engineers.number;
+    if (aircraft.inventionPoints <= 0) {
+      addNewAircraft(aircraft);
+    }
   }
+}
+
+function addNewAircraft(aircraft) {
+  createNewMessage(`Our  engineers invented: ${aircraft.name}`, '#ff0000');
+  document.getElementById('newDesignItem' + aircraft.id).remove();
+  createElementAircraft(aircraft);
 }

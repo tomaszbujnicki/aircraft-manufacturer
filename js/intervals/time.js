@@ -1,6 +1,6 @@
 import { inventAircraft, raiseAircraftPrice } from '../functions/aircraft';
 import { saveMonth, saveYear } from '../functions/budget';
-import { payTax } from '../functions/incomeAndExpanses';
+import { payment, payTax } from '../functions/incomeAndExpanses';
 import {
   showActualBudget,
   showAnnualFinancialReport,
@@ -10,12 +10,13 @@ import {
 } from '../functions/show';
 import { createNewStockMaybe } from '../functions/stock';
 import { clickFalse } from '../functions/visual';
+import { game } from '../game';
 
 export function newDay() {
-  date.setTime(date.getTime() + 86400000);
+  game.date.setTime(game.date.getTime() + 86400000);
   showDate();
-  if (date.getDate() == 1) newMonth();
-  if (date.getDay() == 0) payment();
+  if (game.date.getDate() == 1) newMonth();
+  if (game.date.getDay() == 0) payment();
 
   showDeliveryStage();
   raiseAircraftPrice();
@@ -23,14 +24,14 @@ export function newDay() {
   showActualBudget();
   createNewStockMaybe();
 
-  if (availableParts < 100) clickFalse(document.getElementById('parts'));
+  if (game.availableParts < 100) clickFalse(document.getElementById('parts'));
 }
 
 export function newMonth() {
   payTax();
   saveMonth();
   showMonthlyFinancialReport();
-  if (date.getMonth() == 0) newYear();
+  if (game.date.getMonth() == 0) newYear();
 }
 
 export function newYear() {

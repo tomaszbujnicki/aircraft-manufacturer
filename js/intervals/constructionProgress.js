@@ -1,22 +1,33 @@
+import { productionForce } from '../functions/calculations';
+import {
+  showAvailableParts,
+  showProductionStage,
+  showQuantity,
+} from '../functions/show';
+import { game } from '../game';
+import { aircraftList } from '../list/aircraftList';
+
 export function constructionProgress() {
   for (const aircraft of aircraftList) {
-    progresWork(aircraft);
+    if (aircraft.inventionPoints <= 0) {
+      progresWork(aircraft);
+    }
   }
 }
 
 export function progresWork(aircraft) {
-  let progress = (productionForce() / dayTick) * aircraft.workers;
-  if (progress / 100 <= availableParts) {
+  let progress = (productionForce() / game.dayTick) * aircraft.workers;
+  if (progress / 100 <= game.availableParts) {
     aircraft.productionStage += progress / aircraft.parts;
-    availableParts -= progress / 100;
+    game.availableParts -= progress / 100;
     showAvailableParts();
     if (aircraft.productionStage >= 100) {
-      availableParts +=
+      game.availableParts +=
         ((aircraft.productionStage - 100) * aircraft.parts) / 100;
       aircraft.productionStage = 0;
       aircraft.quantity++;
       showQuantity(aircraft);
     }
-    showProductionStage(aircraft);
+    //showProductionStage(aircraft);
   }
 }

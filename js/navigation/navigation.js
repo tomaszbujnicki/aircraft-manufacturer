@@ -34,22 +34,7 @@ const aircraftDIV = document.getElementById('aircraftDIV'),
   ],
   employeeDescription = [...document.querySelectorAll('.employeeDescription')];
 
-const OPEN = true,
-  CLOSE = false;
-
-const navTree = {
-  aircraftDIV,
-  cardCointainer: {
-    financesCard,
-    employeesCard,
-    partsCard: {
-      partsMarket,
-      partsDelivery,
-    },
-  },
-};
-
-export function navigation() {
+export function addNavigation() {
   financesBtn.addEventListener('click', () => openCard(financesCard));
   employeesBtn.addEventListener('click', () => openCard(employeesCard));
   partsBtn.addEventListener('click', () => openCard(partsCard));
@@ -122,10 +107,10 @@ function openEmployees(page) {
   show(page);
 }
 
-function openEmployeeDescription(i) {
+function openEmployeeDescription(employeeId) {
   employeeDescription.forEach((element) => hide(element));
   show(employeeDescriptionContainer);
-  show(employeeDescription[i]);
+  show(employeeDescription[employeeId]);
 }
 
 function closeEmployeeDescription() {

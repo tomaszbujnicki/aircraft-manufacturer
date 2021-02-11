@@ -1,3 +1,5 @@
+import { payOffLoan, takeLoan } from '../functions/loan';
+
 export function createElementLoan(loan) {
   if (!loan) return;
   const loanElement = document.createElement('div');

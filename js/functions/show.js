@@ -134,8 +134,8 @@ export function showDeliveryStage() {
     document.getElementById('deliveryShipping' + id).src =
       'img/parts/truck2.svg';
   };
-  for (const index in deliveryArray) {
-    const delivery = deliveryArray[index];
+  for (const index in game.deliveryArray) {
+    const delivery = game.deliveryArray[index];
     delivery.daysToGo--;
     let imgPosition = 95 - delivery.daysToGo;
     if (imgPosition < -5) imgPosition = -5;

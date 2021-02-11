@@ -1,5 +1,12 @@
 import { calculateAvailableWorkers } from '../functions/calculations';
+import { addEmployee, removeEmployee } from '../functions/employee';
+import {
+  showAvailableWorkers,
+  showEmployeesNumber,
+  showWorkersCard,
+} from '../functions/show';
 import { clickFalse } from '../functions/visual';
+import { game } from '../game';
 
 export const employeeList = [
   {
@@ -14,14 +21,14 @@ export const employeeList = [
     description: 'Workers build aircraft',
     hire() {
       const canIHire =
-        cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
         showAvailableWorkers();
         showWorkersCard();
       } else {
         clickFalse(document.getElementById('employee' + this.id));
-        if (cash < this.employmentCost)
+        if (game.cash < this.employmentCost)
           clickFalse(document.getElementById('cash'));
       }
     },
@@ -49,13 +56,13 @@ export const employeeList = [
     description: 'Foremen help workers build aircraft',
     hire() {
       const canIHire =
-        cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
         showWorkersCard();
       } else {
         clickFalse(document.getElementById('employee' + this.id));
-        if (cash < this.employmentCost)
+        if (game.cash < this.employmentCost)
           clickFalse(document.getElementById('cash'));
       }
     },
@@ -80,13 +87,13 @@ export const employeeList = [
     employmentCost: 9000,
     description: 'HR care about all employees',
     hire() {
-      const canIHire = cash >= this.employmentCost;
+      const canIHire = game.cash >= this.employmentCost;
       if (canIHire) {
         addEmployee(this);
         this.showMaxNumber();
       } else {
         clickFalse(document.getElementById('employee' + this.id));
-        if (cash < this.employmentCost)
+        if (game.cash < this.employmentCost)
           clickFalse(document.getElementById('cash'));
       }
     },
@@ -128,12 +135,12 @@ export const employeeList = [
     description: 'Traders keep high the price of aircraft',
     hire() {
       const canIHire =
-        cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
       } else {
         clickFalse(document.getElementById('employee' + this.id));
-        if (cash < this.employmentCost)
+        if (game.cash < this.employmentCost)
           clickFalse(document.getElementById('cash'));
       }
     },
@@ -158,12 +165,12 @@ export const employeeList = [
     description: 'Engineers develop new aircraft',
     hire() {
       const canIHire =
-        cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
       } else {
         clickFalse(document.getElementById('employee' + this.id));
-        if (cash < this.employmentCost)
+        if (game.cash < this.employmentCost)
           clickFalse(document.getElementById('cash'));
       }
     },

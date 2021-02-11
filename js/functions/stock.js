@@ -5,9 +5,13 @@ import { createElementStock } from '../create/createElementStock';
 import {
   clickFalse,
   clickTrue,
+  createNewMessage,
   disableElement,
   removeDOM_ELEMENT,
 } from './visual';
+import { calculateExpenses } from './incomeAndExpanses';
+import { createElementDelivery } from '../create/createElementDelivery';
+import { showAvailableParts } from './show';
 
 export class Stock {
   constructor(id, flag, country, company, time, risk, amount, price) {
@@ -25,7 +29,7 @@ export class Stock {
 
   buy() {
     const stock = this;
-    const canIBuy = cash >= stock.totalPrice;
+    const canIBuy = game.cash >= stock.totalPrice;
     if (canIBuy) {
       calculateExpenses(stock.totalPrice, 'parts');
       clickTrue(document.getElementById(`stockItem${stock.id}`));
@@ -39,7 +43,7 @@ export class Stock {
   }
   delivery() {
     const stock = this;
-    deliveryArray[stock.id] = stock;
+    game.deliveryArray[stock.id] = stock;
     createElementDelivery(stock);
     setTimeout(() => {
       const deliveryElement = document.getElementById(
@@ -47,7 +51,7 @@ export class Stock {
       );
       const isDeliveryCorrect = Math.floor(Math.random() * 100) >= stock.risk;
       if (isDeliveryCorrect) {
-        availableParts += stock.amount;
+        game.availableParts += stock.amount;
         showAvailableParts();
         createNewMessage('+' + stock.amount + ' parts form ' + stock.country);
         clickTrue(deliveryElement);
@@ -59,7 +63,7 @@ export class Stock {
         );
         clickFalse(deliveryElement);
       }
-      delete deliveryArray[stock.id];
+      delete game.deliveryArray[stock.id];
       removeDOM_ELEMENT(deliveryElement);
     }, game.dayTick * stock.time);
   }

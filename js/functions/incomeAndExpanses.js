@@ -29,7 +29,7 @@ export function payTax() {
 
   let result = incomeSum - expensesSum;
   if (result > 0) {
-    calculateExpenses(Math.floor(result * taxRate), 'tax');
+    calculateExpenses(Math.floor(result * game.taxRate), 'tax');
   }
 }
 
