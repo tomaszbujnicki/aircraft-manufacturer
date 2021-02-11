@@ -8,7 +8,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "dev": "parcel ./index.html"
+    "dev": "parcel ./index.html",
+    "build": "parcel build ./index.html --public-url ./ --out-dir docs --no-cache"
   },
   "repository": {
     "type": "git",
