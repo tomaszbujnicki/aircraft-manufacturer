@@ -1,5 +1,5 @@
 import { createElementAircraft } from '../create/createElementAircraft';
-import { calculateAvailableWorkers } from './calculations';
+import { calculateAvailableWorkers, getRndInteger } from './calculations';
 import { calculateIncome } from './incomeAndExpanses';
 import { showAvailableWorkers, showQuantity, showWorkers } from './show';
 import { clickFalse, clickTrue, createNewMessage } from './visual';
@@ -43,7 +43,7 @@ export function dropAircraftPrice(aircraft) {
     '$ ' + aircraft.price.toLocaleString();
 }
 
-function raiseAircraftPrice() {
+export function raiseAircraftPrice() {
   for (let i = 0; i < employeeList[3].number; i++) {
     let aircraft = aircraftList[getRndInteger(0, aircraftList.length - 1)];
     aircraft.price += aircraft.corePrice * 0.001;
