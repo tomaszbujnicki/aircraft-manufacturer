@@ -1,22 +1,44 @@
-const financesBtn = document.getElementById('financesCardBtn'),
-  employeesBtn = document.getElementById('employeesCardBtn'),
-  partsBtn = document.getElementById('partsCardBtn'),
-  closeCardBtn = document.getElementById('closeCardBtn'),
-  employeesCard = document.getElementById('employeesCard'),
-  financesCard = document.getElementById('financesCard'),
-  partsCard = document.getElementById('partsCard'),
-  aircraftDIV = document.getElementById('aircraftDIV'),
+const aircraftDIV = document.getElementById('aircraftDIV'),
   cardCointainer = document.getElementById('cardCointainer'),
-  partsMarketBtn = document.getElementById('partsMarketBtn'),
+  closeCardBtn = document.getElementById('closeCardBtn'),
+  closeEmployeeDescriptionBtn = document.getElementById(
+    'closeEmployeeDescriptionBtn'
+  ),
+  employeeDescriptionContainer = document.getElementById(
+    'employeeDescriptionContainer'
+  ),
+  employeeInventions = document.getElementById('employeeInventions'),
+  employeeInventionsBtn = document.getElementById('employeeInventionsBtn'),
+  employeeReview = document.getElementById('employeeReview'),
+  employeeReviewBtn = document.getElementById('employeeReviewBtn'),
+  employeesBtn = document.getElementById('employeesCardBtn'),
+  employeesCard = document.getElementById('employeesCard'),
+  financesAwards = document.getElementById('financesAwards'),
+  financesAwardsBtn = document.getElementById('financesAwardsBtn'),
+  financesBank = document.getElementById('financesBank'),
+  financesBankBtn = document.getElementById('financesBankBtn'),
+  financesBtn = document.getElementById('financesCardBtn'),
+  financesCard = document.getElementById('financesCard'),
+  financesMonths = document.getElementById('financesMonths'),
+  financesMonthsBtn = document.getElementById('financesMonthsBtn'),
+  financesYears = document.getElementById('financesYears'),
+  financesYearsBtn = document.getElementById('financesYearsBtn'),
+  partsBtn = document.getElementById('partsCardBtn'),
+  partsCard = document.getElementById('partsCard'),
+  partsDelivery = document.getElementById('partsDelivery'),
   partsDeliveryBtn = document.getElementById('partsDeliveryBtn'),
   partsMarket = document.getElementById('partsMarket'),
-  partsDelivery = document.getElementById('partsDelivery');
+  partsMarketBtn = document.getElementById('partsMarketBtn'),
+  employeeDescriptionBtns = [
+    ...document.querySelectorAll('.employeeDescriptionButton'),
+  ],
+  employeeDescription = [...document.querySelectorAll('.employeeDescription')];
 
 const OPEN = true,
   CLOSE = false;
 
 const navTree = {
-  aircraftDIV: OPEN,
+  aircraftDIV,
   cardCointainer: {
     financesCard,
     employeesCard,
@@ -32,86 +54,80 @@ export function navigation() {
   employeesBtn.addEventListener('click', () => openCard(employeesCard));
   partsBtn.addEventListener('click', () => openCard(partsCard));
   closeCardBtn.addEventListener('click', () => closeCard());
-  partsMarketBtn.addEventListener('click', () => openParts('partsMarket'));
-  partsDeliveryBtn.addEventListener('click', () => openParts('partsDelivery'));
+  partsMarketBtn.addEventListener('click', () => openParts(partsMarket));
+  partsDeliveryBtn.addEventListener('click', () => openParts(partsDelivery));
+  financesMonthsBtn.addEventListener('click', () =>
+    openFinances(financesMonths)
+  );
+  financesYearsBtn.addEventListener('click', () => openFinances(financesYears));
+  financesBankBtn.addEventListener('click', () => openFinances(financesBank));
+  financesAwardsBtn.addEventListener('click', () =>
+    openFinances(financesAwards)
+  );
+  employeeReviewBtn.addEventListener('click', () =>
+    openEmployees(employeeReview)
+  );
+  employeeInventionsBtn.addEventListener('click', () =>
+    openEmployees(employeeInventions)
+  );
+  closeEmployeeDescriptionBtn.addEventListener('click', () =>
+    closeEmployeeDescription()
+  );
+
+  for (const button of employeeDescriptionBtns) {
+    button.addEventListener('click', () =>
+      openEmployeeDescription(button.value)
+    );
+  }
+}
+
+function hide(element) {
+  element.classList.add('hide');
+}
+function show(element) {
+  element.classList.remove('hide');
 }
 
 function openCard(card) {
-  financesCard.classList.add('hide');
-  employeesCard.classList.add('hide');
-  partsCard.classList.add('hide');
-  aircraftDIV.classList.add('hide');
-
-  cardCointainer.classList.remove('hide');
-  card.classList.remove('hide');
+  hide(financesCard);
+  hide(employeesCard);
+  hide(partsCard);
+  hide(aircraftDIV);
+  show(cardCointainer);
+  show(card);
 }
 
 function closeCard() {
-  document.getElementById('cardCointainer').classList.add('hide');
-  document.getElementById('aircraftDIV').classList.remove('hide');
+  hide(cardCointainer);
+  show(aircraftDIV);
 }
 
 function openParts(page) {
-  partsMarket.classList.add('hide');
-  partsDelivery.classList.add('hide');
-
-  document.getElementById(page).classList.remove('hide');
+  hide(partsMarket);
+  hide(partsDelivery);
+  show(page);
 }
-
-document
-  .getElementById('financesMonthsBtn')
-  .addEventListener('click', () => openFinances('financesMonths'));
-document
-  .getElementById('financesYearsBtn')
-  .addEventListener('click', () => openFinances('financesYears'));
-document
-  .getElementById('financesBankBtn')
-  .addEventListener('click', () => openFinances('financesBank'));
-document
-  .getElementById('financesAwardsBtn')
-  .addEventListener('click', () => openFinances('financesAwards'));
 
 function openFinances(page) {
-  document.getElementById('financesMonths').classList.add('hide');
-  document.getElementById('financesYears').classList.add('hide');
-  document.getElementById('financesBank').classList.add('hide');
-  document.getElementById('financesAwards').classList.add('hide');
-
-  document.getElementById(page).classList.remove('hide');
+  hide(financesMonths);
+  hide(financesYears);
+  hide(financesBank);
+  hide(financesAwards);
+  show(page);
 }
-
-document
-  .getElementById('employeeReviewBtn')
-  .addEventListener('click', () => openEmployees('employeeReview'));
-document
-  .getElementById('employeeInventionsBtn')
-  .addEventListener('click', () => openEmployees('employeeInvention'));
 
 function openEmployees(page) {
-  document.getElementById('employeeReview').classList.add('hide');
-  document.getElementById('employeeInvention').classList.add('hide');
-
-  document.getElementById(page).classList.remove('hide');
-}
-
-document
-  .getElementById('closeEmployeeDescriptionBtn')
-  .addEventListener('click', () => closeEmployeeDescription());
-for (let i = 0; i < 5; i++) {
-  const button = document.getElementById('employeeCard' + i);
-  button.addEventListener('click', () => openEmployeeDescription(i));
+  hide(employeeReview);
+  hide(employeeInventions);
+  show(page);
 }
 
 function openEmployeeDescription(i) {
-  const allCards = document.querySelectorAll('.employeeDescription');
-  allCards.forEach((element) => element.classList.add('hide'));
-
-  document
-    .getElementById('employeeDescriptionContainer')
-    .classList.remove('hide');
-  document.getElementById('employeeDescription' + i).classList.remove('hide');
+  employeeDescription.forEach((element) => hide(element));
+  show(employeeDescriptionContainer);
+  show(employeeDescription[i]);
 }
 
 function closeEmployeeDescription() {
-  document.getElementById('employeeDescriptionContainer').classList.add('hide');
+  hide(employeeDescriptionContainer);
 }
