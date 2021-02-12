@@ -6,6 +6,8 @@ import {
   productionForce,
   totalSalary,
 } from './calculations';
+import truck from '../../img/parts/truck.svg';
+import truck2 from '../../img/parts/truck2.svg';
 
 const cashElement = document.getElementById('cash');
 const partsElement = document.getElementById('parts');
@@ -127,12 +129,10 @@ export function showBudget(item, columnNumber) {
 
 export function showDeliveryStage() {
   const changeImg = (id) => {
-    document.getElementById('deliveryShipping' + id).src =
-      'img/parts/truck.svg';
+    document.getElementById('deliveryShipping' + id).src = truck;
   };
   const changeImg2 = (id) => {
-    document.getElementById('deliveryShipping' + id).src =
-      'img/parts/truck2.svg';
+    document.getElementById('deliveryShipping' + id).src = truck2;
   };
   for (const index in game.deliveryArray) {
     const delivery = game.deliveryArray[index];

@@ -1,6 +1,7 @@
 import airplane1 from '../../img/aircraft/airplane1.svg';
 import aeroplane3 from '../../img/aircraft/aeroplane3.svg';
 import aeroplane2 from '../../img/aircraft/aeroplane2.svg';
+
 export const aircraftList = [
   {
     id: 0,

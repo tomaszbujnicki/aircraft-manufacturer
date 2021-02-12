@@ -1,3 +1,6 @@
+import warehouse from '../../img/parts/warehouse.svg';
+import ship from '../../img/parts/ship.svg';
+
 export function createElementDelivery(delivery) {
   if (!delivery) return;
 
@@ -17,8 +20,8 @@ export function createElementDelivery(delivery) {
 
 		<div class = "delivery__images" >
 			<img src=${delivery.flag} class="delivery__img" >
-			<div><img id="deliveryShipping${delivery.id}" src=img/parts/ship.svg class="delivery__img delivery__img--relative" ></div>
-			<img src=img/parts/warehouse.svg class="delivery__img" >
+			<div><img id="deliveryShipping${delivery.id}" src=${ship} class="delivery__img delivery__img--relative" ></div>
+			<img src=${warehouse} class="delivery__img" >
 			</div>
 		</div>
 	</div>`;

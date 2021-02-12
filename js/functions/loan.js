@@ -1,6 +1,5 @@
 import { game } from '../game';
 import { calculateExpenses, calculateIncome } from './incomeAndExpanses';
-import { clickFalse, clickTrue } from './visual';
 
 export function takeLoan(loan) {
   if (loan.taken == true) return;
@@ -14,13 +13,10 @@ export function takeLoan(loan) {
   const loanElement = document.getElementById(`loanItem${loan.id}`);
   const takeButton = document.getElementById(`takeLoanBtn${loan.id}`);
   takeButton.classList.add('hide');
-  clickTrue(loanElement);
-  clickTrue(document.getElementById('cash'));
 
   setTimeout(() => {
     const newParent = document.getElementById('loanTakenDIV');
     newParent.appendChild(loanElement);
-    clickTrue(loanElement);
     const payOffButton = document.getElementById(`payOffLoanBtn${loan.id}`);
     payOffButton.classList.remove('hide');
   }, 500);
@@ -46,9 +42,6 @@ export function payOffLoan(loan) {
       `loanPeriod${loan.id}`
     ).textContent = `${loan.installmentsToEnd}`;
     loanEnd(loan);
-  } else {
-    clickFalse(document.getElementById(`loanItem${loan.id}`));
-    clickFalse(document.getElementById('cash'));
   }
 }
 export function payInstallment(loan) {
@@ -76,14 +69,12 @@ export function loanEnd(loan) {
   loan.taken = false;
   clearInterval(loan.intervalID);
   const loanElement = document.getElementById(`loanItem${loan.id}`);
-  clickTrue(loanElement);
   const payOffButton = document.getElementById(`payOffLoanBtn${loan.id}`);
   payOffButton.classList.add('hide');
 
   setTimeout(() => {
     const newParent = document.getElementById('loanDIV');
     newParent.appendChild(loanElement);
-    clickTrue(loanElement);
     loan.amount += 100000 * (loan.id + 1);
     loan.interest += 1;
     document.getElementById(

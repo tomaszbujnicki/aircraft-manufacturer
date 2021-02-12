@@ -5,7 +5,6 @@ import {
   showEmployeesNumber,
   showWorkersCard,
 } from '../functions/show';
-import { clickFalse } from '../functions/visual';
 import { game } from '../game';
 
 export const employeeList = [
@@ -26,10 +25,6 @@ export const employeeList = [
         addEmployee(this);
         showAvailableWorkers();
         showWorkersCard();
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
-        if (game.cash < this.employmentCost)
-          clickFalse(document.getElementById('cash'));
       }
     },
     fire() {
@@ -38,9 +33,6 @@ export const employeeList = [
         removeEmployee(this);
         showAvailableWorkers();
         showWorkersCard();
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
-        clickFalse(document.getElementById('workers'));
       }
     },
   },
@@ -60,10 +52,6 @@ export const employeeList = [
       if (canIHire) {
         addEmployee(this);
         showWorkersCard();
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
-        if (game.cash < this.employmentCost)
-          clickFalse(document.getElementById('cash'));
       }
     },
     fire() {
@@ -71,8 +59,6 @@ export const employeeList = [
       if (canIFire) {
         removeEmployee(this);
         showWorkersCard();
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
       }
     },
   },
@@ -91,10 +77,6 @@ export const employeeList = [
       if (canIHire) {
         addEmployee(this);
         this.showMaxNumber();
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
-        if (game.cash < this.employmentCost)
-          clickFalse(document.getElementById('cash'));
       }
     },
     fire() {
@@ -102,14 +84,11 @@ export const employeeList = [
       if (canIFire) {
         removeEmployee(this);
         this.showMaxNumber();
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
       }
     },
     isMoreThenNumber() {
       for (let employee of employeeList) {
         if (employee.number > this.number * employee.multiplier) {
-          clickFalse(document.getElementById('employee' + employee.id));
           return false;
         }
       }
@@ -138,18 +117,12 @@ export const employeeList = [
         game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
-        if (game.cash < this.employmentCost)
-          clickFalse(document.getElementById('cash'));
       }
     },
     fire() {
       const canIFire = this.number > 0;
       if (canIFire) {
         removeEmployee(this);
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
       }
     },
   },
@@ -168,18 +141,12 @@ export const employeeList = [
         game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
-        if (game.cash < this.employmentCost)
-          clickFalse(document.getElementById('cash'));
       }
     },
     fire() {
       const canIFire = this.number > 0;
       if (canIFire) {
         removeEmployee(this);
-      } else {
-        clickFalse(document.getElementById('employee' + this.id));
       }
     },
   },

@@ -28,6 +28,6 @@ export function progresWork(aircraft) {
       aircraft.quantity++;
       showQuantity(aircraft);
     }
-    //showProductionStage(aircraft);
+    showProductionStage(aircraft);
   }
 }

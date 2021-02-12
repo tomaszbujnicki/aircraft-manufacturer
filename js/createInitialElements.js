@@ -4,6 +4,8 @@ import { createElementLoan } from './create/createElementLoan';
 import { aircraftList } from './list/aircraftList';
 import { loanList } from './list/loanList';
 import { employeeList } from './list/employeeList';
+import { game } from './game';
+import { createElementStock } from './create/createElementStock';
 
 export function createInitialElements() {
   for (const aircraft of aircraftList) {
@@ -22,5 +24,9 @@ export function createInitialElements() {
       'removeEmployee' + employee.id
     );
     buttonRemove.addEventListener('click', () => employee.fire());
+  }
+
+  for (const stock of game.stockArray) {
+    createElementStock(stock);
   }
 }

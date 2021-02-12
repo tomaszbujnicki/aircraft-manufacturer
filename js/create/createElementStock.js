@@ -1,5 +1,6 @@
 export function createElementStock(stock) {
   if (!stock) return;
+
   const stockElement = document.createElement('div');
   stockElement.setAttribute('id', 'stockItem' + stock.id);
   stockElement.classList.add('employee', 'employee--parts');

@@ -8,9 +8,8 @@ import {
   showDeliveryStage,
   showMonthlyFinancialReport,
 } from '../functions/show';
-import { createNewStockMaybe } from '../functions/stock';
-import { clickFalse } from '../functions/visual';
 import { game } from '../game';
+import { getRndInteger } from '../functions/calculations';
 
 export function newDay() {
   game.date.setTime(game.date.getTime() + 86400000);
@@ -23,8 +22,6 @@ export function newDay() {
   inventAircraft();
   showActualBudget();
   createNewStockMaybe();
-
-  if (game.availableParts < 100) clickFalse(document.getElementById('parts'));
 }
 
 export function newMonth() {
@@ -37,4 +34,16 @@ export function newMonth() {
 export function newYear() {
   saveYear();
   showAnnualFinancialReport();
+}
+
+export function createNewStockMaybe() {
+  const probability = 20;
+  const maxItems = 14;
+  if (getRndInteger(0, 100) < probability) {
+    let x = 0;
+    for (let i in game.stockArray) {
+      ++x;
+    }
+    if (x < maxItems) game.stockArray.push(new Stock());
+  }
 }

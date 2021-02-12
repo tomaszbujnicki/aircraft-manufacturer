@@ -4,7 +4,6 @@ import { employeeList } from '../list/employeeList';
 import { calculateAvailableWorkers, getRndInteger } from './calculations';
 import { calculateIncome } from './incomeAndExpanses';
 import { showAvailableWorkers, showQuantity, showWorkers } from './show';
-import { clickFalse, clickTrue, createNewMessage } from './visual';
 
 const traders = employeeList[3];
 const engineers = employeeList[4];
@@ -15,10 +14,7 @@ export function sell(aircraft) {
     calculateIncome(aircraft.price, 'sale');
     dropAircraftPrice(aircraft);
     showQuantity(aircraft);
-    clickTrue(document.getElementById('quantity' + aircraft.id));
-    clickTrue(document.getElementById('price' + aircraft.id));
-    clickTrue(document.getElementById('cash'));
-  } else clickFalse(document.getElementById('quantity' + aircraft.id));
+  }
 }
 
 export function addWorker(aircraft) {
@@ -26,10 +22,6 @@ export function addWorker(aircraft) {
     aircraft.workers++;
     showAvailableWorkers();
     showWorkers(aircraft);
-    clickTrue(document.getElementById('workers' + aircraft.id));
-  } else {
-    clickFalse(document.getElementById('workers'));
-    clickFalse(document.getElementById('workers' + aircraft.id));
   }
 }
 
@@ -38,8 +30,7 @@ export function removeWorker(aircraft) {
     aircraft.workers--;
     showAvailableWorkers();
     showWorkers(aircraft);
-    clickTrue(document.getElementById('workers' + aircraft.id));
-  } else clickFalse(document.getElementById('workers' + aircraft.id));
+  }
 }
 
 export function dropAircraftPrice(aircraft) {
@@ -77,7 +68,6 @@ export function inventAircraft() {
 }
 
 function addNewAircraft(aircraft) {
-  createNewMessage(`Our  engineers invented: ${aircraft.name}`, '#ff0000');
   document.getElementById('newDesignItem' + aircraft.id).remove();
   createElementAircraft(aircraft);
 }
