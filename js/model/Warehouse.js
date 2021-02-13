@@ -1,18 +1,15 @@
 export class Warehouse {
-  constructor(parts) {
-    this.parts = parts;
-    this.subscribers = [];
+  constructor(data) {
+    this.parts = data.parts;
   }
 
-  getParts(amount) {
-    this.parts += amount;
+  getParts(quantity) {
+    this.parts.quantity += quantity;
+    pubsub.publish('parts', this.parts);
   }
 
-  spendParts(amount) {
-    this.parts -= amount;
-  }
-
-  subscribe(subscriber) {
-    this.subscribers.push(subscriber);
+  spendParts(quantity) {
+    this.parts.quantity -= quantity;
+    pubsub.publish('parts', this.parts);
   }
 }

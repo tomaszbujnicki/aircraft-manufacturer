@@ -1,6 +1,6 @@
 export class Manufacture {
-  constructor(aircraftList = []) {
-    this.aircraftList = aircraftList;
+  constructor(data) {
+    this.aircraftList = data.aircraftList;
     this.subscribers = [];
   }
 

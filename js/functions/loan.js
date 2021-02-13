@@ -1,4 +1,4 @@
-import { game } from '../game';
+import { game } from '../generateInitialData';
 import { calculateExpenses, calculateIncome } from './incomeAndExpanses';
 
 export function takeLoan(loan) {

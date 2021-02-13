@@ -179,7 +179,7 @@ export const stock_coreValues = [
   {
     flag: italy,
     country: 'Italy',
-    company: ['Pizza & Pasta', 'Colosseum', 'Roma', 'San Marion', 'Fuoco'],
+    company: ['Pizza & Pasta', 'Colosseum', 'Roma', 'San Mario', 'Fuoco'],
     time: 35,
     risk: 5,
     amount: 150,

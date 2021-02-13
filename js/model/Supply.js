@@ -1,15 +1,15 @@
 export class Supply {
-  constructor(deliveryList = []) {
-    this.deliveryList = deliveryList;
+  constructor(data) {
+    this.deliveryList = data.deliveryList;
     this.subscribers = [];
   }
 
-  add(stock) {
+  addDelivery(stock) {
     this.deliveryList.push(stock);
   }
 
   receive(supply) {
-    if (game.cash >= stock.totalPrice) {
+    if ('delivery === success') {
       this.subscribers.forEach((s) => s(stock));
       remove(supply);
     }

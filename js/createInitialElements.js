@@ -1,32 +1,32 @@
 import { createElementAircraft } from './create/createElementAircraft';
 import { createElementNewDesign } from './create/createElementNewDesign';
 import { createElementLoan } from './create/createElementLoan';
-import { aircraftList } from './list/aircraftList';
-import { loanList } from './list/loanList';
-import { employeeList } from './list/employeeList';
-import { game } from './game';
 import { createElementStock } from './create/createElementStock';
+import { createElementDelivery } from './create/createElementDelivery';
+// import createElementTakenLoan(loan);
 
-export function createInitialElements() {
-  for (const aircraft of aircraftList) {
-    aircraft.inventionPoints <= 0
-      ? createElementAircraft(aircraft)
-      : createElementNewDesign(aircraft);
+export function createInitialElements(data) {
+  for (const aircraft of data.aircraftList) {
+    createElementAircraft(aircraft);
   }
 
-  for (const loan of loanList) createElementLoan(loan);
-
-  for (const employee of employeeList) {
-    const buttonAdd = document.getElementById('addEmployee' + employee.id);
-    buttonAdd.addEventListener('click', () => employee.hire());
-
-    const buttonRemove = document.getElementById(
-      'removeEmployee' + employee.id
-    );
-    buttonRemove.addEventListener('click', () => employee.fire());
+  for (const design of data.designList) {
+    createElementNewDesign(design);
   }
 
-  for (const stock of game.stockArray) {
-    createElementStock(stock);
+  for (const offer of data.offerList) {
+    createElementStock(offer);
+  }
+
+  for (const delivery of data.deliveryList) {
+    createElementDelivery(delivery);
+  }
+
+  for (const loan of data.loanOfferList) {
+    //createElementLoan(loan);
+  }
+
+  for (const loan of data.takenLoanList) {
+    //createElementTakenLoan(loan);
   }
 }

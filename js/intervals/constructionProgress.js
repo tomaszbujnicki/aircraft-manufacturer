@@ -4,7 +4,7 @@ import {
   showProductionStage,
   showQuantity,
 } from '../functions/show';
-import { game } from '../game';
+import { game } from '../generateInitialData';
 import { aircraftList } from '../list/aircraftList';
 
 export function constructionProgress() {

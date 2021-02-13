@@ -1,6 +1,6 @@
 export class ResearchCenter {
-  constructor(designList = []) {
-    this.designList = designList;
+  constructor(data) {
+    this.designList = data.designList;
     this.subscribers = [];
   }
 

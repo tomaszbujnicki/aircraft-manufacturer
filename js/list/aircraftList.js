@@ -44,7 +44,7 @@ export const aircraftList = [
   },
   {
     id: 3,
-    name: 'Porshe',
+    name: 'Baloon',
     img: airplane1,
     parts: 100,
     corePrice: 150000,
@@ -57,7 +57,7 @@ export const aircraftList = [
   },
   {
     id: 4,
-    name: 'Ferrari',
+    name: 'F-16',
     img: aeroplane3,
     parts: 10,
     corePrice: 15000,
@@ -70,7 +70,7 @@ export const aircraftList = [
   },
   {
     id: 5,
-    name: 'Mercedes',
+    name: 'Dreamliner',
     img: aeroplane2,
     parts: 99,
     corePrice: 105000,

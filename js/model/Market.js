@@ -1,17 +1,17 @@
+import { Stock } from './Stock';
+
 export class Market {
-  constructor(offerList = []) {
+  constructor(offerList, cash) {
     this.offerList = offerList;
+    this.cash = cash;
     this.subscribers = [];
   }
 
-  buyStock(stock) {
-    if (game.cash >= stock.totalPrice) {
-      this.subscribers.forEach((s) => s(stock));
-      this.remove(stock);
-    }
+  addOffer() {
+    this.offerList.push(new Stock());
   }
 
-  remove(stock) {
+  removeOffer(stock) {
     const index = this.offerList.findIndex((e) => e === stock);
     if (index) {
       this.offerList.splice(index, 1);

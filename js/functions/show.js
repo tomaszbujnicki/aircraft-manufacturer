@@ -1,4 +1,4 @@
-import { game } from '../game';
+import { data } from '../generateInitialData';
 import { employeeList } from '../list/employeeList';
 import { calculateProfit, months, thisMonth, thisYear, years } from './budget';
 import {
@@ -23,28 +23,6 @@ const descriptionWorkersCapacityElement = document.getElementById(
   'edescriptionWorkersCapacity'
 );
 
-export function showCash() {
-  cashElement.textContent =
-    '$ ' +
-    game.cash.toLocaleString(undefined, {
-      maximumFractionDigits: 0,
-    });
-}
-
-export function showAvailableParts() {
-  partsElement.textContent = game.availableParts.toLocaleString(undefined, {
-    maximumFractionDigits: 0,
-  });
-}
-
-export function showDate() {
-  let MM = game.date.getMonth() + 1;
-  if (MM < 10) MM = '0' + MM;
-  let DD = game.date.getDate();
-  if (DD < 10) DD = '0' + DD;
-  dateElement.textContent = game.date.getFullYear() + '-' + MM + '-' + DD;
-}
-
 export function showProductionStage(aircraft) {
   document.getElementById('myBar' + aircraft.id).style =
     'width:' + aircraft.productionStage.toString() + '%';
@@ -53,11 +31,6 @@ export function showProductionStage(aircraft) {
 export function showQuantity(aircraft) {
   document.getElementById('quantity' + aircraft.id).textContent =
     aircraft.quantity;
-}
-
-export function showWorkers(aircraft) {
-  document.getElementById('workers' + aircraft.id).textContent =
-    aircraft.workers;
 }
 
 export function showPrice(aircraft) {
@@ -79,9 +52,6 @@ export function showEmployeesSalary(employee) {
     '$ ' + totalSalary().toLocaleString();
 }
 
-export function showAvailableWorkers() {
-  workersElement.textContent = calculateAvailableWorkers();
-}
 export function showWorkersCard() {
   const workers = employeeList[0];
   const canMount = productionForce() / 1000;

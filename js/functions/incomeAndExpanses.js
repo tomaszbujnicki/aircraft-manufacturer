@@ -1,4 +1,4 @@
-import { game } from '../game';
+import { game } from '../generateInitialData';
 import { thisMonth, thisYear } from './budget';
 import { totalSalary } from './calculations';
 import { showActualBudget, showCash } from './show';
