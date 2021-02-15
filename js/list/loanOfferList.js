@@ -1,4 +1,4 @@
-export const loanList = [
+export const loanOfferList = [
   {
     id: 0,
     name: 'Start-up loan',

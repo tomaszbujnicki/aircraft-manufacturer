@@ -5,7 +5,7 @@ export function createElementDelivery(delivery) {
   if (!delivery) return;
 
   const deliveryElement = document.createElement('div');
-  deliveryElement.setAttribute('id', 'deliveryItem' + delivery.id);
+  deliveryElement.setAttribute('id', delivery.type + 'Item' + delivery.id);
   deliveryElement.classList.add('delivery');
   deliveryElement.innerHTML = `
 	<div>

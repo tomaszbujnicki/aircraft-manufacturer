@@ -1,11 +1,23 @@
-export class operationHandler {
-  constructor(operationList) {
-    this.operationList = operationList;
+export class OperationHandler {
+  constructor() {
+    this.operationList = [];
+    this.subscribers = [];
   }
 
-  insert(object, action) {
-    this.operationList.push({ object, action });
+  insert(obj, action) {
+    this.operationList.push([obj, action]);
+    this.subscribers.forEach((sub) => sub(obj, action));
   }
 
-  select() {}
+  select() {
+    console.log('select: ' + this.operationList);
+  }
+
+  #delete() {
+    console.log('delete: ' + this.operationList);
+  }
+
+  subscribe(subscriber) {
+    this.subscribers.push(subscriber);
+  }
 }

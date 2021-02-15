@@ -3,60 +3,60 @@ import { addWorker, removeWorker, sell } from '../functions/aircraft';
 export function createElementAircraft(aircraft) {
   if (!aircraft) return;
   const aircraftElement = document.createElement('div');
-  aircraftElement.setAttribute('id', 'aircraftItem' + aircraft.ID);
+  aircraftElement.setAttribute('id', aircraft.type + 'Item' + aircraft.id);
   aircraftElement.classList.add('aircraft');
   aircraftElement.innerHTML = `
-	<div class = "worker__icon" ><img class = "worker__img" src = ${aircraft.IMG}>
+	<div class = "worker__icon" ><img class = "worker__img" src = ${aircraft.img}>
 	</div>
 	<div class="worker__add-remove">
 		<button id="addWorkerButton${
-      aircraft.ID
+      aircraft.id
     }" class="worker__btn-add" title="assign a worker"></button >
 		<button id = "removeWorkerButto${
-      aircraft.ID
+      aircraft.id
     }" class = "worker__btn-add worker__btn-add--remove" title = "dismiss a worker" > </button>
 	</div>
 	<div id = "workers${
-    aircraft.ID
+    aircraft.id
   }" class = "worker__value" title = "number of workers" >
 	${aircraft.workers}
 	</div>
 	<div class="aircraft__name">
-		<span >${aircraft.NAME}</span >
+		<span >${aircraft.name}</span >
 		<div class = "bar" >
-			<div id = "myBar${aircraft.ID}" class = "bar--color">
+			<div id = "myBar${aircraft.id}" class = "bar--color">
 			</div>
 		</div>
 	</div>
 	<div id="quantity${
-    aircraft.ID
+    aircraft.id
   }" class="worker__value" title="number of aircraft">
 	${aircraft.quantity}
 	</div>
 	<div class = "worker__icon" >
 		<button id = "sellAircraftButton${
-      aircraft.ID
+      aircraft.id
     }" class = "aircraft__btn-sell" title = "sell aircraft" ></button>
 	</div>
 	<div id = "price${
-    aircraft.ID
+    aircraft.id
   }" class = "worker__value" title = "selling price" > $ ${aircraft.currentPrice.toLocaleString()}
 	</div>`;
   document.getElementById('aircraftDIV').appendChild(aircraftElement);
   const sellAircraftButton = document.getElementById(
-    `sellAircraftButton${aircraft.ID}`
+    `sellAircraftButton${aircraft.id}`
   );
   sellAircraftButton.addEventListener('click', () => {
     sell(aircraft);
   });
   const addWorkerButton = document.getElementById(
-    `addWorkerButton${aircraft.ID}`
+    `addWorkerButton${aircraft.id}`
   );
   addWorkerButton.addEventListener('click', () => {
     addWorker(aircraft);
   });
   const removeWorkerButton = document.getElementById(
-    `removeWorkerButto${aircraft.ID}`
+    `removeWorkerButto${aircraft.id}`
   );
   removeWorkerButton.addEventListener('click', () => {
     removeWorker(aircraft);

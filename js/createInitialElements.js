@@ -1,7 +1,7 @@
 import { createElementAircraft } from './create/createElementAircraft';
-import { createElementNewDesign } from './create/createElementNewDesign';
-import { createElementLoan } from './create/createElementLoan';
-import { createElementStock } from './create/createElementStock';
+import { createElementNewDesign } from './create/createElementDesign';
+import { createElementLoan } from './create/createElementLoanOffer';
+import { createElementStock } from './create/createElementStockOffer';
 import { createElementDelivery } from './create/createElementDelivery';
 // import createElementTakenLoan(loan);
 

@@ -1,10 +1,10 @@
 import { getRndInteger, randomPercent } from '../functions/calculations';
 import { stock_coreValues } from '../list/stock_coreValues';
 
-export class Stock {
+export class StockOffer {
   constructor(core = getStockCore()) {
     this.id = uniqueId();
-    this.type = 'stock';
+    this.type = 'stockOffer';
     this.daysUntilExpiry = core.daysUntilExpiry;
     this.flag = core.flag;
     this.country = core.country;

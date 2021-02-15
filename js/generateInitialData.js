@@ -1,44 +1,48 @@
 import { aircraftList } from './list/aircraftList';
-import { loanList } from './list/loanList';
+import { designList } from './list/designList';
+import { loanOfferList } from './list/loanOfferList';
 import { Aircraft } from './model/Aircraft';
 import { Design } from './model/Design';
 import { Loan } from './model/Loan';
-import { Stock } from './model/Stock';
+import { StockOffer } from './model/StockOffer';
 
 export function generateInitialData() {
-  const data = {
-    date: new Date(1955, 10, 12),
-    dayTick: {
-      delay: 500,
-      unit: 'ms',
-    },
-    taxRate: {
-      percent: 20,
-    },
-    parts: {
-      quantity: 500,
-    },
-    cash: {
-      amount: 20_000_000,
-      currency: 'USD',
-    },
-    offerList: [],
-    deliveryList: [],
-    aircraftList: [],
-    designList: [],
-    loanOfferList: [],
-    takenLoanList: [],
-  };
-  for (let i = 0; i < 3; i++) {
-    data.aircraftList.push(new Aircraft(aircraftList[i]));
-  }
-  for (let i = 3; i < 6; i++) {
-    data.designList.push(new Design(aircraftList[i]));
-  }
-  for (let i = 0; i < 10; i++) data.offerList.push(new Stock());
+  const generator = new InitialDataGenerator(this);
+  generator.generate();
+}
 
-  for (let i = 0; i < 4; i++) {
-    data.loanOfferList.push(new Loan(loanList[i]));
+class InitialDataGenerator {
+  constructor(data) {
+    this.stockOfferList = data.stockOfferList;
+    this.aircraftList = data.aircraftList;
+    this.loanOfferList = data.loanOfferList;
+    this.designList = data.designList;
   }
-  return data;
+  generate() {
+    for (let i = 0; i < 3; i++) {
+      this.generateAircraft(i);
+    }
+    for (let i = 0; i < 3; i++) {
+      this.generateDesign(i);
+    }
+    for (let i = 0; i < 4; i++) {
+      this.generateLoanOffer(i);
+    }
+    for (let i = 0; i < 10; i++) {
+      this.generateStockOffer();
+    }
+  }
+
+  generateAircraft(i) {
+    this.aircraftList.insert(new Aircraft(aircraftList[i]));
+  }
+  generateDesign(i) {
+    this.designList.insert(new Design(designList[i]));
+  }
+  generateStockOffer() {
+    this.stockOfferList.insert(new StockOffer());
+  }
+  generateLoanOffer(i) {
+    this.loanOfferList.insert(new Loan(loanOfferList[i]));
+  }
 }

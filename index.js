@@ -5,7 +5,7 @@ import { newDay } from './js/intervals/time';
 import { addNavigation } from './js/navigation/navigation';
 import { showInitialValues } from './js/showInitialValues';
 import { Market } from './js/model/Market';
-import { Transactions } from './js/model/Transactions';
+import { Transaction } from './js/model/Transaction';
 import { Warehouse } from './js/model/Warehouse';
 import { Supply } from './js/model/Supply';
 import { Manufacture } from './js/model/Manufacture';
@@ -13,62 +13,54 @@ import { ResearchCenter } from './js/model/ResearchCenter';
 import { Bank } from './js/model/Bank';
 import { addControl } from './js/navigation/control';
 import { Display } from './js/create/Display';
+import { OperationHandler } from './js/OperationHandler';
+import { Wallet } from './js/model/Wallet';
+import { createElementAircraft } from './js/create/createElementAircraft';
+import { createElementStock } from './js/create/createElementStockOffer';
+import { View } from './js/View';
+import { Data } from './js/Data';
 
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  const data = loadData();
-  createInitialElements(data);
+  const view = new View();
+  const data = new Data(view);
+  console.log(data);
+  console.log('~~~~~~~~~~~~');
 
-  const display = new Display(data);
-  display.cash();
-  display.date();
-  display.parts();
+  data.generateInitialData();
+  console.log('~~~~~~~~~~~~');
+  console.log(data);
 
+  const display = new Display(data.cash, data.parts, data.tax, data.date);
+  display.display_cash();
+  display.display_date();
+  display.display_parts();
+  const operationHandler = new OperationHandler();
+
+  const objectTypes = {
+    stock: 'stockOffer',
+    delivery: 'delivery',
+    aircraft: 'aircraft',
+    design: 'design',
+    loanOffer: 'loanOffer',
+    loanTaken: 'loanTaken',
+  };
+  data.cash.add(150_000);
+  console.log(data);
+  console.log(
+    '____________________________________________________________________________________'
+  );
+  //const humanResources = new HumanResources(data)
   const bank = new Bank(data);
-  const market = new Market(data);
-  const transactions = new Transactions(data.cash);
+  const market = new Market(data.stockOfferList, data.deliveryList, data.cash);
   const supply = new Supply(data);
-  const warehouse = new Warehouse(data);
   const manufacture = new Manufacture(data);
   const researchCenter = new ResearchCenter(data);
-
+  market.buyStock(data.stockOfferList.list[1]);
+  market.buyStock(data.stockOfferList.list[0]);
+  market.buyStock(data.stockOfferList.list[-2]);
+  market.buyStock(data.stockOfferList.list[-1]);
   addNavigation();
   addControl();
-
-  transactions.subscribe((invoice) => {
-    data.cash += invoice.amount;
-    display.cash();
-  });
-
-  console.log(data.cash);
-  transactions.issueInvoice(3333, 'parts');
-  market.addOffer();
-  console.log(market.offerList);
-  console.log(data.offerList);
-  console.log(data.cash);
-  console.log('Step #1 success');
-
-  //showInitialValues();
-
-  //setInterval(constructionProgress, 10);
-  //setInterval(newDay, game.dayTick);
-
-  market.subscribe((stock) => {
-    removeElement(stock);
-    supply.addDelivery(stock);
-  });
-
-  createElementDelivery(stock);
-
-  researchCenter.subscribe((design) => {
-    removeElement(design);
-    createElementAircraft(design);
-    manufacture.add(design);
-  });
-}
-
-function removeElement(object) {
-  const element = document.getElementById(object.type + 'Item' + object.id);
-  element.remove();
 }

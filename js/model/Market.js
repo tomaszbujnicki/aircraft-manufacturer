@@ -1,24 +1,46 @@
-import { Stock } from './Stock';
+import { StockOffer } from './StockOffer';
 
 export class Market {
-  constructor(offerList, cash) {
-    this.offerList = offerList;
+  constructor(stockOfferList, deliveryList, cash) {
+    this.offers = stockOfferList;
+    this.deliveries = deliveryList;
     this.cash = cash;
-    this.subscribers = [];
   }
 
   addOffer() {
-    this.offerList.push(new Stock());
+    this.offers.insert(new StockOffer());
+  }
+
+  buyStock(stock) {
+    if (this.isExists(stock)) {
+      const price = stock.totalPrice;
+      if (this.isEnoughCash(price)) {
+        this.removeOffer(stock);
+        this.addDelivery(stock);
+        this.pay(price);
+        console.log('Stock bought');
+      } else console.log("Can't buy stock");
+    } else console.log('Stock does not exist');
+  }
+
+  isExists(stock) {
+    return this.offers.isOnList(stock);
+  }
+
+  isEnoughCash(price) {
+    const balance = this.cash.get();
+    return price <= balance;
   }
 
   removeOffer(stock) {
-    const index = this.offerList.findIndex((e) => e === stock);
-    if (index) {
-      this.offerList.splice(index, 1);
-    }
+    this.offers.delete(stock);
   }
 
-  subscribe(subscriber) {
-    this.subscribers.push(subscriber);
+  addDelivery(stock) {
+    this.deliveries.insert(stock);
+  }
+
+  pay(price) {
+    this.cash.subtract(price);
   }
 }

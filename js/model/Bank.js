@@ -3,14 +3,11 @@ import { Loan } from './Loan';
 export class Bank {
   constructor(data) {
     this.loanOfferList = data.loanOfferList;
-    this.takenLoanList = data.takenLoanList;
-    this.subscribers = [];
+    this.loanTakenList = data.loanTakenList;
+    this.resources = data.resources;
   }
-  takeLoan(loan) {
-    this.takenLoanList.push(new Loan(loan));
-  }
-
-  subscribe(subscriber) {
-    this.subscribers.push(subscriber);
+  takeLoan(loanOffer) {
+    const loan = new Loan(loanOffer);
+    this.takenLoanList.push(loan);
   }
 }

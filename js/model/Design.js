@@ -1,8 +1,9 @@
 export class Design {
   constructor(design) {
-    this.ID = design.id;
-    this.IMG = design.img;
-    this.NAME = design.name;
+    this.id = design.id;
+    this.type = 'design';
+    this.img = design.img;
+    this.name = design.name;
     this.inventionPoints = design.inventionPoints;
   }
 }
