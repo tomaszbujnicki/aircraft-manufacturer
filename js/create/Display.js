@@ -4,23 +4,18 @@ const cashElement = document.getElementById('cash'),
   workersElement = document.getElementById('workers');
 
 export class Display {
-  constructor(cash, parts, tax, date) {
-    this.cash = cash;
-    this.parts = parts;
-    this.tax = tax;
-    this.date = date;
-  }
+  constructor() {}
 
-  display_cash() {
+  cash(number) {
     cashElement.textContent =
       '$ ' +
-      this.cash.get().toLocaleString(undefined, {
+      number.toLocaleString(undefined, {
         maximumFractionDigits: 0,
       });
   }
 
-  display_parts() {
-    partsElement.textContent = this.parts.get().toLocaleString(undefined, {
+  parts(number) {
+    partsElement.textContent = number.toLocaleString(undefined, {
       maximumFractionDigits: 0,
     });
   }
@@ -34,11 +29,11 @@ export class Display {
       aircraft.workers;
   }
 
-  display_date() {
+  /*   display_date() {
     let MM = this.date.getMonth() + 1;
     if (MM < 10) MM = '0' + MM;
     let DD = this.date.getDate();
     if (DD < 10) DD = '0' + DD;
     dateElement.textContent = this.date.getFullYear() + '-' + MM + '-' + DD;
-  }
+  } */
 }

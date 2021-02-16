@@ -15,7 +15,7 @@ export function createElementDelivery(delivery) {
 			<span class="align-right">${delivery.amount} parts</span >
 			<span></span>
 			<span >risk: ${delivery.risk}%</span >
-			<span id="deliveryTimeToGo${delivery.id}" class="align-right">${delivery.time} days to go</span >
+			<span id="deliveryTimeToGo${delivery.id}" class="align-right">${delivery.daysToGo} days to go</span >
 		</div>
 
 		<div class = "delivery__images" >

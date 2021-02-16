@@ -10,7 +10,6 @@ export class StockOffer {
     this.country = core.country;
     this.company = core.company;
     this.time = core.time;
-    this.daysToGo = core.time;
     this.risk = core.risk;
     this.amount = core.amount;
     this.price = core.price;

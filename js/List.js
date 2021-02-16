@@ -16,7 +16,6 @@ export class List {
       console.log('pls DEL');
       console.log(item);
       this.view.removeElement(item);
-      console.log('item DELETED');
     } else console.log('item cant be delated');
   }
   isOnList(item) {

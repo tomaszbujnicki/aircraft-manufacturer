@@ -1,30 +1,37 @@
 import { StockOffer } from './StockOffer';
 
 export class Market {
-  constructor(stockOfferList, deliveryList, cash) {
-    this.offers = stockOfferList;
-    this.deliveries = deliveryList;
+  constructor(type, offers, deliveries, cash) {
+    this.type = type;
+    this.offers = offers;
+    this.deliveries = deliveries;
     this.cash = cash;
   }
 
-  addOffer() {
-    this.offers.insert(new StockOffer());
+  add(offer) {
+    //new StockOffer()
+    this.offers.insert();
   }
 
-  buyStock(stock) {
-    if (this.isExists(stock)) {
-      const price = stock.totalPrice;
+  accept(offer) {
+    if (this.isAcceptable(offer)) {
+      this.pay(price);
+      this.remove(offer);
+      this.addDelivery(offer);
+      console.log('Stock bought');
+    }
+  }
+
+  isAcceptable(offer) {
+    if (this.isExists(offer)) {
       if (this.isEnoughCash(price)) {
-        this.removeOffer(stock);
-        this.addDelivery(stock);
-        this.pay(price);
-        console.log('Stock bought');
+        return true;
       } else console.log("Can't buy stock");
     } else console.log('Stock does not exist');
   }
 
-  isExists(stock) {
-    return this.offers.isOnList(stock);
+  isExists(offer) {
+    return this.offers.isOnList(offer);
   }
 
   isEnoughCash(price) {
@@ -32,8 +39,8 @@ export class Market {
     return price <= balance;
   }
 
-  removeOffer(stock) {
-    this.offers.delete(stock);
+  remove(offer) {
+    this.offers.delete(offer);
   }
 
   addDelivery(stock) {

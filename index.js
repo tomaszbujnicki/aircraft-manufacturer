@@ -4,17 +4,13 @@ import { constructionProgress } from './js/intervals/constructionProgress';
 import { newDay } from './js/intervals/time';
 import { addNavigation } from './js/navigation/navigation';
 import { showInitialValues } from './js/showInitialValues';
-import { Market } from './js/model/Market';
-import { Transaction } from './js/model/Transaction';
-import { Warehouse } from './js/model/Warehouse';
-import { Supply } from './js/model/Supply';
+import { SupplyChain } from './js/model/SupplyChain';
 import { Manufacture } from './js/model/Manufacture';
 import { ResearchCenter } from './js/model/ResearchCenter';
 import { Bank } from './js/model/Bank';
 import { addControl } from './js/navigation/control';
 import { Display } from './js/create/Display';
 import { OperationHandler } from './js/OperationHandler';
-import { Wallet } from './js/model/Wallet';
 import { createElementAircraft } from './js/create/createElementAircraft';
 import { createElementStock } from './js/create/createElementStockOffer';
 import { View } from './js/View';
@@ -25,42 +21,48 @@ document.addEventListener('DOMContentLoaded', init);
 function init() {
   const view = new View();
   const data = new Data(view);
-  console.log(data);
-  console.log('~~~~~~~~~~~~');
-
+  addNavigation();
+  addControl();
   data.generateInitialData();
-  console.log('~~~~~~~~~~~~');
-  console.log(data);
 
-  const display = new Display(data.cash, data.parts, data.tax, data.date);
-  display.display_cash();
-  display.display_date();
-  display.display_parts();
+  const display = new Display();
+  data.cash.subscribe((number) => display.cash(number));
+  data.parts.subscribe((number) => display.parts(number));
+
   const operationHandler = new OperationHandler();
 
-  const objectTypes = {
+  data.cash.add(150_000);
+  data.parts.add(500);
+
+  const supplyChain = new SupplyChain(
+    data.stockOfferList,
+    data.deliveryList,
+    data.cash,
+    data.parts
+  );
+
+  const stockA = data.stockOfferList.list[1];
+  const stockB = data.stockOfferList.list[-1];
+  const stockC = data.stockOfferList.list[0];
+  const stockD = data.stockOfferList.list[-5];
+  const stockE = data.stockOfferList.list[5];
+  supplyChain.acceptOffer(stockA);
+  supplyChain.acceptOffer(stockB);
+  supplyChain.acceptOffer(stockC);
+  supplyChain.acceptOffer(stockD);
+  supplyChain.acceptOffer(stockE);
+
+  /*   const objectTypes = {
     stock: 'stockOffer',
     delivery: 'delivery',
     aircraft: 'aircraft',
     design: 'design',
     loanOffer: 'loanOffer',
     loanTaken: 'loanTaken',
-  };
-  data.cash.add(150_000);
-  console.log(data);
-  console.log(
-    '____________________________________________________________________________________'
-  );
+  }; */
   //const humanResources = new HumanResources(data)
-  const bank = new Bank(data);
-  const market = new Market(data.stockOfferList, data.deliveryList, data.cash);
-  const supply = new Supply(data);
-  const manufacture = new Manufacture(data);
-  const researchCenter = new ResearchCenter(data);
-  market.buyStock(data.stockOfferList.list[1]);
-  market.buyStock(data.stockOfferList.list[0]);
-  market.buyStock(data.stockOfferList.list[-2]);
-  market.buyStock(data.stockOfferList.list[-1]);
-  addNavigation();
-  addControl();
+  //const bank = new Bank(data);
+
+  //const manufacture = new Manufacture(data);
+  //const researchCenter = new ResearchCenter(data);
 }

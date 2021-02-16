@@ -18,7 +18,7 @@ export class Data {
     this.operationList = new List(view);
     this.generateInitialData = generateInitialData;
   }
-  loadFromStorage() {}
+  loadFromLocalStorage() {}
   update() {}
   select() {}
 }
