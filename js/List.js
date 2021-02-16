@@ -1,22 +1,18 @@
 export class List {
-  constructor(view) {
-    this.view = view;
+  constructor() {
     this.list = [];
     this.subscribers = [];
   }
   insert(item) {
-    console.log('INSERT:');
     this.list.push(item);
-    this.view.createElement(item);
+    this.subscribers.forEach((sub) => sub('insert', item));
   }
   delete(item) {
     const index = this.list.findIndex((e) => e === item);
     if (index !== -1) {
       this.list.splice(index, 1);
-      console.log('pls DEL');
-      console.log(item);
-      this.view.removeElement(item);
-    } else console.log('item cant be delated');
+      this.subscribers.forEach((sub) => sub('delete', item));
+    }
   }
   isOnList(item) {
     const index = this.list.findIndex((e) => e === item);

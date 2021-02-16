@@ -17,7 +17,6 @@ export class View {
 
   removeElement(item) {
     const element = document.getElementById(item.type + 'Item' + item.id);
-    console.log(element);
     element.remove();
   }
 

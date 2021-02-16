@@ -6,8 +6,8 @@ import { Design } from './model/Design';
 import { Loan } from './model/Loan';
 import { StockOffer } from './model/StockOffer';
 
-export function generateInitialData() {
-  const generator = new InitialDataGenerator(this);
+export function generateInitialData(data) {
+  const generator = new InitialDataGenerator(data);
   generator.generate();
 }
 

@@ -5,20 +5,17 @@ export class Quantity {
   }
   add(number) {
     this.quantity += number;
-    this.publish();
+    console.log(number);
+    this.subscribers.forEach((sub) => sub(this.quantity));
   }
 
   subtract(number) {
     this.quantity -= number;
-    this.publish();
+    this.subscribers.forEach((sub) => sub(this.quantity));
   }
 
   get() {
     return this.quantity;
-  }
-
-  publish() {
-    this.subscribers.forEach((sub) => sub(this.quantity));
   }
 
   subscribe(subscriber) {

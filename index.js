@@ -10,42 +10,53 @@ import { ResearchCenter } from './js/model/ResearchCenter';
 import { Bank } from './js/model/Bank';
 import { addControl } from './js/navigation/control';
 import { Display } from './js/create/Display';
-import { OperationHandler } from './js/OperationHandler';
-import { createElementAircraft } from './js/create/createElementAircraft';
-import { createElementStock } from './js/create/createElementStockOffer';
 import { View } from './js/View';
 import { Data } from './js/Data';
+import { ListContainer } from './js/ListContainer';
+import { generateInitialData } from './js/generateInitialData';
 
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const view = new View();
-  const data = new Data(view);
+  const data = new Data();
+  const listContainer = new ListContainer();
+  const display = new Display();
+
+  for (const list in listContainer) {
+    listContainer[list].subscribe((action, item) => {
+      if (action === 'delete') {
+        view.removeElement(item);
+      }
+      if (action === 'insert') {
+        view.createElement(item);
+      }
+    });
+  }
+
+  data.cash.subscribe((number) => {
+    display.cash(number);
+  });
+  data.parts.subscribe((number) => {
+    display.parts(number);
+  });
   addNavigation();
   addControl();
-  data.generateInitialData();
-
-  const display = new Display();
-  data.cash.subscribe((number) => display.cash(number));
-  data.parts.subscribe((number) => display.parts(number));
-
-  const operationHandler = new OperationHandler();
-
+  generateInitialData(listContainer);
   data.cash.add(150_000);
   data.parts.add(500);
-
   const supplyChain = new SupplyChain(
-    data.stockOfferList,
-    data.deliveryList,
+    listContainer.stockOfferList,
+    listContainer.deliveryList,
     data.cash,
     data.parts
   );
 
-  const stockA = data.stockOfferList.list[1];
-  const stockB = data.stockOfferList.list[-1];
-  const stockC = data.stockOfferList.list[0];
-  const stockD = data.stockOfferList.list[-5];
-  const stockE = data.stockOfferList.list[5];
+  const stockA = listContainer.stockOfferList.list[1];
+  const stockB = listContainer.stockOfferList.list[-1];
+  const stockC = listContainer.stockOfferList.list[0];
+  const stockD = listContainer.stockOfferList.list[-5];
+  const stockE = listContainer.stockOfferList.list[5];
   supplyChain.acceptOffer(stockA);
   supplyChain.acceptOffer(stockB);
   supplyChain.acceptOffer(stockC);
