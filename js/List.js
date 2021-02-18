@@ -14,10 +14,11 @@ export class List {
       this.subscribers.forEach((sub) => sub('delete', item));
     }
   }
-  isOnList(item) {
-    const index = this.list.findIndex((e) => e === item);
-    return index !== -1;
+  getItemBy(id) {
+    const item = this.list.find((e) => e.id === id);
+    return item;
   }
+
   subscribe(subscriber) {
     this.subscribers.push(subscriber);
   }

@@ -40,9 +40,12 @@ function init() {
   data.parts.subscribe((number) => {
     display.parts(number);
   });
+
   addNavigation();
   addControl();
+
   generateInitialData(listContainer);
+
   data.cash.add(150_000);
   data.parts.add(500);
   const supplyChain = new SupplyChain(
@@ -52,16 +55,12 @@ function init() {
     data.parts
   );
 
-  const stockA = listContainer.stockOfferList.list[1];
-  const stockB = listContainer.stockOfferList.list[-1];
-  const stockC = listContainer.stockOfferList.list[0];
-  const stockD = listContainer.stockOfferList.list[-5];
-  const stockE = listContainer.stockOfferList.list[5];
-  supplyChain.acceptOffer(stockA);
-  supplyChain.acceptOffer(stockB);
-  supplyChain.acceptOffer(stockC);
-  supplyChain.acceptOffer(stockD);
-  supplyChain.acceptOffer(stockE);
+  supplyChain.acceptOffer(1);
+  supplyChain.acceptOffer(0);
+  supplyChain.acceptOffer(-1);
+  supplyChain.acceptOffer(5);
+  supplyChain.acceptOffer(5);
+  supplyChain.acceptOffer(-2);
 
   /*   const objectTypes = {
     stock: 'stockOffer',

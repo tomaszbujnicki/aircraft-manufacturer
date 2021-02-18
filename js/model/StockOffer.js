@@ -32,6 +32,7 @@ function getStockCore() {
   return stock;
 }
 
+// TODO
 let IdCounter = 0;
 function uniqueId() {
   return IdCounter++;

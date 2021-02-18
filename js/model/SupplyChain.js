@@ -14,26 +14,27 @@ export class SupplyChain {
     this.offers.insert(stock);
   }
 
-  acceptOffer(stock) {
-    if (this.isAcceptable(stock)) {
+  acceptOffer(id) {
+    const stock = this.offers.getItemBy(id);
+    if (!stock) return;
+
+    if (this.payFor(stock)) {
       console.log('Offer accepted.');
-      this.payFor(stock);
       this.removeOffer(stock);
       this.addDelivery(stock);
     }
   }
 
-  isAcceptable(stock) {
-    if (this.offers.isOnList(stock)) {
-      if (this.cash.get() >= stock.totalPrice) {
-        return true;
-      } else console.log('Not enough cash.');
-    } else console.log('Offer does not exist.');
-  }
-
   payFor(stock) {
     const price = stock.totalPrice;
-    this.cash.subtract(price);
+
+    if (this.cash.get() >= price) {
+      this.cash.subtract(price);
+      return true;
+    } else {
+      console.log('Not enough cash.');
+      return false;
+    }
   }
 
   removeOffer(stock) {

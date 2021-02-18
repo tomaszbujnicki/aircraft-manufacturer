@@ -1,15 +1,15 @@
 export class StockOfferElement {
-  constructor(stock) {
-    this.container = document.getElementById('partsDIV');
+  constructor(stock, flag) {
     this.stock = stock;
-    this.element;
-    this.createElement();
+    flag, (this.container = document.getElementById('partsDIV'));
+    this.element = this.createElement();
     this.subscribers = [];
   }
 
   createElement() {
     this.createRoot();
     this.fillContent();
+    this.addButton();
     this.attachToContainer();
   }
 
@@ -46,35 +46,23 @@ export class StockOfferElement {
 		</div>		
 		
 		<div class="employee__value">
-			<button id="buyStockButton${
-        stock.id
-      }" class="employee__buy-btn" title="buy stock">
-			</button>
 		</div>
 		`;
   }
 
   createButton() {
-    buyStockButton.addEventListener('click', () => {
-      stock.buy();
+    const stockButton = document.createElement('button');
+    stockButton.classList.add('employee__buy-btn');
+    stockButton.setAttribute('title', 'buy stock');
+
+    stockButton.addEventListener('click', () => {
+      this.subscribers.forEach((s) => s(this.id));
     });
-    btn.addEventListener('click', () => {
-      this.subscribers.forEach((s) => s(this.stock));
-    });
+    this.element.appendChild(stockButton);
   }
 
   attachToContainer() {
     this.container.appendChild(this.element);
-  }
-
-  createButton(name, selector) {
-    const btn = document.createElement('button');
-    btn.setAttribute('data-tool', selector);
-    btn.textContent = name;
-    btn.addEventListener('click', () => {
-      this.subscribers.forEach((s) => s(selector));
-    });
-    return btn;
   }
 
   subscribe(subscriber) {

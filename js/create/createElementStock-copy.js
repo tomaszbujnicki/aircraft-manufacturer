@@ -2,6 +2,7 @@ export function createElementStockOffer(stock) {
   if (!stock) return;
 
   const stockElement = document.createElement('div');
+  stockElement.setAttribute('id', stock.type + 'Item' + stock.id);
   stockElement.classList.add('employee', 'employee--parts');
   stockElement.innerHTML = `
 		<div>
@@ -25,6 +26,8 @@ export function createElementStockOffer(stock) {
 		<div class="employee__value employee__value--bold" title="total price">
 			$ ${stock.totalPrice.toLocaleString()}
 		</div>	
+		<div class="employee__value">
+		</div>
 		`;
 
   const stockButton = document.createElement('button');
@@ -32,7 +35,7 @@ export function createElementStockOffer(stock) {
   stockButton.setAttribute('title', 'buy stock');
 
   stockButton.addEventListener('click', () => {
-    this.subscribers.forEach((s) => s(stock.id));
+    this.subscribers.forEach((s) => s(stock));
   });
 
   stockElement.appendChild(stockButton);
