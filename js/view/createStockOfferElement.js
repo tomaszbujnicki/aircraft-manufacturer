@@ -1,8 +1,7 @@
-export function createElementStockOffer(stock) {
+export function createElementStock(supplyChain, stock) {
   if (!stock) return;
-
   const stockElement = document.createElement('div');
-  stockElement.setAttribute('id', stock.type + 'Item' + stock.id);
+  stockElement.setAttribute('id', 'stockItem' + stock.id);
   stockElement.classList.add('employee', 'employee--parts');
   stockElement.innerHTML = `
 		<div>
@@ -25,19 +24,18 @@ export function createElementStockOffer(stock) {
 		</div>
 		<div class="employee__value employee__value--bold" title="total price">
 			$ ${stock.totalPrice.toLocaleString()}
-		</div>	
+		</div>		
+		
 		<div class="employee__value">
+			<button id="buyStockButton${
+        stock.id
+      }" class="employee__buy-btn" title="buy stock">
+			</button>
 		</div>
 		`;
-
-  const stockButton = document.createElement('button');
-  stockButton.classList.add('employee__buy-btn');
-  stockButton.setAttribute('title', 'buy stock');
-
-  stockButton.addEventListener('click', () => {
-    this.subscribers.forEach((s) => s(stock));
-  });
-
-  stockElement.appendChild(stockButton);
   document.getElementById('partsDIV').appendChild(stockElement);
+  const buyStockButton = document.getElementById(`buyStockButton${stock.id}`);
+  buyStockButton.addEventListener('click', () => {
+    supplyChain.buyStock(stock.id);
+  });
 }

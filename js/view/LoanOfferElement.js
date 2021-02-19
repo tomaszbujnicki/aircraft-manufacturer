@@ -1,6 +1,10 @@
 import { payOffLoan, takeLoan } from '../functions/loan';
 
-export function createElementLoanOffer(loan) {
+export class LoanOfferElement {
+  constructor(loanOffer) {}
+}
+
+function createElementLoanOffer(loan) {
   if (!loan) return;
   const loanElement = document.createElement('div');
   loanElement.setAttribute('id', loan.type + 'Item' + loan.id);

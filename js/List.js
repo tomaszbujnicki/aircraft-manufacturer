@@ -14,8 +14,11 @@ export class List {
       this.subscribers.forEach((sub) => sub('delete', item));
     }
   }
-  getItemBy(id) {
+  getItemById(id) {
+    console.log('ABC: ' + id);
+    console.log(this.list); // undefined element in arr = error
     const item = this.list.find((e) => e.id === id);
+    console.log(item);
     return item;
   }
 

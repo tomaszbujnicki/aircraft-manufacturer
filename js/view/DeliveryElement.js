@@ -1,7 +1,11 @@
 import warehouse from '../../img/parts/warehouse.svg';
 import ship from '../../img/parts/ship.svg';
 
-export function createElementDelivery(delivery) {
+export class DeliveryElement {
+  constructor(delivery) {}
+}
+
+function createElementDelivery(delivery) {
   if (!delivery) return;
 
   const deliveryElement = document.createElement('div');

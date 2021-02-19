@@ -1,4 +1,8 @@
-export function createElementDesign(design) {
+export class DesignElement {
+  constructor(design) {}
+}
+
+function createElementDesign(design) {
   if (!design) return;
 
   const designElement = document.createElement('div');

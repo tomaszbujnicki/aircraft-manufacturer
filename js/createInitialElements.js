@@ -1,8 +1,8 @@
-import { createElementAircraft } from './create/createElementAircraft';
+/* import { createElementAircraft } from './view/AircraftElement';
 import { createElementNewDesign } from './create/createElementDesign';
 import { createElementLoan } from './create/createElementLoanOffer';
 import { createElementStock } from './create/createElementStockOffer';
-import { createElementDelivery } from './create/createElementDelivery';
+import { createElementDelivery } from './create/createElementDelivery'; */
 // import createElementTakenLoan(loan);
 
 export function createInitialElements(data) {

@@ -12,7 +12,7 @@ export class StockOffer {
     this.time = core.time;
     this.risk = core.risk;
     this.amount = core.amount;
-    this.price = core.price;
+    this.unitPrice = core.price;
     this.totalPrice = this.price * this.amount;
   }
 }

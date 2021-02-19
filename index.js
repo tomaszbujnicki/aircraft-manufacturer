@@ -10,26 +10,31 @@ import { ResearchCenter } from './js/model/ResearchCenter';
 import { Bank } from './js/model/Bank';
 import { addControl } from './js/navigation/control';
 import { Display } from './js/create/Display';
-import { View } from './js/View';
+import { ElementFactory } from './js/ElementFactory';
 import { Data } from './js/Data';
 import { ListContainer } from './js/ListContainer';
 import { generateInitialData } from './js/generateInitialData';
+import { PubSub } from './js/model/PubSub';
+import { createElement } from './js/view/createElement';
 
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
-  const view = new View();
+  const elementFactory = new ElementFactory();
   const data = new Data();
-  const listContainer = new ListContainer();
+  const dataListContainer = new ListContainer();
   const display = new Display();
+  const userActionController = new PubSub();
+  const elementController = new PubSub(dataListContainer);
 
-  for (const list in listContainer) {
-    listContainer[list].subscribe((action, item) => {
-      if (action === 'delete') {
-        view.removeElement(item);
-      }
+  for (const list in dataListContainer) {
+    dataListContainer[list].subscribe((action, item) => {
       if (action === 'insert') {
-        view.createElement(item);
+        createElement(item);
+      }
+      if (action === 'delete') {
+        const element = document.getElementById(item.id);
+        element.remove();
       }
     });
   }
@@ -44,19 +49,21 @@ function init() {
   addNavigation();
   addControl();
 
-  generateInitialData(listContainer);
+  generateInitialData(dataListContainer);
 
   data.cash.add(150_000);
   data.parts.add(500);
   const supplyChain = new SupplyChain(
-    listContainer.stockOfferList,
-    listContainer.deliveryList,
+    dataListContainer.stockOfferList,
+    dataListContainer.deliveryList,
     data.cash,
     data.parts
   );
 
   supplyChain.acceptOffer(1);
+  console.log('after 1 ');
   supplyChain.acceptOffer(0);
+  console.log('after 0');
   supplyChain.acceptOffer(-1);
   supplyChain.acceptOffer(5);
   supplyChain.acceptOffer(5);

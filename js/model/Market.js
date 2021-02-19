@@ -13,7 +13,7 @@ export class Market {
     this.offers.insert();
   }
 
-  accept(offer) {
+  buyStock(offer) {
     if (this.isAcceptable(offer)) {
       this.pay(price);
       this.remove(offer);

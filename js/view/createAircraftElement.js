@@ -1,6 +1,6 @@
 import { addWorker, removeWorker, sell } from '../functions/aircraft';
 
-export function createElementAircraft(aircraft) {
+export function createAircraftElement(manufacture, aircraft) {
   if (!aircraft) return;
   const aircraftElement = document.createElement('div');
   aircraftElement.setAttribute('id', aircraft.type + 'Item' + aircraft.id);
@@ -12,7 +12,7 @@ export function createElementAircraft(aircraft) {
 		<button id="addWorkerButton${
       aircraft.id
     }" class="worker__btn-add" title="assign a worker"></button >
-		<button id = "removeWorkerButto${
+		<button id = "removeWorkerButton${
       aircraft.id
     }" class = "worker__btn-add worker__btn-add--remove" title = "dismiss a worker" > </button>
 	</div>
@@ -56,7 +56,7 @@ export function createElementAircraft(aircraft) {
     addWorker(aircraft);
   });
   const removeWorkerButton = document.getElementById(
-    `removeWorkerButto${aircraft.id}`
+    `removeWorkerButton${aircraft.id}`
   );
   removeWorkerButton.addEventListener('click', () => {
     removeWorker(aircraft);
