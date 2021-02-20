@@ -1,9 +1,9 @@
-import { AircraftElement } from './view/createAircraftElement';
+import { AircraftElement } from './createAircraftElement';
 import { LoanTakenElement } from './view/LoanTakenElement';
-import { LoanOfferElement } from './view/LoanOfferElement';
-import { DesignElement } from './view/DesignElement';
-import { StockOfferElement } from './view/StockOfferElement';
-import { DeliveryElement } from './view/DeliveryElement';
+import { LoanOfferElement } from './LoanOfferElement';
+import { DesignElement } from './DesignElement';
+//import { StockOfferElement } from './view/StockOfferElement';
+import { DeliveryElement } from './DeliveryElement';
 
 export class ElementFactory {
   constructor() {

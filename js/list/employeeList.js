@@ -5,7 +5,7 @@ import {
   showEmployeesNumber,
   showWorkersCard,
 } from '../functions/show';
-import { game } from '../generateInitialData';
+import { game } from '../data/generateInitialData';
 
 export const employeeList = [
   {

@@ -1,6 +1,5 @@
 export class Aircraft {
   constructor(aircraft) {
-    this.id = aircraft.id;
     this.type = 'aircraft';
     this.name = aircraft.name;
     this.img = aircraft.img;

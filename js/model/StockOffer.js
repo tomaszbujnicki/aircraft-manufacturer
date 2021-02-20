@@ -3,7 +3,6 @@ import { stock_coreValues } from '../list/stock_coreValues';
 
 export class StockOffer {
   constructor(core = getStockCore()) {
-    this.id = uniqueId();
     this.type = 'stockOffer';
     this.daysUntilExpiry = core.daysUntilExpiry;
     this.flag = core.flag;
@@ -13,7 +12,7 @@ export class StockOffer {
     this.risk = core.risk;
     this.amount = core.amount;
     this.unitPrice = core.price;
-    this.totalPrice = this.price * this.amount;
+    this.totalPrice = this.unitPrice * this.amount;
   }
 }
 
@@ -30,10 +29,4 @@ function getStockCore() {
     price: Math.round(core.price * (1 + randomPercent(-10, 10))),
   };
   return stock;
-}
-
-// TODO
-let IdCounter = 0;
-function uniqueId() {
-  return IdCounter++;
 }

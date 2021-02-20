@@ -4,7 +4,6 @@ import aeroplane2 from '../../img/aircraft/aeroplane2.svg';
 
 export const designList = [
   {
-    id: 3,
     name: 'Baloon',
     img: airplane1,
     parts: 100,
@@ -17,7 +16,6 @@ export const designList = [
     inventionPoints: 50,
   },
   {
-    id: 4,
     name: 'F-16',
     img: aeroplane3,
     parts: 10,
@@ -30,7 +28,6 @@ export const designList = [
     inventionPoints: 100,
   },
   {
-    id: 5,
     name: 'Dreamliner',
     img: aeroplane2,
     parts: 99,

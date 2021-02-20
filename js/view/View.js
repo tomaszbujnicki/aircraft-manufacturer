@@ -1,11 +1,15 @@
+import { Event } from '../Event';
+import { createStockOfferElement } from './createStockOfferElement';
 const cashElement = document.getElementById('cash'),
   partsElement = document.getElementById('parts'),
   dateElement = document.getElementById('date'),
   workersElement = document.getElementById('workers');
 
-export class Display {
-  constructor() {}
-
+export class View {
+  constructor() {
+    this.buyStockEvent = new Event();
+    this.createStockOfferElement = createStockOfferElement;
+  }
   cash(number) {
     cashElement.textContent =
       '$ ' +
@@ -29,11 +33,11 @@ export class Display {
       aircraft.workers;
   }
 
-  /*   display_date() {
-    let MM = this.date.getMonth() + 1;
+  showDate(date) {
+    let MM = date.getMonth() + 1;
     if (MM < 10) MM = '0' + MM;
-    let DD = this.date.getDate();
+    let DD = date.getDate();
     if (DD < 10) DD = '0' + DD;
-    dateElement.textContent = this.date.getFullYear() + '-' + MM + '-' + DD;
-  } */
+    dateElement.textContent = date.getFullYear() + '-' + MM + '-' + DD;
+  }
 }

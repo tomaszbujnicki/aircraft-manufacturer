@@ -1,6 +1,5 @@
 export const loanOfferList = [
   {
-    id: 0,
     name: 'Start-up loan',
     amount: 100000,
     interest: 6,
@@ -8,7 +7,6 @@ export const loanOfferList = [
     taken: false,
   },
   {
-    id: 1,
     name: 'Investment loan',
     amount: 250000,
     interest: 10,
@@ -16,7 +14,6 @@ export const loanOfferList = [
     taken: false,
   },
   {
-    id: 2,
     name: 'Asset loan',
     amount: 500000,
     interest: 14,
@@ -24,7 +21,6 @@ export const loanOfferList = [
     taken: false,
   },
   {
-    id: 3,
     name: 'Corporate loan',
     amount: 1000000,
     interest: 16,

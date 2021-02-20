@@ -1,6 +1,5 @@
 export class Delivery {
   constructor(stock) {
-    this.id = stock.id;
     this.type = 'delivery';
     this.flag = stock.flag;
     this.country = stock.country;

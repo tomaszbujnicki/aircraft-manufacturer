@@ -1,17 +1,18 @@
+import { Event } from '../Event';
+
 export class Quantity {
   constructor() {
     this.quantity = 0;
-    this.subscribers = [];
+    this.changeEvent = new Event();
   }
   add(number) {
     this.quantity += number;
-    console.log(number);
-    this.subscribers.forEach((sub) => sub(this.quantity));
+    this.changeEvent.publish(this.quantity);
   }
 
   subtract(number) {
     this.quantity -= number;
-    this.subscribers.forEach((sub) => sub(this.quantity));
+    this.changeEvent.publish(this.quantity);
   }
 
   get() {

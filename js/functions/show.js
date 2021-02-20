@@ -1,4 +1,4 @@
-import { data } from '../generateInitialData';
+import { data } from '../data/generateInitialData';
 import { employeeList } from '../list/employeeList';
 import { calculateProfit, months, thisMonth, thisYear, years } from './budget';
 import {
