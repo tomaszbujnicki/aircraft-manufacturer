@@ -1,5 +1,8 @@
 import { Event } from '../Event';
-import { createStockOfferElement } from './createStockOfferElement';
+import { addListeners } from './addListeners';
+import { createElement } from './createElement';
+import { displayElementData } from './displayElementData';
+
 const cashElement = document.getElementById('cash'),
   partsElement = document.getElementById('parts'),
   dateElement = document.getElementById('date'),
@@ -8,7 +11,12 @@ const cashElement = document.getElementById('cash'),
 export class View {
   constructor() {
     this.buyStockEvent = new Event();
-    this.createStockOfferElement = createStockOfferElement;
+    this.sellAircraftEvent = new Event();
+    this.addWorkerEvent = new Event();
+    this.removeWorkerEvent = new Event();
+    this.createElement = createElement;
+    this.addListeners = addListeners;
+    this.displayElementData = displayElementData;
   }
   cash(number) {
     cashElement.textContent =

@@ -1,5 +1,5 @@
-import { data } from '../data/generateInitialData';
-import { employeeList } from '../list/employeeList';
+//import { data } from '../data/generateInitialData';
+/* import { employeeList } from '../list/employeeList';
 import { calculateProfit, months, thisMonth, thisYear, years } from './budget';
 import {
   calculateAvailableWorkers,
@@ -117,3 +117,4 @@ export function showDeliveryStage() {
       delivery.daysToGo + ' days to go';
   }
 }
+ */

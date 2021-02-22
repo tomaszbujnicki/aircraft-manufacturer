@@ -1,3 +1,5 @@
+import { Quantity } from '../data/Quantity';
+
 export class Aircraft {
   constructor(aircraft) {
     this.type = 'aircraft';
@@ -6,8 +8,8 @@ export class Aircraft {
     this.partsNeeded = aircraft.parts;
     this.startingPrice = aircraft.price;
     this.currentPrice = aircraft.price;
-    this.productionStage = 0;
-    this.workers = 0;
-    this.quantity = 0;
+    this.productionStage = aircraft.productionStage || 0;
+    this.workers = aircraft.workers || 0;
+    this.quantity = aircraft.quantity || 0;
   }
 }

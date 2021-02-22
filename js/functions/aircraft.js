@@ -1,4 +1,4 @@
-import { createElementAircraft } from '../view/createAircraftElement';
+import { createElementAircraft } from '../view/addContent/createAircraftElement';
 import { aircraftList } from '../list/aircraftList';
 import { employeeList } from '../list/employeeList';
 import { calculateAvailableWorkers, getRndInteger } from './calculations';

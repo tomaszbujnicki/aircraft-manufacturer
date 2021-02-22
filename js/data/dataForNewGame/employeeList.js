@@ -1,11 +1,11 @@
-import { calculateAvailableWorkers } from '../functions/calculations';
-import { addEmployee, removeEmployee } from '../functions/employee';
-import {
+import { calculateAvailableWorkers } from '../../functions/calculations';
+import { addEmployee, removeEmployee } from '../../functions/employee';
+/* import {
   showAvailableWorkers,
   showEmployeesNumber,
   showWorkersCard,
-} from '../functions/show';
-import { game } from '../data/generateInitialData';
+} from '../functions/show'; */
+//import { game } from '../data/generateInitialData';
 
 export const employeeList = [
   {

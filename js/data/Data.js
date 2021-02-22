@@ -1,6 +1,8 @@
-import { generateInitialData } from './generateInitialData';
 import { List } from './List';
 import { Quantity } from './Quantity';
+import { loadDataForContinueGame } from './loadDataForContinueGame';
+import { loadDataForNewGame } from './loadDataForNewGame';
+import { isDataCorrect } from './isDataCorrect';
 
 export class Data {
   constructor() {
@@ -15,10 +17,21 @@ export class Data {
     this.designList = new List();
     this.loanOfferList = new List();
     this.loanTakenList = new List();
-    this.generateInitialData = generateInitialData;
+    this.isDataCorrect = isDataCorrect;
+    this.loadDataForContinueGame = loadDataForContinueGame;
+    this.loadDataForNewGame = loadDataForNewGame;
   }
 
   save() {}
 
-  load() {}
+  load() {
+    if (localStorage.getItem('data')) {
+      const data = JSON.parse(localStorage.getItem('data'));
+      if (isDataCorrect(data)) {
+        this.loadDataForContinueGame(data);
+        return;
+      }
+    }
+    this.loadDataForNewGame();
+  }
 }

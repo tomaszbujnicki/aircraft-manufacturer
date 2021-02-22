@@ -146,9 +146,7 @@ h4 {
   font-size: 14px;
 }
 
-/*//---------------------------------------------------------------------------*/
-
-.newDesign {
+.design {
   display: grid;
   grid-template-columns: 60px 410px 60px;
   height: 60px;
@@ -346,9 +344,12 @@ h4 {
   margin: 0 5px;
 }
 
-.employee--parts {
+.stockOffer {
   padding-left: 20px;
+  display: grid;
   grid-template-columns: 60px 100px 40px 40px 60px 60px 120px 50px;
+  height: 70px;
+  align-items: center;
 }
 
 .employee__img {
@@ -493,7 +494,7 @@ h4 {
   margin: 0 20px;
 }
 
-.loan {
+.loanOffer {
   padding-left: 20px;
   height: 48px;
   display: grid;

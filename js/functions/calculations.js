@@ -1,5 +1,5 @@
-import { aircraftList } from '../list/aircraftList';
-import { employeeList } from '../list/employeeList';
+import { aircraftList } from '../data/dataForNewGame/aircraftDesigns';
+import { employeeList } from '../data/dataForNewGame/employeeList';
 
 export function getRndInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;

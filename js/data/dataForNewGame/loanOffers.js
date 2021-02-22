@@ -1,4 +1,4 @@
-export const loanOfferList = [
+export default [
   {
     name: 'Start-up loan',
     amount: 100000,

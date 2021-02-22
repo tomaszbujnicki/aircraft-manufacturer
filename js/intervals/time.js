@@ -8,7 +8,7 @@ import {
   showDeliveryStage,
   showMonthlyFinancialReport,
 } from '../functions/show';
-import { game } from '../data/generateInitialData';
+//import { game } from '../data/generateInitialData';
 import { getRndInteger } from '../functions/calculations';
 
 export function newDay() {
