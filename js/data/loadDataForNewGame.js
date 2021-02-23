@@ -14,17 +14,18 @@ export function loadDataForNewGame() {
   this.tax.add(20);
   this.dayTick.add(500);
 
-  for (const item of aircraftDesigns) {
-    item.inventionPoints > 0
-      ? this.designList.insert(new Design(item))
-      : this.aircraftList.insert(new Aircraft(item));
+  for (const item of employees) {
+    this.employeeList.insert(new Employee(item));
   }
+
   for (let i = 0; i < 10; i++) {
     this.stockOfferList.insert(new StockOffer());
   }
 
-  for (const item of employees) {
-    this.employeeList.insert(new Employee(item));
+  for (const item of aircraftDesigns) {
+    item.inventionPoints > 0
+      ? this.designList.insert(new Design(item))
+      : this.aircraftList.insert(new Aircraft(item));
   }
 
   /*   for (const item of loanOffers) {

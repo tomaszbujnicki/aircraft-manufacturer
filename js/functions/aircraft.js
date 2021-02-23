@@ -7,12 +7,6 @@ import { showAvailableWorkers, showQuantity, showWorkers } from './show';
 const traders = employeeList[3];
 const engineers = employeeList[4];
 
-export function dropAircraftPrice(aircraft) {
-  aircraft.price -= aircraft.corePrice * 0.01;
-  document.getElementById(`price${aircraft.id}`).textContent =
-    '$ ' + aircraft.price.toLocaleString();
-}
-
 export function raiseAircraftPrice() {
   const lastAircraft = aircraftList.find(
     (aircraft) => aircraft.inventionPoints > 0
@@ -24,8 +18,6 @@ export function raiseAircraftPrice() {
     aircraft.price += aircraft.corePrice * 0.001;
     if (aircraft.price > aircraft.corePrice)
       aircraft.price = aircraft.corePrice;
-    document.getElementById(`price${aircraft.id}`).textContent =
-      '$ ' + aircraft.price.toLocaleString();
   }
 }
 

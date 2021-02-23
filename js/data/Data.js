@@ -3,7 +3,7 @@ import { Quantity } from './Quantity';
 import { loadDataForContinueGame } from './loadDataForContinueGame';
 import { loadDataForNewGame } from './loadDataForNewGame';
 import { isDataCorrect } from './isDataCorrect';
-
+import { save } from './save';
 export class Data {
   constructor() {
     this.date = new Date();
@@ -21,17 +21,17 @@ export class Data {
     this.isDataCorrect = isDataCorrect;
     this.loadDataForContinueGame = loadDataForContinueGame;
     this.loadDataForNewGame = loadDataForNewGame;
+    this.save = save;
   }
-
-  save() {}
 
   load() {
     if (localStorage.getItem('data')) {
       const data = JSON.parse(localStorage.getItem('data'));
-      if (isDataCorrect(data)) {
-        this.loadDataForContinueGame(data);
-        return;
-      }
+      console.log('data loaded from storage');
+      //if (isDataCorrect(data)) {
+      this.loadDataForContinueGame(data);
+      return;
+      //}
     }
     this.loadDataForNewGame();
   }
