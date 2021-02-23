@@ -2,28 +2,10 @@ import { createElementAircraft } from '../view/addContent/createAircraftElement'
 import { aircraftList } from '../list/aircraftList';
 import { employeeList } from '../list/employeeList';
 import { calculateAvailableWorkers, getRndInteger } from './calculations';
-import { calculateIncome } from './incomeAndExpanses';
 import { showAvailableWorkers, showQuantity, showWorkers } from './show';
 
 const traders = employeeList[3];
 const engineers = employeeList[4];
-
-export function sell(aircraft) {
-  if (aircraft.quantity > 0) {
-    aircraft.quantity -= 1;
-    calculateIncome(aircraft.price, 'sale');
-    dropAircraftPrice(aircraft);
-    showQuantity(aircraft);
-  }
-}
-
-export function addWorker(aircraft) {
-  if (calculateAvailableWorkers()) {
-    aircraft.workers++;
-    showAvailableWorkers();
-    showWorkers(aircraft);
-  }
-}
 
 export function removeWorker(aircraft) {
   if (aircraft.workers > 0) {

@@ -7,4 +7,5 @@ function init() {
   const app = new Controller();
   app.data.load();
   addNavigation();
+  console.log(app.data.unassignedWorkers());
 }

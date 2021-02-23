@@ -11,6 +11,7 @@ export class Data {
     this.tax = new Quantity();
     this.cash = new Quantity();
     this.parts = new Quantity();
+    this.employeeList = new List();
     this.stockOfferList = new List();
     this.deliveryList = new List();
     this.aircraftList = new List();
@@ -34,4 +35,12 @@ export class Data {
     }
     this.loadDataForNewGame();
   }
+
+  unassignedWorkers = () => {
+    let remainingWorkers = this.employeeList.getItemById(0).number;
+    for (const aircraft of this.aircraftList.list) {
+      remainingWorkers -= aircraft.workers;
+    }
+    return remainingWorkers;
+  };
 }

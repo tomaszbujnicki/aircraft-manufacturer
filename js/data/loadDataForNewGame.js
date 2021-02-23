@@ -4,6 +4,8 @@ import { Aircraft } from '../model/Aircraft';
 import { Design } from '../model/Design';
 import { Loan } from '../model/Loan';
 import { StockOffer } from '../model/StockOffer';
+import employees from './dataForNewGame/employees';
+import { Employee } from '../model/Employee';
 
 export function loadDataForNewGame() {
   this.date.setFullYear(1955, 10, 12);
@@ -19,6 +21,10 @@ export function loadDataForNewGame() {
   }
   for (let i = 0; i < 10; i++) {
     this.stockOfferList.insert(new StockOffer());
+  }
+
+  for (const item of employees) {
+    this.employeeList.insert(new Employee(item));
   }
 
   /*   for (const item of loanOffers) {

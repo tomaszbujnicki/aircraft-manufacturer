@@ -1,5 +1,5 @@
-import { calculateAvailableWorkers } from '../../functions/calculations';
-import { addEmployee, removeEmployee } from '../../functions/employee';
+/* import { calculateAvailableWorkers } from '../../functions/calculations';
+import { addEmployee, removeEmployee } from '../../functions/employee'; */
 /* import {
   showAvailableWorkers,
   showEmployeesNumber,
@@ -7,18 +7,24 @@ import { addEmployee, removeEmployee } from '../../functions/employee';
 } from '../functions/show'; */
 //import { game } from '../data/generateInitialData';
 
-export const employeeList = [
+import worker from '../../../img/employees/worker.svg';
+import foreman from '../../../img/employees/foreman.svg';
+import HRImg from '../../../img/employees/get-hired.svg';
+import trader from '../../../img/employees/businessman.svg';
+import engineer from '../../../img/employees/engineer.svg';
+
+export default [
   {
     id: 0,
     name: 'Workers',
-    img: 'img/employees/worker.svg',
+    img: worker,
     number: 15,
     maxNumber: 16,
     multiplier: 16,
     salary: 1800,
     employmentCost: 4000,
     description: 'Workers build aircraft',
-    hire() {
+    /*     hire() {
       const canIHire =
         game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
@@ -34,19 +40,19 @@ export const employeeList = [
         showAvailableWorkers();
         showWorkersCard();
       }
-    },
+    }, */
   },
   {
     id: 1,
     name: 'Foremen',
-    img: 'img/employees/foreman.svg',
+    img: foreman,
     number: 10,
     multiplier: 4,
     maxNumber: 4,
     salary: 2600,
     employmentCost: 6000,
     description: 'Foremen help workers build aircraft',
-    hire() {
+    /*     hire() {
       const canIHire =
         game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
@@ -60,19 +66,19 @@ export const employeeList = [
         removeEmployee(this);
         showWorkersCard();
       }
-    },
+    }, */
   },
   {
     id: 2,
     name: 'Human Resources',
-    img: 'img/employees/get-hired.svg',
+    img: HRImg,
     number: 0,
     multiplier: 1,
     maxNumber: 1,
     salary: 3200,
     employmentCost: 9000,
     description: 'HR care about all employees',
-    hire() {
+    /*     hire() {
       const canIHire = game.cash >= this.employmentCost;
       if (canIHire) {
         addEmployee(this);
@@ -100,19 +106,19 @@ export const employeeList = [
           employee.multiplier + this.number * employee.multiplier;
         showEmployeesNumber(employee);
       }
-    },
+    }, */
   },
   {
     id: 3,
     name: 'Traders',
-    img: 'img/employees/businessman.svg',
+    img: trader,
     number: 0,
     multiplier: 3,
     maxNumber: 3,
     salary: 3800,
     employmentCost: 10000,
     description: 'Traders keep high the price of aircraft',
-    hire() {
+    /*     hire() {
       const canIHire =
         game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
@@ -124,19 +130,19 @@ export const employeeList = [
       if (canIFire) {
         removeEmployee(this);
       }
-    },
+    }, */
   },
   {
     id: 4,
     name: 'Engineers',
-    img: 'img/employees/engineer.svg',
+    img: engineer,
     number: 0,
     multiplier: 2,
     maxNumber: 2,
     salary: 5000,
     employmentCost: 25000,
     description: 'Engineers develop new aircraft',
-    hire() {
+    /*     hire() {
       const canIHire =
         game.cash >= this.employmentCost && this.maxNumber > this.number;
       if (canIHire) {
@@ -148,6 +154,6 @@ export const employeeList = [
       if (canIFire) {
         removeEmployee(this);
       }
-    },
+    }, */
   },
 ];

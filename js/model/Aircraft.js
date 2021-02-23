@@ -1,5 +1,3 @@
-import { Quantity } from '../data/Quantity';
-
 export class Aircraft {
   constructor(aircraft) {
     this.type = 'aircraft';
