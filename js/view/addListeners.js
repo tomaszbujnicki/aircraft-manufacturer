@@ -26,16 +26,18 @@ function addAircraftListeners(item) {
     this.sellAircraftEvent.publish(item.id);
   });
 
-  const addWorkerButton = document.getElementById(`addWorkerButton${item.id}`);
-  addWorkerButton.addEventListener('click', () => {
-    this.addWorkerEvent.publish(item.id);
+  const assignWorkerButton = document.getElementById(
+    `assignWorkerButton${item.id}`
+  );
+  assignWorkerButton.addEventListener('click', () => {
+    this.assignWorkerEvent.publish(item.id);
   });
 
-  const removeWorkerButton = document.getElementById(
-    `removeWorkerButton${item.id}`
+  const revokeWorkerButton = document.getElementById(
+    `revokeWorkerButton${item.id}`
   );
-  removeWorkerButton.addEventListener('click', () => {
-    this.removeWorkerEvent.publish(item.id);
+  revokeWorkerButton.addEventListener('click', () => {
+    this.revokeWorkerEvent.publish(item.id);
   });
 }
 

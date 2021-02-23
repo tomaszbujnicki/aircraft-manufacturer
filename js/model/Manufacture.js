@@ -1,12 +1,12 @@
 import { Event } from '../Event';
 
 export class Manufacture {
-  constructor(aircrafts, employees, cash, parts, unassignedWorkers) {
+  constructor(service, aircrafts, employees, cash, parts) {
+    this.service = service;
     this.aircrafts = aircrafts;
     this.employees = employees;
     this.cash = cash;
     this.parts = parts;
-    this.unassignedWorkers = unassignedWorkers;
     this.aircraftChangeEvent = new Event();
   }
 
@@ -21,13 +21,26 @@ export class Manufacture {
     }
   }
 
-  addWorker(id) {
+  assignWorker(id) {
     const aircraft = this.aircrafts.getItemById(id);
     if (!aircraft) return;
-    console.log(this.unassignedWorkers());
-    if (this.unassignedWorkers() > 0) {
+    if (this.service.unassignedWorkers() > 0) {
       aircraft.workers++;
       this.aircraftChangeEvent.publish(aircraft);
+      this.service.unassignedWorkersEvent.publish(
+        this.service.unassignedWorkers()
+      );
+    }
+  }
+  revokeWorker(id) {
+    const aircraft = this.aircrafts.getItemById(id);
+    if (!aircraft) return;
+    if (aircraft.workers > 0) {
+      aircraft.workers--;
+      this.aircraftChangeEvent.publish(aircraft);
+      this.service.unassignedWorkersEvent.publish(
+        this.service.unassignedWorkers()
+      );
     }
   }
 }

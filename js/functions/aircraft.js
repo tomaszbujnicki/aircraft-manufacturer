@@ -7,14 +7,6 @@ import { showAvailableWorkers, showQuantity, showWorkers } from './show';
 const traders = employeeList[3];
 const engineers = employeeList[4];
 
-export function removeWorker(aircraft) {
-  if (aircraft.workers > 0) {
-    aircraft.workers--;
-    showAvailableWorkers();
-    showWorkers(aircraft);
-  }
-}
-
 export function dropAircraftPrice(aircraft) {
   aircraft.price -= aircraft.corePrice * 0.01;
   document.getElementById(`price${aircraft.id}`).textContent =

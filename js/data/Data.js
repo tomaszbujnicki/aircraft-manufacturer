@@ -35,12 +35,4 @@ export class Data {
     }
     this.loadDataForNewGame();
   }
-
-  unassignedWorkers = () => {
-    let remainingWorkers = this.employeeList.getItemById(0).number;
-    for (const aircraft of this.aircraftList.list) {
-      remainingWorkers -= aircraft.workers;
-    }
-    return remainingWorkers;
-  };
 }

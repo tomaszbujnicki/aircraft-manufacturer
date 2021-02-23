@@ -3,10 +3,10 @@ export function aircraftContent(item) {
 <div class = "worker__icon" ><img class = "worker__img" src = ${item.img}>
 </div>
 <div class="worker__add-remove">
-  <button id="addWorkerButton${
+  <button id="assignWorkerButton${
     item.id
   }" class="worker__btn-add" title="assign a worker"></button >
-  <button id = "removeWorkerButton${
+  <button id = "revokeWorkerButton${
     item.id
   }" class = "worker__btn-add worker__btn-add--remove" title = "dismiss a worker" > </button>
 </div>

@@ -3,7 +3,7 @@ import { Manufacture } from './Manufacture';
 import { SupplyChain } from './SupplyChain';
 
 export class Model {
-  constructor(data) {
+  constructor(data, service) {
     this.supplyChain = new SupplyChain(
       data.stockOfferList,
       data.deliveryList,
@@ -11,14 +11,14 @@ export class Model {
       data.parts
     );
     this.manufacture = new Manufacture(
+      service,
       data.aircraftList,
       data.employeeList,
       data.cash,
-      data.parts,
-      data.unassignedWorkers
+      data.parts
     );
     this.humanResources = new HumanResources(
-      data.employeeList,
+      data.employees,
       data.aircraftList,
       data.cash
     );

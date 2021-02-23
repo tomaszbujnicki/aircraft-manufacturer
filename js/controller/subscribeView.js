@@ -5,7 +5,10 @@ export function subscribeView(view, model) {
   view.sellAircraftEvent.subscribe((id) => {
     model.manufacture.sellAircraft(id);
   });
-  view.addWorkerEvent.subscribe((id) => {
-    model.manufacture.addWorker(id);
+  view.assignWorkerEvent.subscribe((id) => {
+    model.manufacture.assignWorker(id);
+  });
+  view.revokeWorkerEvent.subscribe((id) => {
+    model.manufacture.revokeWorker(id);
   });
 }

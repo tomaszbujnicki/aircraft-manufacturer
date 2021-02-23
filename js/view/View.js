@@ -12,8 +12,8 @@ export class View {
   constructor() {
     this.buyStockEvent = new Event();
     this.sellAircraftEvent = new Event();
-    this.addWorkerEvent = new Event();
-    this.removeWorkerEvent = new Event();
+    this.assignWorkerEvent = new Event();
+    this.revokeWorkerEvent = new Event();
     this.createElement = createElement;
     this.addListeners = addListeners;
     this.displayElementData = displayElementData;
@@ -32,13 +32,8 @@ export class View {
     });
   }
 
-  availableWorkers() {
-    workersElement.textContent = calculateAvailableWorkers();
-  }
-
-  workers(aircraft) {
-    document.getElementById('workers' + aircraft.id).textContent =
-      aircraft.workers;
+  workers(number) {
+    workersElement.textContent = number;
   }
 
   showDate(date) {
