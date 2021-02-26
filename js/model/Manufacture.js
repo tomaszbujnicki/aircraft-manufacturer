@@ -1,14 +1,49 @@
 import { Event } from '../Event';
 
 export class Manufacture {
-  constructor(service, aircrafts, employees, cash, parts) {
+  constructor(service, aircrafts, cash, parts) {
     this.service = service;
     this.aircrafts = aircrafts;
-    this.employees = employees;
     this.cash = cash;
     this.parts = parts;
     this.unassigned = this.service.unassignedWorkers;
     this.aircraftChangeEvent = new Event();
+  }
+
+  assignWorker(id) {
+    const aircraft = this.aircrafts.getItemById(id);
+    if (!aircraft) return;
+    if (this.unassigned() > 0) {
+      aircraft.workers++;
+      this.aircraftChangeEvent.publish(aircraft);
+      this.service.unassignedWorkersEvent.publish(this.unassigned());
+    }
+  }
+
+  revokeWorker(id) {
+    const aircraft = this.aircrafts.getItemById(id);
+    if (!aircraft) return;
+    if (aircraft.workers > 0) {
+      aircraft.workers--;
+      this.aircraftChangeEvent.publish(aircraft);
+      this.service.unassignedWorkersEvent.publish(this.unassigned());
+    }
+  }
+
+  makeAircrafts() {
+    for (const aircraft of this.aircrafts.list) {
+      const progress = aircraft.workers * 1;
+      if (progress > this.parts.get()) {
+        progress = this.parts.get();
+      }
+      this.parts.subtract(progress);
+      aircraft.partsCompleted += progress;
+      if (aircraft.partsCompleted >= aircraft.partsNeeded) {
+        aircraft.quantity++;
+        aircraft.partsCompleted -= aircraft.partsNeeded;
+      }
+      this.aircraftChangeEvent.publish(aircraft);
+    }
   }
 
   sellAircraft(id) {
@@ -37,25 +72,5 @@ export class Manufacture {
     }
 
     this.aircraftChangeEvent.publish(aircraft);
-  }
-
-  assignWorker(id) {
-    const aircraft = this.aircrafts.getItemById(id);
-    if (!aircraft) return;
-    if (this.unassigned() > 0) {
-      aircraft.workers++;
-      this.aircraftChangeEvent.publish(aircraft);
-      this.service.unassignedWorkersEvent.publish(this.unassigned());
-    }
-  }
-
-  revokeWorker(id) {
-    const aircraft = this.aircrafts.getItemById(id);
-    if (!aircraft) return;
-    if (aircraft.workers > 0) {
-      aircraft.workers--;
-      this.aircraftChangeEvent.publish(aircraft);
-      this.service.unassignedWorkersEvent.publish(this.unassigned());
-    }
   }
 }

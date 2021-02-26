@@ -12,7 +12,7 @@ export function loadDataForNewGame() {
   this.cash.add(1_250_000);
   this.parts.add(500);
   this.tax.add(20);
-  this.dayTick.add(500);
+  this.hourInMilliseconds.add(500);
 
   for (const item of employees) {
     this.employeeList.insert(new Employee(item));

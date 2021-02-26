@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const app = new Controller();
-  //localStorage.clear();
+  localStorage.clear();
   app.data.load();
   app.data.save();
   addNavigation();

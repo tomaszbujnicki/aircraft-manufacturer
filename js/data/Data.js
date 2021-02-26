@@ -7,7 +7,7 @@ import { save } from './save';
 export class Data {
   constructor() {
     this.date = new Date();
-    this.dayTick = new Quantity();
+    this.hourInMilliseconds = new Quantity();
     this.tax = new Quantity();
     this.cash = new Quantity();
     this.parts = new Quantity();
@@ -27,7 +27,6 @@ export class Data {
   load() {
     if (localStorage.getItem('data')) {
       const data = JSON.parse(localStorage.getItem('data'));
-      console.log('data loaded from storage');
       //if (isDataCorrect(data)) {
       this.loadDataForContinueGame(data);
       return;

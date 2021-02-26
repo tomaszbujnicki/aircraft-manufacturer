@@ -13,7 +13,6 @@ export class Model {
     this.manufacture = new Manufacture(
       service,
       data.aircraftList,
-      data.employeeList,
       data.cash,
       data.parts
     );

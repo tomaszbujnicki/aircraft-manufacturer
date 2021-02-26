@@ -8,4 +8,6 @@ export function createElement(item) {
 
   const container = document.getElementById(item.type + 'DIV');
   container.appendChild(element);
+
+  this.displayElementData(item);
 }

@@ -1,8 +1,7 @@
 export function save() {
-  console.log(this);
   const data = {
     date: this.date.getTime(),
-    dayTick: this.dayTick.get(),
+    hourInMilliseconds: this.hourInMilliseconds.get(),
     tax: this.tax.get(),
     cash: this.cash.get(),
     parts: this.parts.get(),
@@ -15,5 +14,4 @@ export function save() {
     loanTaken: this.loanTakenList.list,
   };
   localStorage.setItem('data', JSON.stringify(data));
-  console.log(data);
 }

@@ -6,13 +6,7 @@ import {
   productionForce,
   totalSalary,
 } from './calculations';
-import truck from '../../img/parts/truck.svg';
-import truck2 from '../../img/parts/truck2.svg';
 
-const cashElement = document.getElementById('cash');
-const partsElement = document.getElementById('parts');
-const dateElement = document.getElementById('date');
-const workersElement = document.getElementById('workers');
 const descriptionWorkersNumberElement = document.getElementById(
   'descriptionWorkersNumber'
 );
@@ -23,20 +17,6 @@ const descriptionWorkersCapacityElement = document.getElementById(
   'edescriptionWorkersCapacity'
 );
 
-export function showProductionStage(aircraft) {
-  document.getElementById('myBar' + aircraft.id).style =
-    'width:' + aircraft.productionStage.toString() + '%';
-}
-
-export function showQuantity(aircraft) {
-  document.getElementById('quantity' + aircraft.id).textContent =
-    aircraft.quantity;
-}
-
-export function showPrice(aircraft) {
-  document.getElementById('price' + aircraft.id).textContent =
-    '$ ' + aircraft.price.toLocaleString();
-}
 
 export function showEmployeesNumber(employee) {
   document.getElementById('employee' + employee.id).textContent =
@@ -95,26 +75,5 @@ export function showBudget(item, columnNumber) {
   item.profit > 0
     ? element.classList.add('budget__cell--plus')
     : element.classList.remove('budget__cell--plus');
-}
-
-export function showDeliveryStage() {
-  const changeImg = (id) => {
-    document.getElementById('deliveryShipping' + id).src = truck;
-  };
-  const changeImg2 = (id) => {
-    document.getElementById('deliveryShipping' + id).src = truck2;
-  };
-  for (const index in game.deliveryArray) {
-    const delivery = game.deliveryArray[index];
-    delivery.daysToGo--;
-    let imgPosition = 95 - delivery.daysToGo;
-    if (imgPosition < -5) imgPosition = -5;
-    if (imgPosition > 75) changeImg(delivery.id);
-    if (imgPosition == 95) changeImg2(delivery.id);
-    document.getElementById('deliveryShipping' + delivery.id).style =
-      'left:' + imgPosition + '%';
-    document.getElementById('deliveryTimeToGo' + delivery.id).textContent =
-      delivery.daysToGo + ' days to go';
-  }
 }
  */

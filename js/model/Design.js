@@ -3,6 +3,7 @@ export class Design {
     this.type = 'design';
     this.img = design.img;
     this.name = design.name;
-    this.inventionPoints = design.inventionPoints;
+    this.inventionPointsNeeded = design.inventionPoints;
+    this.inventionPointsCompleted = 15;
   }
 }
