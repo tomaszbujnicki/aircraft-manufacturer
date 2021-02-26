@@ -1,5 +1,6 @@
 export function subscribeData(data, view) {
   const dataLists = [
+    data.employeeList,
     data.stockOfferList,
     data.deliveryList,
     data.aircraftList,
@@ -24,7 +25,7 @@ export function subscribeData(data, view) {
 
   data.cash.changeEvent.subscribe((number) => {
     view.cash(number);
-    view.showDate(data.date);
+    view.date(data.date);
     data.save();
   });
 

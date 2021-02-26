@@ -3,7 +3,7 @@ import { showEmployeesNumber, showEmployeesSalary } from './show';
 
 export function addEmployee(employee) {
   employee.number++;
-  calculateExpenses(employee.employmentCost, 'recruitment');
+  calculateExpenses(employee.hireCost, 'recruitment');
   showEmployeesNumber(employee);
   showEmployeesSalary(employee);
 }

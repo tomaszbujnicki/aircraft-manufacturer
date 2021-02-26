@@ -4,6 +4,9 @@ import truck2 from '../../img/parts/truck2.svg';
 
 export function displayElementData(item) {
   switch (item.type) {
+    case 'employee':
+      displayEmployeeData(item);
+      break;
     case 'aircraft':
       displayAircraftData(item);
       break;
@@ -20,6 +23,21 @@ export function displayElementData(item) {
     default:
       break;
   }
+}
+
+function displayEmployeeData(item) {
+  const number = document.getElementById('employeeNumber' + item.id);
+  const salaryPerEmployee = document.getElementById(
+    'salaryPerEmployee' + item.id
+  );
+  const salaryForGroup = document.getElementById('salaryForGroup' + item.id);
+  const salaryTotal = document.getElementById('salaryTotal');
+
+  number.textContent = item.number;
+  salaryPerEmployee.textContent = '$ ' + item.salary;
+  salaryForGroup.textContent = `$ ${(
+    item.salary * item.number
+  ).toLocaleString()}`;
 }
 
 function displayAircraftData(item) {
@@ -63,7 +81,10 @@ function displayDeliveryData(item) {
   img.style = `left: ${imgPosition}%`;
 }
 
-function displayStockOfferData(item) {}
+function displayStockOfferData(item) {
+  const expires = document.getElementById('offer-expiry' + item.id);
+  expires.textContent = item.daysUntilExpiry;
+}
 
 function displayProgressBar(barId, complited, total) {
   let percent = (complited / total) * 100;

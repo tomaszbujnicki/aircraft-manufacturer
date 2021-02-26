@@ -17,9 +17,10 @@ export class Model {
       data.parts
     );
     this.humanResources = new HumanResources(
-      data.employees,
+      data.employeeList,
       data.aircraftList,
-      data.cash
+      data.cash,
+      service
     );
   }
 }

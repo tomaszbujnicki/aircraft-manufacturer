@@ -347,7 +347,7 @@ h4 {
 .stockOffer {
   padding-left: 20px;
   display: grid;
-  grid-template-columns: 60px 100px 40px 40px 60px 60px 120px 50px;
+  grid-template-columns: 60px 100px 40px 40px 50px 60px 120px 40px 50px;
   height: 70px;
   align-items: center;
 }

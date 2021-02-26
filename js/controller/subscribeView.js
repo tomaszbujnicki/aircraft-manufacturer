@@ -11,4 +11,7 @@ export function subscribeView(view, model) {
   view.revokeWorkerEvent.subscribe((id) => {
     model.manufacture.revokeWorker(id);
   });
+  view.hireEmployeeEvent.subscribe((id) => {
+    model.humanResources.hire(id);
+  });
 }

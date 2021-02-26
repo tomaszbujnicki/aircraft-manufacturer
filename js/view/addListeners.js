@@ -1,53 +1,65 @@
 export function addListeners(item) {
   switch (item.type) {
+    case 'employee':
+      employee.call(this, item);
+      break;
     case 'aircraft':
-      addAircraftListeners.call(this, item);
+      aircraft.call(this, item);
       break;
     case 'design':
-      addDesignListeners.call(this, item);
+      design.call(this, item);
       break;
     case 'stockOffer':
-      addStockOfferListeners.call(this, item);
+      stockOffer.call(this, item);
       break;
     case 'delivery':
-      addDeliveryListeners.call(this, item);
+      delivery.call(this, item);
       break;
 
     default:
       break;
   }
 }
+function employee(item) {
+  const hire = document.getElementById(`addEmployee${item.id}`);
+  const fire = document.getElementById(`removeEmployee${item.id}`);
+  const details = document.getElementById(`employeeDetails${item.id}`);
 
-function addAircraftListeners(item) {
-  const sellAircraftButton = document.getElementById(
-    `sellAircraftButton${item.id}`
-  );
-  sellAircraftButton.addEventListener('click', () => {
+  hire.addEventListener('click', () => {
+    this.hireEmployeeEvent.publish(item.id);
+  });
+  fire.addEventListener('click', () => {
+    this.fireEmployeeEvent.publish(item.id);
+  });
+  /*   details.addEventListener('click', () => {
+    this.detailsEmployeeEvent.publish(item.id);
+  }); */
+}
+
+function aircraft(item) {
+  const sell = document.getElementById(`sellAircraftButton${item.id}`);
+  const assign = document.getElementById(`assignWorkerButton${item.id}`);
+  const revoke = document.getElementById(`revokeWorkerButton${item.id}`);
+
+  sell.addEventListener('click', () => {
     this.sellAircraftEvent.publish(item.id);
   });
-
-  const assignWorkerButton = document.getElementById(
-    `assignWorkerButton${item.id}`
-  );
-  assignWorkerButton.addEventListener('click', () => {
+  assign.addEventListener('click', () => {
     this.assignWorkerEvent.publish(item.id);
   });
-
-  const revokeWorkerButton = document.getElementById(
-    `revokeWorkerButton${item.id}`
-  );
-  revokeWorkerButton.addEventListener('click', () => {
+  revoke.addEventListener('click', () => {
     this.revokeWorkerEvent.publish(item.id);
   });
 }
 
-function addDesignListeners(item) {}
+function design(item) {}
 
-function addDeliveryListeners(item) {}
+function delivery(item) {}
 
-function addStockOfferListeners(item) {
-  const buyStockButton = document.getElementById(`buy${item.type}${item.id}`);
-  buyStockButton.addEventListener('click', () => {
+function stockOffer(item) {
+  const buy = document.getElementById(`buy${item.type}${item.id}`);
+
+  buy.addEventListener('click', () => {
     this.buyStockEvent.publish(item.id);
   });
 }

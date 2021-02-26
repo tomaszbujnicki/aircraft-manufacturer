@@ -22,11 +22,11 @@ export default [
     maxNumber: 16,
     multiplier: 16,
     salary: 1800,
-    employmentCost: 4000,
+    hireCost: 4000,
     description: 'Workers build aircraft',
     /*     hire() {
       const canIHire =
-        game.cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.hireCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
         showAvailableWorkers();
@@ -50,11 +50,11 @@ export default [
     multiplier: 4,
     maxNumber: 4,
     salary: 2600,
-    employmentCost: 6000,
+    hireCost: 6000,
     description: 'Foremen help workers build aircraft',
     /*     hire() {
       const canIHire =
-        game.cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.hireCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
         showWorkersCard();
@@ -75,11 +75,11 @@ export default [
     number: 0,
     multiplier: 1,
     maxNumber: 1,
-    salary: 3200,
-    employmentCost: 9000,
+    salary: 3200.33,
+    hireCost: 9000,
     description: 'HR care about all employees',
     /*     hire() {
-      const canIHire = game.cash >= this.employmentCost;
+      const canIHire = game.cash >= this.hireCost;
       if (canIHire) {
         addEmployee(this);
         this.showMaxNumber();
@@ -116,11 +116,11 @@ export default [
     multiplier: 3,
     maxNumber: 3,
     salary: 3800,
-    employmentCost: 10000,
+    hireCost: 10000,
     description: 'Traders keep high the price of aircraft',
     /*     hire() {
       const canIHire =
-        game.cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.hireCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
       }
@@ -140,11 +140,11 @@ export default [
     multiplier: 2,
     maxNumber: 2,
     salary: 5000,
-    employmentCost: 25000,
+    hireCost: 25000,
     description: 'Engineers develop new aircraft',
     /*     hire() {
       const canIHire =
-        game.cash >= this.employmentCost && this.maxNumber > this.number;
+        game.cash >= this.hireCost && this.maxNumber > this.number;
       if (canIHire) {
         addEmployee(this);
       }

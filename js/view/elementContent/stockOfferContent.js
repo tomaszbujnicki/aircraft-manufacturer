@@ -21,6 +21,9 @@ export function stockOfferContent(item) {
 <div class="employee__value employee__value--bold" title="total price">
   $ ${item.totalPrice.toLocaleString()}
 </div>		
+<div id="offer-expiry${item.id}" class="employee__value" title="time of expiry">
+
+</div>	
 
 <div class="employee__value">
   <button id="buy${item.type}${

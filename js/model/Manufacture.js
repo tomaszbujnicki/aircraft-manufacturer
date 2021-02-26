@@ -16,7 +16,7 @@ export class Manufacture {
     if (this.unassigned() > 0) {
       aircraft.workers++;
       this.aircraftChangeEvent.publish(aircraft);
-      this.service.unassignedWorkersEvent.publish(this.unassigned());
+      this.service.unassignedWorkersEvent.publish();
     }
   }
 
@@ -26,7 +26,7 @@ export class Manufacture {
     if (aircraft.workers > 0) {
       aircraft.workers--;
       this.aircraftChangeEvent.publish(aircraft);
-      this.service.unassignedWorkersEvent.publish(this.unassigned());
+      this.service.unassignedWorkersEvent.publish();
     }
   }
 

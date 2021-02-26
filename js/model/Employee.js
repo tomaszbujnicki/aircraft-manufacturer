@@ -8,7 +8,7 @@ export class Employee {
     this.multiplier = employee.multiplier;
     this.maxNumber = employee.maxNumber;
     this.salary = employee.salary;
-    this.employmentCost = employee.employmentCost;
+    this.hireCost = employee.hireCost;
     this.description = employee.description;
   }
 }
