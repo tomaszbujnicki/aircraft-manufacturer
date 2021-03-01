@@ -1,5 +1,5 @@
 export function subscribeService(service, view) {
   service.unassignedWorkersEvent.subscribe(() => {
-    view.workers(service.unassignedWorkers());
+    view.display.workers(service.unassignedWorkers());
   });
 }

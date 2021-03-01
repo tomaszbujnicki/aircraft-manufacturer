@@ -24,12 +24,12 @@ export function subscribeData(data, view) {
   });
 
   data.cash.changeEvent.subscribe((number) => {
-    view.cash(number);
-    view.date(data.date);
+    view.display.cash(number);
+    view.display.date(data.date);
     data.save();
   });
 
   data.parts.changeEvent.subscribe((number) => {
-    view.parts(number);
+    view.display.parts(number);
   });
 }

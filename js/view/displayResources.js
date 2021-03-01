@@ -1,32 +1,31 @@
 const cashElement = document.getElementById('cash'),
   partsElement = document.getElementById('parts'),
   dateElement = document.getElementById('date'),
-  workersElement = document.getElementById('workers');
+  workersElement = document.getElementById('workers'),
+  totalSalaryElement = document.getElementById('salarySummary__value');
 
-function cash(number) {
-  cashElement.textContent =
-    '$ ' +
-    number.toLocaleString(undefined, {
-      maximumFractionDigits: 0,
-    });
-}
+export default {
+  cash(number) {
+    cashElement.textContent = `$ ${number.toLocaleString()}`;
+  },
 
-function parts(number) {
-  partsElement.textContent = number.toLocaleString(undefined, {
-    maximumFractionDigits: 0,
-  });
-}
+  parts(number) {
+    partsElement.textContent = number.toLocaleString();
+  },
 
-function workers(number) {
-  workersElement.textContent = number;
-}
+  workers(number) {
+    workersElement.textContent = number;
+  },
 
-function date(date) {
-  let MM = date.getMonth() + 1;
-  if (MM < 10) MM = '0' + MM;
-  let DD = date.getDate();
-  if (DD < 10) DD = '0' + DD;
-  dateElement.textContent = date.getFullYear() + '-' + MM + '-' + DD;
-}
+  date(date) {
+    let MM = date.getMonth() + 1;
+    if (MM < 10) MM = '0' + MM;
+    let DD = date.getDate();
+    if (DD < 10) DD = '0' + DD;
+    dateElement.textContent = date.getFullYear() + '-' + MM + '-' + DD;
+  },
 
-export { cash, parts, workers, date };
+  totalSalary(sum) {
+    totalSalaryElement.textContent = `$ ${sum.toLocaleString()}`;
+  },
+};

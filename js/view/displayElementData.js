@@ -5,19 +5,19 @@ import truck2 from '../../img/parts/truck2.svg';
 export function displayElementData(item) {
   switch (item.type) {
     case 'employee':
-      displayEmployeeData(item);
+      employee(item);
       break;
     case 'aircraft':
-      displayAircraftData(item);
+      aircraft(item);
       break;
     case 'design':
-      displayDesignData(item);
+      design(item);
       break;
     case 'stockOffer':
-      displayStockOfferData(item);
+      stockOffer(item);
       break;
     case 'delivery':
-      displayDeliveryData(item);
+      delivery(item);
       break;
 
     default:
@@ -25,13 +25,12 @@ export function displayElementData(item) {
   }
 }
 
-function displayEmployeeData(item) {
+function employee(item) {
   const number = document.getElementById('employeeNumber' + item.id);
   const salaryPerEmployee = document.getElementById(
     'salaryPerEmployee' + item.id
   );
   const salaryForGroup = document.getElementById('salaryForGroup' + item.id);
-  const salaryTotal = document.getElementById('salaryTotal');
 
   number.textContent = item.number;
   salaryPerEmployee.textContent = '$ ' + item.salary;
@@ -40,7 +39,7 @@ function displayEmployeeData(item) {
   ).toLocaleString()}`;
 }
 
-function displayAircraftData(item) {
+function aircraft(item) {
   const workers = document.getElementById('workers' + item.id);
   const quantity = document.getElementById('quantity' + item.id);
   const price = document.getElementById('price' + item.id);
@@ -51,7 +50,7 @@ function displayAircraftData(item) {
   displayProgressBar('myBar' + item.id, item.partsCompleted, item.partsNeeded);
 }
 
-function displayDesignData(item) {
+function design(item) {
   const inventionPointsRemaining = document.getElementById(
     'inventionPointsRemaining' + item.id
   );
@@ -66,7 +65,7 @@ function displayDesignData(item) {
   );
 }
 
-function displayDeliveryData(item) {
+function delivery(item) {
   const daysToGo = document.getElementById('deliveryDaysToGo' + item.id);
   const img = document.getElementById(`deliveryShipping${item.id}`);
 
@@ -81,7 +80,7 @@ function displayDeliveryData(item) {
   img.style = `left: ${imgPosition}%`;
 }
 
-function displayStockOfferData(item) {
+function stockOffer(item) {
   const expires = document.getElementById('offer-expiry' + item.id);
   expires.textContent = item.daysUntilExpiry;
 }

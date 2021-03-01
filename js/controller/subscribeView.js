@@ -14,4 +14,7 @@ export function subscribeView(view, model) {
   view.hireEmployeeEvent.subscribe((id) => {
     model.humanResources.hire(id);
   });
+  view.fireEmployeeEvent.subscribe((id) => {
+    model.humanResources.fire(id);
+  });
 }

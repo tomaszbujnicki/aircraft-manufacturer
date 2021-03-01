@@ -4,6 +4,6 @@ export function subscribeModel(model, view) {
   });
   model.humanResources.employeeChangeEvent.subscribe((item) => {
     view.displayElementData(item);
-    view.displayTotalSalary(model.humanResources.totalSalary());
+    view.display.totalSalary(model.humanResources.totalSalary());
   });
 }

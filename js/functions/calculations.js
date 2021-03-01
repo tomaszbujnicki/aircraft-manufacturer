@@ -1,4 +1,3 @@
-import { aircraftList } from '../data/dataForNewGame/aircraftDesigns';
 import { employeeList } from '../data/dataForNewGame/employees';
 
 export function getRndInteger(min, max) {
@@ -22,20 +21,3 @@ export const productionForce = () => {
   }
   return force;
 };
-
-export function totalSalary() {
-  let x = 0;
-  for (let i = 0; i < employeeList.length; i++) {
-    x += employeeList[i].salary * employeeList[i].number;
-  }
-  return x;
-}
-
-export function calculateAvailableWorkers() {
-  let busyWorkers = 0;
-  for (let aircraft of aircraftList) {
-    busyWorkers += aircraft.workers;
-  }
-  const availableWorkers = employeeList[0].number - busyWorkers;
-  return availableWorkers;
-}
