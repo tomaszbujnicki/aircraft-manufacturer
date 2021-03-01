@@ -25,8 +25,6 @@ export function subscribeData(data, view) {
 
   data.cash.changeEvent.subscribe((number) => {
     view.display.cash(number);
-    view.display.date(data.date);
-    data.save();
   });
 
   data.parts.changeEvent.subscribe((number) => {

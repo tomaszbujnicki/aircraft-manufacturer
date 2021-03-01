@@ -1,6 +1,5 @@
 export function loadDataForContinueGame(data) {
   this.date.setTime(data.date);
-  this.hourInMilliseconds.add(data.hourInMilliseconds);
   this.tax.add(data.tax);
   this.cash.add(data.cash);
   this.parts.add(data.parts);

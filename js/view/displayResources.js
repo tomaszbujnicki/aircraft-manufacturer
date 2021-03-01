@@ -18,11 +18,16 @@ export default {
   },
 
   date(date) {
+    let mm = date.getMinutes();
+    if (mm < 10) mm = '0' + mm;
+    let hh = date.getHours();
+    if (hh < 10) hh = '0' + hh;
     let MM = date.getMonth() + 1;
     if (MM < 10) MM = '0' + MM;
     let DD = date.getDate();
     if (DD < 10) DD = '0' + DD;
-    dateElement.textContent = date.getFullYear() + '-' + MM + '-' + DD;
+    let YYYY = date.getFullYear();
+    dateElement.textContent = `${hh}:${mm} ${DD}-${MM}-${YYYY}`;
   },
 
   totalSalary(sum) {

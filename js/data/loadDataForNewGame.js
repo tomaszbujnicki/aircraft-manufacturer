@@ -8,11 +8,10 @@ import employees from './dataForNewGame/employees';
 import { Employee } from '../model/Employee';
 
 export function loadDataForNewGame() {
-  this.date.setFullYear(1955, 10, 12);
+  this.date.setFullYear(1955, 7, 2);
   this.cash.add(1_250_000);
   this.parts.add(500);
   this.tax.add(20);
-  this.hourInMilliseconds.add(500);
 
   for (const item of employees) {
     this.employeeList.insert(new Employee(item));

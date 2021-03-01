@@ -9,9 +9,7 @@ export default [
     parts: 100,
     price: 150_000,
     priceChange: 500,
-    passengers: 110,
     quantity: 10,
-    workers: 0,
     inventionPoints: 0,
   },
   {
@@ -20,9 +18,7 @@ export default [
     parts: 10,
     price: 15_000,
     priceChange: 250,
-    passengers: 110,
     quantity: 5,
-    workers: 0,
     inventionPoints: 0,
   },
   {
@@ -31,9 +27,7 @@ export default [
     parts: 99,
     price: 105000,
     priceChange: 400,
-    passengers: 70,
     quantity: 1,
-    workers: 0,
     inventionPoints: 0,
   },
   {
@@ -42,9 +36,7 @@ export default [
     parts: 100,
     price: 150_000,
     priceChange: 1_000,
-    passengers: 110,
     quantity: 0,
-    workers: 0,
     inventionPoints: 50,
   },
   {
@@ -53,9 +45,7 @@ export default [
     parts: 10,
     price: 35_000,
     priceChange: 1_000,
-    passengers: 110,
     quantity: 0,
-    workers: 0,
     inventionPoints: 100,
   },
   {
@@ -66,7 +56,6 @@ export default [
     priceChange: 5_000,
     passengers: 70,
     quantity: 0,
-    workers: 0,
     inventionPoints: 150,
   },
 ];

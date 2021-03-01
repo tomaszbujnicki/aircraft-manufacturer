@@ -7,7 +7,6 @@ import { save } from './save';
 export class Data {
   constructor() {
     this.date = new Date();
-    this.hourInMilliseconds = new Quantity();
     this.tax = new Quantity();
     this.cash = new Quantity();
     this.parts = new Quantity();

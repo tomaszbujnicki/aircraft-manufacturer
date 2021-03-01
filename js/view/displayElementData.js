@@ -32,7 +32,7 @@ function employee(item) {
   );
   const salaryForGroup = document.getElementById('salaryForGroup' + item.id);
 
-  number.textContent = item.number;
+  number.textContent = item.number + ' / ' + item.maxNumber;
   salaryPerEmployee.textContent = '$ ' + item.salary;
   salaryForGroup.textContent = `$ ${(
     item.salary * item.number

@@ -1,22 +1,21 @@
 import { Event } from '../Event';
 
 export class Manufacture {
-  constructor(service, aircrafts, cash, parts) {
-    this.service = service;
+  constructor(humanResources, aircrafts, cash, parts) {
+    this.humanResources = humanResources;
     this.aircrafts = aircrafts;
     this.cash = cash;
     this.parts = parts;
-    this.unassigned = this.service.unassignedWorkers;
+    this.productionForce = 1_000;
     this.aircraftChangeEvent = new Event();
   }
 
   assignWorker(id) {
     const aircraft = this.aircrafts.getItemById(id);
     if (!aircraft) return;
-    if (this.unassigned() > 0) {
+    if (this.humanResources.getUnassignedWorkers() > 0) {
       aircraft.workers++;
       this.aircraftChangeEvent.publish(aircraft);
-      this.service.unassignedWorkersEvent.publish();
     }
   }
 
@@ -26,18 +25,18 @@ export class Manufacture {
     if (aircraft.workers > 0) {
       aircraft.workers--;
       this.aircraftChangeEvent.publish(aircraft);
-      this.service.unassignedWorkersEvent.publish();
     }
   }
 
-  makeAircrafts() {
+  makeAircrafts(timeProgress) {
+    const workTimeInHours = timeProgress / 3_600_000;
     for (const aircraft of this.aircrafts.list) {
-      const progress = aircraft.workers * 1;
-      if (progress > this.parts.get()) {
-        progress = this.parts.get();
+      const partsMounted = aircraft.workers * workTimeInHours;
+      if (partsMounted > this.parts.get()) {
+        partsMounted = this.parts.get();
       }
-      this.parts.subtract(progress);
-      aircraft.partsCompleted += progress;
+      this.parts.subtract(partsMounted);
+      aircraft.partsCompleted += partsMounted;
       if (aircraft.partsCompleted >= aircraft.partsNeeded) {
         aircraft.quantity++;
         aircraft.partsCompleted -= aircraft.partsNeeded;

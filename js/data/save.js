@@ -1,7 +1,6 @@
 export function save() {
   const data = {
     date: this.date.getTime(),
-    hourInMilliseconds: this.hourInMilliseconds.get(),
     tax: this.tax.get(),
     cash: this.cash.get(),
     parts: this.parts.get(),

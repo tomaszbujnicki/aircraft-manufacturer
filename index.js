@@ -9,4 +9,9 @@ function init() {
   app.data.load();
   app.data.save();
   addNavigation();
+
+  window.setInterval(
+    () => app.model.time.nextStep(),
+    app.model.time.stepInMilliseconds
+  );
 }

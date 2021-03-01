@@ -1,9 +1,16 @@
 import { HumanResources } from './HumanResources';
 import { Manufacture } from './Manufacture';
 import { SupplyChain } from './SupplyChain';
+import { Time } from './Time';
 
 export class Model {
-  constructor(data, service) {
+  constructor(data) {
+    this.time = new Time(data.date);
+    this.humanResources = new HumanResources(
+      data.employeeList,
+      data.aircraftList,
+      data.cash
+    );
     this.supplyChain = new SupplyChain(
       data.stockOfferList,
       data.deliveryList,
@@ -11,16 +18,10 @@ export class Model {
       data.parts
     );
     this.manufacture = new Manufacture(
-      service,
+      this.humanResources,
       data.aircraftList,
       data.cash,
       data.parts
-    );
-    this.humanResources = new HumanResources(
-      data.employeeList,
-      data.aircraftList,
-      data.cash,
-      service
     );
   }
 }
