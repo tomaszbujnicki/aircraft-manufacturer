@@ -3,27 +3,49 @@ import { Event } from '../Event';
 export class Time {
   constructor(date) {
     this.date = date;
-    this.timeRatio = 3_600;
+    this.timeRatio = 10_800; // 1 sec in real <=> 3 h in game
     this.speedMultiplier = 1;
     this.stepInMilliseconds = 30;
     this.MAX_SPEED = 4;
     this.stepInGame = () =>
       this.stepInMilliseconds * this.timeRatio * this.speedMultiplier;
     this.stepEvent = new Event();
+    this.dayEvent = new Event();
+    this.weekEvent = new Event();
+    this.monthEvent = new Event();
+    this.yearEvent = new Event();
   }
   nextStep() {
-    const hour = this.date.getHours();
-    const day = this.date.getDay();
-    const date = this.date.getDate();
+    const timeProgressInMilliseconds = this.stepInGame();
+    const dateBefore = this.date.getDate();
 
-    const timeProgress = this.stepInGame();
+    this.date.setTime(this.date.getTime() + timeProgressInMilliseconds);
 
-    this.date.setTime(this.date.getTime() + timeProgress);
+    if (dateBefore != this.date.getDate()) this.nextDay();
 
-    this.stepEvent.publish({ date: this.date, timeProgress });
+    const millisecondsInHour = 3_600_000;
+    const timeProgressInHours = timeProgressInMilliseconds / millisecondsInHour;
+
+    this.stepEvent.publish({
+      date: this.date,
+      timeProgressInHours,
+    });
   }
 
-  nextHour() {
-    this.date.setTime(this.date.getTime() + this.hour);
+  nextDay() {
+    if (this.date.getDay() == 0) this.nextWeek();
+    if (this.date.getDate() == 1) this.nextMonth();
+
+    this.dayEvent.publish();
+  }
+  nextWeek() {
+    this.weekEvent.publish();
+  }
+  nextMonth() {
+    if (this.date.getMonth() == 0) this.nextYear();
+    this.monthEvent.publish();
+  }
+  nextYear() {
+    this.yearEvent.publish();
   }
 }

@@ -1,4 +1,5 @@
 import { Event } from '../Event';
+import { getRndInteger } from '../functions/calculations';
 
 export class Manufacture {
   constructor(humanResources, aircrafts, cash, parts) {
@@ -28,8 +29,7 @@ export class Manufacture {
     }
   }
 
-  makeAircrafts(timeProgress) {
-    const workTimeInHours = timeProgress / 3_600_000;
+  makeAircrafts(workTimeInHours) {
     for (const aircraft of this.aircrafts.list) {
       const partsMounted = aircraft.workers * workTimeInHours;
       if (partsMounted > this.parts.get()) {
@@ -64,8 +64,16 @@ export class Manufacture {
     this.aircraftChangeEvent.publish(aircraft);
   }
 
+  nextDay() {
+    for (let i = 0; i < this.humanResources.traders(); i++) {
+      const index = getRndInteger(0, this.aircrafts.list.length - 1);
+      const aircraft = this.aircrafts.list[index];
+      this.raiseAircraftPrice(aircraft);
+    }
+  }
+
   raiseAircraftPrice(aircraft) {
-    aircraft.currentPrice += aircraft.priceChange;
+    aircraft.currentPrice += 500;
     if (aircraft.currentPrice > aircraft.startingPrice) {
       aircraft.currentPrice = aircraft.startingPrice;
     }

@@ -1,3 +1,5 @@
+import { Event } from '../Event';
+import { getRndInteger } from '../functions/calculations';
 import { Delivery } from './Delivery';
 import { StockOffer } from './StockOffer';
 
@@ -7,6 +9,7 @@ export class SupplyChain {
     this.deliveries = deliveries;
     this.cash = cash;
     this.parts = parts;
+    this.stockChangeEvent = new Event();
   }
 
   addNewOffer() {
@@ -48,11 +51,16 @@ export class SupplyChain {
   }
 
   unloadDelivery(stock) {
-    if ('delivery === success') {
-      const parts = stock.parts;
-      this.parts.add(parts);
-      console.log('Delivery unloaded: +' + stock.parts + ' parts.');
+    if (stock.risk < getRndInteger(0, 100)) {
+      this.parts.add(stock.amount);
+      console.log(
+        `Delivery from ${stock.company} unloaded: + ${stock.amount} parts.`
+      );
       this.removeDelivery(stock);
+    } else {
+      console.log(
+        `Delivery from ${stock.company} failed. ${stock.amount} parts lost.`
+      );
     }
   }
 
@@ -60,11 +68,16 @@ export class SupplyChain {
     this.deliveries.delete(stock);
   }
 
-  expireOffer(stock) {
-    // TODO
-
-    if (stock.daysUntilExpiry <= 0) {
-      this.removeOffer(stock);
-    }
+  nextDay() {
+    this.offers.list.forEach((offer) => {
+      offer.daysUntilExpiry--;
+      this.stockChangeEvent.publish(offer);
+      if (offer.daysUntilExpiry <= 0) this.removeOffer(offer);
+    });
+    this.deliveries.list.forEach((delivery) => {
+      delivery.daysToGo--;
+      this.stockChangeEvent.publish(delivery);
+      if (delivery.daysToGo <= 0) this.unloadDelivery(delivery);
+    });
   }
 }
