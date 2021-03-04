@@ -13,7 +13,41 @@
       <div id="container">
         <header>
           <h1>Aircraft Manufacturer</h1>
-          <span id="date" title="Date: YYYY-MM-DD"></span>
+          <div class="time">
+            <div id="date"></div>
+            <div id="speedMultiplier">
+              <button
+                id="speedLevel0"
+                class="speedLevel"
+                value="0"
+                title="PAUSE"
+              ></button
+              ><button
+                id="speedLevel1"
+                class="speedLevel"
+                value="1"
+                title="PLAY"
+              ></button
+              ><button
+                id="speedLevel2"
+                class="speedLevel"
+                value="2"
+                title="SPEED 2x"
+              ></button
+              ><button
+                id="speedLevel4"
+                class="speedLevel"
+                value="4"
+                title="SPEED 4x"
+              ></button
+              ><button
+                id="speedLevel8"
+                class="speedLevel"
+                value="8"
+                title="SPEED 8x"
+              ></button>
+            </div>
+          </div>
         </header>
         <div class="resources">
           <div class="resources__unit">
@@ -722,8 +756,7 @@
                 <div class="salarySummary">
                   -------------------------------------------<br /><span
                     id="salarySummary__value"
-                    ></span
-                  >
+                  ></span>
                 </div>
 
                 <div

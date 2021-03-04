@@ -17,4 +17,7 @@ export function subscribeView(view, model) {
   view.fireEmployeeEvent.subscribe((id) => {
     model.humanResources.fire(id);
   });
+  view.speedLevelEvent.subscribe((speed) => {
+    model.time.setSpeedMultiplier(speed);
+  });
 }

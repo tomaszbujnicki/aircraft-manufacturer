@@ -1,4 +1,4 @@
-import { Event } from '../Event';
+import { Event } from '../controller/Event';
 
 export class Quantity {
   constructor() {

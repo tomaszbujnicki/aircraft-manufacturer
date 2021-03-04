@@ -12,7 +12,7 @@ export function subscribeData(data, view) {
   dataLists.forEach((list) => {
     list.insertEvent.subscribe((item) => {
       view.createElement(item);
-      view.addListeners(item);
+      view.displayElementData(item);
     });
   });
 

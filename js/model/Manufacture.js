@@ -1,4 +1,4 @@
-import { Event } from '../Event';
+import { Event } from '../controller/Event';
 import { getRndInteger } from '../functions/calculations';
 
 export class Manufacture {
@@ -37,7 +37,7 @@ export class Manufacture {
       }
       this.parts.subtract(partsMounted);
       aircraft.partsCompleted += partsMounted;
-      if (aircraft.partsCompleted >= aircraft.partsNeeded) {
+      while (aircraft.partsCompleted >= aircraft.partsNeeded) {
         aircraft.quantity++;
         aircraft.partsCompleted -= aircraft.partsNeeded;
       }

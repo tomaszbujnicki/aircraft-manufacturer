@@ -10,7 +10,7 @@ export default {
   },
 
   parts(number) {
-    partsElement.textContent = number.toLocaleString();
+    partsElement.textContent = Math.floor(number).toLocaleString();
   },
 
   workers(number) {

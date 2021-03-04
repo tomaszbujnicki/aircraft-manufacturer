@@ -29,12 +29,12 @@ div {
 
 #right-bar {
   width: 190px;
-  background-color: rgb(81, 138, 198);
+  background-color: #518ac6;
   overflow: hidden;
 }
 
 .right-bar__top {
-  background-color: rgb(71, 128, 188);
+  background-color: #4780bc;
   height: 140px;
 }
 
@@ -125,11 +125,41 @@ header {
   justify-content: space-between;
 }
 
-#date {
+.time {
   font-size: 24px;
   margin-right: 10px;
   font-family: consolas, monospace;
-  cursor: help;
+}
+
+#date {
+
+}
+
+#speedMultiplier {
+
+}
+
+#speedMultiplier button {
+  height: 16px;
+  width: 32px;
+  padding: 2px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#speedLevel0{
+  background-image: url(./img/buttons/speed_00.svg);
+}
+#speedLevel1{
+  background-image: url(./img/buttons/speed_01.svg);
+}
+#speedLevel2{
+  background-image: url(./img/buttons/speed_02.svg);
+}
+#speedLevel4{
+  background-image: url(./img/buttons/speed_04.svg);
+}
+#speedLevel8{
+  background-image: url(./img/buttons/speed_08.svg);
 }
 
 h2 {
@@ -156,7 +186,7 @@ h4 {
   padding-bottom: 20px;
 }
 
-.aircraft{
+.aircraft {
   display: grid;
   grid-template-columns: 60px 26px 60px 410px 60px 45px 110px;
   height: 60px;
@@ -229,7 +259,7 @@ h4 {
   height: 10px;
 }
 
-.delivery{
+.delivery {
   padding: 0 30px 5px 30px;
   border-bottom: 1px solid #aaa;
   margin: 0 30px 25px 30px;
@@ -242,23 +272,23 @@ h4 {
   height: 25px;
   align-items: center;
 }
-.align-right{
+.align-right {
   text-align: right;
   padding-right: 5px;
 }
 
-.delivery__images{
+.delivery__images {
   display: grid;
   grid-template-columns: 40px 360px 40px;
   top: 10px;
   position: relative;
 }
 
-.delivery__img{
+.delivery__img {
   height: 32px;
   width: 32px;
 }
-.delivery__img--relative{
+.delivery__img--relative {
   position: relative;
 }
 
@@ -296,7 +326,7 @@ h4 {
   position: relative;
 }
 
-.closeButton{
+.closeButton {
   background-image: url(img/buttons/cancel.svg);
   height: 48px;
   width: 48px;
@@ -306,7 +336,7 @@ h4 {
   z-index: 3;
 }
 
-.closeButton--employee{
+.closeButton--employee {
   top: -30px;
   right: 5px;
 }
@@ -319,7 +349,7 @@ h4 {
   align-items: center;
 }
 
-.employeeDescriptionContainer{
+.employeeDescriptionContainer {
   background-color: aliceblue;
   position: absolute;
   top: 120px;
@@ -329,19 +359,19 @@ h4 {
   border-radius: 10px;
 }
 
-.employeeDescription-description{
+.employeeDescription-description {
   margin-left: 20px;
   line-height: 2;
 }
-.bold{
+.bold {
   font-weight: bold;
 }
-.quotation{
+.quotation {
   color: #91aecd;
   font-style: italic;
 }
 
-.employeeDescriptionButton{
+.employeeDescriptionButton {
   margin: 0 5px;
 }
 

@@ -1,4 +1,4 @@
-import { Event } from '../Event';
+import { Event } from '../controller/Event';
 import { getRndInteger } from '../functions/calculations';
 import { Delivery } from './Delivery';
 import { StockOffer } from './StockOffer';

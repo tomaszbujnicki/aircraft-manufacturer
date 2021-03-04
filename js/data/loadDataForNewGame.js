@@ -10,7 +10,7 @@ import { Employee } from '../model/Employee';
 export function loadDataForNewGame() {
   this.date.setFullYear(1955, 7, 2);
   this.cash.add(1_250_000);
-  this.parts.add(500);
+  this.parts.add(50000);
   this.tax.add(20);
 
   for (const item of employees) {

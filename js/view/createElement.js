@@ -1,4 +1,5 @@
 import { elementContent } from './elementContent';
+import { elementListeners } from './elementListeners';
 
 export function createElement(item) {
   const element = document.createElement('div');
@@ -9,5 +10,6 @@ export function createElement(item) {
   const container = document.getElementById(item.type + 'DIV');
   container.appendChild(element);
 
-  this.displayElementData(item);
+  const listener = elementListeners[item.type];
+  if (listener) listener.call(this, item);
 }

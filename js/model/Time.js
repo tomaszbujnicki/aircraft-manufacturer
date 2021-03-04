@@ -1,4 +1,4 @@
-import { Event } from '../Event';
+import { Event } from '../controller/Event';
 
 export class Time {
   constructor(date) {
@@ -6,7 +6,6 @@ export class Time {
     this.timeRatio = 10_800; // 1 sec in real <=> 3 h in game
     this.speedMultiplier = 1;
     this.stepInMilliseconds = 30;
-    this.MAX_SPEED = 4;
     this.stepInGame = () =>
       this.stepInMilliseconds * this.timeRatio * this.speedMultiplier;
     this.stepEvent = new Event();
@@ -15,6 +14,10 @@ export class Time {
     this.monthEvent = new Event();
     this.yearEvent = new Event();
   }
+  setSpeedMultiplier(speed) {
+    this.speedMultiplier = speed;
+  }
+
   nextStep() {
     const timeProgressInMilliseconds = this.stepInGame();
     const dateBefore = this.date.getDate();

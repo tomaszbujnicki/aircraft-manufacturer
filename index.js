@@ -1,4 +1,3 @@
-import { addNavigation } from './js/navigation/navigation';
 import { Controller } from './js/controller/Controller';
 
 document.addEventListener('DOMContentLoaded', init);
@@ -8,7 +7,6 @@ function init() {
   localStorage.clear();
   app.data.load();
   app.data.save();
-  addNavigation();
 
   window.setInterval(
     () => app.model.time.nextStep(),

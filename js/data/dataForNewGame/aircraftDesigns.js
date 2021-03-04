@@ -15,7 +15,7 @@ export default [
   {
     name: 'Helicopter',
     img: aeroplane2,
-    parts: 10,
+    parts: 1,
     price: 15_000,
     priceChange: 250,
     quantity: 5,

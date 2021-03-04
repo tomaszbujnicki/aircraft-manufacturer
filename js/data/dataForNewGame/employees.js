@@ -9,7 +9,7 @@ export default [
     id: 0,
     name: 'Workers',
     img: worker,
-    number: 10,
+    number: 1000,
     maxNumberPerHR: 16,
     salary: 1800,
     hireCost: 4000,
