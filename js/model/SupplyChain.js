@@ -1,4 +1,3 @@
-import { Event } from '../controller/Event';
 import { getRndInteger } from '../functions/calculations';
 import { Delivery } from './Delivery';
 import { StockOffer } from './StockOffer';
@@ -9,7 +8,6 @@ export class SupplyChain {
     this.deliveries = deliveries;
     this.cash = cash;
     this.parts = parts;
-    this.stockChangeEvent = new Event();
   }
 
   buyStock(id) {
@@ -71,14 +69,12 @@ export class SupplyChain {
   bringDeliveriesCloser() {
     this.deliveries.list.forEach((delivery) => {
       delivery.daysToGo--;
-      this.stockChangeEvent.publish(delivery);
       if (delivery.daysToGo <= 0) this.unloadDelivery(delivery);
     });
   }
   shortenOffersExpiryTime() {
     this.offers.list.forEach((offer) => {
       offer.daysUntilExpiry--;
-      this.stockChangeEvent.publish(offer);
       if (offer.daysUntilExpiry <= 0) this.removeOffer(offer);
     });
   }

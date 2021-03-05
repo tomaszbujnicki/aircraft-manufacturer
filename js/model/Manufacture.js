@@ -1,4 +1,3 @@
-import { Event } from '../controller/Event';
 import { getRndInteger } from '../functions/calculations';
 
 export class Manufacture {
@@ -8,24 +7,24 @@ export class Manufacture {
     this.cash = cash;
     this.parts = parts;
     this.productionForce = 1_000;
-    this.aircraftChangeEvent = new Event();
+    this.update = (aircraft) => this.aircrafts.update(aircraft);
   }
 
   assignWorker(id) {
     const aircraft = this.aircrafts.getItemById(id);
     if (!aircraft) return;
+
     if (this.humanResources.getUnassignedWorkers() > 0) {
       aircraft.workers++;
-      this.aircraftChangeEvent.publish(aircraft);
     }
   }
 
   revokeWorker(id) {
     const aircraft = this.aircrafts.getItemById(id);
     if (!aircraft) return;
+
     if (aircraft.workers > 0) {
       aircraft.workers--;
-      this.aircraftChangeEvent.publish(aircraft);
     }
   }
 
@@ -41,7 +40,6 @@ export class Manufacture {
         aircraft.quantity++;
         aircraft.partsCompleted -= aircraft.partsNeeded;
       }
-      this.aircraftChangeEvent.publish(aircraft);
     }
   }
 
@@ -53,18 +51,18 @@ export class Manufacture {
       aircraft.quantity--;
       this.cash.add(aircraft.currentPrice);
       this.dropAircraftPrice(aircraft);
-
-      this.aircraftChangeEvent.publish(aircraft);
     }
   }
 
   dropAircraftPrice(aircraft) {
     aircraft.currentPrice -= aircraft.priceChange;
-
-    this.aircraftChangeEvent.publish(aircraft);
   }
 
   nextDay() {
+    this.raisePrices();
+  }
+
+  raisePrices() {
     for (let i = 0; i < this.humanResources.traders(); i++) {
       const index = getRndInteger(0, this.aircrafts.list.length - 1);
       const aircraft = this.aircrafts.list[index];
@@ -77,7 +75,5 @@ export class Manufacture {
     if (aircraft.currentPrice > aircraft.startingPrice) {
       aircraft.currentPrice = aircraft.startingPrice;
     }
-
-    this.aircraftChangeEvent.publish(aircraft);
   }
 }

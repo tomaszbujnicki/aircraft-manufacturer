@@ -18,6 +18,7 @@ export class List {
     this.uniqueId++;
     return this.uniqueId;
   }
+
   delete(item) {
     const index = this.list.findIndex((e) => e === item);
     if (index !== -1) {
@@ -25,6 +26,7 @@ export class List {
       this.deleteEvent.publish(item);
     }
   }
+
   getItemById(id) {
     const item = this.list.find((e) => e.id === id);
     return item;

@@ -4,6 +4,7 @@ import { loadDataForContinueGame } from './loadDataForContinueGame';
 import { loadDataForNewGame } from './loadDataForNewGame';
 import { isDataCorrect } from './isDataCorrect';
 import { save } from './save';
+
 export class Data {
   constructor() {
     this.date = new Date();

@@ -1,5 +1,3 @@
-import { Event } from '../controller/Event';
-
 export class HumanResources {
   constructor(employees, aircrafts, cash) {
     this.employees = employees;
@@ -10,7 +8,6 @@ export class HumanResources {
     this.engineers = () => this.employees.getItemById(4).number;
     this.aircrafts = aircrafts.list;
     this.cash = cash;
-    this.employeeChangeEvent = new Event();
   }
 
   hire(id) {
@@ -21,7 +18,6 @@ export class HumanResources {
     this.cash.subtract(employee.hireCost);
     employee.number++;
 
-    this.employeeChangeEvent.publish(employee);
     if (employee.name === 'Human Resources') {
       this.updateMaxEmployee();
     }
@@ -45,7 +41,6 @@ export class HumanResources {
 
     employee.number--;
 
-    this.employeeChangeEvent.publish(employee);
     if (employee.name === 'Human Resources') {
       this.updateMaxEmployee();
     }
@@ -86,11 +81,14 @@ export class HumanResources {
   updateMaxEmployee = () => {
     for (const employee of this.employees.list) {
       employee.maxNumber = (this.HR() + 1) * employee.maxNumberPerHR;
-      this.employeeChangeEvent.publish(employee);
     }
   };
 
-  totalSalary = () => {
+  salaryPayment() {
+    const amount = this.getTotalSalary();
+    this.cash.subtract(amount);
+  }
+  getTotalSalary = () => {
     let sum = 0;
     for (const employee of this.employees.list) {
       sum += employee.number * employee.salary;

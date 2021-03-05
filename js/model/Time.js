@@ -29,10 +29,7 @@ export class Time {
     const millisecondsInHour = 3_600_000;
     const timeProgressInHours = timeProgressInMilliseconds / millisecondsInHour;
 
-    this.stepEvent.publish({
-      date: this.date,
-      timeProgressInHours,
-    });
+    this.stepEvent.publish(timeProgressInHours);
   }
 
   nextDay() {
