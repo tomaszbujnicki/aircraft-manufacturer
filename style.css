@@ -131,34 +131,38 @@ header {
   font-family: consolas, monospace;
 }
 
-#date {
 
-}
 
-#speedMultiplier {
-
-}
-
-#speedMultiplier button {
-  height: 16px;
+.speedLevel {
+  position: relative;
+  box-sizing: border-box;
+  height: 20px;
   width: 32px;
-  padding: 2px;
+  margin-right: 8px;
+  border-radius: 5px;
   background-repeat: no-repeat;
   background-position: center;
+  background-size: 65% 65%;
+  background-color: #ecdece;
 }
-#speedLevel0{
+
+.highlighted {
+  background-color: #518ac6;
+}
+
+#speedLevel0 {
   background-image: url(./img/buttons/speed_00.svg);
 }
-#speedLevel1{
+#speedLevel1 {
   background-image: url(./img/buttons/speed_01.svg);
 }
-#speedLevel2{
+#speedLevel2 {
   background-image: url(./img/buttons/speed_02.svg);
 }
-#speedLevel4{
+#speedLevel4 {
   background-image: url(./img/buttons/speed_04.svg);
 }
-#speedLevel8{
+#speedLevel8 {
   background-image: url(./img/buttons/speed_08.svg);
 }
 

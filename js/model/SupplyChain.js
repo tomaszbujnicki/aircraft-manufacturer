@@ -12,11 +12,6 @@ export class SupplyChain {
     this.stockChangeEvent = new Event();
   }
 
-  addNewOffer() {
-    const stock = new StockOffer();
-    this.offers.insert(stock);
-  }
-
   buyStock(id) {
     const stock = this.offers.getItemById(id);
     if (!stock) return;
@@ -69,15 +64,31 @@ export class SupplyChain {
   }
 
   nextDay() {
-    this.offers.list.forEach((offer) => {
-      offer.daysUntilExpiry--;
-      this.stockChangeEvent.publish(offer);
-      if (offer.daysUntilExpiry <= 0) this.removeOffer(offer);
-    });
+    this.shortenOffersExpiryTime();
+    this.bringDeliveriesCloser();
+    this.createNewOffer();
+  }
+  bringDeliveriesCloser() {
     this.deliveries.list.forEach((delivery) => {
       delivery.daysToGo--;
       this.stockChangeEvent.publish(delivery);
       if (delivery.daysToGo <= 0) this.unloadDelivery(delivery);
     });
+  }
+  shortenOffersExpiryTime() {
+    this.offers.list.forEach((offer) => {
+      offer.daysUntilExpiry--;
+      this.stockChangeEvent.publish(offer);
+      if (offer.daysUntilExpiry <= 0) this.removeOffer(offer);
+    });
+  }
+  createNewOffer() {
+    const maxOffersNumber = 12;
+    const currentOffersNumber = this.offers.list.length;
+    const chanceToCreateNewOffer = 1 - currentOffersNumber / maxOffersNumber;
+    if (chanceToCreateNewOffer > Math.random()) {
+      const stock = new StockOffer();
+      this.offers.insert(stock);
+    }
   }
 }

@@ -41,13 +41,16 @@ export class Time {
 
     this.dayEvent.publish();
   }
+
   nextWeek() {
     this.weekEvent.publish();
   }
+
   nextMonth() {
     if (this.date.getMonth() == 0) this.nextYear();
     this.monthEvent.publish();
   }
+
   nextYear() {
     this.yearEvent.publish();
   }
