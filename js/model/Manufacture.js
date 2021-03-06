@@ -7,14 +7,13 @@ export class Manufacture {
     this.cash = cash;
     this.parts = parts;
     this.productionForce = 1_000;
-    this.update = (aircraft) => this.aircrafts.update(aircraft);
   }
 
   assignWorker(id) {
     const aircraft = this.aircrafts.getItemById(id);
     if (!aircraft) return;
 
-    if (this.humanResources.getUnassignedWorkers() > 0) {
+    if (this.humanResources.unassignedWorkers > 0) {
       aircraft.workers++;
     }
   }
@@ -30,17 +29,26 @@ export class Manufacture {
 
   makeAircrafts(workTimeInHours) {
     for (const aircraft of this.aircrafts.list) {
-      const partsMounted = aircraft.workers * workTimeInHours;
-      if (partsMounted > this.parts.get()) {
-        partsMounted = this.parts.get();
-      }
+      const partsMounted = this.calculatePartsMounted(
+        aircraft,
+        workTimeInHours
+      );
+
       this.parts.subtract(partsMounted);
       aircraft.partsCompleted += partsMounted;
+
       while (aircraft.partsCompleted >= aircraft.partsNeeded) {
         aircraft.quantity++;
         aircraft.partsCompleted -= aircraft.partsNeeded;
       }
     }
+  }
+  calculatePartsMounted(aircraft, workTimeInHours) {
+    let partsMounted = aircraft.workers * workTimeInHours;
+    if (partsMounted > this.parts.get()) {
+      partsMounted = this.parts.get();
+    }
+    return partsMounted;
   }
 
   sellAircraft(id) {
@@ -63,7 +71,7 @@ export class Manufacture {
   }
 
   raisePrices() {
-    for (let i = 0; i < this.humanResources.traders(); i++) {
+    for (let i = 0; i < this.humanResources.traders; i++) {
       const index = getRndInteger(0, this.aircrafts.list.length - 1);
       const aircraft = this.aircrafts.list[index];
       this.raiseAircraftPrice(aircraft);

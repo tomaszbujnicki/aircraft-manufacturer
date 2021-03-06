@@ -9,7 +9,7 @@ export default [
     id: 0,
     name: 'Workers',
     img: worker,
-    number: 1000,
+    number: 5,
     maxNumberPerHR: 16,
     salary: 1800,
     hireCost: 4000,
@@ -23,7 +23,7 @@ export default [
     maxNumberPerHR: 4,
     salary: 2600,
     hireCost: 6000,
-    description: 'Foremen help workers build aircraft',
+    description: 'Foremen help and supervise the workers ',
   },
   {
     id: 2,

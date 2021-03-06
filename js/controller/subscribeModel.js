@@ -24,12 +24,13 @@ export function subscribeModel(data, model, view) {
 
   model.time.stepEvent.subscribe((timeProgressInHours) => {
     model.manufacture.makeAircrafts(timeProgressInHours);
+    model.researchCenter.invent(timeProgressInHours);
 
     view.display.date(data.date);
     view.display.cash(data.cash.get());
     view.display.parts(data.parts.get());
     view.display.totalSalary(model.humanResources.getTotalSalary());
-    view.display.workers(model.humanResources.getUnassignedWorkers());
+    view.display.workers(model.humanResources.unassignedWorkers);
 
     dataLists.forEach((list) => {
       list.list.forEach((item) => view.displayElementData(item));

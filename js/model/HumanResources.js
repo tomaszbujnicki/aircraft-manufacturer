@@ -1,13 +1,30 @@
 export class HumanResources {
   constructor(employees, aircrafts, cash) {
     this.employees = employees;
-    this.workers = () => this.employees.getItemById(0).number;
-    this.foremen = () => this.employees.getItemById(1).number;
-    this.HR = () => this.employees.getItemById(2).number;
-    this.traders = () => this.employees.getItemById(3).number;
-    this.engineers = () => this.employees.getItemById(4).number;
     this.aircrafts = aircrafts.list;
     this.cash = cash;
+  }
+  get workers() {
+    return this.employees.getItemById(0).number;
+  }
+  get foremen() {
+    return this.employees.getItemById(1).number;
+  }
+  get HR() {
+    return this.employees.getItemById(2).number;
+  }
+  get traders() {
+    return this.employees.getItemById(3).number;
+  }
+  get engineers() {
+    return this.employees.getItemById(4).number;
+  }
+  get unassignedWorkers() {
+    let remainingWorkers = this.workers;
+    for (const aircraft of this.aircrafts) {
+      remainingWorkers -= aircraft.workers;
+    }
+    return remainingWorkers;
   }
 
   hire(id) {
@@ -23,7 +40,7 @@ export class HumanResources {
     }
   }
   isHirePossible(employee) {
-    if (employee.number + 1 > (this.HR() + 1) * employee.maxNumberPerHR) {
+    if (employee.number + 1 > (this.HR + 1) * employee.maxNumberPerHR) {
       console.log('need more HR');
       return false;
     }
@@ -56,7 +73,7 @@ export class HumanResources {
     return true;
   }
   isWorkersFirePossible() {
-    if (this.getUnassignedWorkers() > 0) {
+    if (this.unassignedWorkers > 0) {
       return true;
     } else {
       console.log(
@@ -67,8 +84,8 @@ export class HumanResources {
   }
   isHRFirePossible() {
     for (const item of this.employees.list) {
-      if (item.number > item.maxNumberPerHR * this.HR()) {
-        const difference = item.number - item.maxNumberPerHR * this.HR();
+      if (item.number > item.maxNumberPerHR * this.HR) {
+        const difference = item.number - item.maxNumberPerHR * this.HR;
         console.log(
           `Too many ${item.name}.\nFirst fire ${difference} ${item.name}.`
         );
@@ -80,7 +97,7 @@ export class HumanResources {
 
   updateMaxEmployee = () => {
     for (const employee of this.employees.list) {
-      employee.maxNumber = (this.HR() + 1) * employee.maxNumberPerHR;
+      employee.maxNumber = (this.HR + 1) * employee.maxNumberPerHR;
     }
   };
 
@@ -94,13 +111,5 @@ export class HumanResources {
       sum += employee.number * employee.salary;
     }
     return sum;
-  };
-
-  getUnassignedWorkers = () => {
-    let remainingWorkers = this.workers();
-    for (const aircraft of this.aircrafts) {
-      remainingWorkers -= aircraft.workers;
-    }
-    return remainingWorkers;
   };
 }

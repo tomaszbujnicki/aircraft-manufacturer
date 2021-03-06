@@ -54,10 +54,10 @@ function design(item) {
   const inventionPointsRemaining = document.getElementById(
     'inventionPointsRemaining' + item.id
   );
-  const IPReamining =
+  const IPRemaining =
     item.inventionPointsNeeded - item.inventionPointsCompleted;
 
-  inventionPointsRemaining.textContent = IPReamining;
+  inventionPointsRemaining.textContent = Math.floor(IPRemaining);
   displayProgressBar(
     'inventBar' + item.id,
     item.inventionPointsCompleted,
