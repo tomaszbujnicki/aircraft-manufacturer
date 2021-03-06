@@ -6,7 +6,6 @@ export class Manufacture {
     this.aircrafts = aircrafts;
     this.cash = cash;
     this.parts = parts;
-    this.productionForce = 1_000;
   }
 
   assignWorker(id) {
@@ -44,11 +43,26 @@ export class Manufacture {
     }
   }
   calculatePartsMounted(aircraft, workTimeInHours) {
-    let partsMounted = aircraft.workers * workTimeInHours;
+    let partsMounted = aircraft.workers * workTimeInHours * this.workEfficiency;
     if (partsMounted > this.parts.get()) {
       partsMounted = this.parts.get();
     }
     return partsMounted;
+  }
+
+  get workEfficiency() {
+    const subordinates = this.humanResources.workers;
+    const basicEfficiency = 0.5;
+    if (subordinates == 0) return basicEfficiency;
+
+    const superiors = this.humanResources.foremen;
+    const supervisedBySuperior = 4;
+    const fullSupervisionBonus = 0.5;
+
+    let supervisionPart = (superiors * supervisedBySuperior) / subordinates;
+    if (supervisionPart > 1) supervisionPart = 1;
+
+    return basicEfficiency + supervisionPart * fullSupervisionBonus;
   }
 
   sellAircraft(id) {
