@@ -1,11 +1,6 @@
-//import { data } from '../data/generateInitialData';
 /* import { employeeList } from '../list/employeeList';
 import { calculateProfit, months, thisMonth, thisYear, years } from './budget';
-import {
-  calculateAvailableWorkers,
-  productionForce,
-  totalSalary,
-} from './calculations';
+import { totalSalary } from './calculations';
 
 const descriptionWorkersNumberElement = document.getElementById(
   'descriptionWorkersNumber'
@@ -16,7 +11,6 @@ const descriptionWorkersMountElement = document.getElementById(
 const descriptionWorkersCapacityElement = document.getElementById(
   'edescriptionWorkersCapacity'
 );
-
 
 export function showEmployeesNumber(employee) {
   document.getElementById('employee' + employee.id).textContent =
