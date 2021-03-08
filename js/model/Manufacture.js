@@ -1,18 +1,16 @@
 import { getRndInteger } from '../functions/calculations';
 
 export class Manufacture {
-  constructor(humanResources, aircrafts, cash, parts) {
-    this.humanResources = humanResources;
-    this.aircrafts = aircrafts;
-    this.cash = cash;
-    this.parts = parts;
+  constructor(data) {
+    this.data = data;
+    this.aircrafts = data.aircrafts;
   }
 
   assignWorker(id) {
     const aircraft = this.aircrafts.getItemById(id);
     if (!aircraft) return;
 
-    if (this.humanResources.unassignedWorkers > 0) {
+    if (this.data.unassignedWorkers > 0) {
       aircraft.workers++;
     }
   }
@@ -33,7 +31,7 @@ export class Manufacture {
         workTimeInHours
       );
 
-      this.parts.subtract(partsMounted);
+      this.data.parts -= partsMounted;
       aircraft.partsCompleted += partsMounted;
 
       while (aircraft.partsCompleted >= aircraft.partsNeeded) {
@@ -44,18 +42,18 @@ export class Manufacture {
   }
   calculatePartsMounted(aircraft, workTimeInHours) {
     let partsMounted = aircraft.workers * workTimeInHours * this.workEfficiency;
-    if (partsMounted > this.parts.get()) {
-      partsMounted = this.parts.get();
+    if (partsMounted > this.data.parts) {
+      partsMounted = this.data.parts;
     }
     return partsMounted;
   }
 
   get workEfficiency() {
-    const subordinates = this.humanResources.workers;
+    const subordinates = this.data.workers;
     const basicEfficiency = 0.5;
     if (subordinates == 0) return basicEfficiency;
 
-    const superiors = this.humanResources.foremen;
+    const superiors = this.data.foremen;
     const supervisedBySuperior = 4;
     const fullSupervisionBonus = 0.5;
 
@@ -71,7 +69,7 @@ export class Manufacture {
 
     if (aircraft.quantity > 0) {
       aircraft.quantity--;
-      this.cash.add(aircraft.currentPrice);
+      this.data.cash += aircraft.currentPrice;
       this.dropAircraftPrice(aircraft);
     }
   }
@@ -85,7 +83,7 @@ export class Manufacture {
   }
 
   raisePrices() {
-    for (let i = 0; i < this.humanResources.traders; i++) {
+    for (let i = 0; i < this.data.traders; i++) {
       const index = getRndInteger(0, this.aircrafts.list.length - 1);
       const aircraft = this.aircrafts.list[index];
       this.raiseAircraftPrice(aircraft);

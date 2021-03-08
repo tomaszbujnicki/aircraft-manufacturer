@@ -3,11 +3,10 @@ import { Delivery } from './Delivery';
 import { StockOffer } from './StockOffer';
 
 export class SupplyChain {
-  constructor(offers, deliveries, cash, parts) {
-    this.offers = offers;
-    this.deliveries = deliveries;
-    this.cash = cash;
-    this.parts = parts;
+  constructor(data) {
+    this.data = data;
+    this.offers = data.stockOffers;
+    this.deliveries = data.deliveries;
   }
 
   buyStock(id) {
@@ -24,8 +23,8 @@ export class SupplyChain {
   payFor(stock) {
     const price = stock.totalPrice;
 
-    if (this.cash.get() >= price) {
-      this.cash.subtract(price);
+    if (this.data.cash >= price) {
+      this.data.cash -= price;
       return true;
     } else {
       console.log('Not enough cash.');
@@ -45,7 +44,7 @@ export class SupplyChain {
 
   unloadDelivery(stock) {
     if (stock.risk < getRndInteger(0, 100)) {
-      this.parts.add(stock.amount);
+      this.data.parts += stock.amount;
       console.log(
         `Delivery from ${stock.company} unloaded: + ${stock.amount} parts.`
       );

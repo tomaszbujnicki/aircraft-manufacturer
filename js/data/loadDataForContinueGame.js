@@ -1,28 +1,28 @@
 export function loadDataForContinueGame(data) {
   this.date.setTime(data.date);
-  this.tax.add(data.tax);
-  this.cash.add(data.cash);
-  this.parts.add(data.parts);
+  this.tax = data.tax;
+  this.cash = data.cash;
+  this.parts = data.parts;
 
   for (const item of data.employees) {
-    this.employeeList.insert(item);
+    this.employees.insert(item);
   }
   for (const item of data.stockOffers) {
-    this.stockOfferList.insert(item);
+    this.stockOffers.insert(item);
   }
   for (const item of data.deliveries) {
-    this.deliveryList.insert(item);
+    this.deliveries.insert(item);
   }
   for (const item of data.aircrafts) {
-    this.aircraftList.insert(item);
+    this.aircrafts.insert(item);
   }
   for (const item of data.designs) {
-    this.designList.insert(item);
+    this.designs.insert(item);
   }
   for (const item of data.loanOffers) {
-    this.loanOfferList.insert(item);
+    this.loanOffers.insert(item);
   }
   for (const item of data.loanTaken) {
-    this.loanTakenList.insert(item);
+    this.loansTaken.insert(item);
   }
 }

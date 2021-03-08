@@ -9,25 +9,25 @@ import { Employee } from '../model/Employee';
 
 export function loadDataForNewGame() {
   this.date.setFullYear(1955, 7, 2);
-  this.cash.add(1_250_000);
-  this.parts.add(50000);
-  this.tax.add(20);
+  this.cash = 1_250_000;
+  this.parts = 50_000;
+  this.tax = 20;
 
   for (const item of employees) {
-    this.employeeList.insert(new Employee(item));
+    this.employees.insert(new Employee(item));
   }
 
   for (let i = 0; i < 10; i++) {
-    this.stockOfferList.insert(new StockOffer());
+    this.stockOffers.insert(new StockOffer());
   }
 
   for (const item of aircraftDesigns) {
     item.inventionPoints > 0
-      ? this.designList.insert(new Design(item))
-      : this.aircraftList.insert(new Aircraft(item));
+      ? this.designs.insert(new Design(item))
+      : this.aircrafts.insert(new Aircraft(item));
   }
 
   /*   for (const item of loanOffers) {
-    this.loanOfferList.insert(new Loan(item));
+    this.loanOffers.insert(new Loan(item));
   } */
 }

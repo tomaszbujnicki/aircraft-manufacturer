@@ -1,18 +1,17 @@
 import { Aircraft } from './Aircraft';
 
 export class ResearchCenter {
-  constructor(humanResources, aircrafts, designs) {
-    this.humanResources = humanResources;
-    this.aircrafts = aircrafts;
-    this.designs = designs;
+  constructor(data) {
+    this.data = data;
+    this.designs = data.designs;
+    this.aircrafts = data.aircrafts;
   }
 
   invent(workTimeInHours) {
     const design = this.designs.list[0];
     if (!design) return;
 
-    design.inventionPointsCompleted +=
-      this.humanResources.engineers * workTimeInHours;
+    design.inventionPointsCompleted += this.data.engineers * workTimeInHours;
 
     if (design.inventionPointsCompleted >= design.inventionPointsNeeded) {
       this.remove(design);

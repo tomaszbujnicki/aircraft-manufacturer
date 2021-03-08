@@ -5,6 +5,7 @@ export class Time {
     this.date = date;
     this.timeRatio = 10_800; // 1 sec in real <=> 3 h in game
     this.speedMultiplier = 1;
+    this.MAX_MULTIPLIER = 8;
     this.stepInMilliseconds = 30;
     this.stepInGame = () =>
       this.stepInMilliseconds * this.timeRatio * this.speedMultiplier;
@@ -15,6 +16,8 @@ export class Time {
     this.yearEvent = new Event();
   }
   setSpeedMultiplier(speed) {
+    if (speed < 0) speed = 0;
+    if (speed > this.MAX_MULTIPLIER) speed = this.MAX_MULTIPLIER;
     this.speedMultiplier = speed;
   }
 
