@@ -10,7 +10,7 @@ export function controlTimeEvents(model) {
   });
 
   model.time.weekEvent.subscribe(() => {
-    model.humanResources.salaryPayment();
+    model.wallet.salaryPayment();
   });
 
   model.time.monthEvent.subscribe(() => {});

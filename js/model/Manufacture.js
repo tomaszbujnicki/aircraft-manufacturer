@@ -1,8 +1,10 @@
 import { getRndInteger } from '../functions/calculations';
+import { INCOME } from './FinancialReport';
 
 export class Manufacture {
-  constructor(data) {
+  constructor(data, wallet) {
     this.data = data;
+    this.wallet = wallet;
     this.aircrafts = data.aircrafts;
   }
 
@@ -69,7 +71,7 @@ export class Manufacture {
 
     if (aircraft.quantity > 0) {
       aircraft.quantity--;
-      this.data.cash += aircraft.currentPrice;
+      this.wallet.getPaid(aircraft.currentPrice, INCOME.SALE);
       this.dropAircraftPrice(aircraft);
     }
   }

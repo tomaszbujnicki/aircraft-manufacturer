@@ -1,6 +1,9 @@
+import { EXPENSES } from './FinancialReport';
+
 export class HumanResources {
-  constructor(data) {
+  constructor(data, wallet) {
     this.data = data;
+    this.wallet = wallet;
     this.employees = data.employees;
   }
 
@@ -9,7 +12,7 @@ export class HumanResources {
     if (!employee) return;
 
     if (this.isHirePossible(employee)) {
-      this.data.cash -= employee.hireCost;
+      this.wallet.pay(employee.hireCost, EXPENSES.RECRUITMENT);
       employee.number++;
 
       if (employee.name === 'Human Resources') {
@@ -18,15 +21,10 @@ export class HumanResources {
     }
   }
   isHirePossible(employee) {
-    if (this.data.cash >= employee.hireCost) {
-      if (employee.number + 1 <= (this.data.HR + 1) * employee.maxNumberPerHR) {
-        return true;
-      } else {
-        console.log('need more HR');
-        return false;
-      }
+    if (employee.number + 1 <= (this.data.HR + 1) * employee.maxNumberPerHR) {
+      return true;
     } else {
-      console.log('Not enough cash.');
+      console.log('need more HR');
       return false;
     }
   }
@@ -81,9 +79,4 @@ export class HumanResources {
       employee.maxNumber = (this.data.HR + 1) * employee.maxNumberPerHR;
     }
   };
-
-  salaryPayment() {
-    const amount = this.data.totalSalary;
-    this.data.cash -= amount;
-  }
 }

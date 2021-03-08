@@ -1,10 +1,12 @@
 import { getRndInteger } from '../functions/calculations';
 import { Delivery } from './Delivery';
 import { StockOffer } from './StockOffer';
+import { EXPENSES } from './FinancialReport';
 
 export class SupplyChain {
-  constructor(data) {
+  constructor(data, wallet) {
     this.data = data;
+    this.wallet = wallet;
     this.offers = data.stockOffers;
     this.deliveries = data.deliveries;
   }
@@ -13,23 +15,10 @@ export class SupplyChain {
     const stock = this.offers.getItemById(id);
     if (!stock) return;
 
-    if (this.payFor(stock)) {
-      console.log('Offer accepted.');
-      this.removeOffer(stock);
-      this.addDelivery(stock);
-    }
-  }
-
-  payFor(stock) {
-    const price = stock.totalPrice;
-
-    if (this.data.cash >= price) {
-      this.data.cash -= price;
-      return true;
-    } else {
-      console.log('Not enough cash.');
-      return false;
-    }
+    this.wallet.pay(stock.totalPrice, EXPENSES.PARTS);
+    console.log('Offer accepted.');
+    this.removeOffer(stock);
+    this.addDelivery(stock);
   }
 
   removeOffer(stock) {

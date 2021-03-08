@@ -4,6 +4,7 @@ export function save() {
     tax: this.tax,
     cash: this.cash,
     parts: this.parts,
+    financialReports: this.financialReports,
     employees: this.employees.list,
     stockOffers: this.stockOffers.list,
     deliveries: this.deliveries.list,

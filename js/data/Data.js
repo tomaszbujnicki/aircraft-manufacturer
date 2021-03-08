@@ -10,6 +10,7 @@ export class Data {
     this.tax = 0;
     this.cash = 0;
     this.parts = 0;
+    this.financialReports = [];
     this.employees = new List();
     this.stockOffers = new List();
     this.deliveries = new List();

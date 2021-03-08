@@ -25,4 +25,7 @@ export function loadDataForContinueGame(data) {
   for (const item of data.loanTaken) {
     this.loansTaken.insert(item);
   }
+  for (const item of data.financialReport) {
+    this.financialReport.push(item);
+  }
 }
