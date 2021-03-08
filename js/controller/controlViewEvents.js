@@ -1,4 +1,4 @@
-export function subscribeView(view, model) {
+export function controlViewEvents(view, model) {
   view.buyStockEvent.subscribe((id) => {
     model.supplyChain.buyStock(id);
   });

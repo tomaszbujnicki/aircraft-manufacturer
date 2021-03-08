@@ -1,8 +1,9 @@
 import { Data } from '../data/Data';
 import { Model } from '../model/Model';
 import { View } from '../view/View';
-import { subscribeModel } from './subscribeModel';
-import { subscribeView } from './subscribeView';
+import { controlTimeEvents } from './controlTimeEvents';
+import { controlView } from './controlView';
+import { controlViewEvents } from './controlViewEvents';
 
 export class Controller {
   constructor() {
@@ -10,7 +11,8 @@ export class Controller {
     this.model = new Model(this.data);
     this.view = new View();
 
-    subscribeModel(this.data, this.model, this.view);
-    subscribeView(this.view, this.model);
+    controlView(this.data, this.model, this.view);
+    controlViewEvents(this.view, this.model);
+    controlTimeEvents(this.model);
   }
 }
