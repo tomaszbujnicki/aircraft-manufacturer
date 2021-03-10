@@ -13,7 +13,8 @@ const types = [
   'profit',
 ];
 
-const elements = {
+const columnsNumber = 3; // the number of columns of one type
+const columns = {
   month0: [],
   month1: [],
   month2: [],
@@ -23,16 +24,23 @@ const elements = {
 };
 
 types.forEach((str) => {
-  for (const period in elements) {
-    const element = document.getElementById(str + '-' + period);
-    elements[period].push(element);
+  for (const column in columns) {
+    const element = document.getElementById(str + '-' + column);
+    columns[column].push(element);
   }
 });
 
-export function displayReport(report, column) {
-  if (column in elements && report) {
+export function displayFinancialReports(raports, shift, periodName) {
+  let i = columnsNumber;
+  for (i = 0; i < 3; i++) {
+    displayReport(raports[shift + i], periodName + i);
+  }
+}
+
+function displayReport(report, column) {
+  if (column in columns && report) {
     for (let i = 0; i < types.length; i++) {
-      const cell = elements[column][i];
+      const cell = columns[column][i];
       const value = report[types[i]];
       cell.textContent = value.toLocaleString();
     }

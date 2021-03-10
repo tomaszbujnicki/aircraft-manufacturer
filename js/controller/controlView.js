@@ -23,24 +23,25 @@ export function controlView(data, model, view) {
   });
 
   model.time.stepEvent.subscribe(() => {
-    view.display.date(data.date);
-    view.display.cash(data.cash);
-    view.display.parts(data.parts);
-
-    view.display.totalSalary(data.totalSalary);
-    view.display.workers(data.unassignedWorkers);
+    view.displayData.date(data.date);
+    view.displayData.cash(data.cash);
+    view.displayData.parts(data.parts);
+    view.displayData.unassignedWorkers(data.unassignedWorkers);
+    view.displayData.totalSalary(data.totalSalary);
 
     dataLists.forEach((list) => {
       list.list.forEach((item) => view.displayElementData(item));
     });
 
-    displayRaports(data.monthlyReports, view.monthlyReportShift, 'month');
-    displayRaports(data.annualReports, view.annualReportShift, 'year');
-
-    function displayRaports(raports, shift, period) {
-      for (let i = 0; i < 3; i++) {
-        view.displayReport(raports[shift + i], period + i);
-      }
-    }
+    view.displayFinancialReports(
+      data.monthlyReports,
+      view.monthlyReportShift,
+      'month'
+    );
+    view.displayFinancialReports(
+      data.annualReports,
+      view.annualReportShift,
+      'year'
+    );
   });
 }

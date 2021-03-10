@@ -13,7 +13,7 @@ export default {
     partsElement.textContent = Math.floor(number).toLocaleString();
   },
 
-  workers(number) {
+  unassignedWorkers(number) {
     workersElement.textContent = number;
   },
 

@@ -3,8 +3,8 @@ import { addControl } from './addControl';
 import { addNavigation } from './addNavigation';
 import { createElement } from './createElement';
 import { displayElementData } from './displayElementData';
-import { displayReport } from './displayFinancialReports';
-import display from './displayResources';
+import { displayFinancialReports } from './displayFinancialReports';
+import displayData from './displayData';
 
 export class View {
   constructor() {
@@ -19,8 +19,8 @@ export class View {
     this.speedLevelEvent = new Event();
     this.createElement = createElement;
     this.displayElementData = displayElementData;
-    this.displayReport = displayReport;
-    this.display = display;
+    this.displayFinancialReports = displayFinancialReports;
+    this.displayData = displayData;
     addNavigation();
     addControl(this);
   }
