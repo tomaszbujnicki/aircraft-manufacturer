@@ -14,8 +14,8 @@ export function loadDataForNewGame() {
   this.parts = 50_000;
   this.tax = 20;
 
-  this.monthlyReports.unshift(new FinancialReport(this.date));
-  this.annualReports.unshift(new FinancialReport(this.date));
+  this.monthlyReports.unshift(new FinancialReport(this.date, 'month'));
+  this.annualReports.unshift(new FinancialReport(this.date, 'year'));
 
   for (const item of employees) {
     this.employees.insert(new Employee(item));

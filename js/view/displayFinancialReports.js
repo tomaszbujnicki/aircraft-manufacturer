@@ -1,4 +1,5 @@
 const types = [
+  'date',
   'sale',
   'loans',
   'prizes',
@@ -30,7 +31,8 @@ types.forEach((str) => {
   }
 });
 
-export function displayFinancialReports(reports, periodName) {
+export function displayFinancialReports(reports) {
+  const periodName = reports[0].period;
   let i = columnsNumber;
   const shift = this[periodName + 'ReportShift'];
   for (i = 0; i < 3; i++) {
@@ -43,7 +45,11 @@ function displayReport(report, column) {
     for (let i = 0; i < types.length; i++) {
       const cell = columns[column][i];
       const value = report[types[i]];
-      cell.textContent = value.toLocaleString();
+      if (types[i] == 'date') {
+        cell.textContent = getFormattedDate(value, report.period);
+      } else {
+        cell.textContent = value.toLocaleString();
+      }
     }
   } else {
     const value = '-';
@@ -52,4 +58,12 @@ function displayReport(report, column) {
       cell.textContent = value;
     }
   }
+}
+
+function getFormattedDate(value, period) {
+  const date = new Date(value);
+  if (period == 'year')
+    return date.toLocaleString('default', { year: 'numeric' });
+  if (period == 'month')
+    return date.toLocaleString('default', { year: '2-digit', month: 'short' });
 }

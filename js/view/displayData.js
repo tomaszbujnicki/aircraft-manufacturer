@@ -18,16 +18,13 @@ export const displayData = {
   },
 
   date(date) {
-    let mm = date.getMinutes();
-    if (mm < 10) mm = '0' + mm;
-    let hh = date.getHours();
-    if (hh < 10) hh = '0' + hh;
-    let MM = date.getMonth() + 1;
-    if (MM < 10) MM = '0' + MM;
-    let DD = date.getDate();
-    if (DD < 10) DD = '0' + DD;
-    let YYYY = date.getFullYear();
-    dateElement.textContent = `${hh}:${mm} ${DD}-${MM}-${YYYY}`;
+    dateElement.textContent = date.toLocaleString('default', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+      hour: '2-digit',
+    });
   },
 
   totalSalary(sum) {
