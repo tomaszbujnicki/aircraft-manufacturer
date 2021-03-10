@@ -11,6 +11,10 @@ div {
   user-select: none;
 }
 
+h1 {
+  font-size: 32px;
+}
+
 #super-container {
   width: 1000px;
   height: 1200px;
@@ -120,25 +124,35 @@ button {
 }
 
 header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .time {
+  width: 400px;
+  height: 100%;
   font-size: 24px;
-  margin-right: 10px;
+  margin: 10px;
   font-family: consolas, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-
+#speedMultiplier{
+  line-height: 0;
+  margin-top: 10px;
+}
 
 .speedLevel {
   position: relative;
   box-sizing: border-box;
   height: 20px;
   width: 32px;
-  margin-right: 8px;
+  margin-left: 8px;
   border-radius: 5px;
   background-repeat: no-repeat;
   background-position: center;

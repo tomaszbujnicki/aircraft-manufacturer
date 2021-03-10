@@ -19,7 +19,6 @@ export const displayData = {
 
   date(date) {
     dateElement.textContent = date.toLocaleString('default', {
-      weekday: 'short',
       year: 'numeric',
       month: 'numeric',
       day: 'numeric',

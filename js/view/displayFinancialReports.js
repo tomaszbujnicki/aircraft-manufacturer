@@ -65,5 +65,5 @@ function getFormattedDate(value, period) {
   if (period == 'year')
     return date.toLocaleString('default', { year: 'numeric' });
   if (period == 'month')
-    return date.toLocaleString('default', { year: '2-digit', month: 'short' });
+    return date.toLocaleString('en', { year: '2-digit', month: 'short' });
 }
