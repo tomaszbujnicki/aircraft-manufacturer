@@ -2,7 +2,6 @@ export class Aircraft {
   constructor(aircraft) {
     this.type = 'aircraft';
     this.name = aircraft.name;
-    this.img = aircraft.img;
     this.partsNeeded = aircraft.parts;
     this.partsCompleted = 0;
     this.startingPrice = aircraft.price;

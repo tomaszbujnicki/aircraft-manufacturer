@@ -1,7 +1,9 @@
+import { images } from '../assets';
+
 export function employeeContent(item) {
   return `
 <button id="employeeDetails${item.id}" class="employeeDescriptionButton">
-  <img class="employee__img" src="${item.img}" />
+  <img class="employee__img" src="${images[item.name]}" />
 </button>
 <div class="worker__add-remove">
   <button

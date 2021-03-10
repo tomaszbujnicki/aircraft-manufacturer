@@ -1,6 +1,10 @@
+import { images } from '../assets';
+
 export function aircraftContent(item) {
   return `
-  <div class="worker__icon"><img class="worker__img" src="${item.img}" /></div>
+  <div class="worker__icon"><img class="worker__img" src="${
+    images[item.name]
+  }" /></div>
   <div class="worker__add-remove">
     <button
       id="assignWorkerButton${item.id}"

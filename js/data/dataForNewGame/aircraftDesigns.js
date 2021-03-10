@@ -1,11 +1,6 @@
-import airplane1 from '../../../img/aircraft/airplane1.svg';
-import aeroplane3 from '../../../img/aircraft/aeroplane3.svg';
-import aeroplane2 from '../../../img/aircraft/aeroplane2.svg';
-
 export default [
   {
     name: 'Beoing 737-700',
-    img: airplane1,
     parts: 100,
     price: 150_000,
     priceChange: 500,
@@ -14,7 +9,6 @@ export default [
   },
   {
     name: 'Helicopter',
-    img: aeroplane2,
     parts: 1,
     price: 15_000,
     priceChange: 250,
@@ -23,7 +17,6 @@ export default [
   },
   {
     name: 'Airbus A320',
-    img: aeroplane3,
     parts: 99,
     price: 105000,
     priceChange: 400,
@@ -32,7 +25,6 @@ export default [
   },
   {
     name: 'Baloon',
-    img: airplane1,
     parts: 100,
     price: 150_000,
     priceChange: 1_000,
@@ -41,7 +33,6 @@ export default [
   },
   {
     name: 'F-16',
-    img: aeroplane3,
     parts: 10,
     price: 35_000,
     priceChange: 1_000,
@@ -50,7 +41,6 @@ export default [
   },
   {
     name: 'Dreamliner',
-    img: aeroplane2,
     parts: 299,
     price: 500_000,
     priceChange: 5_000,

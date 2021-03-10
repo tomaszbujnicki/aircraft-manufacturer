@@ -1,23 +1,5 @@
-import japan from '../../img/flags/japan.svg';
-import canada from '../../img/flags/canada.svg';
-import brazil from '../../img/flags/brazil.svg';
-import germany from '../../img/flags/germany.svg';
-import china from '../../img/flags/china.svg';
-import australia from '../../img/flags/australia.svg';
-import russia from '../../img/flags/russia.svg';
-import cameroon from '../../img/flags/cameroon.svg';
-import chile from '../../img/flags/chile.svg';
-import colombia from '../../img/flags/colombia.svg';
-import finland from '../../img/flags/finland.svg';
-import france from '../../img/flags/france.svg';
-import italy from '../../img/flags/italy.svg';
-import jamaica from '../../img/flags/jamaica.svg';
-import korea from '../../img/flags/korea.svg';
-import poland from '../../img/flags/poland.svg';
-
 export const stock_coreValues = [
   {
-    flag: japan,
     country: 'Japan',
     company: [
       'Yamato',
@@ -32,7 +14,6 @@ export const stock_coreValues = [
     price: 210,
   },
   {
-    flag: canada,
     country: 'Canada',
     company: ['Maple Inc.', 'Polar Bear', 'Favor & kindness', 'Sure, eh'],
     time: 3,
@@ -41,7 +22,6 @@ export const stock_coreValues = [
     price: 269,
   },
   {
-    flag: brazil,
     country: 'Brazil',
     company: [
       'Avião Pequeno',
@@ -57,7 +37,6 @@ export const stock_coreValues = [
     price: 223,
   },
   {
-    flag: germany,
     country: 'Germany',
     company: [
       'Teile GmbH',
@@ -74,7 +53,6 @@ export const stock_coreValues = [
     price: 231,
   },
   {
-    flag: china,
     country: 'China',
     company: [
       'Best Friend',
@@ -91,7 +69,6 @@ export const stock_coreValues = [
     price: 165,
   },
   {
-    flag: australia,
     country: 'Australia',
     company: ['Yello Kangaroo', 'Upside down', 'Desert & Ocean', 'Long road'],
     time: 90,
@@ -100,7 +77,6 @@ export const stock_coreValues = [
     price: 189,
   },
   {
-    flag: russia,
     country: 'Russia',
     company: [
       'Matryoshka',
@@ -115,7 +91,6 @@ export const stock_coreValues = [
     price: 201,
   },
   {
-    flag: cameroon,
     country: 'Cameroon',
     company: ['Africa Power', 'Future', 'New Quality', 'Bénoué River'],
     time: 40,
@@ -124,7 +99,6 @@ export const stock_coreValues = [
     price: 201,
   },
   {
-    flag: chile,
     country: 'Chile',
     company: [
       'Atakama Factory',
@@ -139,7 +113,6 @@ export const stock_coreValues = [
     price: 225,
   },
   {
-    flag: colombia,
     country: 'Colombia',
     company: [
       'Emerald Inc.',
@@ -153,7 +126,6 @@ export const stock_coreValues = [
     price: 246,
   },
   {
-    flag: finland,
     country: 'Finland',
     company: [
       'Hot Sauna',
@@ -168,7 +140,6 @@ export const stock_coreValues = [
     price: 226,
   },
   {
-    flag: france,
     country: 'France',
     company: ['Paris Parts', 'Merci', 'Grenouille et Escargot', 'Usine à Lyon'],
     time: 31,
@@ -177,7 +148,6 @@ export const stock_coreValues = [
     price: 226,
   },
   {
-    flag: italy,
     country: 'Italy',
     company: ['Pizza & Pasta', 'Colosseum', 'Roma', 'San Mario', 'Fuoco'],
     time: 35,
@@ -186,7 +156,6 @@ export const stock_coreValues = [
     price: 220,
   },
   {
-    flag: jamaica,
     country: 'Jamaica',
     company: ['Jam', 'Reggae Stytle', 'Kingston', 'MyTime'],
     time: 18,
@@ -195,7 +164,6 @@ export const stock_coreValues = [
     price: 215,
   },
   {
-    flag: korea,
     country: 'Korea',
     company: ['Hangul Factory', 'Aegyo', 'Samsong Inc.', 'New Gangnam'],
     time: 55,
@@ -204,7 +172,6 @@ export const stock_coreValues = [
     price: 202,
   },
   {
-    flag: poland,
     country: 'Poland',
     company: [
       'Wawel Dragon',

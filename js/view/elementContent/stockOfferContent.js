@@ -1,7 +1,9 @@
+import { images } from '../assets';
+
 export function stockOfferContent(item) {
   return `
 <div>
-  <img src=${item.flag} class="employee__img" title=${item.country}>
+  <img src=${images[item.country]} class="employee__img" title=${item.country}>
 </div>
 <div class="employee__value employee__value--left" title="company">
   ${item.company}

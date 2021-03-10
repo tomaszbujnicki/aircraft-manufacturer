@@ -5,7 +5,6 @@ export class StockOffer {
   constructor(core = getStockCore()) {
     this.type = 'stockOffer';
     this.daysUntilExpiry = core.daysUntilExpiry;
-    this.flag = core.flag;
     this.country = core.country;
     this.company = core.company;
     this.time = core.time;
@@ -19,7 +18,6 @@ export class StockOffer {
 function getStockCore() {
   const core = stock_coreValues[getRndInteger(0, stock_coreValues.length - 1)];
   const stock = {
-    flag: core.flag,
     country: core.country,
     daysUntilExpiry: getRndInteger(14, 42),
     company: core.company[getRndInteger(0, core.company.length - 1)],

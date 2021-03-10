@@ -1,6 +1,10 @@
+import { images } from '../assets';
+
 export function designContent(item) {
   return `
-	<div class="worker__icon"><img class="worker__img" src="${item.img}" /></div>
+	<div class="worker__icon"><img class="worker__img" src="${
+    images[item.name]
+  }" /></div>
 	<div class="aircraft__name">
 		<span>${item.name}</span>
 		<div class="bar">

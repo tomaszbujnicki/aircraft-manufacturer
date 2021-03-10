@@ -1,6 +1,4 @@
-import ship from '../../img/parts/ship.svg';
-import truck from '../../img/parts/truck.svg';
-import truck2 from '../../img/parts/truck2.svg';
+import { images } from './assets';
 
 export function displayElementData(item) {
   switch (item.type) {
@@ -70,9 +68,9 @@ function delivery(item) {
   const img = document.getElementById(`deliveryShipping${item.id}`);
 
   daysToGo.textContent = `${item.daysToGo} days to go`;
-  let image = ship;
-  if (item.daysToGo < 20) image = truck;
-  if (item.daysToGo < 2) image = truck2;
+  let image = images.ship;
+  if (item.daysToGo < 20) image = images.movingTruck;
+  if (item.daysToGo < 2) image = images.truckUnloading;
   let imgPosition = 95 - item.daysToGo;
   if (imgPosition < -5) imgPosition = -5;
 

@@ -1,4 +1,4 @@
-import warehouse from '../../../img/parts/warehouse.svg';
+import { images } from '../assets';
 
 export function deliveryContent(item) {
   return `
@@ -14,7 +14,7 @@ export function deliveryContent(item) {
   </div>
 
   <div class="delivery__images">
-    <img src="${item.flag}" class="delivery__img" />
+    <img src="${images[item.country]}" class="delivery__img" />
     <div>
       <img
         id="deliveryShipping${item.id}"
@@ -22,7 +22,7 @@ export function deliveryContent(item) {
         class="delivery__img delivery__img--relative"
       />
     </div>
-    <img src="${warehouse}" class="delivery__img" />
+    <img src="${images.warehouse}" class="delivery__img" />
   </div>
 </div>`;
 }

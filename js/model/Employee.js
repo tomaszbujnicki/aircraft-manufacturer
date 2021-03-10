@@ -3,7 +3,6 @@ export class Employee {
     this.id = employee.id;
     this.type = 'employee';
     this.name = employee.name;
-    this.img = employee.img;
     this.number = employee.number || 0;
     this.maxNumberPerHR = employee.maxNumberPerHR;
     this.maxNumber = employee.maxNumberPerHR;
