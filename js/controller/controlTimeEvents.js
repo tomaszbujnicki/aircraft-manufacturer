@@ -7,14 +7,17 @@ export function controlTimeEvents(model) {
   model.time.dayEvent.subscribe(() => {
     model.supplyChain.nextDay();
     model.manufacture.nextDay();
-    model.wallet.nextMonth();
   });
 
   model.time.weekEvent.subscribe(() => {
     model.wallet.salaryPayment();
   });
 
-  model.time.monthEvent.subscribe(() => {});
+  model.time.monthEvent.subscribe(() => {
+    model.wallet.nextMonth();
+  });
 
-  model.time.yearEvent.subscribe(() => {});
+  model.time.yearEvent.subscribe(() => {
+    model.wallet.nextYear();
+  });
 }
