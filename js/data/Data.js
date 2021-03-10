@@ -56,13 +56,13 @@ export class Data {
   }
 
   load() {
-    if (localStorage.getItem('data')) {
+    this.loadDataForNewGame();
+    /*     if (localStorage.getItem('data')) {
       const data = JSON.parse(localStorage.getItem('data'));
       //if (isDataCorrect(data)) {
       this.loadDataForContinueGame(data);
       return;
       //}
-    }
-    this.loadDataForNewGame();
+    } */
   }
 }
