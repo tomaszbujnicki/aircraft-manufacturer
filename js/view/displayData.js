@@ -4,7 +4,7 @@ const cashElement = document.getElementById('cash'),
   workersElement = document.getElementById('workers'),
   totalSalaryElement = document.getElementById('salarySummary__value');
 
-export default {
+export const displayData = {
   cash(number) {
     cashElement.textContent = `$ ${number.toLocaleString()}`;
   },

@@ -5,13 +5,13 @@ export const elementListeners = {
     const details = document.getElementById(`employeeDetails${item.id}`);
 
     hire.addEventListener('click', () => {
-      this.hireEmployeeEvent.publish(item.id);
+      this.events.hireEmployee.publish(item.id);
     });
     fire.addEventListener('click', () => {
-      this.fireEmployeeEvent.publish(item.id);
+      this.events.fireEmployee.publish(item.id);
     });
     /*   details.addEventListener('click', () => {
-      this.detailsEmployeeEvent.publish(item.id);
+      this.events.detailsEmployee.publish(item.id);
     }); */
   },
 
@@ -21,13 +21,13 @@ export const elementListeners = {
     const revoke = document.getElementById(`revokeWorkerButton${item.id}`);
 
     sell.addEventListener('click', () => {
-      this.sellAircraftEvent.publish(item.id);
+      this.events.sellAircraft.publish(item.id);
     });
     assign.addEventListener('click', () => {
-      this.assignWorkerEvent.publish(item.id);
+      this.events.assignWorker.publish(item.id);
     });
     revoke.addEventListener('click', () => {
-      this.revokeWorkerEvent.publish(item.id);
+      this.events.revokeWorker.publish(item.id);
     });
   },
 
@@ -35,7 +35,7 @@ export const elementListeners = {
     const buy = document.getElementById(`buy${item.type}${item.id}`);
 
     buy.addEventListener('click', () => {
-      this.buyStockEvent.publish(item.id);
+      this.events.buyStock.publish(item.id);
     });
   },
 };

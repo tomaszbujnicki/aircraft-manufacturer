@@ -4,7 +4,7 @@ export function addControl(view) {
   speedLevelButtons.forEach((button) => {
     button.addEventListener('click', () => {
       changeHighlight(button);
-      view.speedLevelEvent.publish(button.value);
+      view.events.speedLevel.publish(button.value);
     });
   });
 
