@@ -33,5 +33,14 @@ export function controlView(data, model, view) {
     dataLists.forEach((list) => {
       list.list.forEach((item) => view.displayElementData(item));
     });
+
+    displayRaports(data.monthlyReports, view.monthlyReportShift, 'month');
+    displayRaports(data.annualReports, view.annualReportShift, 'year');
+
+    function displayRaports(raports, shift, period) {
+      for (let i = 0; i < 3; i++) {
+        view.displayReport(raports[shift + i], period + i);
+      }
+    }
   });
 }

@@ -7,6 +7,7 @@ export function controlTimeEvents(model) {
   model.time.dayEvent.subscribe(() => {
     model.supplyChain.nextDay();
     model.manufacture.nextDay();
+    model.wallet.nextMonth();
   });
 
   model.time.weekEvent.subscribe(() => {

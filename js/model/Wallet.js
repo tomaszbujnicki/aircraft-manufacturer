@@ -7,16 +7,22 @@ export class Wallet {
 
   pay(amount, forWhat) {
     this.data.cash -= amount;
-    this.data.financialReports[0][forWhat] += amount;
+    this.data.monthlyReports[0][forWhat] += amount;
+    this.data.annualReports[0][forWhat] += amount;
   }
 
   getPaid(amount, forWhat) {
     this.data.cash += amount;
-    this.data.financialReports[0][forWhat] += amount;
+    this.data.monthlyReports[0][forWhat] += amount;
+    this.data.annualReports[0][forWhat] += amount;
   }
 
   nextMonth() {
-    this.data.financialReports.unshift(new FinancialReport());
+    this.data.monthlyReports.unshift(new FinancialReport());
+  }
+
+  nextYear() {
+    this.data.annualReports.unshift(new FinancialReport());
   }
 
   salaryPayment() {

@@ -1,5 +1,5 @@
 //import { game } from '../data/generateInitialData';
-import { calculateExpenses, calculateIncome } from './incomeAndExpanses';
+import { calculateExpenses, calculateIncome } from './incomeAndExpenses';
 
 export function takeLoan(loan) {
   if (loan.taken == true) return;

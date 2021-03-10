@@ -6,8 +6,6 @@ import { Loan } from '../model/Loan';
 import { StockOffer } from '../model/StockOffer';
 import employees from './dataForNewGame/employees';
 import { Employee } from '../model/Employee';
-import financialReports from './dataForNewGame/financialReports';
-import { FinancialReport } from '../model/FinancialReport';
 
 export function loadDataForNewGame() {
   this.date.setFullYear(1955, 7, 2);
@@ -32,8 +30,4 @@ export function loadDataForNewGame() {
   /*   for (const item of loanOffers) {
     this.loanOffers.insert(new Loan(item));
   } */
-
-  for (const item of financialReports) {
-    this.financialReports.push(new FinancialReport(item));
-  }
 }

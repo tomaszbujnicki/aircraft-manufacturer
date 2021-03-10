@@ -14,17 +14,17 @@ export const INCOME = {
 };
 
 export class FinancialReport {
-  constructor(report) {
-    this.sale = report.sale || 0;
-    this.prizes = report.prizes || 0;
-    this.loans = report.loans || 0;
+  constructor() {
+    this.sale = 0;
+    this.prizes = 0;
+    this.loans = 0;
 
-    this.salaries = report.salaries || 0;
-    this.recruitment = report.recruitment || 0;
-    this.parts = report.parts || 0;
-    this.interest = report.interest || 0;
-    this.taxes = report.taxes || 0;
-    this.capital = report.capital || 0;
+    this.salaries = 0;
+    this.recruitment = 0;
+    this.parts = 0;
+    this.interest = 0;
+    this.taxes = 0;
+    this.capital = 0;
   }
 
   get income() {
@@ -37,7 +37,7 @@ export class FinancialReport {
       this.recruitment +
       this.parts +
       this.interest +
-      this.tax +
+      this.taxes +
       this.capital
     );
   }

@@ -3,6 +3,7 @@ import { loadDataForContinueGame } from './loadDataForContinueGame';
 import { loadDataForNewGame } from './loadDataForNewGame';
 import { isDataCorrect } from './isDataCorrect';
 import { save } from './save';
+import { FinancialReport } from '../model/FinancialReport';
 
 export class Data {
   constructor() {
@@ -10,7 +11,8 @@ export class Data {
     this.tax = 0;
     this.cash = 0;
     this.parts = 0;
-    this.financialReports = [];
+    this.monthlyReports = [new FinancialReport()];
+    this.annualReports = [new FinancialReport()];
     this.employees = new List();
     this.stockOffers = new List();
     this.deliveries = new List();

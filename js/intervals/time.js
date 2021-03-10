@@ -1,5 +1,5 @@
 import { saveMonth, saveYear } from '../functions/budget';
-import { payTax } from '../functions/incomeAndExpanses';
+import { payTax } from '../functions/incomeAndExpenses';
 import {
   showAnnualFinancialReport,
   showMonthlyFinancialReport,
