@@ -488,6 +488,17 @@ h4 {
   width: 48px;
   box-sizing: border-box;
 }
+.shiftPeriod{
+  display: flex;
+  justify-content: center;
+}
+.shiftPeriodButton{
+  height: 20px;
+  width: 40px;
+  background-color: #4780bc;
+  border-radius: 5px;
+  margin: 0 5px
+}
 
 #financesMonthsBtn {
   background-image: url(img/funds/bar-graph.svg);

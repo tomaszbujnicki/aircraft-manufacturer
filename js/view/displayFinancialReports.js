@@ -30,19 +30,26 @@ types.forEach((str) => {
   }
 });
 
-export function displayFinancialReports(raports, shift, periodName) {
+export function displayFinancialReports(reports, periodName) {
   let i = columnsNumber;
+  const shift = this[periodName + 'ReportShift'];
   for (i = 0; i < 3; i++) {
-    displayReport(raports[shift + i], periodName + i);
+    displayReport(reports[shift + i], periodName + i);
   }
 }
 
 function displayReport(report, column) {
-  if (column in columns && report) {
+  if (report) {
     for (let i = 0; i < types.length; i++) {
       const cell = columns[column][i];
       const value = report[types[i]];
       cell.textContent = value.toLocaleString();
+    }
+  } else {
+    const value = '-';
+    for (let i = 0; i < types.length; i++) {
+      const cell = columns[column][i];
+      cell.textContent = value;
     }
   }
 }

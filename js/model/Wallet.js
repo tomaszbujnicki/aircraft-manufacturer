@@ -18,11 +18,11 @@ export class Wallet {
   }
 
   nextMonth() {
-    this.data.monthlyReports.unshift(new FinancialReport());
+    this.data.monthlyReports.unshift(new FinancialReport(this.data.date));
   }
 
   nextYear() {
-    this.data.annualReports.unshift(new FinancialReport());
+    this.data.annualReports.unshift(new FinancialReport(this.data.date));
   }
 
   salaryPayment() {

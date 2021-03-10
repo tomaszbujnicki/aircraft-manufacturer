@@ -11,8 +11,8 @@ export class Data {
     this.tax = 0;
     this.cash = 0;
     this.parts = 0;
-    this.monthlyReports = [new FinancialReport()];
-    this.annualReports = [new FinancialReport()];
+    this.monthlyReports = [];
+    this.annualReports = [];
     this.employees = new List();
     this.stockOffers = new List();
     this.deliveries = new List();

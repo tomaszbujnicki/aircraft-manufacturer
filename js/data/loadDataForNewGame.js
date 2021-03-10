@@ -6,12 +6,16 @@ import { Loan } from '../model/Loan';
 import { StockOffer } from '../model/StockOffer';
 import employees from './dataForNewGame/employees';
 import { Employee } from '../model/Employee';
+import { FinancialReport } from '../model/FinancialReport';
 
 export function loadDataForNewGame() {
-  this.date.setFullYear(1955, 7, 2);
+  this.date.setFullYear(1955, 11, 15);
   this.cash = 1_250_000;
   this.parts = 50_000;
   this.tax = 20;
+
+  this.monthlyReports.unshift(new FinancialReport(this.date));
+  this.annualReports.unshift(new FinancialReport(this.date));
 
   for (const item of employees) {
     this.employees.insert(new Employee(item));

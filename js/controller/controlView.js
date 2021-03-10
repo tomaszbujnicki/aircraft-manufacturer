@@ -33,15 +33,7 @@ export function controlView(data, model, view) {
       list.list.forEach((item) => view.displayElementData(item));
     });
 
-    view.displayFinancialReports(
-      data.monthlyReports,
-      view.monthlyReportShift,
-      'month'
-    );
-    view.displayFinancialReports(
-      data.annualReports,
-      view.annualReportShift,
-      'year'
-    );
+    view.displayFinancialReports(data.monthlyReports, 'month');
+    view.displayFinancialReports(data.annualReports, 'year');
   });
 }

@@ -16,8 +16,8 @@ export class View {
     this.displayData = displayData;
 
     this.displayFinancialReports = displayFinancialReports;
-    this.monthlyReportShift = 0;
-    this.annualReportShift = 0;
+    this.monthReportShift = 0;
+    this.yearReportShift = 0;
 
     addNavigation();
     addControl(this);

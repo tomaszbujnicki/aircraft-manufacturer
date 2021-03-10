@@ -14,7 +14,10 @@ export const INCOME = {
 };
 
 export class FinancialReport {
-  constructor() {
+  constructor(date) {
+    this.month = date.getMonth();
+    this.year = date.getFullYear();
+
     this.sale = 0;
     this.prizes = 0;
     this.loans = 0;
