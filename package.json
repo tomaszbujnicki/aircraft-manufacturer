@@ -6,8 +6,11 @@
   "dependencies": {
     "parcel": "^1.12.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.13.10"
+  },
   "scripts": {
+    "start": "parcel ./index.html",
     "dev": "parcel ./index.html",
     "build": "parcel build ./index.html --public-url ./ --out-dir docs --no-cache"
   },
