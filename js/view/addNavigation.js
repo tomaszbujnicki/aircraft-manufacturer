@@ -1,11 +1,9 @@
 const aircraftDIV = document.getElementById('aircraftDIV'),
-  cardCointainer = document.getElementById('cardCointainer'),
+  cardContainer = document.getElementById('cardContainer'),
   closeCardBtn = document.getElementById('closeCardBtn'),
-  closeEmployeeDescriptionBtn = document.getElementById(
-    'closeEmployeeDescriptionBtn'
-  ),
-  employeeDescriptionContainer = document.getElementById(
-    'employeeDescriptionContainer'
+  closeEmployeeDetailsBtn = document.getElementById('closeEmployeeDetailsBtn'),
+  employeeDetailsContainer = document.getElementById(
+    'employeeDetailsContainer'
   ),
   employeeInventions = document.getElementById('employeeInventions'),
   employeeInventionsBtn = document.getElementById('employeeInventionsBtn'),
@@ -28,11 +26,7 @@ const aircraftDIV = document.getElementById('aircraftDIV'),
   partsDelivery = document.getElementById('partsDelivery'),
   partsDeliveryBtn = document.getElementById('partsDeliveryBtn'),
   partsMarket = document.getElementById('partsMarket'),
-  partsMarketBtn = document.getElementById('partsMarketBtn'),
-  employeeDescriptionBtns = [
-    ...document.querySelectorAll('.employeeDescriptionButton'),
-  ],
-  employeeDescription = [...document.querySelectorAll('.employeeDescription')];
+  partsMarketBtn = document.getElementById('partsMarketBtn');
 
 export function addNavigation() {
   financesBtn.addEventListener('click', () => openCard(financesCard));
@@ -55,15 +49,9 @@ export function addNavigation() {
   employeeInventionsBtn.addEventListener('click', () =>
     openEmployees(employeeInventions)
   );
-  closeEmployeeDescriptionBtn.addEventListener('click', () =>
-    closeEmployeeDescription()
+  closeEmployeeDetailsBtn.addEventListener('click', () =>
+    closeEmployeeDetails()
   );
-
-  for (const button of employeeDescriptionBtns) {
-    button.addEventListener('click', () =>
-      openEmployeeDescription(button.value)
-    );
-  }
 }
 
 function hide(element) {
@@ -78,12 +66,12 @@ function openCard(card) {
   hide(employeesCard);
   hide(partsCard);
   hide(aircraftDIV);
-  show(cardCointainer);
+  show(cardContainer);
   show(card);
 }
 
 function closeCard() {
-  hide(cardCointainer);
+  hide(cardContainer);
   show(aircraftDIV);
 }
 
@@ -107,12 +95,6 @@ function openEmployees(page) {
   show(page);
 }
 
-function openEmployeeDescription(employeeId) {
-  employeeDescription.forEach((element) => hide(element));
-  show(employeeDescriptionContainer);
-  show(employeeDescription[employeeId]);
-}
-
-function closeEmployeeDescription() {
-  hide(employeeDescriptionContainer);
+function closeEmployeeDetails() {
+  hide(employeeDetailsContainer);
 }

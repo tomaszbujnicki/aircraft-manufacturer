@@ -2,7 +2,7 @@ export const elementListeners = {
   employee(item) {
     const hire = document.getElementById(`addEmployee${item.id}`);
     const fire = document.getElementById(`removeEmployee${item.id}`);
-    const details = document.getElementById(`employeeDetails${item.id}`);
+    const details = document.getElementById(`employeeDetailsBtn${item.id}`);
 
     hire.addEventListener('click', () => {
       this.events.hireEmployee.publish(item.id);
@@ -10,9 +10,9 @@ export const elementListeners = {
     fire.addEventListener('click', () => {
       this.events.fireEmployee.publish(item.id);
     });
-    /*   details.addEventListener('click', () => {
-      this.events.detailsEmployee.publish(item.id);
-    }); */
+    details.addEventListener('click', () => {
+      this.elementDetails.open(item.type, item.id);
+    });
   },
 
   aircraft(item) {

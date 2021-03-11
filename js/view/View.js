@@ -5,6 +5,7 @@ import { displayElementData } from './displayElementData';
 import { displayFinancialReports } from './displayFinancialReports';
 import { displayData } from './displayData';
 import { events } from './events';
+import { elementDetails } from './elementDetails';
 
 export class View {
   constructor() {
@@ -18,6 +19,8 @@ export class View {
     this.displayFinancialReports = displayFinancialReports;
     this.monthReportShift = 0;
     this.yearReportShift = 0;
+
+    this.elementDetails = elementDetails;
 
     addNavigation();
     addControl(this);

@@ -101,7 +101,7 @@
           </div>
         </div>
 
-        <div id="cardCointainer" class="relative hide">
+        <div id="cardContainer" class="relative hide">
           <div id="financesCard" class="popCard hide">
             <div class="cardMenu">
               <button
@@ -817,28 +817,22 @@
                 </div>
 
                 <div
-                  id="employeeDescriptionContainer"
-                  class="employeeDescriptionContainer hide"
+                  id="employeeDetailsContainer"
+                  class="employeeDetailsContainer hide"
                 >
-                  <div
-                    class="employeeDescription hide"
-                    id="employeeDescription0"
-                  >
+                  <div class="employeeDetails hide" id="employeeDetails0">
                     <h4>Workers</h4>
 
-                    <div class="employeeDescription-description">
+                    <div class="employeeDetails-details">
                       Workers can build planes.<br />
                       The current number of workers is
-                      <span id="descriptionWorkersNumber" class="bold"></span
+                      <span id="detailsWorkersNumber" class="bold"></span
                       >.<br />
                       One worker can mount
-                      <span id="descriptionWorkersMount" class="bold"></span>
+                      <span id="detailsWorkersMount" class="bold"></span>
                       per day.<br />
                       The total production capacity is
-                      <span
-                        id="edescriptionWorkersCapacity"
-                        class="bold"
-                      ></span>
+                      <span id="edetailsWorkersCapacity" class="bold"></span>
                       per day.<br />
                       <br />
                       If a worker can mount less than
@@ -851,13 +845,10 @@
                     </div>
                   </div>
 
-                  <div
-                    class="employeeDescription hide"
-                    id="employeeDescription1"
-                  >
+                  <div class="employeeDetails hide" id="employeeDetails1">
                     <h4>Foremen</h4>
 
-                    <div class="employeeDescription-description">
+                    <div class="employeeDetails-details">
                       Foremen are important in the production process.<br />
                       They supervise workers and help them with production.<br />
                       Each foreman can care for four workers.<br />
@@ -869,13 +860,10 @@
                     </div>
                   </div>
 
-                  <div
-                    class="employeeDescription hide"
-                    id="employeeDescription2"
-                  >
+                  <div class="employeeDetails hide" id="employeeDetails2">
                     <h4>Human Resources</h4>
 
-                    <div class="employeeDescription-description">
+                    <div class="employeeDetails-details">
                       Human resources take care of all employees.<br />
                       You need people in HR to hire more employees.<br />
                       <br />
@@ -890,13 +878,10 @@
                     </div>
                   </div>
 
-                  <div
-                    class="employeeDescription hide"
-                    id="employeeDescription3"
-                  >
+                  <div class="employeeDetails hide" id="employeeDetails3">
                     <h4>Traders</h4>
 
-                    <div class="employeeDescription-description">
+                    <div class="employeeDetails-details">
                       Traders don't let prices fall too low.<br />
                       Keeping prices at an optimal level is crucial for the
                       company's development.<br />
@@ -912,14 +897,11 @@
                     </div>
                   </div>
 
-                  <div
-                    class="employeeDescription hide"
-                    id="employeeDescription4"
-                  >
+                  <div class="employeeDetails hide" id="employeeDetails4">
                     <h4>Engineers</h4>
 
-                    <div class="employeeDescription-description">
-                      Engineers develop new aircraft.<br />
+                    <div class="employeeDetails-details">
+                      Engineers develop new aircraft designs.<br />
                       The more you hire them, the faster they will develop a new
                       project.<br />
                       <br />
@@ -935,7 +917,7 @@
                   </div>
 
                   <button
-                    id="closeEmployeeDescriptionBtn"
+                    id="closeEmployeeDetailsBtn"
                     class="closeButton closeButton--employee"
                     title="Close"
                   ></button>
@@ -943,7 +925,7 @@
               </div>
 
               <div class="hide" id="employeeInventions">
-                <h3>Inventions</h3>
+                <h3>New aircraft designs</h3>
                 <div id="designDIV"></div>
               </div>
             </div>

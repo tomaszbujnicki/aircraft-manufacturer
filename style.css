@@ -367,7 +367,7 @@ h4 {
   align-items: center;
 }
 
-.employeeDescriptionContainer {
+.employeeDetailsContainer {
   background-color: aliceblue;
   position: absolute;
   top: 120px;
@@ -377,7 +377,7 @@ h4 {
   border-radius: 10px;
 }
 
-.employeeDescription-description {
+.employeeDetails-details {
   margin-left: 20px;
   line-height: 2;
 }
@@ -389,7 +389,7 @@ h4 {
   font-style: italic;
 }
 
-.employeeDescriptionButton {
+.employeeDetailsButton {
   margin: 0 5px;
 }
 
