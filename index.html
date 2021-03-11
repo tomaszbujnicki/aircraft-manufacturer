@@ -65,8 +65,19 @@
             <div class="resources__icon">
               <button
                 class="resources__button"
-                title="Employees & Inventions"
-                alt="workers"
+                title="Parts orders & Delivery"
+                alt="parts"
+                id="partsCardBtn"
+              ></button>
+            </div>
+            <div class="resValue" id="parts" title="Parts"></div>
+          </div>
+          <div class="resources__unit">
+            <div class="resources__icon">
+              <button
+                class="resources__button"
+                title="Employees"
+                alt="Employees"
                 id="employeesCardBtn"
               ></button>
             </div>
@@ -76,12 +87,12 @@
             <div class="resources__icon">
               <button
                 class="resources__button"
-                title="Parts orders & Delivery"
-                alt="parts"
-                id="partsCardBtn"
+                title="Aircraft Designs"
+                alt="Designs"
+                id="designsCardBtn"
               ></button>
             </div>
-            <div class="resValue" id="parts" title="Parts"></div>
+            <div class="resValue" id="workers" title="Unassigned Workers"></div>
           </div>
         </div>
 
@@ -769,17 +780,7 @@
 
           <div id="employeesCard" class="popCard hide">
             <div class="cardMenu">
-              <button
-                class="cardMenu__Button"
-                id="employeeReviewBtn"
-                title="Employees"
-              ></button>
               <h2>Employees</h2>
-              <button
-                class="cardMenu__Button"
-                id="employeeInventionsBtn"
-                title="Inventions"
-              ></button>
             </div>
 
             <div>
@@ -923,11 +924,16 @@
                   ></button>
                 </div>
               </div>
+            </div>
+          </div>
+          <div id="designsCard" class="popCard hide">
+            <div class="cardMenu">
+              <h2>Designs</h2>
+            </div>
 
-              <div class="hide" id="employeeInventions">
-                <h3>New aircraft designs</h3>
-                <div id="designDIV"></div>
-              </div>
+            <div id="newDesign">
+              <h3>New aircraft designs</h3>
+              <div id="designDIV"></div>
             </div>
           </div>
 

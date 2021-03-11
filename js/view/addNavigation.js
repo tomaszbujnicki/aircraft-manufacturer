@@ -5,10 +5,8 @@ const aircraftDIV = document.getElementById('aircraftDIV'),
   employeeDetailsContainer = document.getElementById(
     'employeeDetailsContainer'
   ),
-  employeeInventions = document.getElementById('employeeInventions'),
-  employeeInventionsBtn = document.getElementById('employeeInventionsBtn'),
-  employeeReview = document.getElementById('employeeReview'),
-  employeeReviewBtn = document.getElementById('employeeReviewBtn'),
+  designsCard = document.getElementById('designsCard'),
+  designsBtn = document.getElementById('designsCardBtn'),
   employeesBtn = document.getElementById('employeesCardBtn'),
   employeesCard = document.getElementById('employeesCard'),
   financesAwards = document.getElementById('financesAwards'),
@@ -29,6 +27,7 @@ const aircraftDIV = document.getElementById('aircraftDIV'),
   partsMarketBtn = document.getElementById('partsMarketBtn');
 
 export function addNavigation() {
+  designsBtn.addEventListener('click', () => openCard(designsCard));
   financesBtn.addEventListener('click', () => openCard(financesCard));
   employeesBtn.addEventListener('click', () => openCard(employeesCard));
   partsBtn.addEventListener('click', () => openCard(partsCard));
@@ -42,12 +41,6 @@ export function addNavigation() {
   financesBankBtn.addEventListener('click', () => openFinances(financesBank));
   financesAwardsBtn.addEventListener('click', () =>
     openFinances(financesAwards)
-  );
-  employeeReviewBtn.addEventListener('click', () =>
-    openEmployees(employeeReview)
-  );
-  employeeInventionsBtn.addEventListener('click', () =>
-    openEmployees(employeeInventions)
   );
   closeEmployeeDetailsBtn.addEventListener('click', () =>
     closeEmployeeDetails()
@@ -65,6 +58,7 @@ function openCard(card) {
   hide(financesCard);
   hide(employeesCard);
   hide(partsCard);
+  hide(designsCard);
   hide(aircraftDIV);
   show(cardContainer);
   show(card);
