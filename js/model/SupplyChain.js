@@ -1,4 +1,4 @@
-import { getRndInteger } from '../functions/calculations';
+import { getRndInteger } from './calculations';
 import { Delivery } from './Delivery';
 import { StockOffer } from './StockOffer';
 import { EXPENSES } from './FinancialReport';

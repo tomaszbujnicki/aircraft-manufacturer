@@ -1,4 +1,4 @@
-import { getRndInteger, randomPercent } from '../functions/calculations';
+import { getRndInteger, randomPercent } from './calculations';
 import { stock_coreValues } from '../list/stock_coreValues';
 
 export class StockOffer {

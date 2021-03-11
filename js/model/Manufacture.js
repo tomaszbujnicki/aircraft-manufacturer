@@ -1,4 +1,4 @@
-import { getRndInteger } from '../functions/calculations';
+import { getRndInteger } from './calculations';
 import { INCOME } from './FinancialReport';
 
 export class Manufacture {
