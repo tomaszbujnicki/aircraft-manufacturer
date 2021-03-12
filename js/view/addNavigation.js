@@ -9,8 +9,8 @@ const aircraftDIV = document.getElementById('aircraftDIV'),
   designsBtn = document.getElementById('designsCardBtn'),
   employeesBtn = document.getElementById('employeesCardBtn'),
   employeesCard = document.getElementById('employeesCard'),
-  financesAwards = document.getElementById('financesAwards'),
-  financesAwardsBtn = document.getElementById('financesAwardsBtn'),
+  financesLoansTaken = document.getElementById('financesLoansTaken'),
+  financesLoansTakenBtn = document.getElementById('financesLoansTakenBtn'),
   financesBank = document.getElementById('financesBank'),
   financesBankBtn = document.getElementById('financesBankBtn'),
   financesBtn = document.getElementById('financesCardBtn'),
@@ -39,8 +39,8 @@ export function addNavigation() {
   );
   financesYearsBtn.addEventListener('click', () => openFinances(financesYears));
   financesBankBtn.addEventListener('click', () => openFinances(financesBank));
-  financesAwardsBtn.addEventListener('click', () =>
-    openFinances(financesAwards)
+  financesLoansTakenBtn.addEventListener('click', () =>
+    openFinances(financesLoansTaken)
   );
   closeEmployeeDetailsBtn.addEventListener('click', () =>
     closeEmployeeDetails()
@@ -79,7 +79,7 @@ function openFinances(page) {
   hide(financesMonths);
   hide(financesYears);
   hide(financesBank);
-  hide(financesAwards);
+  hide(financesLoansTaken);
   show(page);
 }
 

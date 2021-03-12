@@ -1,30 +1,26 @@
 export default [
   {
     name: 'Start-up loan',
-    amount: 100000,
-    interest: 6,
-    period: 12,
-    taken: false,
+    amount: 100_000,
+    interestRate: 6,
+    repaymentPeriod: 52, // in weeks
   },
   {
     name: 'Investment loan',
-    amount: 250000,
-    interest: 10,
-    period: 24,
-    taken: false,
+    amount: 250_000,
+    interestRate: 10,
+    repaymentPeriod: 104,
   },
   {
     name: 'Asset loan',
-    amount: 500000,
-    interest: 14,
-    period: 36,
-    taken: false,
+    amount: 500_000,
+    interestRate: 14,
+    repaymentPeriod: 156,
   },
   {
     name: 'Corporate loan',
-    amount: 1000000,
-    interest: 16,
-    period: 48,
-    taken: false,
+    amount: 1_000_000,
+    interestRate: 16,
+    repaymentPeriod: 208,
   },
 ];
