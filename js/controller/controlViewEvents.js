@@ -17,6 +17,13 @@ export function controlViewEvents(view, model) {
   view.events.fireEmployee.subscribe((id) => {
     model.humanResources.fire(id);
   });
+  view.events.takeLoan.subscribe((id) => {
+    model.bank.takeLoan(id);
+  });
+  view.events.payOffLoan.subscribe((id) => {
+    model.bank.payOffLoan(id);
+  });
+
   view.events.speedLevel.subscribe((speed) => {
     model.time.setSpeedMultiplier(speed);
   });

@@ -1,3 +1,4 @@
+import { Bank } from './Bank';
 import { HumanResources } from './HumanResources';
 import { Manufacture } from './Manufacture';
 import { ResearchCenter } from './ResearchCenter';
@@ -15,5 +16,6 @@ export class Model {
     this.manufacture = new Manufacture(data, this.wallet);
     this.researchCenter = new ResearchCenter(data);
     this.supplyChain = new SupplyChain(data, this.wallet);
+    this.bank = new Bank(data, this.wallet);
   }
 }

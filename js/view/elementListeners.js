@@ -32,10 +32,26 @@ export const elementListeners = {
   },
 
   stockOffer(item) {
-    const buy = document.getElementById(`buy${item.type}${item.id}`);
+    const buy = document.getElementById(`buyStock${item.id}`);
 
     buy.addEventListener('click', () => {
       this.events.buyStock.publish(item.id);
+    });
+  },
+
+  loanOffer(item) {
+    const take = document.getElementById(`takeLoanBtn${item.id}`);
+
+    take.addEventListener('click', () => {
+      this.events.takeLoan.publish(item.id);
+    });
+  },
+
+  loanTaken(item) {
+    const payOff = document.getElementById(`payOffLoanBtn${item.id}`);
+
+    payOff.addEventListener('click', () => {
+      this.events.payOffLoan.publish(item.id);
     });
   },
 };

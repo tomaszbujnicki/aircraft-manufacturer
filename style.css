@@ -552,7 +552,7 @@ h4 {
   margin: 0 20px;
 }
 
-.loanOffer {
+.loanOffer, .loanTaken {
   padding-left: 20px;
   height: 48px;
   display: grid;

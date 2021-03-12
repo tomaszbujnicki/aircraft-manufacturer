@@ -26,9 +26,6 @@ export function payOffLoan(loan) {
   if (loan.taken == false) return;
   const canPayOff = game.cash >= loan.amountToBeRepaid;
   if (canPayOff) {
-    const interestPart = Math.round(
-      (loan.amountToBeRepaid * loan.interest) / 100 / 12
-    );
     calculateExpenses(interestPart, 'interest');
     calculateExpenses(loan.amountToBeRepaid, 'capital');
 

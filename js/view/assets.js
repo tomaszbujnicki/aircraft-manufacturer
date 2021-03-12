@@ -37,7 +37,7 @@ export const images = {
   'Traders': trader,
   'Engineers': engineer,
 
-  'Beoing 737-700': airplane1,
+  'Boeing 737-700': airplane1,
   'Helicopter': aeroplane3,
   'Airbus A320': aeroplane2,
   'Baloon': airplane1,

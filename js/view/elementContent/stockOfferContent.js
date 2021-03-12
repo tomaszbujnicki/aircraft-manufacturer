@@ -28,9 +28,7 @@ export function stockOfferContent(item) {
 </div>	
 
 <div class="employee__value">
-  <button id="buy${item.type}${
-    item.id
-  }" class="employee__buy-btn" title="buy stock">
+  <button id="buyStock${item.id}" class="employee__buy-btn" title="buy stock">
   </button>
 </div>
 `;

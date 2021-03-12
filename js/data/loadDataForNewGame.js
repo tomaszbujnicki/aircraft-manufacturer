@@ -1,5 +1,5 @@
 import aircraftDesigns from './dataForNewGame/aircraftDesigns';
-//import loanOffers from './dataForNewGame/loanOffers';
+import loanOffers from './dataForNewGame/loanOffers';
 import { Aircraft } from '../model/Aircraft';
 import { Design } from '../model/Design';
 import { LoanOffer } from '../model/LoanOffer';
@@ -31,7 +31,7 @@ export function loadDataForNewGame() {
       : this.aircrafts.insert(new Aircraft(item));
   }
 
-  /*   for (const item of loanOffers) {
+  for (const item of loanOffers) {
     this.loanOffers.insert(new LoanOffer(item));
-  } */
+  }
 }

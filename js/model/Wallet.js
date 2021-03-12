@@ -1,4 +1,4 @@
-import { EXPENSES, FinancialReport, INCOME } from './FinancialReport';
+import { FinancialReport } from './FinancialReport';
 
 export class Wallet {
   constructor(data) {
@@ -27,10 +27,5 @@ export class Wallet {
     this.data.annualReports.unshift(
       new FinancialReport(this.data.date, 'year')
     );
-  }
-
-  salaryPayment() {
-    const amount = this.data.totalSalary;
-    this.pay(amount, EXPENSES.SALARIES);
   }
 }

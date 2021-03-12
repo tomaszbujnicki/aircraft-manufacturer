@@ -1,20 +1,21 @@
 export function loanOfferContent(item) {
   return `
-<div class="employee__value" title="Loan name">${loan.name}</div>
+<div class="employee__value" title="Loan name">${item.name}</div>
 <div id="loanAmount${
-    loan.id
-  }" class="employee__value" title="loan amount">$ ${loan.amount.toLocaleString()}</div>
+    item.id
+  }" class="employee__value" title="loan amount">$ ${item.amount.toLocaleString()}</div>
 <div id="loanInterest${
-    loan.id
-  }" class="employee__value" title="loan interest rate">${loan.interest}%</div>
+    item.id
+  }" class="employee__value" title="loan interest rate">${
+    item.interestRate
+  }%</div>
 <div id="loanPeriod${
-    loan.id
-  }" class="employee__value" title="loan repayment time">${loan.period}</div>
+    item.id
+  }" class="employee__value" title="loan repayment time">${
+    item.repaymentPeriod
+  }</div>
 <button id="takeLoanBtn${
-    loan.id
+    item.id
   }" class="loanTakeButton" title="take a loan"></button>
-<button id="payOffLoanBtn${
-    loan.id
-  }" class="loanPayOffButton hide" title="pay off the loan early"></button>
 `;
 }

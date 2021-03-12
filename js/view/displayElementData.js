@@ -17,6 +17,9 @@ export function displayElementData(item) {
     case 'delivery':
       delivery(item);
       break;
+    case 'loanTaken':
+      loanTaken(item);
+      break;
 
     default:
       break;
@@ -81,6 +84,14 @@ function delivery(item) {
 function stockOffer(item) {
   const expires = document.getElementById('offer-expiry' + item.id);
   expires.textContent = item.daysUntilExpiry;
+}
+
+function loanTaken(item) {
+  const amount = document.getElementById(`loanAmount${item.id}`);
+  const installments = document.getElementById(`loanPeriod${item.id}`);
+
+  amount.textContent = `$ ${item.amountToBeRepaid.toLocaleString()}`;
+  installments.textContent = item.installmentsToEnd;
 }
 
 function displayProgressBar(barId, complited, total) {

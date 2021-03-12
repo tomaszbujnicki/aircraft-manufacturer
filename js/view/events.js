@@ -8,4 +8,6 @@ export const events = {
   hireEmployee: new Event(),
   fireEmployee: new Event(),
   speedLevel: new Event(),
+  takeLoan: new Event(),
+  payOffLoan: new Event(),
 };

@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'Beoing 737-700',
+    name: 'Boeing 737-700',
     parts: 100,
     price: 150_000,
     priceChange: 500,

@@ -1,15 +1,9 @@
 export class LoanOffer {
   constructor(loan) {
-    this.type = 'loadOffer';
+    this.type = 'loanOffer';
     this.name = loan.name;
-    this.amount = loan.amount;
-    this.amountToBeRepaid = loan.amount;
-    this.repaymentPeriod = loan.repaymentPeriod; // in weeks
-
     this.interestRate = loan.interestRate;
-    this.installmentsToEnd = loan.repaymentPeriod;
+    this.amount = loan.amount;
+    this.repaymentPeriod = loan.repaymentPeriod; // in weeks
   }
-  getInterestAmount = () => {};
-
-  getCapitalAmount = () => Math.round(this.amount / this.repaymentPeriod);
 }

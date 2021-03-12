@@ -79,4 +79,13 @@ export class HumanResources {
       employee.maxNumber = (this.data.HR + 1) * employee.maxNumberPerHR;
     }
   };
+
+  nextWeek() {
+    this.salaryPayment();
+  }
+
+  salaryPayment() {
+    const amount = this.data.totalSalary;
+    this.wallet.pay(amount, EXPENSES.SALARIES);
+  }
 }
