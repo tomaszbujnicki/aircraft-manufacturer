@@ -56,11 +56,15 @@ export class Bank {
 
     this.wallet.pay(loan.amountToBeRepaid, EXPENSES.CAPITAL);
     this.removeLoan(loan);
+    this.createNewOffer(loan);
   }
 
   removeLoan(loan) {
     this.loans.delete(loan);
   }
 
-  createNewOffer() {}
+  createNewOffer(loan) {
+    const offer = new LoanOffer(loan);
+    this.offers.insert(offer);
+  }
 }

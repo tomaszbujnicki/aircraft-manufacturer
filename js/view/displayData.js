@@ -1,6 +1,7 @@
 const cashElement = document.getElementById('cash'),
   partsElement = document.getElementById('parts'),
   dateElement = document.getElementById('date'),
+  designProgressElement = document.getElementById('designProgress'),
   workersElement = document.getElementById('workers'),
   totalSalaryElement = document.getElementById('salarySummary__value');
 
@@ -15,6 +16,10 @@ export const displayData = {
 
   unassignedWorkers(number) {
     workersElement.textContent = number;
+  },
+
+  designProgress(percent) {
+    designProgressElement.textContent = parseInt(percent) + ' %';
   },
 
   date(date) {

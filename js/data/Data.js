@@ -47,6 +47,15 @@ export class Data {
     }
     return remainingWorkers;
   }
+  get designProgress() {
+    const currentProject = this.designs.list[0];
+    console.log(currentProject);
+    if (currentProject) {
+      const total = currentProject.inventionPointsNeeded;
+      const complited = currentProject.inventionPointsCompleted;
+      return (complited / total) * 100;
+    } else return 0;
+  }
   get totalSalary() {
     let sum = 0;
     for (const employee of this.employees.list) {

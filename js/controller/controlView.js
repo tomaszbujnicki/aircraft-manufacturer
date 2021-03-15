@@ -26,6 +26,7 @@ export function controlView(data, model, view) {
     view.displayData.date(data.date);
     view.displayData.cash(data.cash);
     view.displayData.parts(data.parts);
+    view.displayData.designProgress(data.designProgress);
     view.displayData.unassignedWorkers(data.unassignedWorkers);
     view.displayData.totalSalary(data.totalSalary);
 

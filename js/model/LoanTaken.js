@@ -4,6 +4,7 @@ export class LoanTaken {
     this.name = loan.name;
     this.interestRate = loan.interestRate;
     this.amount = loan.amount;
+    this.repaymentPeriod = loan.repaymentPeriod;
     this.capitalAmount = Math.round(loan.amount / loan.repaymentPeriod);
 
     this.amountToBeRepaid = loan.amount;
