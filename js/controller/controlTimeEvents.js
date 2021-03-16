@@ -1,4 +1,4 @@
-export function controlTimeEvents(model) {
+export function controlTimeEvents(model, data) {
   model.time.stepEvent.subscribe((timeProgressInHours) => {
     model.manufacture.makeAircrafts(timeProgressInHours);
     model.researchCenter.invent(timeProgressInHours);
@@ -7,6 +7,8 @@ export function controlTimeEvents(model) {
   model.time.dayEvent.subscribe(() => {
     model.supplyChain.nextDay();
     model.manufacture.nextDay();
+
+    data.save();
   });
 
   model.time.weekEvent.subscribe(() => {

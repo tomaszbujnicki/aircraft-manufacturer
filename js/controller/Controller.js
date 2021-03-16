@@ -13,6 +13,6 @@ export class Controller {
 
     controlView(this.data, this.model, this.view);
     controlViewEvents(this.view, this.model, this.data);
-    controlTimeEvents(this.model);
+    controlTimeEvents(this.model, this.data);
   }
 }

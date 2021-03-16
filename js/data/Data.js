@@ -3,7 +3,6 @@ import { loadDataForContinueGame } from './loadDataForContinueGame';
 import { loadDataForNewGame } from './loadDataForNewGame';
 import { isDataCorrect } from './isDataCorrect';
 import { save } from './save';
-import { FinancialReport } from '../model/FinancialReport';
 
 export class Data {
   constructor() {
@@ -64,13 +63,16 @@ export class Data {
     return sum;
   }
 
-  load() {
-    /*     if (localStorage.getItem('data')) {
+  newGame() {
+    this.loadDataForNewGame();
+    this.isGameRun = true;
+  }
+
+  continueGame() {
+    if (localStorage.getItem('data')) {
       const data = JSON.parse(localStorage.getItem('data'));
-      //if (isDataCorrect(data)) {
       this.loadDataForContinueGame(data);
-      return;
-      //}
-    } */
+      this.isGameRun = true;
+    }
   }
 }

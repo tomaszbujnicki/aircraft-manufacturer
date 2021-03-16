@@ -63,6 +63,10 @@ export function addNavigation(view) {
     view.events.startNewGame.publish();
     openContainer(gameContainer);
   });
+  continueGameBtn.addEventListener('click', () => {
+    view.events.continueGame.publish();
+    openContainer(gameContainer);
+  });
 }
 
 function hide(element) {
