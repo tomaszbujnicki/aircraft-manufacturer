@@ -11,13 +11,11 @@ export const elementDetails = {
     }
     this.show(this[type]);
     const element = document.getElementById(type + 'Details' + itemId);
-    console.log(element);
     this.show(element);
   },
 
   hide: (element) => element.classList.add('hide'),
   show: (element) => {
-    console.log(element);
     element.classList.remove('hide');
   },
 };

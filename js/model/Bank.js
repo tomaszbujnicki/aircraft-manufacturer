@@ -2,11 +2,13 @@ import { EXPENSES } from './FinancialReport';
 import { INCOME } from './FinancialReport';
 import { LoanTaken } from './LoanTaken';
 import { LoanOffer } from './LoanOffer';
+import { MESSAGE_TYPE } from './MessageCenter';
 
 export class Bank {
-  constructor(data, wallet) {
+  constructor(data, wallet, messageCenter) {
     this.data = data;
     this.wallet = wallet;
+    this.messageCenter = messageCenter;
     this.offers = data.loanOffers;
     this.loans = data.loansTaken;
   }
@@ -26,7 +28,11 @@ export class Bank {
   addLoan(offer) {
     const loan = new LoanTaken(offer);
     this.loans.insert(loan);
-    console.log('Loan taken.');
+    this.messageCenter.new(
+      MESSAGE_TYPE.NEUTRAL,
+      `Loan taken.<br />
+      $ ${loan.amount.toLocaleString()}`
+    );
   }
 
   nextWeek() {
@@ -47,6 +53,7 @@ export class Bank {
     loan.installmentsToEnd--;
     if (loan.installmentsToEnd <= 0) {
       this.removeLoan(loan);
+      this.messageCenter.new(MESSAGE_TYPE.NEUTRAL, 'Loan repaid.');
     }
   }
 

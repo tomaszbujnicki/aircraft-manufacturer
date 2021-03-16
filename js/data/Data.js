@@ -49,7 +49,6 @@ export class Data {
   }
   get designProgress() {
     const currentProject = this.designs.list[0];
-    console.log(currentProject);
     if (currentProject) {
       const total = currentProject.inventionPointsNeeded;
       const complited = currentProject.inventionPointsCompleted;

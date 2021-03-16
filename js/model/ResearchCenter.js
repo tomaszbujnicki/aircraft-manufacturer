@@ -1,10 +1,12 @@
 import { Aircraft } from './Aircraft';
+import { MESSAGE_TYPE } from './MessageCenter';
 
 export class ResearchCenter {
-  constructor(data) {
+  constructor(data, messageCenter) {
     this.data = data;
     this.designs = data.designs;
     this.aircrafts = data.aircrafts;
+    this.messageCenter = messageCenter;
   }
 
   invent(workTimeInHours) {
@@ -14,12 +16,17 @@ export class ResearchCenter {
     design.inventionPointsCompleted += this.data.engineers * workTimeInHours;
 
     if (design.inventionPointsCompleted >= design.inventionPointsNeeded) {
-      this.remove(design);
+      this.makeNew(design);
     }
   }
 
-  remove(design) {
+  makeNew(design) {
     this.designs.delete(design);
     this.aircrafts.insert(new Aircraft(design));
+    this.messageCenter.new(
+      MESSAGE_TYPE.SUCCESS,
+      `A new aircraft design has been developed.<br />
+      ${design.name} production possible.`
+    );
   }
 }

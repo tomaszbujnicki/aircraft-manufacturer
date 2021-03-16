@@ -84,7 +84,7 @@ h1 {
   padding-right: 10px;
 }
 
-#alerts {
+#messageBox {
   background-color: lightblue;
   align-self: flex-start;
   z-index: 1;
@@ -92,28 +92,19 @@ h1 {
   width: 185px;
 }
 
-.alertsItem {
+.message {
   padding: 5px;
   opacity: 1;
-  color: green;
-  transition: 5s;
+  color: darkgoldenrod;
   cursor: url(img/cursor/quit.png), auto;
+  margin-bottom: 2px;
 }
 
-.disabled {
-  opacity: 0.3;
+.message-fail {
+  color: darkred;
 }
-
-.colorRed {
-  color: #f55;
-}
-
-.click-false {
-  background-color: #f55;
-}
-
-.click-true {
-  background-color: #5f5;
+.message-success {
+  color: darkgreen;
 }
 
 button {
@@ -572,19 +563,6 @@ h4 {
   height: 44px;
   margin: 0 auto;
   background-image: url(img/funds/money-transfer.svg);
-}
-
-.vanish {
-  opacity: 0;
-  transition: ease-out 5s;
-}
-
-.softRemove {
-  height: 0;
-  margin-bottom: 0;
-  padding-bottom: 0;
-  border: none;
-  transition: 3s;
 }
 
 :focus {

@@ -1,9 +1,11 @@
 import { EXPENSES } from './FinancialReport';
+import { MESSAGE_TYPE } from './MessageCenter';
 
 export class HumanResources {
-  constructor(data, wallet) {
+  constructor(data, wallet, messageCenter) {
     this.data = data;
     this.wallet = wallet;
+    this.messageCenter = messageCenter;
     this.employees = data.employees;
   }
 
@@ -24,7 +26,7 @@ export class HumanResources {
     if (employee.number + 1 <= (this.data.HR + 1) * employee.maxNumberPerHR) {
       return true;
     } else {
-      console.log('need more HR');
+      this.messageCenter.new(MESSAGE_TYPE.NEUTRAL, 'Need more HR employee.');
       return false;
     }
   }
@@ -54,8 +56,10 @@ export class HumanResources {
     if (this.data.unassignedWorkers > 0) {
       return true;
     } else {
-      console.log(
-        'All workers assigned\nFirst revoke workers from production.'
+      this.messageCenter.new(
+        MESSAGE_TYPE.NEUTRAL,
+        `All workers assigned<br />
+        First revoke workers from production.`
       );
       return false;
     }
@@ -65,8 +69,10 @@ export class HumanResources {
       if (!(employee.number <= employee.maxNumberPerHR * this.data.HR)) {
         const difference =
           employee.number - employee.maxNumberPerHR * this.data.HR;
-        console.log(
-          `Too many ${employee.name}.\nFirst fire ${difference} ${employee.name}.`
+        this.messageCenter.new(
+          MESSAGE_TYPE.NEUTRAL,
+          `Too many ${employee.name}.<br />
+          First fire ${difference} ${employee.name}.`
         );
         return false;
       }

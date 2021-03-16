@@ -6,6 +6,7 @@ import { displayFinancialReports } from './displayFinancialReports';
 import { displayData } from './displayData';
 import { events } from './events';
 import { elementDetails } from './elementDetails';
+import { displayMessage } from './displayMessage';
 
 export class View {
   constructor() {
@@ -21,6 +22,8 @@ export class View {
     this.yearReportShift = 0;
 
     this.elementDetails = elementDetails;
+
+    this.displayMessage = displayMessage;
 
     addNavigation();
     addControl(this);

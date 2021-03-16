@@ -37,4 +37,8 @@ export function controlView(data, model, view) {
     view.displayFinancialReports(data.monthlyReports);
     view.displayFinancialReports(data.annualReports);
   });
+
+  model.messageCenter.messageEvent.subscribe(({ type, text }) => {
+    view.displayMessage({ type, text });
+  });
 }
