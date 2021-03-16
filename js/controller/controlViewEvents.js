@@ -1,4 +1,7 @@
-export function controlViewEvents(view, model) {
+export function controlViewEvents(view, model, data) {
+  view.events.startNewGame.subscribe(() => {
+    data.loadDataForNewGame();
+  });
   view.events.buyStock.subscribe((id) => {
     model.supplyChain.buyStock(id);
   });

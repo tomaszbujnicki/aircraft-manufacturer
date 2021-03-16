@@ -24,9 +24,20 @@ const aircraftDIV = document.getElementById('aircraftDIV'),
   partsDelivery = document.getElementById('partsDelivery'),
   partsDeliveryBtn = document.getElementById('partsDeliveryBtn'),
   partsMarket = document.getElementById('partsMarket'),
-  partsMarketBtn = document.getElementById('partsMarketBtn');
+  partsMarketBtn = document.getElementById('partsMarketBtn'),
+  menuContainer = document.getElementById('menu'),
+  gameContainer = document.getElementById('game'),
+  newGameBtn = document.getElementById('new-button'),
+  continueGameBtn = document.getElementById('continue-button'),
+  settingsBtn = document.getElementById('settings-button'),
+  creditsBtn = document.getElementById('credits-button'),
+  settingsCard = document.getElementById('settingsCard'),
+  creditsCard = document.getElementById('creditsCard'),
+  menuCardContainer = document.getElementById('menuCardContainer'),
+  closeMenuCardBtn = document.getElementById('closeMenuCardBtn'),
+  menuList = document.getElementById('menuList');
 
-export function addNavigation() {
+export function addNavigation(view) {
   designsBtn.addEventListener('click', () => openCard(designsCard));
   financesBtn.addEventListener('click', () => openCard(financesCard));
   employeesBtn.addEventListener('click', () => openCard(employeesCard));
@@ -45,6 +56,13 @@ export function addNavigation() {
   closeEmployeeDetailsBtn.addEventListener('click', () =>
     closeEmployeeDetails()
   );
+  settingsBtn.addEventListener('click', () => openMenuCard(settingsCard));
+  creditsBtn.addEventListener('click', () => openMenuCard(creditsCard));
+  closeMenuCardBtn.addEventListener('click', () => closeMenuCards());
+  newGameBtn.addEventListener('click', () => {
+    view.events.startNewGame.publish();
+    openContainer(gameContainer);
+  });
 }
 
 function hide(element) {
@@ -83,12 +101,27 @@ function openFinances(page) {
   show(page);
 }
 
-function openEmployees(page) {
-  hide(employeeReview);
-  hide(employeeInventions);
+function closeEmployeeDetails() {
+  hide(employeeDetailsContainer);
+}
+
+function openContainer(container) {
+  hide(gameContainer);
+  hide(menuContainer);
+  show(container);
+}
+
+function openMenuCard(page) {
+  hide(settingsCard);
+  hide(creditsCard);
+  hide(menuList);
+  show(menuCardContainer);
   show(page);
 }
 
-function closeEmployeeDetails() {
-  hide(employeeDetailsContainer);
+function closeMenuCards() {
+  hide(settingsCard);
+  hide(creditsCard);
+  hide(menuCardContainer);
+  show(menuList);
 }

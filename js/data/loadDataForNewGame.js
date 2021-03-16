@@ -34,4 +34,6 @@ export function loadDataForNewGame() {
   for (const item of loanOffers) {
     this.loanOffers.insert(new LoanOffer(item));
   }
+
+  this.isGameRun = true;
 }

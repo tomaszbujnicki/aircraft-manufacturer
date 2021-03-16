@@ -24,6 +24,7 @@ export class Data {
     this.loadDataForContinueGame = loadDataForContinueGame;
     this.loadDataForNewGame = loadDataForNewGame;
     this.save = save;
+    this.isGameRun = false;
   }
   get workers() {
     return this.employees.getItemById(0).number;
@@ -64,7 +65,6 @@ export class Data {
   }
 
   load() {
-    this.loadDataForNewGame();
     /*     if (localStorage.getItem('data')) {
       const data = JSON.parse(localStorage.getItem('data'));
       //if (isDataCorrect(data)) {

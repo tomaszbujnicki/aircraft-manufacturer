@@ -4,10 +4,10 @@ document.addEventListener('DOMContentLoaded', init);
 
 function init() {
   const app = new Controller();
-  app.data.load();
 
-  window.setInterval(
-    () => app.model.time.nextStep(),
-    app.model.time.stepInMilliseconds
-  );
+  window.setInterval(() => {
+    if (app.data.isGameRun) {
+      app.model.time.nextStep();
+    }
+  }, app.model.time.stepInMilliseconds);
 }

@@ -10,4 +10,6 @@ export const events = {
   speedLevel: new Event(),
   takeLoan: new Event(),
   payOffLoan: new Event(),
+  startNewGame: new Event(),
+  continueGame: new Event(),
 };

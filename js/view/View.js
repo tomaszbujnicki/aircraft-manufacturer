@@ -25,7 +25,7 @@ export class View {
 
     this.displayMessage = displayMessage;
 
-    addNavigation();
+    addNavigation(this);
     addControl(this);
   }
 }

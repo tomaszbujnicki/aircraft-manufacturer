@@ -1,3 +1,11 @@
+:root {
+  --background: #91aecd;
+  --card: #ecdece;
+  --first: #3770ac;
+  --second: #add8e6;
+  --third: #518ac6;
+}
+
 body {
   background-color: gray;
   overflow-y: scroll;
@@ -20,11 +28,11 @@ h1 {
   height: 1200px;
   border: solid 1px black;
   margin: 0 auto;
-  background-color: #91aecd;
+  background-color: var(--background);
   display: flex;
 }
 
-#container {
+.container {
   width: 780px;
   margin-left: 20px;
   font-family: Arial;
@@ -33,20 +41,53 @@ h1 {
 
 #right-bar {
   width: 190px;
-  background-color: #518ac6;
+  background-color: var(--third);
   overflow: hidden;
 }
 
 .right-bar__top {
-  background-color: #4780bc;
+  background-color: var(--first);
   height: 140px;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.menu li {
+  margin-bottom: 20px;
+}
+
+.menu button {
+  color: var(--second);
+  cursor: pointer;
+  font-size: 24px;
+  background-color: var(--first);
+  padding: 5px 10px;
+  border: 2px solid var(--first);
+  font-family: Verdana, Geneva, Tahoma, sans-serif, Helvetica, sans-serif;
+}
+
+.menu button:hover {
+  background-color: var(--background);
+}
+
+.menu button:focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: var(--first);
+  outline-offset: 4px;
 }
 
 .resources {
   display: grid;
   grid-gap: 10px 10px;
   grid-template-columns: 1.2fr 1fr 0.5fr 0.5fr;
-  background-color: #ecdece;
+  background-color: var(--card);
   padding: 0 10px;
   border-radius: 10px;
   font-family: consolas, monospace;
@@ -85,7 +126,7 @@ h1 {
 }
 
 #messageBox {
-  background-color: lightblue;
+  background-color: var(--second);
   align-self: flex-start;
   z-index: 1;
   margin-top: 10px;
@@ -135,7 +176,7 @@ header {
   justify-content: center;
 }
 
-#speedMultiplier{
+#speedMultiplier {
   line-height: 0;
   margin-top: 10px;
 }
@@ -150,11 +191,11 @@ header {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 65% 65%;
-  background-color: #ecdece;
+  background-color: var(--card);
 }
 
 .highlighted {
-  background-color: #518ac6;
+  background-color: var(--third);
 }
 
 #speedLevel0 {
@@ -322,7 +363,7 @@ h4 {
   width: 600px;
   min-height: 500px;
   max-height: 1020px;
-  background-color: #ecdece;
+  background-color: var(--card);
   position: absolute;
   top: 20px;
   left: 0;
@@ -378,7 +419,7 @@ h4 {
   font-weight: bold;
 }
 .quotation {
-  color: #91aecd;
+  color: var(--background);
   font-style: italic;
 }
 
@@ -495,16 +536,16 @@ h4 {
   width: 48px;
   box-sizing: border-box;
 }
-.shiftPeriod{
+.shiftPeriod {
   display: flex;
   justify-content: center;
 }
-.shiftPeriodButton{
+.shiftPeriodButton {
   height: 20px;
   width: 40px;
-  background-color: #4780bc;
+  background-color: var(--first);
   border-radius: 5px;
-  margin: 0 5px
+  margin: 0 5px;
 }
 
 #financesMonthsBtn {
@@ -543,7 +584,8 @@ h4 {
   margin: 0 20px;
 }
 
-.loanOffer, .loanTaken {
+.loanOffer,
+.loanTaken {
   padding-left: 20px;
   height: 48px;
   display: grid;

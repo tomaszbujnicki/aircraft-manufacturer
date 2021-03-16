@@ -10,7 +10,36 @@
 
   <body>
     <div id="super-container">
-      <div id="container">
+      <div id="menu" class="container">
+        <h2>Aircraft Manufacturer</h2>
+        <div id='menuList' class="menu">
+          <div>
+            <ul class="menuList">
+              <li><button id="new-button">New game</button></li>
+              <li>
+                <button id="continue-button">Continue game</button>
+              </li>
+              <li><button id="settings-button">Settings</button></li>
+              <li><button id="credits-button">Credits</button></li>
+            </ul>
+          </div>
+        </div>
+        <div id="menuCardContainer" class="relative hide">
+          <div id="settingsCard" class="popCard hide">
+            <h2>Settings</h2>
+          </div>
+          <div id="creditsCard" class="popCard hide">
+            <h2>Credits</h2>
+          </div>
+          <button
+          id="closeMenuCardBtn"
+          class="closeButton"
+          title="Close"
+        ></button>
+        </div>
+      </div>
+
+      <div id="game" class="container hide">
         <header>
           <h1>Aircraft Manufacturer</h1>
           <div class="time">
