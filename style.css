@@ -49,6 +49,12 @@ h1 {
   background-color: var(--first);
   height: 140px;
 }
+#menu h1 {
+  text-align: center;
+}
+#menu > div {
+  margin-top: 60px;
+}
 
 .menu ul {
   display: flex;
@@ -56,6 +62,7 @@ h1 {
   align-items: center;
   list-style: none;
   justify-content: space-around;
+  padding: 0;
 }
 
 .menu li {

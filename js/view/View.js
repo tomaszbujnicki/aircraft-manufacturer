@@ -1,5 +1,4 @@
 import { addControl } from './addControl';
-import { addNavigation } from './addNavigation';
 import { createElement } from './createElement';
 import { displayElementData } from './displayElementData';
 import { displayFinancialReports } from './displayFinancialReports';
@@ -7,10 +6,14 @@ import { displayData } from './displayData';
 import { events } from './events';
 import { elementDetails } from './elementDetails';
 import { displayMessage } from './displayMessage';
+import { addListeners } from './addListeners';
+import { navigation } from './navigation';
 
 export class View {
   constructor() {
     this.events = events;
+
+    this.navigation = navigation;
 
     this.createElement = createElement;
     this.displayElementData = displayElementData;
@@ -25,7 +28,7 @@ export class View {
 
     this.displayMessage = displayMessage;
 
-    addNavigation(this);
+    addListeners(this);
     addControl(this);
   }
 }

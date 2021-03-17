@@ -41,15 +41,17 @@ export class SupplyChain {
       this.data.parts += stock.amount;
       this.messageCenter.new(
         MESSAGE_TYPE.SUCCESS,
-        `Delivery from ${stock.company}.<br />
-        +${stock.amount} parts.`
+        `Delivery success<br>
+        ${stock.company}<br />
+        +${stock.amount} parts`
       );
       this.removeDelivery(stock);
     } else {
       this.messageCenter.new(
         MESSAGE_TYPE.FAIL,
-        `Delivery from ${stock.company} failed.<br />
-        Lost: ${stock.amount} parts.`
+        `Delivery failed<br>
+        ${stock.company}<br />
+        Lost: ${stock.amount} parts`
       );
     }
   }

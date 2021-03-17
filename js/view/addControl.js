@@ -20,10 +20,18 @@ export function addControl(view) {
     buttonToHighlight.classList.add('highlighted');
   }
 
-  newerMonth.addEventListener('click', () => view.monthReportShift--);
+  newerMonth.addEventListener('click', () => {
+    if (view.monthReportShift > 0) {
+      view.monthReportShift--;
+    }
+  });
   olderMonth.addEventListener('click', () => view.monthReportShift++);
   refreshMonth.addEventListener('click', () => (view.monthReportShift = 0));
-  newerYear.addEventListener('click', () => view.yearReportShift--);
+  newerYear.addEventListener('click', () => {
+    if (view.yearReportShift > 0) {
+      view.yearReportShift--;
+    }
+  });
   olderYear.addEventListener('click', () => view.yearReportShift++);
   refreshYear.addEventListener('click', () => (view.yearReportShift = 0));
 }

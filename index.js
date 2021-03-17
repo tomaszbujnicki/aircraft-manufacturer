@@ -6,7 +6,7 @@ function init() {
   const app = new Controller();
 
   window.setInterval(() => {
-    if (app.data.isGameRun) {
+    if (app.model.time.isGameRun) {
       app.model.time.nextStep();
     }
   }, app.model.time.stepInMilliseconds);

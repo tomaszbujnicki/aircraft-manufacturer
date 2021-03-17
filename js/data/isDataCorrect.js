@@ -1,1 +1,0 @@
-export function isDataCorrect(data) {}

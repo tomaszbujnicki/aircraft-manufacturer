@@ -1,7 +1,6 @@
 import { List } from './List';
 import { loadDataForContinueGame } from './loadDataForContinueGame';
 import { loadDataForNewGame } from './loadDataForNewGame';
-import { isDataCorrect } from './isDataCorrect';
 import { save } from './save';
 
 export class Data {
@@ -19,11 +18,9 @@ export class Data {
     this.designs = new List();
     this.loanOffers = new List();
     this.loansTaken = new List();
-    this.isDataCorrect = isDataCorrect;
     this.loadDataForContinueGame = loadDataForContinueGame;
     this.loadDataForNewGame = loadDataForNewGame;
     this.save = save;
-    this.isGameRun = false;
   }
   get workers() {
     return this.employees.getItemById(0).number;
@@ -61,18 +58,5 @@ export class Data {
       sum += employee.number * employee.salary;
     }
     return sum;
-  }
-
-  newGame() {
-    this.loadDataForNewGame();
-    this.isGameRun = true;
-  }
-
-  continueGame() {
-    if (localStorage.getItem('data')) {
-      const data = JSON.parse(localStorage.getItem('data'));
-      this.loadDataForContinueGame(data);
-      this.isGameRun = true;
-    }
   }
 }

@@ -3,6 +3,7 @@ import { Event } from '../controller/Event';
 export class Time {
   constructor(date) {
     this.date = date;
+    this.isGameRun = false;
     this.timeRatio = 10_800; // 1 sec in real <=> 3 h in game
     this.speedMultiplier = 1;
     this.MAX_MULTIPLIER = 8;

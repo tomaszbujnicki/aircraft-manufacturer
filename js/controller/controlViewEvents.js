@@ -1,9 +1,15 @@
 export function controlViewEvents(view, model, data) {
   view.events.startNewGame.subscribe(() => {
-    data.newGame();
+    data.loadDataForNewGame();
+    model.time.isGameRun = true;
   });
   view.events.continueGame.subscribe(() => {
-    data.continueGame();
+    if (localStorage.getItem('data')) {
+      const loadedData = JSON.parse(localStorage.getItem('data'));
+      data.loadDataForContinueGame(loadedData);
+      model.time.isGameRun = true;
+      view.navigation.openGameContainer();
+    }
   });
   view.events.buyStock.subscribe((id) => {
     model.supplyChain.buyStock(id);

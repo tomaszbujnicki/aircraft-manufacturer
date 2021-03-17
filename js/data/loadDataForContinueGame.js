@@ -38,6 +38,4 @@ export function loadDataForContinueGame(data) {
     item.__proto__ = LoanTaken.prototype;
     this.loansTaken.insert(item);
   }
-
-  return true;
 }
