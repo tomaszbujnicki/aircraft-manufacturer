@@ -8,11 +8,10 @@ export class List {
     this.deleteEvent = new Event();
   }
   insert(item) {
-    if (!Number.isInteger(item.id)) {
-      item.id = this.getUniqueId();
-    }
+    item.id = this.getUniqueId();
     this.list.push(item);
     this.insertEvent.publish(item);
+    console.log(item.type, item.id);
   }
   getUniqueId() {
     this.uniqueId++;

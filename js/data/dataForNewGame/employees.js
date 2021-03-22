@@ -1,6 +1,5 @@
 export default [
   {
-    id: 0,
     name: 'Workers',
     number: 5,
     maxNumberPerHR: 16,
@@ -9,7 +8,6 @@ export default [
     description: 'Workers build aircraft',
   },
   {
-    id: 1,
     name: 'Foremen',
     number: 0,
     maxNumberPerHR: 4,
@@ -18,7 +16,6 @@ export default [
     description: 'Foremen help and supervise the workers ',
   },
   {
-    id: 2,
     name: 'Human Resources',
     number: 0,
     maxNumberPerHR: 1,
@@ -27,7 +24,6 @@ export default [
     description: 'HR care about all employees',
   },
   {
-    id: 3,
     name: 'Traders',
     number: 0,
     maxNumberPerHR: 3,
@@ -36,7 +32,6 @@ export default [
     description: 'Traders keep high the price of aircraft',
   },
   {
-    id: 4,
     name: 'Engineers',
     number: 0,
     maxNumberPerHR: 2,

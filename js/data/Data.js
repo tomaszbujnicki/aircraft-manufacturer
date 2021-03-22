@@ -23,19 +23,19 @@ export class Data {
     this.save = save;
   }
   get workers() {
-    return this.employees.getItemById(0).number;
+    return this.employees.list[0].number;
   }
   get foremen() {
-    return this.employees.getItemById(1).number;
+    return this.employees.list[1].number;
   }
   get HR() {
-    return this.employees.getItemById(2).number;
+    return this.employees.list[2].number;
   }
   get traders() {
-    return this.employees.getItemById(3).number;
+    return this.employees.list[3].number;
   }
   get engineers() {
-    return this.employees.getItemById(4).number;
+    return this.employees.list[4].number;
   }
   get unassignedWorkers() {
     let remainingWorkers = this.workers;
